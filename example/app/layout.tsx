@@ -7,7 +7,7 @@ import { DateModified } from "@/app/components/client/DateModified";
 
 import '../node_modules/@cdssnc/gcds-utility/dist/gcds-utility.min.css';
 import "../node_modules/@cdssnc/gcds-components-react-ssr/gcds.css"
-
+import('@cdssnc/gcds-components-react-ssr/server');
 
 const inter = Inter({ subsets: ["latin"] });
 
