@@ -23,3 +23,13 @@ export class Container extends Component<ContainerProps> {
         );
     }
 }
+
+export class DateModified extends Component {
+    render() {
+        return (
+            <div>
+                <p>Last modified: {new Date().toLocaleString()}</p>
+            </div>
+        );
+    }
+}

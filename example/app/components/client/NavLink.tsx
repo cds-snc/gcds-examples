@@ -10,20 +10,19 @@ interface NavLinkProps {
     innerRef?: React.Ref<any>
 }
 
-class NavLinkComponent extends React.Component<NavLinkProps> {
-    render() {
-        const { href, children, current, innerRef } = this.props;
-        let currentProps = {};
-        if (current === "true" || current === true) {
-            currentProps = { current: true };
-        }
-        return (
-            <GcdsNavLink href={href} {...currentProps} ref={innerRef}>
-                {children}
-            </GcdsNavLink>
-        );
+const NavLinkComponent = (props: NavLinkProps) => {
+    const { href, children, current, innerRef } = props;
+    let currentProps = {};
+    if (current === "true" || current === true) {
+        currentProps = { current: true };
     }
+    return (
+        <GcdsNavLink href={href} {...currentProps} ref={innerRef}>
+            {children}
+        </GcdsNavLink>
+    );
 }
+
 
 export const NavLink = React.forwardRef<HTMLElement, NavLinkProps>((props, ref) => (
     <NavLinkComponent {...props} innerRef={ref} />
