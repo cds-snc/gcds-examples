@@ -1,0 +1,13 @@
+body p {
+  max-width: 65ch;
+}
+
+.header__logo {
+  height: 4.5rem;
+}
+
+@media only screen and (width < 768px) {
+  .header__logo {
+    height: 3.5rem;
+  }
+}

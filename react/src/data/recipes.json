@@ -1,0 +1,374 @@
+[
+  {
+    "title": "Lemon cupcake",
+    "url": "lemon-cupcake",
+    "image": {
+      "description": "A delicious lemon cupcake with lemon zest garnish and white frosting."
+    },
+    "details": {
+      "prep": "30 min",
+      "cook": "40 min"
+    },
+    "content": {
+      "ingredients": [
+        "8 eggs",
+        "200g sugar",
+        "180g coconut oil",
+        "200 gr flour",
+        "5gr of ginger",
+        "1 tsp baking soda",
+        "1 tsp cider vinegar",
+        "Juice of 3 large lemon"
+      ],
+      "instructions": [
+        "Pour the eggs and sugar into your bowl and blanch the eggs for a few minutes. Then add the oil and mix.",
+        "Add the flours, baking soda, and vinegar, then the lemon juice, then mix.",
+        "Oil the molds with a brush and pour the mixture.",
+        "Place your molds in the oven at 180°C for about forty minutes."
+      ]
+    }
+  },
+  {
+    "title": "Chocolate cupcake",
+    "url": "chocolate-cupcake",
+    "image": {
+      "description": "A tempting chocolate cupcake topped with creamy chocolate ganache."
+    },
+    "details": {
+      "prep": "35 min",
+      "cook": "20 min"
+    },
+    "content": {
+      "ingredients": [
+        "150 g self-raising flour",
+        "30 g cocoa powder",
+        "175 g caster sugar",
+        "175 g Dairy-free margarine - I'd recommend Pure Sunflower as that's what I've tested in this recipe",
+        "3 large eggs",
+        "⅛ tsp vanilla extract",
+        "75 g dairy-free dark chocolate",
+        "Extras",
+        "12 cupcake cases"
+      ],
+      "instructions": [
+        "Pre-heat your oven to 160ºC/140ºC fan.",
+        "Prep dark chocolate (75g).)",
+        "Put all of the ingredients into a large bowl and mix until smooth.",
+        "Divide the mixture between the 12 cupcake cases.",
+        "Put the tin into the oven and cook the cupcakes for 20-25 minutes.",
+        "Once cooked, remove the cupcakes from the oven and leave them to cool for a few minutes."
+      ]
+    }
+  },
+  {
+    "title": "Strawberry cupcake",
+    "url": "strawberry-cupcake",
+    "image": {
+      "description": "A delightful strawberry cupcake with white frosting and a fresh strawberry and blueberry on top."
+    },
+    "details": {
+      "prep": "10 min",
+      "cook": "20 min"
+    },
+    "content": {
+      "ingredients": [
+        "200 gr of Flour",
+        "2 tsp Baking Powder",
+        "80 gr of Sugar",
+        "60 gr Oat Yogurt",
+        "1 tsp Vanilla",
+        "120 ml of Soy Milk",
+        "1 1/2 tsp Apple Cider Vinegar",
+        "100 gr of Raspberries",
+        "Chocolate chips"
+      ],
+      "instructions": [
+        "Preheat the oven to 180°C.",
+        "Mix  milk and vinegar in a container.",
+        "Place the dry ingredients except the raspberries and chocolate in a bowl and stir.",
+        "Then, add the liquids and mix to incorporate everything.Then add the raspberries and chocolate stir gently.",
+        "Fill your molds almost completely.",
+        " Bake for 20 minutes."
+      ]
+    }
+  },
+  {
+    "title": "Vanilla classic cupcake",
+    "url": "vanilla-classic-cupcake",
+    "image": {
+      "description": "A scrumptious vanilla cupcake with fluffy whipped cream and fresh fruit on top."
+    },
+    "details": {
+      "prep": "10 min",
+      "cook": "20 min"
+    },
+    "content": {
+      "ingredients": [
+        "1 1/2 cuops of almond milk",
+        "1 teaspoon of apple cider vinegar",
+        "2 3/4 cups cake flour",
+        "1 1/2 cups sugar",
+        "1 tablespoon baking powder",
+        "3/4 teaspoon salt",
+        "1/2 cup coconut oil",
+        "1 tablespoon vanilla extract"
+      ],
+      "instructions": [
+        "Preheat the oven to 350 degrees F.",
+        "Combine  milk and  vinegar in a bowl, stir and wait a few minutes.",
+        "In a large bowl, mix the flour, sugar, baking powder and salt.",
+        "Pour in the milk/vinegar mixture, oil and vanilla. Whisk until well combined.",
+        "Fill the liners and bake for 18-20 minutes.",
+        "Top with whipped cream and  fruits of your choice."
+      ]
+    }
+  },
+  {
+    "title": "Red velvet cupcake",
+    "url": "red-velvet-cupcake",
+    "image": {
+      "description": "An irresistible red velvet cupcake with cream cheese frosting."
+    },
+    "details": {
+      "prep": "30 min",
+      "cook": "40 min"
+    },
+    "content": {
+      "ingredients": [
+        "8 eggs",
+        "200g sugar",
+        "180g coconut oil",
+        "200 gr flour",
+        "5gr of ginger",
+        "1 tsp baking soda",
+        "1 tsp cider vinegar",
+        "Juice of 3 large lemon"
+      ],
+      "instructions": [
+        "Pour the eggs and sugar into your bowl and blanch the eggs for a few minutes. Then add the oil and mix.",
+        "Add the flours, baking soda, and vinegar, then the lemon juice, then mix.",
+        "Oil the molds with a brush and pour the mixture.",
+        "Place your molds in the oven at 180°C for about forty minutes."
+      ]
+    }
+  },
+  {
+    "title": "Carrot cake cupcake",
+    "url": "carrot-cake-cupcake",
+    "image": {
+      "description": "A delicious carrot cake cupcake with cream cheese frosting and nut sprinkles, so good, that it already has a bite taken out of it."
+    },
+    "details": {
+      "prep": "35 min",
+      "cook": "20 min"
+    },
+    "content": {
+      "ingredients": [
+        "150 g self-raising flour",
+        "30 g cocoa powder",
+        "175 g caster sugar",
+        "175 g Dairy-free margarine - I'd recommend Pure Sunflower as that's what I've tested in this recipe",
+        "3 large eggs",
+        "⅛ tsp vanilla extract",
+        "75 g dairy-free dark chocolate",
+        "Extras",
+        "12 cupcake cases"
+      ],
+      "instructions": [
+        "Pre-heat your oven to 160ºC/140ºC fan.",
+        "Prep dark chocolate (75g).)",
+        "Put all of the ingredients into a large bowl and mix until smooth.",
+        "Divide the mixture between the 12 cupcake cases.",
+        "Put the tin into the oven and cook the cupcakes for 20-25 minutes.",
+        "Once cooked, remove the cupcakes from the oven and leave them to cool for a few minutes."
+      ]
+    }
+  },
+  {
+    "title": "Smores cupcake",
+    "url": "smores-cupcake",
+    "image": {
+      "description": "A scrumptious s'mores cupcake with a graham cracker base, chocolate layer, gooey marshmallow topping, and a tempting missing bite, revealing the different textures."
+    },
+    "details": {
+      "prep": "10 min",
+      "cook": "20 min"
+    },
+    "content": {
+      "ingredients": [
+        "200 gr of Flour",
+        "2 tsp Baking Powder",
+        "80 gr of Sugar",
+        "60 gr Oat Yogurt",
+        "1 tsp Vanilla",
+        "120 ml of Soy Milk",
+        "1 1/2 tsp Apple Cider Vinegar",
+        "100 gr of Raspberries",
+        "Chocolate chips"
+      ],
+      "instructions": [
+        "Preheat the oven to 180°C.",
+        "Mix  milk and vinegar in a container.",
+        "Place the dry ingredients except the raspberries and chocolate in a bowl and stir.",
+        "Then, add the liquids and mix to incorporate everything.Then add the raspberries and chocolate stir gently.",
+        "Fill your molds almost completely.",
+        " Bake for 20 minutes."
+      ]
+    }
+  },
+  {
+    "title": "Coconut cream cupcake",
+    "url": "coconut-cream-cupcake",
+    "image": {
+      "description": "A delightful coconut cream cupcake, beautifully decorated with coconut sprinkles on top and a heavenly creamy frosting."
+    },
+    "details": {
+      "prep": "10 min",
+      "cook": "20 min"
+    },
+    "content": {
+      "ingredients": [
+        "1 1/2 cuops of almond milk",
+        "1 teaspoon of apple cider vinegar",
+        "2 3/4 cups cake flour",
+        "1 1/2 cups sugar",
+        "1 tablespoon baking powder",
+        "3/4 teaspoon salt",
+        "1/2 cup coconut oil",
+        "1 tablespoon vanilla extract"
+      ],
+      "instructions": [
+        "Preheat the oven to 350 degrees F.",
+        "Combine  milk and  vinegar in a bowl, stir and wait a few minutes.",
+        "In a large bowl, mix the flour, sugar, baking powder and salt.",
+        "Pour in the milk/vinegar mixture, oil and vanilla. Whisk until well combined.",
+        "Fill the liners and bake for 18-20 minutes.",
+        "Top with whipped cream and  fruits of your choice."
+      ]
+    }
+  },
+  {
+    "title": "Ice cream stuffed cupcake",
+    "url": "ice-cream-stuffed-cupcake",
+    "image": {
+      "description": "Sumptuous chocolate cupcake filled with vanilla ice cream, topped with whipped cream and sprinkles."
+    },
+    "details": {
+      "prep": "30 min",
+      "cook": "40 min"
+    },
+    "content": {
+      "ingredients": [
+        "8 eggs",
+        "200g sugar",
+        "180g coconut oil",
+        "200 gr flour",
+        "5gr of ginger",
+        "1 tsp baking soda",
+        "1 tsp cider vinegar",
+        "Juice of 3 large lemon"
+      ],
+      "instructions": [
+        "Pour the eggs and sugar into your bowl and blanch the eggs for a few minutes. Then add the oil and mix.",
+        "Add the flours, baking soda, and vinegar, then the lemon juice, then mix.",
+        "Oil the molds with a brush and pour the mixture.",
+        "Place your molds in the oven at 180°C for about forty minutes."
+      ]
+    }
+  },
+  {
+    "title": "Pavlova cupcake",
+    "url": "pavlova-cupcake",
+    "image": {
+      "description": "A delightful pavlova cupcake, garnished with raspberries and luscious raspberry sauce drizzling down the sides, creating a visually enchanting treat."
+    },
+    "details": {
+      "prep": "35 min",
+      "cook": "20 min"
+    },
+    "content": {
+      "ingredients": [
+        "150 g self-raising flour",
+        "30 g cocoa powder",
+        "175 g caster sugar",
+        "175 g Dairy-free margarine - I'd recommend Pure Sunflower as that's what I've tested in this recipe",
+        "3 large eggs",
+        "⅛ tsp vanilla extract",
+        "75 g dairy-free dark chocolate",
+        "Extras",
+        "12 cupcake cases"
+      ],
+      "instructions": [
+        "Pre-heat your oven to 160ºC/140ºC fan.",
+        "Prep dark chocolate (75g).)",
+        "Put all of the ingredients into a large bowl and mix until smooth.",
+        "Divide the mixture between the 12 cupcake cases.",
+        "Put the tin into the oven and cook the cupcakes for 20-25 minutes.",
+        "Once cooked, remove the cupcakes from the oven and leave them to cool for a few minutes."
+      ]
+    }
+  },
+  {
+    "title": "Frappuccino cupcake",
+    "url": "frappuccino-cupcake",
+    "image": {
+      "description": "A mouthwatering frappuccino cupcake, drizzled with chocolate sauce, and sprinkled with chocolate sprinkles, and a green straw sticking out on the side, promising a delightful and visually appealing treat."
+    },
+    "details": {
+      "prep": "10 min",
+      "cook": "20 min"
+    },
+    "content": {
+      "ingredients": [
+        "200 gr of Flour",
+        "2 tsp Baking Powder",
+        "80 gr of Sugar",
+        "60 gr Oat Yogurt",
+        "1 tsp Vanilla",
+        "120 ml of Soy Milk",
+        "1 1/2 tsp Apple Cider Vinegar",
+        "100 gr of Raspberries",
+        "Chocolate chips"
+      ],
+      "instructions": [
+        "Preheat the oven to 180°C.",
+        "Mix  milk and vinegar in a container.",
+        "Place the dry ingredients except the raspberries and chocolate in a bowl and stir.",
+        "Then, add the liquids and mix to incorporate everything.Then add the raspberries and chocolate stir gently.",
+        "Fill your molds almost completely.",
+        " Bake for 20 minutes."
+      ]
+    }
+  },
+  {
+    "title": "Cannoli cupcake",
+    "url": "cannoli-cupcake",
+    "image": {
+      "description": "A scrumptious cupcake filled with cannoli filling and chocolate sprinkles nestled within. The top is generously frosted with chocolate, creating a delightful and satisfying dessert."
+    },
+    "details": {
+      "prep": "10 min",
+      "cook": "20 min"
+    },
+    "content": {
+      "ingredients": [
+        "1 1/2 cuops of almond milk",
+        "1 teaspoon of apple cider vinegar",
+        "2 3/4 cups cake flour",
+        "1 1/2 cups sugar",
+        "1 tablespoon baking powder",
+        "3/4 teaspoon salt",
+        "1/2 cup coconut oil",
+        "1 tablespoon vanilla extract"
+      ],
+      "instructions": [
+        "Preheat the oven to 350 degrees F.",
+        "Combine  milk and  vinegar in a bowl, stir and wait a few minutes.",
+        "In a large bowl, mix the flour, sugar, baking powder and salt.",
+        "Pour in the milk/vinegar mixture, oil and vanilla. Whisk until well combined.",
+        "Fill the liners and bake for 18-20 minutes.",
+        "Top with whipped cream and  fruits of your choice."
+      ]
+    }
+  }
+]
