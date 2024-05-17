@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Header } from "@/app/components/client/Header";
+import { Header } from "@/app/components/layout/Header";
+import { Footer } from "./components/layout/Footer";
 import { Container } from "@/app/components/client/Container";
+import {GcdsContainer} from "../../../gcds-components/packages/react-ssr";
 import { DateModified } from "@/app/components/client/DateModified";
 
 
@@ -24,12 +26,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header>
-        </Header>
+        <Header/>
         <Container id="main-content" tag="main" size="xl" centered="true" padding="400">
             {children}
-            <DateModified/>
         </Container>
+        {/* <Container id="main-content" tag="main" size="xl" centered="true" padding="400">
+            {children}
+        </Container>
+        <Container id="main-content" tag="main" size="xl" centered="true" padding="400">
+            {children}
+        </Container>
+        <DateModified/>
+        <Footer/> */}
+        <Footer/>
       </body>
     </html>
   );

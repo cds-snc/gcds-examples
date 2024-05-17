@@ -12,24 +12,22 @@ export type ContainerProps = {
     padding?: string | undefined,
     children?: any
 };
+import React from 'react';
 
-export class Container extends Component<ContainerProps> {
-    render() {
-        return (
-            <GcdsContainer container-id={this.props.id} size={this.props.size} {...this.props.border}
-                           tag={this.props.tag} centered={this.props.centered} padding={this.props.padding}>
-                {this.props.children}
-            </GcdsContainer>
-        );
-    }
-}
+export const Container: React.FC<ContainerProps> = (props) => {
+    return (
+        <main className="container-xl mx-auto xl:px-0 sm:px-500 p-400">
+            {props.children}
+        </main>
+    );
+    // TODO: Issues with hydration w/SSR, doesn't work if we use GcdsContainer here
+    // Warning: Expected server HTML to contain a matching <main> in <gcds-container>.
+    //<Page>
+    //   <main>
 
-export class DateModified extends Component {
-    render() {
-        return (
-            <div>
-                <p>Last modified: {new Date().toLocaleString()}</p>
-            </div>
-        );
-    }
-}
+    // return (
+    //     <GcdsContainer container-id={props.id} size={props.size} {...props.border} tag={props.tag} centered={props.centered} padding={props.padding}>
+    //         {props.children}
+    //     </GcdsContainer>
+    // );
+};

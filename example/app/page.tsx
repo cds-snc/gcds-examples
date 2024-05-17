@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main>
       <div>
-        <Heading title="GCDS components / Next.js exploration"></Heading>
+        <Heading>GCDS components / Next.js exploration</Heading>
         <p>
           Get started by editing&nbsp;
           <code>app/page.tsx</code>

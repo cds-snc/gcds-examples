@@ -1,11 +1,18 @@
 'use client';
 
 import { GcdsHeading } from '@cdssnc/gcds-components-react-ssr'
+import { FC } from 'react';
 
-// export const Heading: FC = ({title}: {title: string}) => (
-//     <GcdsHeading tag="h2">{title}</GcdsHeading>
-// );
-
-export const Heading = ({title}: {title: string}) => (
-    <GcdsHeading tag="h1">{title}</GcdsHeading>
-);
+interface HeadingProps {
+    tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | undefined;
+    children?: any;
+}
+export const Heading: FC<HeadingProps> = ({tag, children}) => {
+    return (
+        <GcdsHeading
+            tag={tag ? tag : "h1"}
+        >
+            {children}
+        </GcdsHeading>
+    )
+}
