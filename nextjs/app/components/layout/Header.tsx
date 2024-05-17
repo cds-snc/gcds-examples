@@ -56,6 +56,19 @@ export const Header: FC = () => {
         </p>
       </GcdsPhaseBanner>
       {/* At the moment it's not possible to use className on Gcds Components, for example if I wanted to use GcdsLink */}
+      {/* Getting this issue when I try to use GcdsLink here with a className instead of the regular a tag:
+        ./app/components/layout/Header.tsx:63:9
+        Type error: Type '{ children: Element[]; href: string; slot: string; className: string; }' is not assignable to type 'IntrinsicAttributes & Partial<EnumsToStringLiterals<GcdsLink> & { slot: string; } & GlobalEventHandlers & { ...; }> & { ...; } & RefAttributes<...>'.
+          Property 'className' does not exist on type 'IntrinsicAttributes & Partial<EnumsToStringLiterals<GcdsLink> & { slot: string; } & GlobalEventHandlers & { ...; }> & { ...; } & RefAttributes<...>'.
+
+          61 |         href="/"
+          62 |         slot="signature"
+        > 63 |         className="d-flex align-items-center link-default"
+             |         ^
+          64 |       >
+          65 |         <img
+          66 |           src="/pine-logo.png"
+        */}
       <a
         href="/"
         slot="signature"
