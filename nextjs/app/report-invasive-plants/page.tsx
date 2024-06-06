@@ -28,6 +28,7 @@ export default function Page() {
                     <textarea id="description" name="description"></textarea>
                     <button type="submit">Submit</button>
                 </form>
+                {/* This is the form using GCDS components. TODO: Confirm that it shows up on SSR even without the wrapper */}
                 <form action="">
                     <EmailInput name="email" id="email" label="Your email address" required></EmailInput>
                     <TextInput
