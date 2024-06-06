@@ -49,7 +49,7 @@ export const Header: FC = () => {
                 {/*
                 This won't work, at the moment you'll need to use the gcds component directly here.
                 <PhaseBanner />
-            */}
+                */}
                 <GcdsPhaseBanner slot="banner">
                     <GcdsIcon
                         slot="banner-icon-left"
@@ -111,14 +111,14 @@ export const Header: FC = () => {
                 {/*         )}*/}
                 {/*    </GcdsBreadcrumbs>*/}
                 {/*)}*/}
-                {/*<GcdsSearch*/}
-                {/*    action="/searchresults"*/}
-                {/*    method="post"*/}
-                {/*    name="searchbox"*/}
-                {/*    searchId="searchbox"*/}
-                {/*    placeholder="Search this site"*/}
-                {/*    slot="search"*/}
-                {/*></GcdsSearch>*/}
+                <GcdsSearch
+                    action="/searchresults"
+                    method="post"
+                    name="searchbox"
+                    searchId="searchbox"
+                    placeholder="Search this site"
+                    slot="search"
+                ></GcdsSearch>
             </GcdsHeader>
         </GcdsWrapper>
     );
