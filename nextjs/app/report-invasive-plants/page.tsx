@@ -1,18 +1,17 @@
-import {Heading} from "@/app/components/client/Heading";
-import {TextInput} from "@/app/components/client/forms/TextInput";
-import {SubmitButton} from "@/app/components/client/forms/SubmitButton";
-import {RadioGroup} from "@/app/components/client/forms/RadioGroup";
-import {EmailInput} from "@/app/components/client/forms/EmailInput";
-import {Select} from "@/app/components/client/forms/Select";
+import { Heading } from "@/app/components/client/Heading";
+import { TextInput } from "@/app/components/client/forms/TextInput";
+import { SubmitButton } from "@/app/components/client/forms/SubmitButton";
+import { RadioGroup } from "@/app/components/client/forms/RadioGroup";
+import { EmailInput } from "@/app/components/client/forms/EmailInput";
+import { Select } from "@/app/components/client/forms/Select";
 
 export default function Page() {
-    const radioOptions = [
-        {id: "option1", label: "Option 1", value: "option1"},
-        {id: "option2", label: "Option 2", value: "option2"},
-        {id: "option3", label: "Option 3", value: "option3"}
-    ];
-    return (
-        <main>
+    const radioOptions = [{id: "option1", label: "Option 1", value: "option1"}, {
+        id: "option2",
+        label: "Option 2",
+        value: "option2"
+    }, {id: "option3", label: "Option 3", value: "option3"}];
+    return (<main>
             <div>
                 <Heading tag="h1">
                     Report invasive plants
@@ -36,7 +35,8 @@ export default function Page() {
                         id="name"
                         hint="Name of the suspected invasive species"
                         label="Suspected Species"></TextInput>
-                    <RadioGroup name="radiogroup" id="radiogroup" options={radioOptions} legend="Select at least one option"></RadioGroup>
+                    <RadioGroup name="radiogroup" id="radiogroup" options={radioOptions}
+                                legend="Select at least one option"></RadioGroup>
                     <Select name="selectbox" id="selectbox" label="Select from the following">
                         <option value="option1">Option 1</option>
                         <option value="option2">Option 2</option>
@@ -45,6 +45,5 @@ export default function Page() {
                     <SubmitButton name="submit" id="submit">Submit</SubmitButton>
                 </form>
             </div>
-        </main>
-    );
+        </main>);
 }
