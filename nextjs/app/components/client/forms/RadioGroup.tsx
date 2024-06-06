@@ -1,6 +1,7 @@
 'use client';
 
-import {GcdsFieldset, GcdsRadioGroup} from '@cdssnc/gcds-components-react-ssr'
+import { GcdsWrapper } from '@cdssnc/gcds-components-react-ssr/client'
+import { GcdsFieldset, GcdsRadioGroup } from '@cdssnc/gcds-components-react-ssr'
 import { FC } from 'react';
 
 interface RadioObject {
@@ -35,12 +36,14 @@ export const RadioGroup: FC<RadioGroupProps> = ({ name,id, options, legend, hint
     }
     return (
         // The options needs to be stringified to be passed to the component
-        <GcdsFieldset fieldsetId={id} legend={legend} {...optionalAttributes}>
-            <GcdsRadioGroup
-                name={name}
-                options={JSON.stringify(options)}
-            >
-            </GcdsRadioGroup>
-        </GcdsFieldset>
+        <GcdsWrapper>
+            <GcdsFieldset fieldsetId={id} legend={legend} {...optionalAttributes}>
+                <GcdsRadioGroup
+                    name={name}
+                    options={JSON.stringify(options)}
+                >
+                </GcdsRadioGroup>
+            </GcdsFieldset>
+        </GcdsWrapper>
     )
 }

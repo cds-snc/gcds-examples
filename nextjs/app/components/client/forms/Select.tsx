@@ -1,5 +1,6 @@
 'use client';
 
+import { GcdsWrapper } from '@cdssnc/gcds-components-react-ssr/client'
 import { GcdsSelect } from '@cdssnc/gcds-components-react-ssr'
 import { FC } from 'react';
 
@@ -22,13 +23,15 @@ export const Select: FC<GcdsSelectProps> = ({id, name, label, hint, defaultValue
         optionalAttributes['defaultValue'] = defaultValue
     }
     return (
-        <GcdsSelect
-            name={name}
-            selectId={id}
-            label={label}
-           {...optionalAttributes}
-        >
-            {children}
-        </GcdsSelect>
+        <GcdsWrapper>
+            <GcdsSelect
+                name={name}
+                selectId={id}
+                label={label}
+               {...optionalAttributes}
+            >
+                {children}
+            </GcdsSelect>
+        </GcdsWrapper>
     )
 }
