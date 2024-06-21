@@ -7,8 +7,9 @@ export default defineConfig({
     vue({
       template: {
         compilerOptions: {
-          // isCustomElement: (tag) => tag.includes('gcds'),
-          isCustomElement: (tag) => tag.includes('-'),
+          isCustomElement: (tag) => tag.includes('gcds'),
+          // Optional: if also using other custom components that use the `-` pattern, you may use the following:
+          // isCustomElement: (tag) => tag.includes('-'),
         },
       },
     }),
