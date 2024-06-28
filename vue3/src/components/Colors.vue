@@ -39,7 +39,7 @@
             v-model="selectedColor">
             <option v-for="(color, index) in colors" :key="color.id" :value="index">{{ color.descriptionEnglish }} | {{ color.descriptionFrench }}</option>
         </gcds-select>
-        <p>You selected: {{ selectedColor }} </p>
+        <gcds-text>You selected: {{ selectedColor }} </gcds-text>
     </div>
 </template>
 
