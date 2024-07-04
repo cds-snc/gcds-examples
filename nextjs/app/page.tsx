@@ -1,16 +1,17 @@
-// import Image from "next/image";
-// import styles from "./page.module.css";
 
-// import { GcdsHeading } from "@cdssnc/client-components-react-ssr";
-import {Heading} from "@/app/components/client/Heading";
+'use client';
+import { GcdsHeading } from "@cdssnc/gcds-components-react-ssr";
+import { GcdsWrapper } from '@cdssnc/gcds-components-react-ssr/client';
+
+import { Heading } from './components/client/Heading';
 export default function Home() {
   return (
     <main>
       <div>
-        <Heading>GCDS components / Next.js exploration</Heading>
+      <Heading>GCDS components in NextJS</Heading>
+
         <p>
-          Get started by editing&nbsp;
-          <code>app/page.tsx</code>
+          This is an example app that demonstrates how to use GCDS components in NextJS.
         </p>
       </div>
     </main>

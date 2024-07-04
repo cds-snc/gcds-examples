@@ -16,17 +16,7 @@ export default function Page() {
                 <Heading tag="h1">
                     Report invasive plants
                 </Heading>
-                <form action="">
-                    <label htmlFor="name">Name:</label>
-                    <input type="text" id="name" name="name"/>
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email"/>
-                    <label htmlFor="location">Location:</label>
-                    <input type="text" id="location" name="location"/>
-                    <label htmlFor="description">Description:</label>
-                    <textarea id="description" name="description"></textarea>
-                    <button type="submit">Submit</button>
-                </form>
+
                 {/* This is the form using GCDS components. TODO: Confirm that it shows up on SSR even without the wrapper */}
                 <form action="">
                     <EmailInput name="email" id="email" label="Your email address" required></EmailInput>

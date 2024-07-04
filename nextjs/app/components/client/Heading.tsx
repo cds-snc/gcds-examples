@@ -1,6 +1,7 @@
 'use client';
 
 import { GcdsHeading } from '@cdssnc/gcds-components-react-ssr'
+import { GcdsWrapper } from '@cdssnc/gcds-components-react-ssr/client'
 import { FC } from 'react';
 
 interface HeadingProps {
@@ -9,10 +10,12 @@ interface HeadingProps {
 }
 export const Heading: FC<HeadingProps> = ({tag, children}) => {
     return (
+    <GcdsWrapper>
         <GcdsHeading
             tag={tag ? tag : "h1"}
         >
             {children}
         </GcdsHeading>
+    </GcdsWrapper>
     )
 }

@@ -3,9 +3,6 @@ import { Inter } from "next/font/google";
 import { Header } from "@/app/components/layout/Header";
 import { Footer } from "./components/layout/Footer";
 import { Container } from "@/app/components/client/Container";
-import { GcdsContainer } from "@cdssnc/gcds-components-react-ssr";
-import { DateModified } from "@/app/components/client/DateModified";
-
 
 import '../node_modules/@cdssnc/gcds-utility/dist/gcds-utility.min.css';
 import "../node_modules/@cdssnc/gcds-components-react-ssr/gcds.css"
