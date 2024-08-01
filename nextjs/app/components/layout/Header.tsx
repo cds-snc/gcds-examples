@@ -52,8 +52,6 @@ export const Header: FC = () => {
                         />
                         <p>Forest heroes</p>
                     </a>
-                    {/* TODO: Test out; should be able to do: We can't nest our own custom components inside GCDS components */}
-                    {/*<TopNav navItems={navItems} pathname={pathname}/>*/}
                     <GcdsTopNav slot="menu" label="Site" alignment="right">
                         {navItems.map((item, index) => {
                             let current = {};
@@ -62,9 +60,10 @@ export const Header: FC = () => {
                             }
                             return (
                                 <GcdsNavLink
+                                    href={item.href}
                                     key={index}
                                     {...current}
-                                    onClick={() => router.push(item.href)}
+                                    onClick={(e) => {e.preventDefault(); router.push(item.href)}}
                                 >
                                     {item.label}
                                 </GcdsNavLink>
