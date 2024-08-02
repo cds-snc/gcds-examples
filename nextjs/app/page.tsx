@@ -1,7 +1,5 @@
 
 'use client';
-import { GcdsHeading } from "@cdssnc/gcds-components-react-ssr";
-import { GcdsWrapper } from '@cdssnc/gcds-components-react-ssr/client';
 
 import { Heading } from './components/client/Heading';
 export default function Home() {

@@ -1,8 +1,5 @@
 'use client';
 
-import { GcdsContainer } from '@cdssnc/gcds-components-react-ssr'
-import { Component } from 'react';
-
 export type ContainerProps = {
     id: string,
     size?: "full" | "xl" | "lg" | "md" | "sm" | "xs" | undefined,
@@ -20,11 +17,11 @@ export const Container: React.FC<ContainerProps> = (props) => {
             {props.children}
         </main>
     );
-    // TODO: Issues with hydration w/SSR, doesn't work if we use GcdsContainer here
-    // Warning: Expected server HTML to contain a matching <main> in <gcds-container>.
+    // TODO: This is documentation for a known issue at the moment.
+    // Issues with hydration w/SSR, doesn't work if we use GcdsContainer here
+    //      Warning: Expected server HTML to contain a matching <main> in <gcds-container>.
     //<Page>
     //   <main>
-
     // return (
     //     <GcdsContainer container-id={props.id} size={props.size} {...props.border} tag={props.tag} centered={props.centered} padding={props.padding}>
     //         {props.children}
