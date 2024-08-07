@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Card } from "@/app/components/client/Card";
 import { GcdsGrid } from "@cdssnc/gcds-components-react-ssr";

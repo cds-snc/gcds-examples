@@ -33,7 +33,6 @@ export default function RootLayout({
                     tag="main"
                     size="xl"
                     centered
-                    padding="400"
                 >
                     {children}
                     <DateModified />

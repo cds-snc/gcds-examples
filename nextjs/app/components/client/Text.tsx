@@ -8,10 +8,11 @@ interface TextProps {
     size?: "body" | "caption";
     children?: any;
 }
-export const Text: FC<TextProps> = ({ size, children }) => {
+
+export const Text: FC<TextProps> = ({ size = "body", children }) => {
     return (
         <GcdsWrapper>
-            <GcdsText size={size ? size : "body"}>
+            <GcdsText size={size}>
                 {children}
             </GcdsText>
         </GcdsWrapper>

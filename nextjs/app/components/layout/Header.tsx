@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+
 import {
     GcdsBreadcrumbs,
     GcdsBreadcrumbsItem,
@@ -8,32 +9,31 @@ import {
     GcdsSearch,
     GcdsTopNav,
 } from "@cdssnc/gcds-components-react-ssr";
-import { GcdsWrapper } from '@cdssnc/gcds-components-react-ssr/client'
+import { GcdsWrapper } from '@cdssnc/gcds-components-react-ssr/client';
 import { PhaseBanner } from "@/app/components/layout/PhaseBanner";
 import React, { FC } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
+const navItems = [
+    {href: "/", label: "Home"},
+    {href: "/plants", label: "Plants"},
+    {href: "/plant-identification", label: "Plant identification"},
+    {href: "/report-invasive-plants", label: "Report invasive plants"},
+];
 
 export const Header: FC = () => {
+    const router = useRouter();
     const pathname = usePathname();
     const locale = usePathname()?.split("/")[1];
 
-    const router = useRouter();
-
     const lang = locale === "fr" ? "fr" : "en";
-    const langToggleHref =
-        lang === "fr"
-            ? pathname?.replace("/fr", "/en")
-            : pathname === "/"
-                ? "/fr"
-                : pathname?.replace("/en", "/fr");
+    const langToggleHref = lang === "fr"
+        ? pathname?.replace("/fr", "/en")
+        : pathname === "/"
+            ? "/fr"
+            : pathname?.replace("/en", "/fr");
 
-    const navItems = [
-        {href: "/", label: "Home"},
-        {href: "/plants", label: "Plants"},
-        {href: "/plant-identification", label: "Plant identification"},
-        {href: "/report-invasive-plants", label: "Report invasive plants"},
-    ];
+    const isCurrentPath = (href: string) => href === pathname;
 
     // @ts-ignore
     return (
@@ -42,7 +42,11 @@ export const Header: FC = () => {
                 <GcdsHeader langHref={langToggleHref} skipToHref="#">
                     <PhaseBanner/>
                     {/* using GcdsLink instead of <a> causes some style issues, it's not centering the text properly even with the classes */}
-                    <a href="/" slot="signature" className="d-flex align-items-center link-default">
+                    <a
+                        href="/"
+                        slot="signature"
+                        className="d-flex align-items-center link-default"
+                    >
                         <img
                             src="/pine-logo.png"
                             alt="The logo features a cupcake with a determined facial expression and a superhero cape, exuding an enthusiastic and adventurous personality."
@@ -52,26 +56,30 @@ export const Header: FC = () => {
                         />
                         <p>Forest heroes</p>
                     </a>
-                    <GcdsTopNav slot="menu" label="Site" alignment="right">
-                        {navItems.map((item, index) => {
-                            let current = {};
-                            if (item.href === pathname) {
-                                current = {current: true};
-                            }
-                            return (
-                                <GcdsNavLink
-                                    href={item.href}
-                                    key={index}
-                                    {...current}
-                                    onClick={(e) => {e.preventDefault(); router.push(item.href)}}
-                                >
-                                    {item.label}
-                                </GcdsNavLink>
-                            );
-                        })}
+                    <GcdsTopNav
+                        slot="menu"
+                        label="Site"
+                        alignment="right"
+                    >
+                        {navItems.map((item, index) => (
+                            <GcdsNavLink
+                                href={item.href}
+                                key={index}
+                                current={isCurrentPath(item.href) ? "true" : undefined}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    router.push(item.href);
+                                }}
+                            >
+                                {item.label}
+                            </GcdsNavLink>
+                        ))}
                     </GcdsTopNav>
                     {(pathname !== "/" && pathname !== "/en" && pathname !== "/fr") && (
-                        <GcdsBreadcrumbs slot="breadcrumb" hide-canada-link>
+                        <GcdsBreadcrumbs
+                            slot="breadcrumb"
+                            hide-canada-link
+                        >
                             <GcdsBreadcrumbsItem href="/">Home</GcdsBreadcrumbsItem>
                             {pathname.includes("/plants") && (
                                 <GcdsBreadcrumbsItem href="/plants">Plants</GcdsBreadcrumbsItem>

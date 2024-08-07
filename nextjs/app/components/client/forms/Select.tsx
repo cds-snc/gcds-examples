@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { GcdsSelect } from '@cdssnc/gcds-components-react-ssr'
-import { GcdsWrapper } from '@cdssnc/gcds-components-react-ssr/client'
-import { FC } from 'react';
+import { GcdsSelect } from "@cdssnc/gcds-components-react-ssr";
+import { GcdsWrapper } from "@cdssnc/gcds-components-react-ssr/client";
+import { FC } from "react";
 
 interface GcdsSelectProps {
     name: string;
@@ -12,26 +12,16 @@ interface GcdsSelectProps {
     children?: any;
     defaultValue?: string;
 }
+
 export const Select: FC<GcdsSelectProps> = ({id, name, label, hint, defaultValue, children}) => {
-    const optionalAttributes = {}
-
-    if (hint) {
-        // @ts-ignore
-        optionalAttributes['hint'] = hint
-    }
-
-    if (defaultValue) {
-        // @ts-ignore
-        optionalAttributes['defaultValue'] = defaultValue
-    }
-
     return (
         <GcdsWrapper>
             <GcdsSelect
                 name={name}
                 selectId={id}
                 label={label}
-                {...optionalAttributes}
+                hint={hint}
+                defaultValue={defaultValue}
             >
                 {children}
             </GcdsSelect>

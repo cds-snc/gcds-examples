@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { GcdsInput } from '@cdssnc/gcds-components-react-ssr';
-import { GcdsWrapper } from '@cdssnc/gcds-components-react-ssr/client'
-import { FC } from 'react';
+import { GcdsInput } from "@cdssnc/gcds-components-react-ssr";
+import { GcdsWrapper } from "@cdssnc/gcds-components-react-ssr/client";
+import { FC } from "react";
 
 interface EmailInputProps {
     name: string;
@@ -11,7 +11,8 @@ interface EmailInputProps {
     hint?: string;
     required?: boolean;
 }
-export const EmailInput: FC<EmailInputProps> = ({id, name, label, hint, required}) => {
+
+export const EmailInput: FC<EmailInputProps> = ({id, name, label, hint, required = false}) => {
     return (
         <GcdsWrapper>
             <GcdsInput
@@ -22,8 +23,7 @@ export const EmailInput: FC<EmailInputProps> = ({id, name, label, hint, required
                 type="email"
                 autocomplete="email"
                 required={required}
-            >
-            </GcdsInput>
+            />
         </GcdsWrapper>
     )
 }

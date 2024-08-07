@@ -1,20 +1,35 @@
-'use client';
+"use client";
+
+import React from "react";
 
 export type ContainerProps = {
-    id: string,
-    size?: "full" | "xl" | "lg" | "md" | "sm" | "xs" | undefined,
-    border?: any,
-    tag?: string | undefined,
-    centered?: string | undefined,
-    padding?: string | undefined,
-    children?: any
+    id: string;
+    size?: "full" | "xl" | "lg" | "md" | "sm" | "xs";
+    border?: boolean;
+    tag?: string;
+    centered?: boolean;
+    padding?: string;
+    children?: ReactNode;
 };
-import React from 'react';
 
-export const Container: React.FC<ContainerProps> = (props) => {
+export const Container: React.FC<ContainerProps> = ({
+    id,
+    size  = "full",
+    border = false,
+    tag,
+    centered = false,
+    children,
+}) => {
+    const containerClasses = [
+        "xl:px-0 sm:px-500 p-400",
+        `container-${size}`,
+        centered ? "mx-auto" : "",
+        border ? `b-sm` : "",
+    ].join(" ").trim();
+
     return (
-        <main className="container-xl mx-auto xl:px-0 sm:px-500 p-400">
-            {props.children}
+        <main id={id} className={containerClasses}>
+            {children}
         </main>
     );
     // TODO: This is documentation for a known issue at the moment.

@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import {GcdsIcon, GcdsPhaseBanner} from '@cdssnc/gcds-components-react-ssr'
-import React, { FC } from 'react';
+import {GcdsIcon, GcdsPhaseBanner} from "@cdssnc/gcds-components-react-ssr"
+import React, { FC } from "react";
 
 export const PhaseBanner: FC = () => {
     return (
