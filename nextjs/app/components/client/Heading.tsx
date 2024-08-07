@@ -10,12 +10,10 @@ interface HeadingProps {
 }
 export const Heading: FC<HeadingProps> = ({tag, children}) => {
     return (
-    <GcdsWrapper>
-        <GcdsHeading
-            tag={tag ? tag : "h1"}
-        >
-            {children}
-        </GcdsHeading>
-    </GcdsWrapper>
+        <GcdsWrapper>
+            <GcdsHeading tag={tag ? tag : "h1"}>
+                {children}
+            </GcdsHeading>
+        </GcdsWrapper>
     )
 }

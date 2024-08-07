@@ -15,7 +15,7 @@ export const Card: FC<CardProps> = ({title, href, description, tag, children}) =
     return (
         <GcdsWrapper>
             <GcdsCard
-                card-title={title}
+                cardTitle={title}
                 href={href}
                 description={description}
                 tag={tag}

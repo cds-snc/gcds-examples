@@ -1,7 +1,7 @@
 'use client';
 
-import { GcdsWrapper } from '@cdssnc/gcds-components-react-ssr/client'
 import { GcdsInput } from '@cdssnc/gcds-components-react-ssr';
+import { GcdsWrapper } from '@cdssnc/gcds-components-react-ssr/client'
 import { FC } from 'react';
 
 interface EmailInputProps {
@@ -16,7 +16,7 @@ export const EmailInput: FC<EmailInputProps> = ({id, name, label, hint, required
         <GcdsWrapper>
             <GcdsInput
                 name={name}
-                input-id={id}
+                inputId={id}
                 label={label}
                 hint={hint}
                 type="email"

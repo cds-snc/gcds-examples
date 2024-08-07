@@ -1,7 +1,7 @@
 'use client';
 
-import { GcdsWrapper } from '@cdssnc/gcds-components-react-ssr/client'
 import { GcdsInput } from '@cdssnc/gcds-components-react-ssr'
+import { GcdsWrapper } from '@cdssnc/gcds-components-react-ssr/client'
 import { FC } from 'react';
 
 interface TextInputProps {
@@ -16,7 +16,7 @@ export const TextInput: FC<TextInputProps> = ({id, name, label, hint, children})
         <GcdsWrapper>
             <GcdsInput
                 name={name}
-                input-id={id}
+                inputId={id}
                 label={label}
                 hint={hint}
             >

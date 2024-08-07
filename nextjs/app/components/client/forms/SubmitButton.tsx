@@ -1,7 +1,7 @@
 'use client';
 
-import { GcdsWrapper } from '@cdssnc/gcds-components-react-ssr/client'
 import { GcdsButton } from '@cdssnc/gcds-components-react-ssr'
+import { GcdsWrapper } from '@cdssnc/gcds-components-react-ssr/client'
 import { FC } from 'react';
 
 interface SubmitButtonProps {
@@ -13,10 +13,10 @@ export const SubmitButton: FC<SubmitButtonProps> = ({id, name, children}) => {
     return (
         <GcdsWrapper>
             <GcdsButton
+                buttonId={id}
+                buttonRole="primary"
                 name={name}
-                button-id={id}
                 type="submit"
-                button-role="primary"
             >
                 {children}
             </GcdsButton>
