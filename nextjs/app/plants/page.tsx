@@ -1,7 +1,7 @@
 "use client";
 
 import { Card } from "@/app/components/client/Card";
-import { GcdsGrid } from "@cdssnc/gcds-components-react-ssr";
+import { Grid } from "@/app/components/client/Grid";
 import { Heading } from "@/app/components/client/Heading";
 import { plantLists } from "./plant-lists";
 
@@ -13,7 +13,7 @@ export default function Page() {
             {Object.entries(plantLists).map(([type, list]) => (
                 <article key={type}>
                     <Heading tag="h2">{type}</Heading>
-                    <GcdsGrid
+                    <Grid
                         tag="ul"
                         columns="1fr"
                         columnsTablet="1fr 1fr"
@@ -28,7 +28,7 @@ export default function Page() {
                                 tag={location}
                             ></Card>
                         ))}
-                    </GcdsGrid>
+                    </Grid>
                 </article>
             ))}
         </section>

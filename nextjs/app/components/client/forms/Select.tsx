@@ -4,7 +4,7 @@ import { GcdsSelect } from "@cdssnc/gcds-components-react-ssr";
 import { GcdsWrapper } from "@cdssnc/gcds-components-react-ssr/client";
 import { FC } from "react";
 
-interface GcdsSelectProps {
+interface SelectProps {
     name: string;
     id: string;
     label: string;
@@ -13,7 +13,7 @@ interface GcdsSelectProps {
     defaultValue?: string;
 }
 
-export const Select: FC<GcdsSelectProps> = ({id, name, label, hint, defaultValue, children}) => {
+export const Select: FC<SelectProps> = ({id, name, label, hint, defaultValue, children}) => {
     return (
         <GcdsWrapper>
             <GcdsSelect
