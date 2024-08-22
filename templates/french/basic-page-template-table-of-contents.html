@@ -70,7 +70,28 @@
     >
       <!-- À faire : Mettre à jour le contenu du titre et du texte. -->
       <section>
-        <gcds-heading tag="h1">Page de base</gcds-heading>
+        <gcds-heading tag="h1">
+          Page de base avec table des matières intégrée
+        </gcds-heading>
+        <gcds-text>
+          Texte introductif facultatif précédant la table des matières.
+        </gcds-text>
+      </section>
+
+      <section>
+        <gcds-heading tag="h2">Sur cette page</gcds-heading>
+        <!-- À faire : Remplacer l'attribut id de chaque lien avec l'attribut id valide pour chaque section. -->
+        <ul class="list-disc mb-400">
+          <li class="mb-100">
+            <gcds-link href="#section-1">Section 1</gcds-link>
+          </li>
+          <li class="mb-100">
+            <gcds-link href="#section-2">Section 2</gcds-link>
+          </li>
+          <li>
+            <gcds-link href="#section-3">Section 3</gcds-link>
+          </li>
+        </ul>
         <gcds-text>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Turp is
@@ -78,8 +99,9 @@
         </gcds-text>
       </section>
 
-      <section>
-        <gcds-heading tag="h2">Titre de la section</gcds-heading>
+      <!-- À faire : Vérifiez que l'attribut id correspond au id « href » du lien « Sur cette page » correspondant. -->
+      <section id="section-1">
+        <gcds-heading tag="h2">Section 1</gcds-heading>
         <gcds-text>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Turp is
@@ -94,6 +116,26 @@
         </gcds-text>
 
         <gcds-heading tag="h3">Titre de la sous-section</gcds-heading>
+        <gcds-text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Turp is
+          egestas maecenas pharetra convallis posuere morbi leo urna.
+        </gcds-text>
+      </section>
+
+      <!-- À faire : Vérifiez que l'attribut id correspond au id « href » du lien « Sur cette page » correspondant. -->
+      <section id="section-2">
+        <gcds-heading tag="h2">Section 2</gcds-heading>
+        <gcds-text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Turp is
+          egestas maecenas pharetra convallis posuere morbi leo urna.
+        </gcds-text>
+      </section>
+
+      <!-- À faire : Vérifiez que l'attribut id correspond au id « href » du lien « Sur cette page » correspondant. -->
+      <section id="section-3">
+        <gcds-heading tag="h2">Section 3</gcds-heading>
         <gcds-text>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Turp is
