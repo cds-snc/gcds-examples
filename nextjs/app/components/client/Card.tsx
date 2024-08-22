@@ -6,23 +6,29 @@ import { FC } from "react";
 
 interface CardProps {
     title?: string;
-    href: string
+    href: string;
     description?: string;
-    tag?: string;
+    badge?: string;
     children?: any;
 }
 
-export const Card: FC<CardProps> = ({title, href, description, tag, children}) => {
+export const Card: FC<CardProps> = ({
+    title,
+    href,
+    description,
+    badge,
+    children,
+}) => {
     return (
         <GcdsWrapper>
             <GcdsCard
                 cardTitle={title}
                 href={href}
                 description={description}
-                tag={tag}
+                badge={badge}
             >
                 {children}
             </GcdsCard>
         </GcdsWrapper>
-    )
-}
+    );
+};

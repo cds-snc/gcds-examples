@@ -25,7 +25,7 @@ export default function Page() {
                                 title={name}
                                 href="/"
                                 description={description}
-                                tag={location}
+                                badge={location}
                             ></Card>
                         ))}
                     </Grid>
