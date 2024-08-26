@@ -26,20 +26,14 @@ export const Header: FC = () => {
     const pathname = usePathname();
     const locale = usePathname()?.split("/")[1];
 
-    const lang = locale === "fr" ? "fr" : "en";
-    const langToggleHref = lang === "fr"
-        ? pathname?.replace("/fr", "/en")
-        : pathname === "/"
-            ? "/fr"
-            : pathname?.replace("/en", "/fr");
-
     const isCurrentPath = (href: string) => href === pathname;
 
     // @ts-ignore
     return (
         <header>
             <GcdsWrapper>
-                <GcdsHeader langHref={langToggleHref} skipToHref="#">
+                {/* TO DO: Add logic for language toggle */}
+                <GcdsHeader langHref="/francais" skipToHref="#">
                     <PhaseBanner/>
                     {/* using GcdsLink instead of <a> causes some style issues, it's not centering the text properly even with the classes */}
                     <a
