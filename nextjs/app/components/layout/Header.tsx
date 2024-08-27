@@ -43,7 +43,7 @@ export const Header: FC = () => {
                     >
                         <img
                             src="/pine-logo.png"
-                            alt="The logo features a cupcake with a determined facial expression and a superhero cape, exuding an enthusiastic and adventurous personality."
+                            alt="The logo features a simple illustration of a tree."
                             className="me-300"
                             width="75"
                             height="75"
@@ -85,7 +85,7 @@ export const Header: FC = () => {
                         method="post"
                         name="searchbox"
                         searchId="searchbox"
-                        placeholder="Search this site"
+                        placeholder="this site"
                         slot="search"
                     ></GcdsSearch>
                 </GcdsHeader>
