@@ -1,8 +1,8 @@
 # GC Design System repository for examples on how to use our different products
 ⚠️ This is not official documentation yet, we are in the process of adding more examples to this repository.
 
-## Example apps
-- [Vue3](/vue3)
+## Demo apps
+- [Vue3](/demo-apps/vue3)
 - React (coming soon)
 - NextJS (coming soon)
 
