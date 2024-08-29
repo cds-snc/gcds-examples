@@ -34,7 +34,7 @@ const Header: React.FC = () => {
           <GcdsNavLink
             href={item.href}
             key={item.href}
-            current={isCurrentPath(item.href) ? "true" : undefined}
+            current={isCurrentPath(item.href) ? true : undefined}
           >
             {item.label}
           </GcdsNavLink>

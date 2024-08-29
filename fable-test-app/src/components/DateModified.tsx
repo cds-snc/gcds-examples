@@ -1,7 +1,11 @@
 import React from 'react';
 import { GcdsDateModified } from "@cdssnc/gcds-components-react";
 
-const DateModified: React.FC = React.memo(({children}) => (
+interface DateProps {
+  children: React.ReactNode;
+}
+
+const DateModified: React.FC<DateProps> = React.memo(({children}) => (
   <GcdsDateModified>{children}</GcdsDateModified>
 ));
 
