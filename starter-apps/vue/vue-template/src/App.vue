@@ -7,9 +7,16 @@ import Footer from './components/Footer.vue';
 
 <template>
   <Header></Header>
-  <main id="main" class="container-xl mx-auto xl:px-0 sm:px-500 px-300">
+  <gcds-container
+      id="main-content"
+      main-container
+      size="xl"
+      centered
+      tag="main"
+  >
+<!--  <div id="main" class="container-xl mx-auto xl:px-0 sm:px-500 px-300">-->
     <RouterView />
-  </main>
+  </gcds-container>
   <Footer />
 
 </template>
