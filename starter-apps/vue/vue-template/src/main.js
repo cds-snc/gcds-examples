@@ -7,7 +7,7 @@ import { GcdsComponents } from '@cdssnc/gcds-components-vue';
 
 
 import App from './App.vue'
-import i18n from './i18n';
+import i18n from '@/i18n/index.js';
 import router from './router'
 
 // const app = createApp(App)

@@ -1,65 +1,102 @@
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+import { ref } from 'vue'
+import { useFormStore } from '@/stores/formStore'
+import { reportABugKey } from '@/utils/refresh.js'
+
+const { t } = useI18n()
+
+const formStore = useFormStore()
+const formData = ref({ ...formStore.formData })
+const submitted = ref(formStore.submitted)
+
+function handleSubmit() {
+  formStore.submitForm(formData.value)
+  submitted.value = formStore.submitted
+}
+</script>
 <template>
   <div>
-    <form @submit.prevent="handleSubmit">
-      <div>
-        <label for="version">Version Number:</label>
-        <input type="text" id="version" v-model="formData.version" required />
-      </div>
-      <div>
-        <label for="title">Title:</label>
-        <input type="text" id="title" v-model="formData.title" required />
-      </div>
-      <div>
-        <label for="currentBehavior">Current Behavior:</label>
-        <textarea id="currentBehavior" v-model="formData.currentBehavior" required></textarea>
-      </div>
-      <div>
-        <label for="expectedBehavior">Expected Behavior:</label>
-        <textarea id="expectedBehavior" v-model="formData.expectedBehavior" required></textarea>
-      </div>
-      <div>
-        <label for="systemInfo">System Info:</label>
-        <textarea id="systemInfo" v-model="formData.systemInfo" required></textarea>
-      </div>
-      <div>
-        <label for="stepsToReproduce">Steps to Reproduce:</label>
-        <textarea id="stepsToReproduce" v-model="formData.stepsToReproduce" required></textarea>
-      </div>
-      <div>
-        <label for="codeReproductionUrl">Code Reproduction URL:</label>
-        <input type="url" id="codeReproductionUrl" v-model="formData.codeReproductionUrl" required />
-      </div>
-      <div>
-        <label for="additionalInfo">Additional Information:</label>
-        <textarea id="additionalInfo" v-model="formData.additionalInfo"></textarea>
-      </div>
-      <button type="submit">Submit</button>
+    <section>
+      <gcds-heading class="mb-400" tag="h1">{{ t('reportABugPage.heading') }}</gcds-heading>
+      <gcds-text>{{ t('reportABugPage.intro') }}</gcds-text>
+    </section>
+    <form v-if="!submitted" :key="reportABugKey" @submit.prevent="handleSubmit">
+      <gcds-input
+        v-model="formData.version"
+        :label="t('reportABugPage.form.versionNumber')"
+        required
+      ></gcds-input>
+      <gcds-input
+        v-model="formData.title"
+        :label="t('reportABugPage.form.title')"
+        :placeholder="t('reportABugPage.form.titlePlaceholder')"
+        required
+      ></gcds-input>
+      <gcds-textarea
+        v-model="formData.currentBehavior"
+        :label="t('reportABugPage.form.currentBehavior')"
+      ></gcds-textarea>
+      <gcds-textarea
+        v-model="formData.expectedBehavior"
+        :label="t('reportABugPage.form.expectedBehavior')"
+        required
+      ></gcds-textarea>
+      <gcds-textarea
+        v-model="formData.systemInfo"
+        :label="t('reportABugPage.form.systemInfo')"
+        required
+      ></gcds-textarea>
+      <gcds-textarea
+        v-model="formData.stepsToReproduce"
+        :label="t('reportABugPage.form.stepsToReproduce')"
+        required
+      ></gcds-textarea>
+      <gcds-input
+        v-model="formData.codeReproductionUrl"
+        :label="t('reportABugPage.form.codeReproductionURL')"
+        required
+        type="url"
+      ></gcds-input>
+      <gcds-textarea
+        v-model="formData.additionalInfo"
+        :label="t('reportABugPage.form.additionalInformation')"
+      ></gcds-textarea>
+      <gcds-button type="submit">{{ t('reportABugPage.form.submit') }}</gcds-button>
     </form>
 
     <div v-if="submitted">
-      <h2>Confirmation</h2>
-      <p><strong>Version Number:</strong> {{ formData.version }}</p>
-      <p><strong>Title:</strong> {{ formData.title }}</p>
-      <p><strong>Current Behavior:</strong> {{ formData.currentBehavior }}</p>
-      <p><strong>Expected Behavior:</strong> {{ formData.expectedBehavior }}</p>
-      <p><strong>System Info:</strong> {{ formData.systemInfo }}</p>
-      <p><strong>Steps to Reproduce:</strong> {{ formData.stepsToReproduce }}</p>
-      <p><strong>Code Reproduction URL:</strong> {{ formData.codeReproductionUrl }}</p>
-      <p><strong>Additional Information:</strong> {{ formData.additionalInfo }}</p>
+      <h2>{{ t('reportABugPage.form.confirmation') }}</h2>
+      <p>
+        <strong>{{ t('reportABugPage.form.versionNumber') }}:</strong> {{ formData.version }}
+      </p>
+      <p>
+        <strong>{{ t('reportABugPage.form.title') }}:</strong> {{ formData.title }}
+      </p>
+      <p>
+        <strong>{{ t('reportABugPage.form.currentBehavior') }}:</strong>
+        {{ formData.currentBehavior }}
+      </p>
+      <p>
+        <strong>{{ t('reportABugPage.form.expectedBehavior') }}:</strong>
+        {{ formData.expectedBehavior }}
+      </p>
+      <p>
+        <strong>{{ t('reportABugPage.form.systemInfo') }}:</strong> {{ formData.systemInfo }}
+      </p>
+      <p>
+        <strong>{{ t('reportABugPage.form.stepsToReproduce') }}:</strong>
+        {{ formData.stepsToReproduce }}
+      </p>
+      <p>
+        <strong>{{ t('reportABugPage.form.codeReproductionURL') }}:</strong>
+        {{ formData.codeReproductionUrl }}
+      </p>
+      <p>
+        <strong>{{ t('reportABugPage.form.additionalInformation') }}:</strong>
+        {{ formData.additionalInfo }}
+      </p>
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref } from 'vue';
-import { useFormStore } from '@/stores/formStore';
-
-const formStore = useFormStore();
-const formData = ref({ ...formStore.formData });
-const submitted = ref(formStore.submitted);
-
-function handleSubmit() {
-  formStore.submitForm(formData.value);
-  submitted.value = formStore.submitted;
-}
-</script>

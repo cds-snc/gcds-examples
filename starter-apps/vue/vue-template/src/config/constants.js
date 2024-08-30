@@ -1,12 +1,3 @@
-export const LOCALES = {
-    en: {
-        code: 'en',
-        path: '/en',
-        name: 'english'
-    },
-    fr: {
-        code: 'fr',
-        path: '/fr',
-        name: 'french'
-    }
-};
+export const EN = 'en'
+export const FR = 'fr'
+export const HOME = 'home'

@@ -1,77 +1,141 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-// import ReportABug from '../views/ReportABug.vue'
-import i18n, {defaultLocale} from '../i18n'
+import i18n, { defaultLocale } from '@/i18n/index.js'
+import { forceRefresh } from '@/utils/refresh.js'
+import { EN, FR, HOME } from '@/config/constants.js'
+import NotFound from '@/views/NotFound.vue'
 
+// TODO: If you use localized paths, configure them here
 const localizedPaths = {
-    'home': {
-        'en': 'home', 'fr': 'accueil'
-    }, 'about': {
-        'en': 'about', 'fr': 'a-propos'
-    }, 'reportABug': {
-        'en': 'report-a-bug', 'fr': 'signaler-un-bug'
-    }
+  home: {
+    [EN]: '',
+    [FR]: ''
+  },
+  about: {
+    [EN]: 'about',
+    [FR]: 'a-propos'
+  },
+  'about/about1': {
+    [EN]: 'about/about1',
+    [FR]: 'a-propos/a-propos1'
+  },
+  'about/about1/nested-in-about1-1': {
+    [EN]: 'about/about1/nested-in-about1',
+    [FR]: 'a-propos/a-propos1/imbriqué-dans-a-propos1'
+  },
+  'about/about1/nested-in-about1-2': {
+    [EN]: 'about/about1/nested-in-about1-2',
+    [FR]: 'a-propos/a-propos1/imbriqué-dans-a-propos1-2'
+  },
+  'about/about2': {
+    [EN]: 'about/about2',
+    [FR]: 'a-propos/a-propos2'
+  },
+  reportABug: {
+    [EN]: 'report-a-bug',
+    [FR]: 'signaler-un-bug'
+  },
+  'not-found': {
+    [EN]: 'not-found',
+    [FR]: 'non-trouve'
+  }
 }
 
-const routes = [{
-    path: '/', redirect: `/${defaultLocale}`,
-}, {
-    path: '/:locale', children: [{
-        path: '', name: 'home', component: HomeView, alias: localizedPaths.home['fr']
-    }, {
-        path: localizedPaths.about['en'], name: 'about', // route level code-splitting
+// TODO: Add your routes here
+const routes = [
+  {
+    path: '/',
+    redirect: `/${defaultLocale}/`
+  },
+  {
+    path: '/:locale?',
+    children: [
+      {
+        path: '',
+        name: HOME,
+        component: HomeView,
+        alias: ['', localizedPaths.home[EN], localizedPaths.home[FR]]
+      },
+      {
+        path: localizedPaths.about[EN],
+        name: 'about', // route level code-splitting
         // this generates a separate chunk (About.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
-        component: () => import('../views/AboutView.vue'), alias: localizedPaths.about['fr']
-    }, {
-        path: localizedPaths.reportABug['en'],
+        component: () => import('../views/About/AboutView.vue'),
+        alias: localizedPaths.about[FR]
+      },
+      {
+        path: localizedPaths['about/about1'][EN],
+        name: 'about/about1',
+        component: () => import('../views/About/About1.vue'),
+        alias: localizedPaths['about/about1'][FR],
+        meta: {
+          i18nName: 'about1',
+          parentPaths: {
+            EN: [
+              {
+                path: localizedPaths.about[EN],
+                name: localizedPaths.about[EN]
+              }
+            ],
+            FR: [localizedPaths.about[FR]]
+          }
+        }
+      },
+      {
+        path: localizedPaths.reportABug[EN],
         name: 'reportABug',
         component: () => import('../views/ReportABug.vue'),
-        alias: localizedPaths.reportABug['fr']
-    }]
-}]
+        alias: localizedPaths.reportABug[FR]
+      },
+      {
+        path: localizedPaths['not-found'][EN],
+        name: 'not-found',
+        component: NotFound,
+        alias: [localizedPaths['not-found'][EN], localizedPaths['not-found'][FR]]
+      },
+      {
+        path: ':notFound(.*)',
+        name: 'not-found-redirect',
+        redirect: { name: 'not-found' }
+      }
+    ]
+  }
+]
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL), routes
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes
 })
 
+// Load the messages for the new locale when the locale changes
 router.beforeEach(async (to, from) => {
-    // const locale = to.params.locale;
-    console.log(to, from)
-    const newLocale = to.params.locale;
-    const prevLocale = from.params.locale;
+  const newLocale = to.params.locale
+  const prevLocale = from.params.locale
 
-    console.log('newLocale', newLocale);
-    console.log('prevLocale', prevLocale);
+  // Do nothing if the locale hasn't changed
+  if (newLocale === prevLocale) {
+    return
+  }
 
-    // Do nothing if the locale hasn't changed
-    if (newLocale === prevLocale) {
-        return;
-    }
+  await i18n.loadMessagesFor(newLocale)
+  i18n.setLocale(newLocale)
 
-    await i18n.loadMessagesFor(newLocale);
-    i18n.setLocale(newLocale);
+  forceRefresh()
+})
 
-    // // Fallback to default locale if no locale provided
-    // if (!['en', 'fr'].includes(locale)) {
-    //   return next(defaultLocale);
-    // }
-    // next();
-});
+/**
+ * Get the localized path for a given path and locale
+ * @param {string} path - The path to localize
+ * @param {string} locale - The locale to use. Defaults to the current locale
+ * @returns {string} The localized path. Example: if /en/report-a-bug, return /fr/signaler-un-bug
+ */
+export function getLocalizedPath(path, locale = i18n.i18n.global.locale.value) {
+  if (!localizedPaths[path]) {
+    return path
+  }
 
-export function getLocalizedPath(path, locale) {
-
-    // if /en/report-a-bug, return /fr/signaler-un-bug
-
-    // console.log(`getting localized path for ${path} in ${locale} and got ${localizedPath}`);
-    // return `/${locale}${localizedPath}`;
-    console.log(`path ${path} locale ${locale}`);
-    if (!localizedPaths[path]) {
-        console.log(`no localized path for ${path}`);
-        return path;
-    }
-    console.log(`getting localized path for ${path} in ${locale} and got ${localizedPaths[path][locale]}`);
-    return `/${locale}/${localizedPaths[path][locale]}`;
+  return `/${locale}/${localizedPaths[path][locale]}`
 }
 
 export default router

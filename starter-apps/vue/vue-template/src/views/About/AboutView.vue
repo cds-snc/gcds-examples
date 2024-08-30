@@ -1,0 +1,25 @@
+<script lang="ts" setup>
+import AppLink from '@/components/AppLink.vue'
+import { getLocalizedPath } from '@/router'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
+<template>
+  <div class="about">
+    <gcds-heading class="mb-400" tag="h1">{{ t('aboutPage.heading') }}</gcds-heading>
+    <gcds-text>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Turp is egestas maecenas pharetra convallis posuere morbi leo
+      urna.
+    </gcds-text>
+    <section>
+      <AppLink :to="getLocalizedPath('about/about1')">{{ t('aboutPage.about1.heading') }}</AppLink>
+    </section>
+    <section>
+      <AppLink :to="getLocalizedPath('about/about2')">{{ t('aboutPage.about2.heading') }}</AppLink>
+    </section>
+  </div>
+</template>
+
+<style scoped></style>

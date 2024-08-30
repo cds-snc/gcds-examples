@@ -1,68 +1,92 @@
-<template>
-  <gcds-header
-      skip-to-href="#main"
-  >
-    <gcds-search :key="componentKey" slot="search"></gcds-search>
-    <div slot="toggle">
-      <gcds-link :href="getOtherLangPath()" @click.prevent="changeLanguage()">
-        {{ t('langToggle') }} - {{ getOtherLocale(locale) }}
-      </gcds-link>
+<script setup>
+import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
+import { computed } from 'vue'
 
+import AppLink from '@/components/AppLink.vue'
+import { getLocalizedPath } from '@/router/index.js'
+import { getOtherLocale } from '@/i18n/index.js'
+import HeaderBreadcrumbs from '@/components/HeaderBreadcrumbs.vue'
+import { navigateTo } from '@/utils/nav.js'
+import { HOME } from '@/config/constants.js'
+
+const router = useRouter()
+
+const { t } = useI18n()
+
+// Get the path for the other language. Used in the language toggle button.
+const getOtherLangPath = computed(() => {
+  let currentPath = router.currentRoute.value.name
+  currentPath === undefined && (currentPath = HOME)
+  if (currentPath === undefined) {
+    return
+  }
+  return getLocalizedPath(currentPath, getOtherLocale())
+})
+
+const isCurrentRoute = (routeName) => {
+  return router.currentRoute.value.name === routeName
+}
+
+// TODO: Change the top navigation elements
+const navElements = [
+  {
+    name: HOME,
+    label: t(HOME)
+  },
+  {
+    name: 'about',
+    label: t('about')
+  },
+  {
+    name: 'reportABug',
+    label: t('reportABug')
+  }
+]
+</script>
+
+<template>
+  <gcds-header skip-to-href="#main">
+    <gcds-search slot="search"></gcds-search>
+    <div slot="toggle">
+      <AppLink :to="getOtherLangPath">{{ t('langToggle') }}</AppLink>
     </div>
-    <gcds-top-nav
-        label="Top navigation"
-        alignment="right"
-        slot="menu"
-    >
-      <gcds-nav-link href="/" slot="home">Vue 3 App</gcds-nav-link>
-      <gcds-nav-link href="/">{{ t('home') }}</gcds-nav-link>
-      <gcds-nav-link :href="t('routes.about')">{{ t('about') }}</gcds-nav-link>
-      <gcds-nav-link :href="t('routes.reportABug')">{{ t('reportABug')}}</gcds-nav-link>
+    <gcds-top-nav slot="menu" alignment="right" label="Top navigation">
+      <!--
+        Using <AppLink component="nav"> here will utilize RouterLink, but at the moment it does not get styled
+        correctly due to <gcds-nav-link> looking for a direct parent <gcds-top-nav> component.
+
+        // TODO: Add your navigational links here.
+      -->
+      <gcds-nav-link
+        slot="home"
+        :href="getLocalizedPath(HOME)"
+        @click.prevent="
+          () => {
+            navigateTo(getLocalizedPath(HOME))
+          }
+        "
+      >
+        {{ t('homeNavLink') }}
+      </gcds-nav-link>
+      <gcds-nav-link
+        v-for="(navElement, index) in navElements"
+        :key="index"
+        :current="isCurrentRoute(navElement.name)"
+        :href="getLocalizedPath(navElement.name)"
+        @click.prevent="
+          () => {
+            navigateTo(getLocalizedPath(navElement.name))
+          }
+        "
+      >
+        {{ navElement.label }}
+      </gcds-nav-link>
     </gcds-top-nav>
 
-    <gcds-breadcrumbs slot="breadcrumb">
-      <gcds-breadcrumbs-item href="/" @click.prevent="navigateTo('/')">{{ t('home') }}</gcds-breadcrumbs-item>
-      <gcds-breadcrumbs-item href="/about" @click.prevent="navigateTo('/about')">{{
-          t('about')
-        }}
-      </gcds-breadcrumbs-item>
-    </gcds-breadcrumbs>
+    <HeaderBreadcrumbs
+      slot="breadcrumb"
+      :currentRoute="router.currentRoute.value.name"
+    ></HeaderBreadcrumbs>
   </gcds-header>
 </template>
-
-<script setup>
-import {useI18n} from 'vue-i18n';
-import {useRouter} from 'vue-router'
-import {navigateTo} from "@/utils/nav.js";
-import {getOtherLocale} from "@/i18n.js";
-import {ref} from 'vue';
-import {getLocalizedPath} from "@/router/index.js";
-
-const {t, locale} = useI18n();
-const router = useRouter();
-
-const componentKey = ref(0);
-
-const forceRefresh = () => {
-  componentKey.value += 1;
-}
-
-// const otherLang = computed(() => locale.value === defaultLocale ? 'fr-CA' : 'en-CA');
-
-const getCurrentPath = () => {
-  return router.currentRoute.value.name;
-}
-
-const getOtherLangPath = () => {
-  return getLocalizedPath(getCurrentPath(), getOtherLocale(locale.value));
-}
-
-
-
-const changeLanguage = () => {
-  // let lang = getOtherLocale(locale)
-  router.push(getOtherLangPath());
-
-  forceRefresh()
-}
-</script>
