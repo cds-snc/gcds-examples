@@ -2,8 +2,11 @@ export const en = {
   home: 'Home',
   homePage: {
     heading: 'Home',
-    paragraph:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor dolor in hendrerit egestas. Suspendisse euismod vehicula vestibulum. Integer tincidunt mauris imperdiet mauris interdum, a euismod dolor mattis.'
+    paragraph: 'Welcome to the Vue Starter App that leverages GC Design System components!',
+    paragraph2:
+      'This starter app template is designed to help developers quickly set up a modern Vue.js application while adhering to the accessibility and design standards set by the Government of Canada.',
+    paragraph3:
+      "You'll find all the necessary setup, including Vue Router, Pinia for state management, VITest for unit testing, and a selection of GCDS components to get you started on your project."
   },
   about: 'About',
   about1: 'About 1',

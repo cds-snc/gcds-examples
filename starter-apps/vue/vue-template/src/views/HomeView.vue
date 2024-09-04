@@ -10,6 +10,12 @@ const { t } = useI18n()
       <gcds-text>
         {{ t('homePage.paragraph') }}
       </gcds-text>
+      <gcds-text>
+        {{ t('homePage.paragraph2') }}
+      </gcds-text>
+      <gcds-text>
+        {{ t('homePage.paragraph3') }}
+      </gcds-text>
     </section>
   </div>
 </template>

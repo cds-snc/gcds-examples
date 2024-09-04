@@ -3,7 +3,9 @@ export const fr = {
   homePage: {
     heading: 'Accueil',
     paragraph:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor dolor in hendrerit egestas. Suspendisse euismod vehicula vestibulum. Integer tincidunt mauris imperdiet mauris interdum, a euismod dolor mattis.'
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor dolor in hendrerit egestas. Suspendisse euismod vehicula vestibulum. Integer tincidunt mauris imperdiet mauris interdum, a euismod dolor mattis.',
+    paragraph2: '',
+    paragraph3: ''
   },
   about: 'À propos',
   about1: 'À propos 1',
