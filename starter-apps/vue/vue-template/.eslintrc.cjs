@@ -26,7 +26,8 @@ module.exports = {
     // source: https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots
     'vue/no-deprecated-slot-attribute': 'off',
     'vue/multi-word-component-names': ['error', {
-      'ignores': ['Header', 'Footer']
+      // TODO: Remove About1 from the list if it is no longer needed
+      'ignores': ['Header', 'Footer', 'About1']
     }]
   }
 }

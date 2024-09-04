@@ -1,4 +1,9 @@
 import router from '../router'
-export const navigateTo = (linkItem) => {
-    router.push(linkItem)
+
+/**
+ * Programmatically navigate to a linkItem
+ * @param linkItem
+ */
+export const navigateTo = (path) => {
+  router.push(path)
 }

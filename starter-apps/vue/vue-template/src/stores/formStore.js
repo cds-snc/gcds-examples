@@ -1,5 +1,4 @@
-// src/stores/formStore.js
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
 export const useFormStore = defineStore('form', {
   state: () => ({
@@ -17,8 +16,8 @@ export const useFormStore = defineStore('form', {
   }),
   actions: {
     submitForm(data) {
-      this.formData = data;
-      this.submitted = true;
+      this.formData = data
+      this.submitted = true
     }
   }
-});
+})
