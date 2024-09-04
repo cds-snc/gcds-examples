@@ -1,5 +1,10 @@
 export const en = {
   home: 'Home',
+  homePage: {
+    heading: 'Home',
+    paragraph:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor dolor in hendrerit egestas. Suspendisse euismod vehicula vestibulum. Integer tincidunt mauris imperdiet mauris interdum, a euismod dolor mattis.'
+  },
   about: 'About',
   about1: 'About 1',
   aboutPage: {
@@ -19,7 +24,7 @@ export const en = {
       nestedInAbout1_2: {
         heading: 'Nested in About 1-2',
         intro:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt.'
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor dolor in hendrerit egestas. Suspendisse euismod vehicula vestibulum. Integer tincidunt mauris imperdiet mauris interdum, a euismod dolor mattis.'
       }
     },
     about2: {
@@ -31,17 +36,11 @@ export const en = {
   english: 'English',
   langToggle: 'Français',
   reportABug: 'Report a Bug',
-  // routes: {
-  //     home: 'home',
-  //     about: 'about',
-  //     about1: 'about1',
-  //     reportABug: 'report-a-bug'
-  // },
   homeNavLink: 'Vue App',
   reportABugPage: {
     heading: 'Report a Bug',
     intro:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor dolor in hendrerit egestas. Suspendisse euismod vehicula vestibulum. Integer tincidunt mauris imperdiet mauris interdum, a euismod dolor mattis.',
     form: {
       versionNumber: 'GC Design System Components Package and Version',
       title: 'Title',
@@ -54,7 +53,9 @@ export const en = {
       additionalInformation: 'Additional Information',
       submit: 'Submit',
       confirmation: 'Confirmation'
-    }
+    },
+    openGithub: 'Start an issue on GitHub',
+    openGithubButton: 'Open issue on Github'
   },
   notFoundPage: {
     heading: 'Page could not be found',

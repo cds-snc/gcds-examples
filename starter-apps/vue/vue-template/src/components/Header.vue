@@ -28,7 +28,7 @@ const isCurrentRoute = (routeName) => {
   return router.currentRoute.value.name === routeName
 }
 
-// TODO: Change the top navigation elements
+// TODO: Set the top navigation elements
 const navElements = [
   {
     name: HOME,
@@ -56,7 +56,7 @@ const navElements = [
         Using <AppLink component="nav"> here will utilize RouterLink, but at the moment it does not get styled
         correctly due to <gcds-nav-link> looking for a direct parent <gcds-top-nav> component.
 
-        // TODO: Add your navigational links here.
+        // TODO: Add your navigational links here. You may use the navElements array to loop through the links.
       -->
       <gcds-nav-link
         slot="home"

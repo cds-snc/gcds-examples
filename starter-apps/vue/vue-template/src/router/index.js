@@ -5,7 +5,7 @@ import { forceRefresh } from '@/utils/refresh.js'
 import { EN, FR, HOME } from '@/config/constants.js'
 import NotFound from '@/views/NotFound.vue'
 
-// TODO: If you use localized paths, configure them here
+// TODO: If you use localized paths, here is an example of how to configure them
 const localizedPaths = {
   home: {
     [EN]: '',
@@ -34,10 +34,6 @@ const localizedPaths = {
   reportABug: {
     [EN]: 'report-a-bug',
     [FR]: 'signaler-un-bug'
-  },
-  'not-found': {
-    [EN]: 'not-found',
-    [FR]: 'non-trouve'
   }
 }
 
@@ -48,7 +44,7 @@ const routes = [
     redirect: `/${defaultLocale}/`
   },
   {
-    path: '/:locale?',
+    path: '/:locale',
     children: [
       {
         path: '',
@@ -89,15 +85,9 @@ const routes = [
         alias: localizedPaths.reportABug[FR]
       },
       {
-        path: localizedPaths['not-found'][EN],
-        name: 'not-found',
-        component: NotFound,
-        alias: [localizedPaths['not-found'][EN], localizedPaths['not-found'][FR]]
-      },
-      {
-        path: ':notFound(.*)',
-        name: 'not-found-redirect',
-        redirect: { name: 'not-found' }
+        path: ':notFound(.+)+',
+        name: 'not-found-catch-all',
+        component: NotFound
       }
     ]
   }

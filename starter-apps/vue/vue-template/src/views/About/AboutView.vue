@@ -9,9 +9,7 @@ const { t } = useI18n()
   <div class="about">
     <gcds-heading class="mb-400" tag="h1">{{ t('aboutPage.heading') }}</gcds-heading>
     <gcds-text>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Turp is egestas maecenas pharetra convallis posuere morbi leo
-      urna.
+      {{ t('aboutPage.intro') }}
     </gcds-text>
     <section>
       <AppLink :to="getLocalizedPath('about/about1')">{{ t('aboutPage.about1.heading') }}</AppLink>

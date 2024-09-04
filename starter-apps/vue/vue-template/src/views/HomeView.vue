@@ -1,13 +1,14 @@
-<script setup></script>
+<script setup>
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
+</script>
 <template>
   <div>
     <section>
-      <gcds-heading class="mb-400" tag="h1">Page heading</gcds-heading>
-      <gcds-text
-        >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-        ut labore et dolore magna aliqua. Turp is egestas maecenas pharetra convallis posuere morbi
-        leo urna.
+      <gcds-heading class="mb-400" tag="h1">{{ t('homePage.heading') }}</gcds-heading>
+      <gcds-text>
+        {{ t('homePage.paragraph') }}
       </gcds-text>
     </section>
   </div>

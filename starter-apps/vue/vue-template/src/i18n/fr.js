@@ -1,5 +1,10 @@
 export const fr = {
   home: 'Accueil',
+  homePage: {
+    heading: 'Accueil',
+    paragraph:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor dolor in hendrerit egestas. Suspendisse euismod vehicula vestibulum. Integer tincidunt mauris imperdiet mauris interdum, a euismod dolor mattis.'
+  },
   about: 'À propos',
   about1: 'À propos 1',
   aboutPage: {
@@ -31,16 +36,11 @@ export const fr = {
   english: 'Anglais',
   langToggle: 'English',
   reportABug: 'Signaler un bug',
-  // routes: {
-  //     home: 'accueil',
-  //     about: 'a-propos',
-  //     reportABug: 'signaler-un-bug'
-  // },
   homeNavLink: 'Application Vue',
   reportABugPage: {
     heading: 'Signaler un bug',
     intro:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor dolor in hendrerit egestas. Suspendisse euismod vehicula vestibulum. Integer tincidunt mauris imperdiet mauris interdum, a euismod dolor mattis.',
     form: {
       versionNumber: 'Paquet et version des composants de Système de design GC',
       title: 'Titre',
@@ -53,7 +53,9 @@ export const fr = {
       additionalInformation: 'Informations supplémentaires',
       submit: 'Envoyer',
       confirmation: 'Confirmation'
-    }
+    },
+    openGithub: 'Créer un ticket sur Github',
+    openGithubButton: 'Ouvrir un ticket sur Github'
   },
   notFoundPage: {
     heading: 'Page introuvable',
