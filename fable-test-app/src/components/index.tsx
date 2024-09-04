@@ -4,3 +4,6 @@ export { default as Footer } from './Footer';
 export { default as Header } from './Header';
 export { default as Heading } from './Heading';
 export { default as Text } from './Text';
+export { default as StepOne } from './SubmitHoliday/StepOne';
+export { default as StepTwo } from './SubmitHoliday/StepTwo';
+export { default as Success } from './SubmitHoliday/Success';
