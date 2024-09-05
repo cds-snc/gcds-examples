@@ -8,7 +8,7 @@ import '../node_modules/@cdssnc/gcds-utility/dist/gcds-utility.min.css';
 import '@cdssnc/gcds-components-react/gcds.css';
 
 // App CSS - uncomment to add custom CSS
-// import './App.css'
+import './App.css'
 
 // Components (internal)
 import { Container, Header, Footer } from './components';
@@ -16,10 +16,13 @@ import { Container, Header, Footer } from './components';
 // Pages
 import {
   About,
+  FederalAndProvincialHolidays,
   Home,
   NotFound,
+  OptionalHolidays,
   SubmitHoliday,
-  ViewHolidays
+  ViewHolidays,
+  ViewHolidaysNation
 } from './pages';
 
 const App: React.FC = () => {
@@ -30,8 +33,12 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/federal-and-provincial-holidays" element={<FederalAndProvincialHolidays />} />
           <Route path="/submit-a-holiday" element={<SubmitHoliday />} />
-          <Route path="/view-holidays" element={<ViewHolidays />} />
+          <Route path="/optional-holidays" element={<OptionalHolidays />} />
+          <Route path="/view-holidays/:provinceId" element={<ViewHolidays />} />
+          <Route path="/view-holidays/nationwide" element={<ViewHolidaysNation />} />
+
           {/* Catch-all route for 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>

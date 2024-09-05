@@ -1,1 +1,16 @@
 /* App CSS */
+
+/* General */
+table {
+  width: 100%;
+}
+
+table img {
+  width: 3rem;
+}
+
+@media only screen and (width < 30em) {
+  table td {
+    display: block;
+  }
+}

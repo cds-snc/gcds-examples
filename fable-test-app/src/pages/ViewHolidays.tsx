@@ -1,16 +1,147 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { GcdsSelect } from "@cdssnc/gcds-components-react";
 
 // Components (internal)
-import { DateModified, Heading } from '../components';
+import { DateModified, Details, Heading, StyledLink, Text } from '../components';
+import { holidayData } from '../data/holidayData';
 
-const ViewHolidays: React.FC = () => {
+const ViewHolidays = () => {
+  const { provinceId } = useParams<{ provinceId: string }>();
+
+  // State variables
+  const [holidays, setHolidays] = useState([]);
+  const [year, setYear] = useState<string>('2024');
+  const [yearsList] = useState<string[]>(['2022', '2023', '2024', '2025', '2026']);
+  const [nextHoliday, setNextHoliday] = useState(null);
+
+  // Find data for current province/territory
+  const province = holidayData.find(p => p.id === provinceId);
+
+  useEffect(() => {
+    if (province) {
+      const endpointForYear = `${province.endpoint}&year=${year}`;
+
+      axios.get(endpointForYear)
+        .then(({ data }) => {
+          const holidaysData = provinceId === 'federal' ? data.holidays : data.province.holidays;
+          setHolidays(holidaysData);
+          const nextHolidayData = provinceId === 'federal' ? data.nextHoliday : data.province.nextHoliday;
+
+          setNextHoliday(nextHolidayData || null);
+        })
+        .catch(error => {
+          console.error("There was an error fetching the holidays!", error);
+        });
+    }
+  }, [province, year, provinceId]);
+
+  if (!province) {
+    return <p>Province or territory not found.</p>;
+  }
+
+  // Calculate days until next holiday
+  const calcDaysUntilNextHoliday = (dateString: string): number => {
+    const today = new Date();
+    const holidayDate = new Date(dateString);
+
+    return Math.floor((holidayDate.getTime() - today.getTime()) / (1000 * 3600 * 24));
+  };
+
+  const daysUntilNextHoliday = nextHoliday ? calcDaysUntilNextHoliday(nextHoliday.date) : null;
+
+  // Format date with full month and weekday at the end
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' };
+    const localeDate = date.toLocaleDateString('en-CA', options);
+
+    const [weekday, monthAndDay] = localeDate.split(', ');
+    const [month, day] = monthAndDay.split(' ');
+
+    return `${month} ${day}, ${weekday}`;
+  };
+
   return (
     <section>
-      <Heading tag="h1">Nationwide holidays</Heading>
+      <Heading tag="h1">{province.name} holidays</Heading>
+
+      <GcdsSelect
+        selectId="select-province-year"
+        label="Calendar year"
+        hint="Select the year of holidays you want to view."
+        name="province-year"
+        value={year}
+        onInput={(e) => setYear(e.target.value)}
+      >
+        {yearsList.map(yearOption => (
+          <option key={yearOption} value={yearOption}>
+            {yearOption}
+          </option>
+        ))}
+      </GcdsSelect>
+
+      {nextHoliday && (
+        <div className="d-flex bg-primary md:align-items-center align-items-start text-light mb-450 md:px-450 px-250 py-200">
+          <img
+            className="d-inline-block me-400"
+            src="/icons/icon-calendar.svg"
+            alt="Calendar icon with a clock in the bottom right corner."
+          />
+          <Text textRole="light" marginBottom="0">
+            <strong>Next holiday is {nextHoliday.nameEn} — that's {daysUntilNextHoliday} days away</strong>
+          </Text>
+        </div>
+      )}
+
+      <table className="mb-450">
+        <thead>
+          <tr className="text-left bb-sm b-default">
+            <th className="py-300">
+              <Heading tag="h4" marginBottom="0" marginTop="0">Day</Heading>
+            </th>
+            <th className="py-300">
+              <Heading tag="h4" marginBottom="0" marginTop="0">Holiday</Heading>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {holidays.map(holiday => (
+            <tr key={holiday.id} className="bb-sm b-default">
+              <td className="xs:pe-300 pe-0 xs:py-300 py-200">
+                <span className="d-flex align-items-center">
+                  {nextHoliday && holiday.id === nextHoliday.id ? (
+                    <img
+                      className="d-inline-block me-150"
+                      src="/icons/icon-calendar.svg"
+                      alt="Calendar icon with a clock in the bottom right corner."
+                    />
+                  ) : null}
+                  <strong>{formatDate(holiday.date)}</strong>
+                </span>
+              </td>
+              <td className="xs:pt-300 pt-0 xs:pb-300 pb-200">
+                {holiday.nameEn} {holiday.optional ? ' (optional)' : ''}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {provinceId === 'federal' ? (
+        <Details detailsTitle="What are federal holidays?" open>
+          <Text marginBottom="0">If your job is regulated by the federal government, you get federal holidays instead of the provincial holidays. Find out more about <StyledLink to="/federal-and-provincial-holidays">who gets federal holidays.</StyledLink>.</Text>
+        </Details>
+      ) : (
+        <Details detailsTitle="What are optional holidays?" open>
+          <Text marginBottom="0">Optional holidays are commonly observed but not legally mandated. Businesses may choose to opt-in to optional holidays but they don't have to. Find out more about <StyledLink to="/optional-holidays">optional holidays</StyledLink>.</Text>
+        </Details>
+      )}
 
       <DateModified>2024-08-28</DateModified>
     </section>
-  )
+  );
 };
 
 export default ViewHolidays;
