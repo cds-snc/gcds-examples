@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { GcdsSelect } from "@cdssnc/gcds-components-react";
 
 // Components (internal)
-import { DateModified, Details, Heading, StyledLink, Text } from '../components';
+import { DateModified, Details, Heading, Select, StyledLink, Text } from '../components';
 import { holidayData } from '../data/holidayData';
+import { formatDate } from '../utils/utils';
 
 const ViewHolidays = () => {
   const { provinceId } = useParams<{ provinceId: string }>();
@@ -26,9 +26,9 @@ const ViewHolidays = () => {
       axios.get(endpointForYear)
         .then(({ data }) => {
           const holidaysData = provinceId === 'federal' ? data.holidays : data.province.holidays;
-          setHolidays(holidaysData);
           const nextHolidayData = provinceId === 'federal' ? data.nextHoliday : data.province.nextHoliday;
 
+          setHolidays(holidaysData);
           setNextHoliday(nextHolidayData || null);
         })
         .catch(error => {
@@ -42,32 +42,20 @@ const ViewHolidays = () => {
   }
 
   // Calculate days until next holiday
-  const calcDaysUntilNextHoliday = (dateString: string): number => {
+  const calcNextHoliday = (dateString) => {
     const today = new Date();
     const holidayDate = new Date(dateString);
 
     return Math.floor((holidayDate.getTime() - today.getTime()) / (1000 * 3600 * 24));
   };
 
-  const daysUntilNextHoliday = nextHoliday ? calcDaysUntilNextHoliday(nextHoliday.date) : null;
-
-  // Format date with full month and weekday at the end
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const options = { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' };
-    const localeDate = date.toLocaleDateString('en-CA', options);
-
-    const [weekday, monthAndDay] = localeDate.split(', ');
-    const [month, day] = monthAndDay.split(' ');
-
-    return `${month} ${day}, ${weekday}`;
-  };
+  const daysToNextHoliday = nextHoliday ? calcNextHoliday(nextHoliday.date) : null;
 
   return (
     <section>
       <Heading tag="h1">{province.name} holidays</Heading>
 
-      <GcdsSelect
+      <Select
         selectId="select-province-year"
         label="Calendar year"
         hint="Select the year of holidays you want to view."
@@ -80,7 +68,7 @@ const ViewHolidays = () => {
             {yearOption}
           </option>
         ))}
-      </GcdsSelect>
+      </Select>
 
       {nextHoliday && (
         <div className="d-flex bg-primary md:align-items-center align-items-start text-light mb-450 md:px-450 px-250 py-200">
@@ -90,7 +78,7 @@ const ViewHolidays = () => {
             alt="Calendar icon with a clock in the bottom right corner."
           />
           <Text textRole="light" marginBottom="0">
-            <strong>Next holiday is {nextHoliday.nameEn} — that's {daysUntilNextHoliday} days away</strong>
+            <strong>Next holiday is {nextHoliday.nameEn} — that's {daysToNextHoliday} days away</strong>
           </Text>
         </div>
       )}
@@ -109,7 +97,7 @@ const ViewHolidays = () => {
         <tbody>
           {holidays.map(holiday => (
             <tr key={holiday.id} className="bb-sm b-default">
-              <td className="xs:pe-300 pe-0 xs:py-300 py-200">
+              <td className="sm:pe-400 pe-0 sm:py-300 py-200">
                 <span className="d-flex align-items-center">
                   {nextHoliday && holiday.id === nextHoliday.id ? (
                     <img
@@ -121,7 +109,7 @@ const ViewHolidays = () => {
                   <strong>{formatDate(holiday.date)}</strong>
                 </span>
               </td>
-              <td className="xs:pt-300 pt-0 xs:pb-300 pb-200">
+              <td className="sm:pt-300 pt-0 sm:pb-300 pb-200">
                 {holiday.nameEn} {holiday.optional ? ' (optional)' : ''}
               </td>
             </tr>

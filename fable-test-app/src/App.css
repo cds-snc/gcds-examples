@@ -9,7 +9,11 @@ table img {
   width: 3rem;
 }
 
-@media only screen and (width < 30em) {
+@media only screen and (width < 40em) {
+  table thead {
+    display: none;
+  }
+
   table td {
     display: block;
   }
