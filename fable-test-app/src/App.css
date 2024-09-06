@@ -1,1 +1,11 @@
 /* App CSS */
+
+gcds-fieldset {
+  --gcds-fieldset-font-desktop: var(--gcds-label-font-desktop);
+}
+
+@media only screen and (width < 48em) {
+  gcds-fieldset {
+    --gcds-fieldset-font-mobile: var(--gcds-label-font-mobile);
+  }
+}

@@ -8,7 +8,7 @@ import '../node_modules/@cdssnc/gcds-utility/dist/gcds-utility.min.css';
 import '@cdssnc/gcds-components-react/gcds.css';
 
 // App CSS - uncomment to add custom CSS
-// import './App.css'
+import './App.css'
 
 // Components (internal)
 import { Container, Header, Footer } from './components';
