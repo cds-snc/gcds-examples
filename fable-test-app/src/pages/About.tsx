@@ -3,9 +3,6 @@ import React from 'react';
 // Components (internal)
 import { DateModified, Heading, Text } from '../components';
 import { GcdsCard, GcdsGrid } from '@cdssnc/gcds-components-react';
-import docsImage from '../assets/docs.png';
-import figmaImage from '../assets/figma.png';
-import githubImage from '../assets/github.png';
 
 const About: React.FC = () => {
   return (
@@ -27,7 +24,7 @@ const About: React.FC = () => {
           cardTitleTag="h3"
           badge="Design"
           href="https://www.figma.com/design/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?node-id=4-1006&node-type=CANVAS&t=YFNAbrqORUhggvuC-0"
-          img-src={figmaImage}
+          img-src="/figma.png"
           img-alt=""
         />
         <GcdsCard
@@ -36,7 +33,7 @@ const About: React.FC = () => {
           cardTitleTag="h3"
           badge="Guidance"
           href="https://design-system.alpha.canada.ca"
-          img-src={docsImage}
+          img-src="/docs.png"
           img-alt=""
         />
         <GcdsCard
@@ -45,7 +42,7 @@ const About: React.FC = () => {
           cardTitleTag="h3"
           badge="Code"
           href="https://github.com/cds-snc/gcds-components"
-          img-src={githubImage}
+          img-src="github.png"
           img-alt=""
         />
       </GcdsGrid>
