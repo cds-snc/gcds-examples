@@ -1,8 +1,7 @@
 import React from 'react';
 
 // Components (internal)
-import { DateModified, Heading, Text } from '../components';
-import { GcdsCard, GcdsGrid } from '@cdssnc/gcds-components-react';
+import { DateModified, Heading, Text, Card, Grid } from '../components';
 
 const About: React.FC = () => {
   return (
@@ -15,37 +14,37 @@ const About: React.FC = () => {
 
       <Heading tag="h2">Learn more about the GC Design System</Heading>
 
-      <GcdsGrid
+      <Grid
         columnsTablet="1fr 1fr"
       >
-        <GcdsCard
+        <Card
           cardTitle="Figma library"
           description="View all of our styles and components to use in your designs."
           cardTitleTag="h3"
           badge="Design"
           href="https://www.figma.com/design/mh2maMG2NBtk41k1O1UGHV/GC-Design-System?node-id=4-1006&node-type=CANVAS&t=YFNAbrqORUhggvuC-0"
-          img-src="/figma.png"
-          img-alt=""
+          imgSrc="/figma.png"
+          imgAlt=""
         />
-        <GcdsCard
+        <Card
           cardTitle="Documentation site"
           description="View all of our styles and components along with guidance on how to use them."
           cardTitleTag="h3"
           badge="Guidance"
           href="https://design-system.alpha.canada.ca"
-          img-src="/docs.png"
-          img-alt=""
+          imgSrc="/docs.png"
+          imgAlt=""
         />
-        <GcdsCard
+        <Card
           cardTitle="GitHub repo"
           description="View our code in Github for all of our components."
           cardTitleTag="h3"
           badge="Code"
           href="https://github.com/cds-snc/gcds-components"
-          img-src="github.png"
-          img-alt=""
+          imgSrc="github.png"
+          imgAlt=""
         />
-      </GcdsGrid>
+      </Grid>
 
 
       <Heading tag="h2">Special thanks to Paul Craig</Heading>
