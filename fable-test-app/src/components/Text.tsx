@@ -8,7 +8,7 @@ interface TextProps {
   marginBottom?: MarginValue;
   marginTop?: MarginValue;
   size?: "body" | "caption";
-  textRole?: "light" | "primary" | "secdonary";
+  textRole?: "light" | "primary" | "secondary";
 }
 
 const Text: React.FC<TextProps> = React.memo(({

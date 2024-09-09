@@ -6,7 +6,7 @@ interface SelectProps {
   hint: string;
   label: string;
   name: string;
-  onInput: React.ChangeEventHandler;
+  onInput: (e: any) => void;
   selectId: string;
   value: string;
 }

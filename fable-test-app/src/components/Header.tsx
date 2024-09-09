@@ -9,7 +9,7 @@ import {
 } from "@cdssnc/gcds-components-react";
 
 const navLinks = [
-  {href: "/view-holidays", label: "View holidays"},
+  {href: "/view-holidays/nationwide", label: "View holidays"},
   {href: "/about", label: "About"},
   {href: "/submit-a-holiday", label: "Submit a holiday"},
 ];

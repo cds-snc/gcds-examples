@@ -1,20 +1,32 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 // Components (internal)
-import { DateModified, Details, Heading, Select, StyledLink, Text } from '../components';
+import { DateModified, Details, Heading, Select, Text } from '../components';
 import { holidayData } from '../data/holidayData';
 import { formatDate } from '../utils/utils';
+
+// Define the type for the holiday data
+interface Holiday {
+  id: string;
+  date: string;
+  nameEn: string;
+  optional?: boolean;
+}
 
 const ViewHolidays = () => {
   const { provinceId } = useParams<{ provinceId: string }>();
 
   // State variables
-  const [holidays, setHolidays] = useState([]);
+  const [holidays, setHolidays] = useState<Holiday[]>([]);
   const [year, setYear] = useState<string>('2024');
   const [yearsList] = useState<string[]>(['2022', '2023', '2024', '2025', '2026']);
-  const [nextHoliday, setNextHoliday] = useState(null);
+  const [nextHoliday, setNextHoliday] = useState<Holiday | null>(null);
+  const [yearAnnouncement, setYearAnnouncement] = useState<string>('');
+
+  // Ref for aria-live year announcement
+  const yearAnnouncementRef = useRef<HTMLDivElement>(null);
 
   // Find data for current province/territory
   const province = holidayData.find(p => p.id === provinceId);
@@ -30,6 +42,9 @@ const ViewHolidays = () => {
 
           setHolidays(holidaysData);
           setNextHoliday(nextHolidayData || null);
+
+          // Update announcement text with the new year
+          setYearAnnouncement(`Holidays updated to the year ${year}`);
         })
         .catch(error => {
           console.error("There was an error fetching the holidays!", error);
@@ -42,7 +57,7 @@ const ViewHolidays = () => {
   }
 
   // Calculate days until next holiday
-  const calcNextHoliday = (dateString) => {
+  const calcNextHoliday = (dateString: string) => {
     const today = new Date();
     const holidayDate = new Date(dateString);
 
@@ -50,6 +65,11 @@ const ViewHolidays = () => {
   };
 
   const daysToNextHoliday = nextHoliday ? calcNextHoliday(nextHoliday.date) : null;
+
+  // Update the selected year
+  const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setYear(e.target.value);
+  };
 
   return (
     <section>
@@ -61,7 +81,7 @@ const ViewHolidays = () => {
         hint="Select the year of holidays you want to view."
         name="province-year"
         value={year}
-        onInput={(e) => setYear(e.target.value)}
+        onInput={handleYearChange}
       >
         {yearsList.map(yearOption => (
           <option key={yearOption} value={yearOption}>
@@ -119,15 +139,20 @@ const ViewHolidays = () => {
 
       {provinceId === 'federal' ? (
         <Details detailsTitle="What are federal holidays?" open>
-          <Text marginBottom="0">If your job is regulated by the federal government, you get federal holidays instead of the provincial holidays. Find out more about <StyledLink to="/federal-and-provincial-holidays">who gets federal holidays.</StyledLink>.</Text>
+          <Text marginBottom="0">If your job is regulated by the federal government, you get federal holidays instead of the provincial holidays. Find out more about <Link className="link-default" to="/federal-and-provincial-holidays">who gets federal holidays</Link>.</Text>
         </Details>
       ) : (
         <Details detailsTitle="What are optional holidays?" open>
-          <Text marginBottom="0">Optional holidays are commonly observed but not legally mandated. Businesses may choose to opt-in to optional holidays but they don't have to. Find out more about <StyledLink to="/optional-holidays">optional holidays</StyledLink>.</Text>
+          <Text marginBottom="0">Optional holidays are commonly observed but not legally mandated. Businesses may choose to opt-in to optional holidays but they don't have to. Find out more about <Link className="link-default" to="/optional-holidays">optional holidays</Link>.</Text>
         </Details>
       )}
 
       <DateModified>2024-08-28</DateModified>
+
+      {/* Hidden aria-live region for announcing year updates */}
+      <p ref={yearAnnouncementRef} aria-live="polite" className="sr-only">
+        {yearAnnouncement}
+      </p>
     </section>
   );
 };

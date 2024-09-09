@@ -1,32 +1,53 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 // Components (internal)
 import { DateModified, Heading, Select } from '../components';
 import { formatDate } from '../utils/utils';
 
+// Define the types
+interface Holiday {
+  date: string;
+  nameEn: string;
+  provinces: { id: string }[];
+  federal: boolean;
+}
+
+interface MappedHoliday {
+  date: string;
+  name: string;
+  location: string;
+}
+
 const ViewHolidaysNation = () => {
   // State variables
-  const [holidays, setHolidays] = useState([]);
+  const [holidays, setHolidays] = useState<MappedHoliday[]>([]);
   const [year, setYear] = useState<string>('2024');
   const [yearsList] = useState<string[]>(['2022', '2023', '2024', '2025', '2026']);
+  const [yearAnnouncement, setYearAnnouncement] = useState<string>('');
+
+  // Ref for aria-live year announcement
+  const yearAnnouncementRef = useRef<HTMLDivElement>(null);
 
   // Find data for current year
   useEffect(() => {
     const endpointForYear = `https://canada-holidays.ca/api/v1/holidays?year=${year}`;
 
-    axios.get(endpointForYear)
+    axios.get<{ holidays: Holiday[] }>(endpointForYear)
       .then(({ data }) => {
         const formattedHolidays = mapHolidayData(data.holidays);
         setHolidays(formattedHolidays);
+
+        // Update announcement text with the new year
+        setYearAnnouncement(`Holidays updated to the year ${year}`);
       })
       .catch(error => {
         console.error("There was an error fetching the holidays!", error);
       });
   }, [year]);
 
-  const mapHolidayData = (holidays) => {
-    const holidayMap = new Map();
+  const mapHolidayData = (holidays: Holiday[]): MappedHoliday[] => {
+    const holidayMap = new Map<string, { nameEn: string; provinces: string[]; federal: boolean }[]>();
 
     holidays.forEach(holiday => {
       const { date, nameEn, provinces, federal } = holiday;
@@ -35,12 +56,12 @@ const ViewHolidaysNation = () => {
         holidayMap.set(date, []);
       }
 
-      const existingHoliday = holidayMap.get(date).find(h => h.nameEn === nameEn);
+      const existingHoliday = holidayMap.get(date)?.find(h => h.nameEn === nameEn);
 
       if (existingHoliday) {
         existingHoliday.provinces.push(...provinces.map(p => p.id));
       } else {
-        holidayMap.get(date).push({
+        holidayMap.get(date)?.push({
           nameEn,
           provinces: provinces.map(p => p.id),
           federal
@@ -59,7 +80,7 @@ const ViewHolidaysNation = () => {
 
   // Format location to display National, Federal, or provinces
   // Rename PE to P.E.I.
-  const formatLocation = (provinces, federal) => {
+  const formatLocation = (provinces: string[], federal: boolean): string => {
     if (provinces.length === 13) {
       return 'National';
     }
@@ -75,6 +96,11 @@ const ViewHolidaysNation = () => {
     return location || 'None';
   };
 
+  // Update the selected year
+  const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setYear(e.target.value);
+  };
+
   return (
     <section>
       <Heading tag="h1">Nationwide holidays</Heading>
@@ -85,7 +111,7 @@ const ViewHolidaysNation = () => {
         hint="Select the year of holidays you want to view."
         name="nationwide-year"
         value={year}
-        onInput={(e) => setYear(e.target.value)}
+        onInput={handleYearChange}
       >
         {yearsList.map(yearOption => (
           <option key={yearOption} value={yearOption}>
@@ -124,6 +150,11 @@ const ViewHolidaysNation = () => {
       </table>
 
       <DateModified>2024-08-28</DateModified>
+
+      {/* Hidden aria-live region for announcing year updates */}
+      <p ref={yearAnnouncementRef} aria-live="polite" className="sr-only">
+        {yearAnnouncement}
+      </p>
     </section>
   );
 };
