@@ -38,18 +38,16 @@ const navLinks = [
 
 const SideNav: React.FC = () => {
   const { pathname } = useLocation();
-  // const isCurrentPath = (href: string): boolean => href === pathname;
   const isCurrentPath = (href: string) => href === pathname;
 
   return (
     <GcdsSideNav label="Canada holidays" className="lg:bg-light">
       {navLinks.map((group, index) => (
-        <GcdsNavGroup key={index} openTrigger={group.groupLabel} menuLabel={group.groupLabel}>
+        <GcdsNavGroup key={index} openTrigger={group.groupLabel} menuLabel={group.groupLabel} open>
           {group.links.map((item) => (
             <GcdsNavLink
               href={item.href}
               key={item.href}
-              // current={isCurrentPath(item.href) ? true : undefined}
               current={isCurrentPath(item.href)}
             >
               {item.label}
