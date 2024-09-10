@@ -26,7 +26,7 @@ const NextHoliday: React.FC<NextHolidayProps> = ({
   const daysToNextHoliday = nextHoliday ? calcNextHoliday(nextHoliday.date) : null;
 
   if (!nextHoliday) {
-    return <p>Next holiday not found.</p>;
+    return null;
   }
 
   return display === 'banner' ? (

@@ -7,11 +7,14 @@ import '../node_modules/@cdssnc/gcds-utility/dist/gcds-utility.min.css';
 // GCDS Components
 import '@cdssnc/gcds-components-react/gcds.css';
 
+// TODO: Update with internal component
+import { GcdsGrid } from "@cdssnc/gcds-components-react";
+
 // App CSS - uncomment to add custom CSS
 import './App.css'
 
 // Components (internal)
-import { Container, Header, Footer } from './components';
+import { Container, Header, Footer, SideNav } from './components';
 
 // Pages
 import {
@@ -30,18 +33,21 @@ const App: React.FC = () => {
     <Router>
       <Header />
       <Container id="main-content" size="xl" tag="main" mainContainer centered>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/federal-and-provincial-holidays" element={<FederalAndProvincialHolidays />} />
-          <Route path="/submit-a-holiday" element={<SubmitHoliday />} />
-          <Route path="/optional-holidays" element={<OptionalHolidays />} />
-          <Route path="/view-holidays/:provinceId" element={<ViewHolidays />} />
-          <Route path="/view-holidays/nationwide" element={<ViewHolidaysNationwide />} />
+        <GcdsGrid columnsDesktop="320px 1fr" columns="1fr">
+          <SideNav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/federal-and-provincial-holidays" element={<FederalAndProvincialHolidays />} />
+            <Route path="/optional-holidays" element={<OptionalHolidays />} />
+            <Route path="/submit-a-holiday" element={<SubmitHoliday />} />
+            <Route path="/view-holidays/:provinceId" element={<ViewHolidays />} />
+            <Route path="/view-holidays/nationwide" element={<ViewHolidaysNationwide />} />
 
-          {/* Catch-all route for 404 */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+            {/* Catch-all route for 404 */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </GcdsGrid>
       </Container>
       <Footer />
     </Router>

@@ -9,4 +9,5 @@ export { default as Header } from './Header';
 export { default as Heading } from './Heading';
 export { default as NextHoliday } from './NextHoliday';
 export { default as Select } from './Select';
+export { default as SideNav } from './SideNav';
 export { default as Text } from './Text';
