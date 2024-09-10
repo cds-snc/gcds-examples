@@ -37,12 +37,7 @@ describe('Header', () => {
 
   it('has navlinks', () => {
     const wrapper = shallowMount(Header, mountOptions)
-    console.log('TESTTTTT')
-    console.log(wrapper.find('div[slot=toggle]').html())
-    console.log('TEST!')
     expect(wrapper.find('gcds-nav-link[href="/en/"]').exists()).toBe(true)
-
-    // // expect(wrapper.find('gcds-breadcrumbs-item[href="/about"]').exists()).toBe(true)
 
     const headerBreadcrumbs = wrapper.findComponent(HeaderBreadcrumbs)
     expect(headerBreadcrumbs.exists()).toBe(true)
