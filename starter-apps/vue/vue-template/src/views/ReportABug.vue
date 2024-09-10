@@ -4,6 +4,11 @@ import { useI18n } from 'vue-i18n'
 import { ref } from 'vue'
 import { useFormStore } from '@/stores/formStore'
 import { reportABugKey } from '@/utils/refresh.js'
+import Heading from '@/components/Heading.vue'
+import Text from '@/components/Text.vue'
+import Input from '@/components/forms/Input.vue'
+import TextArea from '@/components/forms/TextArea.vue'
+import Button from '@/components/forms/Button.vue'
 
 const { t } = useI18n()
 
@@ -77,8 +82,8 @@ const githubIssueURL = () => {
 <template>
   <div>
     <section>
-      <gcds-heading class="mb-400" tag="h1">{{ t('reportABugPage.heading') }}</gcds-heading>
-      <gcds-text>{{ t('reportABugPage.intro') }}</gcds-text>
+      <Heading class="mb-400" tag="h1">{{ t('reportABugPage.heading') }}</Heading>
+      <Text>{{ t('reportABugPage.intro') }}</Text>
     </section>
     <form
       v-if="!submitted"
@@ -88,67 +93,67 @@ const githubIssueURL = () => {
       @gcdsValid="handleValid"
       @submit.prevent="handleSubmit"
     >
-      <gcds-input
+      <Input
+        :id="formElements.version"
         v-model="formData.version"
-        :input-id="formElements.version"
         :label="t('reportABugPage.form.versionNumber')"
         :name="formElements.version"
         required
-      ></gcds-input>
-      <gcds-input
+      ></Input>
+      <Input
+        :id="formElements.title"
         v-model="formData.title"
-        :input-id="formElements.title"
         :label="t('reportABugPage.form.title')"
         :name="formElements.title"
         :placeholder="t('reportABugPage.form.titlePlaceholder')"
         required
-      ></gcds-input>
-      <gcds-textarea
+      ></Input>
+      <TextArea
+        :id="formElements.currentBehavior"
         v-model="formData.currentBehavior"
         :label="t('reportABugPage.form.currentBehavior')"
         :name="formElements.currentBehavior"
-        :textarea-id="formElements.currentBehavior"
-      ></gcds-textarea>
-      <gcds-textarea
+      ></TextArea>
+      <TextArea
+        :id="formElements.expectedBehavior"
         v-model="formData.expectedBehavior"
         :label="t('reportABugPage.form.expectedBehavior')"
         :name="formElements.expectedBehavior"
-        :textarea-id="formElements.expectedBehavior"
         required
-      ></gcds-textarea>
-      <gcds-textarea
+      ></TextArea>
+      <TextArea
+        :id="formElements.systemInfo"
         v-model="formData.systemInfo"
         :label="t('reportABugPage.form.systemInfo')"
         :name="formElements.systemInfo"
-        :textarea-id="formElements.systemInfo"
         required
-      ></gcds-textarea>
-      <gcds-textarea
+      ></TextArea>
+      <TextArea
+        :id="formElements.stepsToReproduce"
         v-model="formData.stepsToReproduce"
         :label="t('reportABugPage.form.stepsToReproduce')"
         :name="formElements.stepsToReproduce"
-        :textarea-id="formElements.stepsToReproduce"
         required
-      ></gcds-textarea>
-      <gcds-input
+      ></TextArea>
+      <Input
+        :id="formElements.codeReproductionUrl"
         v-model="formData.codeReproductionUrl"
-        :input-id="formElements.codeReproductionUrl"
         :label="t('reportABugPage.form.codeReproductionURL')"
         :name="formElements.codeReproductionUrl"
         required
         type="url"
-      ></gcds-input>
-      <gcds-textarea
+      ></Input>
+      <TextArea
+        :id="formElements.additionalInfo"
         v-model="formData.additionalInfo"
         :label="t('reportABugPage.form.additionalInformation')"
         :name="formElements.additionalInfo"
-        :textarea-id="formElements.additionalInfo"
-      ></gcds-textarea>
-      <gcds-button type="submit">{{ t('reportABugPage.form.submit') }}</gcds-button>
+      ></TextArea>
+      <Button type="submit">{{ t('reportABugPage.form.submit') }}</Button>
     </form>
 
     <div v-if="submitted">
-      <h2>{{ t('reportABugPage.form.confirmation') }}</h2>
+      <Heading tag="h2">{{ t('reportABugPage.form.confirmation') }}</Heading>
       <p>
         <strong>{{ t('reportABugPage.form.versionNumber') }}:</strong> {{ formData.version }}
       </p>
@@ -179,10 +184,10 @@ const githubIssueURL = () => {
         {{ formData.additionalInfo }}
       </p>
       <section>
-        <gcds-heading tag="h2">{{ t('reportABugPage.openGithub') }}</gcds-heading>
-        <gcds-button :href="githubIssueURL()" target="_blank" type="link">{{
+        <Heading tag="h2">{{ t('reportABugPage.openGithub') }}</Heading>
+        <Button :href="githubIssueURL()" target="_blank" type="link">{{
           t('reportABugPage.openGithubButton')
-        }}</gcds-button>
+        }}</Button>
       </section>
     </div>
   </div>

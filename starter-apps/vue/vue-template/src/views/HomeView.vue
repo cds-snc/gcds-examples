@@ -1,21 +1,23 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
+import Heading from '@/components/Heading.vue'
+import Text from '@/components/Text.vue'
 
 const { t } = useI18n()
 </script>
 <template>
   <div>
     <section>
-      <gcds-heading class="mb-400" tag="h1">{{ t('homePage.heading') }}</gcds-heading>
-      <gcds-text>
+      <Heading class="mb-400" tag="h1">{{ t('homePage.heading') }}</Heading>
+      <Text>
         {{ t('homePage.paragraph') }}
-      </gcds-text>
-      <gcds-text>
+      </Text>
+      <Text>
         {{ t('homePage.paragraph2') }}
-      </gcds-text>
-      <gcds-text>
+      </Text>
+      <Text>
         {{ t('homePage.paragraph3') }}
-      </gcds-text>
+      </Text>
     </section>
   </div>
 </template>

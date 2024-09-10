@@ -2,15 +2,17 @@
 import AppLink from '@/components/AppLink.vue'
 import { getLocalizedPath } from '@/router'
 import { useI18n } from 'vue-i18n'
+import Text from '@/components/Text.vue'
+import Heading from '@/components/Heading.vue'
 
 const { t } = useI18n()
 </script>
 <template>
   <div class="about">
-    <gcds-heading class="mb-400" tag="h1">{{ t('aboutPage.heading') }}</gcds-heading>
-    <gcds-text>
+    <Heading class="mb-400" tag="h1">{{ t('aboutPage.heading') }}</Heading>
+    <Text>
       {{ t('aboutPage.intro') }}
-    </gcds-text>
+    </Text>
     <section>
       <AppLink :to="getLocalizedPath('about/about1')">{{ t('aboutPage.about1.heading') }}</AppLink>
     </section>

@@ -2,6 +2,8 @@
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { watch } from 'vue'
+import Heading from '@/components/Heading.vue'
+import Text from '@/components/Text.vue'
 
 const { t, locale } = useI18n()
 const route = useRoute()
@@ -18,9 +20,9 @@ watch(
 </script>
 <template>
   <div class="not-found">
-    <gcds-heading class="mb-400" tag="h1">{{ t('notFoundPage.heading') }}</gcds-heading>
-    <gcds-text>
+    <Heading class="mb-400" tag="h1">{{ t('notFoundPage.heading') }}</Heading>
+    <Text>
       {{ t('notFoundPage.intro') }}
-    </gcds-text>
+    </Text>
   </div>
 </template>
