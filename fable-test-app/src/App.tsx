@@ -8,18 +8,21 @@ import '../node_modules/@cdssnc/gcds-utility/dist/gcds-utility.min.css';
 import '@cdssnc/gcds-components-react/gcds.css';
 
 // App CSS - uncomment to add custom CSS
-// import './App.css'
+import './App.css'
 
 // Components (internal)
-import { Container, Header, Footer } from './components';
+import { Container, Footer, Grid, Header, SideNav } from './components';
 
 // Pages
 import {
   About,
+  FederalAndProvincialHolidays,
   Home,
   NotFound,
+  OptionalHolidays,
   SubmitHoliday,
-  ViewHolidays
+  ViewHolidays,
+  ViewHolidaysNationwide
 } from './pages';
 
 const App: React.FC = () => {
@@ -27,14 +30,21 @@ const App: React.FC = () => {
     <Router>
       <Header />
       <Container id="main-content" size="xl" tag="main" mainContainer centered>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/submit-a-holiday" element={<SubmitHoliday />} />
-          <Route path="/view-holidays" element={<ViewHolidays />} />
-          {/* Catch-all route for 404 */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Grid columnsDesktop="320px 1fr" columns="1fr">
+          <SideNav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/federal-and-provincial-holidays" element={<FederalAndProvincialHolidays />} />
+            <Route path="/optional-holidays" element={<OptionalHolidays />} />
+            <Route path="/submit-a-holiday" element={<SubmitHoliday />} />
+            <Route path="/view-holidays/:provinceId" element={<ViewHolidays />} />
+            <Route path="/view-holidays/nationwide" element={<ViewHolidaysNationwide />} />
+
+            {/* Catch-all route for 404 */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Grid>
       </Container>
       <Footer />
     </Router>
