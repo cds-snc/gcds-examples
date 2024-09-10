@@ -154,35 +154,35 @@ const githubIssueURL = () => {
 
     <div v-if="submitted">
       <Heading tag="h2">{{ t('reportABugPage.form.confirmation') }}</Heading>
-      <p>
+      <Text>
         <strong>{{ t('reportABugPage.form.versionNumber') }}:</strong> {{ formData.version }}
-      </p>
-      <p>
+      </Text>
+      <Text>
         <strong>{{ t('reportABugPage.form.title') }}:</strong> {{ formData.title }}
-      </p>
-      <p>
+      </Text>
+      <Text>
         <strong>{{ t('reportABugPage.form.currentBehavior') }}:</strong>
         {{ formData.currentBehavior }}
-      </p>
-      <p>
+      </Text>
+      <Text>
         <strong>{{ t('reportABugPage.form.expectedBehavior') }}:</strong>
         {{ formData.expectedBehavior }}
-      </p>
-      <p>
+      </Text>
+      <Text>
         <strong>{{ t('reportABugPage.form.systemInfo') }}:</strong> {{ formData.systemInfo }}
-      </p>
-      <p>
+      </Text>
+      <Text>
         <strong>{{ t('reportABugPage.form.stepsToReproduce') }}:</strong>
         {{ formData.stepsToReproduce }}
-      </p>
-      <p>
+      </Text>
+      <Text>
         <strong>{{ t('reportABugPage.form.codeReproductionURL') }}:</strong>
         {{ formData.codeReproductionUrl }}
-      </p>
-      <p>
+      </Text>
+      <Text>
         <strong>{{ t('reportABugPage.form.additionalInformation') }}:</strong>
         {{ formData.additionalInfo }}
-      </p>
+      </Text>
       <section>
         <Heading tag="h2">{{ t('reportABugPage.openGithub') }}</Heading>
         <Button :href="githubIssueURL()" target="_blank" type="link">{{
