@@ -3,7 +3,8 @@ import axios from 'axios';
 
 // Components (internal)
 import { DateModified, Heading, Select } from '../components';
-import { formatDate } from '../utils/utils';
+import { formatDate, generateYearsList } from '../utils/utils';
+import { API_BASE_URL } from '../utils/constants';
 
 // Define the types
 interface Holiday {
@@ -19,11 +20,14 @@ interface MappedHoliday {
   location: string;
 }
 
-const ViewHolidaysNation = () => {
+const ViewHolidaysNationwide = () => {
+  // Get the current year and calculate the year range
+  const currentYear = new Date().getFullYear();
+  const yearsList = generateYearsList(3);
+
   // State variables
   const [holidays, setHolidays] = useState<MappedHoliday[]>([]);
-  const [year, setYear] = useState<string>('2024');
-  const [yearsList] = useState<string[]>(['2022', '2023', '2024', '2025', '2026']);
+  const [year, setYear] = useState<string>(currentYear.toString())
   const [yearAnnouncement, setYearAnnouncement] = useState<string>('');
 
   // Ref for aria-live year announcement
@@ -31,7 +35,7 @@ const ViewHolidaysNation = () => {
 
   // Find data for current year
   useEffect(() => {
-    const endpointForYear = `https://canada-holidays.ca/api/v1/holidays?year=${year}`;
+    const endpointForYear = `${API_BASE_URL}holidays?year=${year}`;
 
     axios.get<{ holidays: Holiday[] }>(endpointForYear)
       .then(({ data }) => {
@@ -159,4 +163,4 @@ const ViewHolidaysNation = () => {
   );
 };
 
-export default ViewHolidaysNation;
+export default ViewHolidaysNationwide;

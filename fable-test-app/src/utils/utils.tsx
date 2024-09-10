@@ -14,3 +14,9 @@ export const formatDate = (dateString: string): string => {
 
   return `${month} ${day}, ${weekday}`;
 };
+
+// Generates an array of year strings for a given range around the current year
+export const generateYearsList = (range: number): string[] => {
+  const currentYear = new Date().getFullYear();
+  return Array.from({ length: range * 2 + 1 }, (_, i) => (currentYear - range + i).toString());
+};

@@ -3,9 +3,10 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 // Components (internal)
-import { DateModified, Details, Heading, Select, Text } from '../components';
+import { DateModified, Details, Heading, NextHoliday, Select, Text } from '../components';
 import { holidayData } from '../data/holidayData';
-import { formatDate } from '../utils/utils';
+import { formatDate, generateYearsList } from '../utils/utils';
+import { API_BASE_URL } from '../utils/constants';
 
 // Define the type for the holiday data
 interface Holiday {
@@ -18,10 +19,13 @@ interface Holiday {
 const ViewHolidays = () => {
   const { provinceId } = useParams<{ provinceId: string }>();
 
+  // Get the current year and calculate the year range
+  const currentYear = new Date().getFullYear();
+  const yearsList = generateYearsList(3);
+
   // State variables
   const [holidays, setHolidays] = useState<Holiday[]>([]);
-  const [year, setYear] = useState<string>('2024');
-  const [yearsList] = useState<string[]>(['2022', '2023', '2024', '2025', '2026']);
+  const [year, setYear] = useState<string>(currentYear.toString());
   const [nextHoliday, setNextHoliday] = useState<Holiday | null>(null);
   const [yearAnnouncement, setYearAnnouncement] = useState<string>('');
 
@@ -33,7 +37,7 @@ const ViewHolidays = () => {
 
   useEffect(() => {
     if (province) {
-      const endpointForYear = `${province.endpoint}&year=${year}`;
+      const endpointForYear = `${API_BASE_URL}${province.endpoint}&year=${year}`;
 
       axios.get(endpointForYear)
         .then(({ data }) => {
@@ -52,24 +56,14 @@ const ViewHolidays = () => {
     }
   }, [province, year, provinceId]);
 
-  if (!province) {
-    return <p>Province or territory not found.</p>;
-  }
-
-  // Calculate days until next holiday
-  const calcNextHoliday = (dateString: string) => {
-    const today = new Date();
-    const holidayDate = new Date(dateString);
-
-    return Math.floor((holidayDate.getTime() - today.getTime()) / (1000 * 3600 * 24));
-  };
-
-  const daysToNextHoliday = nextHoliday ? calcNextHoliday(nextHoliday.date) : null;
-
   // Update the selected year
   const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setYear(e.target.value);
   };
+
+  if (!province) {
+    return <p>Province or territory not found.</p>;
+  }
 
   return (
     <section>
@@ -90,18 +84,7 @@ const ViewHolidays = () => {
         ))}
       </Select>
 
-      {nextHoliday && (
-        <div className="d-flex bg-primary md:align-items-center align-items-start text-light mb-450 md:px-450 px-250 py-200">
-          <img
-            className="d-inline-block me-400"
-            src="/icons/icon-calendar.svg"
-            alt="Calendar icon with a clock in the bottom right corner."
-          />
-          <Text textRole="light" marginBottom="0">
-            <strong>Next holiday is {nextHoliday.nameEn} — that's {daysToNextHoliday} days away</strong>
-          </Text>
-        </div>
-      )}
+      <NextHoliday nextHoliday={nextHoliday} />
 
       <table className="mb-450">
         <thead>
@@ -119,13 +102,11 @@ const ViewHolidays = () => {
             <tr key={holiday.id} className="bb-sm b-default">
               <td className="sm:pe-400 pe-0 sm:py-300 py-200">
                 <span className="d-flex align-items-center">
-                  {nextHoliday && holiday.id === nextHoliday.id ? (
-                    <img
-                      className="d-inline-block me-150"
-                      src="/icons/icon-calendar.svg"
-                      alt="Calendar icon with a clock in the bottom right corner."
-                    />
-                  ) : null}
+                  <NextHoliday
+                    display="table"
+                    nextHoliday={nextHoliday}
+                    isCurrentHoliday={nextHoliday && holiday.id === nextHoliday.id ? true : false}
+                  />
                   <strong>{formatDate(holiday.date)}</strong>
                 </span>
               </td>

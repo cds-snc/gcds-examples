@@ -5,4 +5,4 @@ export { default as NotFound } from './NotFound';
 export { default as OptionalHolidays } from './OptionalHolidays';
 export { default as SubmitHoliday } from './SubmitHoliday';
 export { default as ViewHolidays } from './ViewHolidays';
-export { default as ViewHolidaysNation } from './ViewHolidaysNation';
+export { default as ViewHolidaysNationwide } from './ViewHolidaysNationwide';

@@ -22,7 +22,7 @@ import {
   OptionalHolidays,
   SubmitHoliday,
   ViewHolidays,
-  ViewHolidaysNation
+  ViewHolidaysNationwide
 } from './pages';
 
 const App: React.FC = () => {
@@ -37,7 +37,7 @@ const App: React.FC = () => {
           <Route path="/submit-a-holiday" element={<SubmitHoliday />} />
           <Route path="/optional-holidays" element={<OptionalHolidays />} />
           <Route path="/view-holidays/:provinceId" element={<ViewHolidays />} />
-          <Route path="/view-holidays/nationwide" element={<ViewHolidaysNation />} />
+          <Route path="/view-holidays/nationwide" element={<ViewHolidaysNationwide />} />
 
           {/* Catch-all route for 404 */}
           <Route path="*" element={<NotFound />} />
