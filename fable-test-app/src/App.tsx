@@ -7,14 +7,11 @@ import '../node_modules/@cdssnc/gcds-utility/dist/gcds-utility.min.css';
 // GCDS Components
 import '@cdssnc/gcds-components-react/gcds.css';
 
-// TODO: Update with internal component
-import { GcdsGrid } from "@cdssnc/gcds-components-react";
-
 // App CSS - uncomment to add custom CSS
 import './App.css'
 
 // Components (internal)
-import { Container, Header, Footer, SideNav } from './components';
+import { Container, Footer, Grid, Header, SideNav } from './components';
 
 // Pages
 import {
@@ -33,7 +30,7 @@ const App: React.FC = () => {
     <Router>
       <Header />
       <Container id="main-content" size="xl" tag="main" mainContainer centered>
-        <GcdsGrid columnsDesktop="320px 1fr" columns="1fr">
+        <Grid columnsDesktop="320px 1fr" columns="1fr">
           <SideNav />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -47,7 +44,7 @@ const App: React.FC = () => {
             {/* Catch-all route for 404 */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </GcdsGrid>
+        </Grid>
       </Container>
       <Footer />
     </Router>
