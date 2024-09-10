@@ -1,6 +1,6 @@
 import { forwardRef, useEffect } from 'react';
 
-import { GcdsButton } from '@cdssnc/gcds-components-react';
+import { Button } from '../../components';
 
 const Success = forwardRef<HTMLGcdsStepperElement>((_, heading) => {
 
@@ -24,21 +24,22 @@ const Success = forwardRef<HTMLGcdsStepperElement>((_, heading) => {
         </Text>
       </GcdsNotice> */}
 
-      <GcdsButton
+      <Button
         buttonRole="secondary"
         className="me-500"
         type="link"
         href="/"
       >
         Back to homepage
-      </GcdsButton>
+      </Button>
       
-      <GcdsButton
+      <Button
         type="link"
+        buttonRole="primary"
         href="/submit-a-holiday"
       >
         Submit another holiday
-      </GcdsButton>
+      </Button>
     </>
   );
 });

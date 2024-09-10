@@ -13,16 +13,16 @@ import {
 const SubmitHoliday: React.FC = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
-    holidayname: '',
-    newholiday: '',
-    holidaydate: '',
-    learnofholiday: '',
-    holidaytype: {
+    holidayName: '',
+    newHoliday: '',
+    holidayDate: '',
+    learnOfHoliday: '',
+    holidayType: {
       federal: false,
       national: false,
       other: false
     },
-    otherholiday: '',
+    otherHoliday: '',
     province: '',
     image: null,
     fullname: '',
@@ -35,10 +35,10 @@ const SubmitHoliday: React.FC = () => {
   // Handle form inputs to set into state
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
-    if (name === "newholiday") {
+    if (name === "newHoliday") {
       setFormData({...formData, [name]: e.detail});
-    } else if (name === "holidaytype") {
-      let type = formData.holidaytype;
+    } else if (name === "holidayType") {
+      let type = formData.holidayType;
       setFormData({...formData, [name]: { ...type, [value]: !type[value as keyof typeof type] }});
     } else {
       setFormData({...formData, [name]: value});
@@ -86,7 +86,7 @@ const SubmitHoliday: React.FC = () => {
           }, 50);
         }}
       >
-        {step < 2 ?
+        {step === 1 ?
           <StepOne
             formdata={formData}
             focusHeading={focusHeading}

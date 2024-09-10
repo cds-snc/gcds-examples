@@ -1,13 +1,7 @@
 import { forwardRef, useEffect } from 'react';
-import { Text } from '../../components';
+import { Text, Button, Input, Stepper } from '../../components';
 
-import {
-  GcdsButton,
-  GcdsInput,
-  GcdsStepper,
-  GcdsErrorSummary
-}
-from '@cdssnc/gcds-components-react';
+import { GcdsErrorSummary } from '@cdssnc/gcds-components-react';
 
 interface StepOneProps {
   formdata: {
@@ -32,7 +26,7 @@ const StepTwo = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
 
   return (
     <>
-    <GcdsStepper
+    <Stepper
       tag="h2"
       currentStep={2}
       totalSteps={2}
@@ -40,7 +34,7 @@ const StepTwo = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
       tabIndex={-1}
     >
       Contact information
-    </GcdsStepper>
+    </Stepper>
 
     <Text>
       We may want to contact you if we need any more information, or to let you know that we"ve successfully added your holiday to our app!
@@ -48,7 +42,7 @@ const StepTwo = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
 
     <GcdsErrorSummary listen />
 
-    <GcdsInput
+    <Input
       inputId="fullname"
       label="First and last name"
       name="fullname"
@@ -58,7 +52,7 @@ const StepTwo = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
       value={formdata.fullname}
       onInput={handleInputChange}
     />
-    <GcdsInput
+    <Input
       inputId="email"
       label="Email address"
       name="email"
@@ -69,19 +63,21 @@ const StepTwo = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
       onInput={handleInputChange}
     />
 
-    <GcdsButton
+    <Button
       buttonRole="secondary"
       className="me-500"
       onGcdsClick={previousStep}
+      type="button"
     >
       Previous step
-    </GcdsButton>
+    </Button>
 
-    <GcdsButton
+    <Button
       type="submit"
+      buttonRole="primary"
     >
       Next step
-    </GcdsButton>
+    </Button>
   </>
   );
 });

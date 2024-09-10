@@ -1,35 +1,34 @@
 import { forwardRef, useEffect } from 'react';
-import { Text } from '../../components';
-
 import {
-  GcdsButton,
-  GcdsDateInput,
-  GcdsFieldset,
-  GcdsInput,
-  GcdsRadioGroup,
-  GcdsStepper,
-  GcdsTextarea,
-  GcdsCheckbox,
-  GcdsDetails,
-  GcdsSelect,
-  GcdsFileUploader,
-  GcdsLink,
-  GcdsErrorSummary
-}
-from '@cdssnc/gcds-components-react';
+  Text,
+  Select,
+  Details,
+  Button,
+  Input,
+  DateInput,
+  Textarea,
+  Fieldset,
+  FileUploader,
+  Checkbox,
+  RadioGroup,
+  Stepper
+} from '../../components';
+import { provinces } from '../../utils/constants';
+
+import { GcdsLink, GcdsErrorSummary } from '@cdssnc/gcds-components-react';
 
 interface StepOneProps {
   formdata: {
-    holidayname: string,
-    newholiday: string,
-    holidaydate: string,
-    learnofholiday: string,
-    holidaytype: {
+    holidayName: string,
+    newHoliday: string,
+    holidayDate: string,
+    learnOfHoliday: string,
+    holidayType: {
       federal: boolean,
       national: boolean,
       other: boolean
     },
-    otherholiday: string,
+    otherHoliday: string,
     province: string,
     image: string[] | null,
   };
@@ -42,26 +41,10 @@ const StepOne = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
   const { formdata, handleInputChange, focusHeading } = props;
 
   const newHolidayOptions = [
-    { "label": "Yes", "id": "radio1", "value": "yes", "checked": formdata.newholiday === "yes"},
-    { "label": "No", "id": "radio2", "value": "no", "checked": formdata.newholiday === "no"},
-    { "label": "Not sure", "id": "radio3", "value": "notsure", "checked": formdata.newholiday === "notsure"}
+    { "label": "Yes", "id": "radio1", "value": "yes", "checked": formdata.newHoliday === "yes"},
+    { "label": "No", "id": "radio2", "value": "no", "checked": formdata.newHoliday === "no"},
+    { "label": "Not sure", "id": "radio3", "value": "notsure", "checked": formdata.newHoliday === "notsure"}
   ];
-
-  const provinces: any = {
-    AB: "Alberta",
-    BC: "British Columbia",
-    MB: "Manitoba",
-    NB: "New Brunswick",
-    NL: "Newfoundland and Labrador",
-    NS: "Nova Scotia",
-    NT: "Northwest Territories",
-    NU: "Nunavut",
-    ON: "Ontario",
-    PE: "Prince Edward Island",
-    QC: "Québec",
-    SK: "Saskatchewan",
-    YT: "Yukon"
-  };
 
   useEffect(() => {
     // only focus the stepper heading when returning from step 2
@@ -74,7 +57,7 @@ const StepOne = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
 
   return (
     <>
-      <GcdsStepper
+      <Stepper
         tag="h2"
         currentStep={1}
         totalSteps={2}
@@ -82,69 +65,69 @@ const StepOne = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
         tabIndex={-1}
       >
         About this holiday
-      </GcdsStepper>
+      </Stepper>
 
       <GcdsErrorSummary listen />
 
-      <GcdsFieldset
+      <Fieldset
         legend="General holiday information"
         fieldsetId="holdayInformation"
       >
-        <GcdsInput
-          inputId="holidayname"
+        <Input
+          inputId="holidayName"
           label="Name of holiday"
-          name="holidayname"
+          name="holidayName"
           required
           size={20}
           className="mt-400 mb-300"
           validateOn="submit"
-          value={formdata.holidayname}
+          value={formdata.holidayName}
           onInput={handleInputChange}
         />
 
-        <GcdsFieldset
+        <Fieldset
           legend="Is this a new holiday (created within the past year)?"
           fieldsetId="newHoliday"
           className="mb-300"
           validateOn="submit"
           required
         >
-          <GcdsRadioGroup
-            name="newholiday"
+          <RadioGroup
+            name="newHoliday"
             options={newHolidayOptions}
             onGcdsChange={handleInputChange}
           >
-          </GcdsRadioGroup>
-        </GcdsFieldset>
+          </RadioGroup>
+        </Fieldset>
 
-        <GcdsDateInput
+        <DateInput
           legend="When will this holiday occur?"
           hint="Choose the month, then enter the day and year."
-          name="holidaydate"
+          name="holidayDate"
           format="full"
           validateOn="submit"
           className="mb-300"
           required
-          value={formdata.holidaydate}
+          value={formdata.holidayDate}
           onInput={handleInputChange}
         >
-        </GcdsDateInput>
+        </DateInput>
 
-        <GcdsTextarea
+        <Textarea
           label="How did you learn of this holiday?"
           textareaId="textarea"
-          name="learnofholiday"
-          value={formdata.learnofholiday}
+          name="learnOfHoliday"
+          value={formdata.learnOfHoliday}
           onInput={handleInputChange}
         />
-      </GcdsFieldset>
+      </Fieldset>
 
-      <GcdsFieldset
+      <Fieldset
         legend="Type of holiday"
         fieldsetId="holidayType"
         className="mt-500"
       >
-        <GcdsFieldset
+        <Fieldset
           legend="What type of holiday is this?"
           hint="Select all that apply"
           fieldsetId="typeofholiday"
@@ -152,46 +135,46 @@ const StepOne = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
           required
           className="mt-400"
         >
-          <GcdsCheckbox
+          <Checkbox
             checkboxId="federal"
             label="Federal"
-            name="holidaytype"
+            name="holidayType"
             value="federal"
-            {...(formdata.holidaytype.federal ? {checked: true} : {})}
+            {...(formdata.holidayType.federal ? {checked: true} : {})}
             onInput={handleInputChange}
           >
-          </GcdsCheckbox>
-          <GcdsCheckbox
+          </Checkbox>
+          <Checkbox
             checkboxId="national"
             label="National"
-            name="holidaytype"
+            name="holidayType"
             value="national"
-            {...(formdata.holidaytype.national ? {checked: true} : {})}
+            {...(formdata.holidayType.national ? {checked: true} : {})}
             onInput={handleInputChange}
           >
-          </GcdsCheckbox>
-          <GcdsCheckbox
+          </Checkbox>
+          <Checkbox
             checkboxId="other"
             label="Other (specific provinces and/or territories)"
-            name="holidaytype"
+            name="holidayType"
             value="other"
-            {...(formdata.holidaytype.other ? {checked: true} : {})}
+            {...(formdata.holidayType.other ? {checked: true} : {})}
             onInput={handleInputChange}
           >
-          </GcdsCheckbox>
-        </GcdsFieldset>
-        <GcdsDetails
+          </Checkbox>
+        </Fieldset>
+        <Details
           detailsTitle="What are federal holidays?"
           className="mb-300"
         >
           {/* The page this will link to hasn't been created yet */}
           <Text marginBottom="0">
-            If your job is regulated by the federal government, you get federal holidays instead of the provincial holidays. Find out more about <GcdsLink href="#">who gets federal holidays</GcdsLink>.
+            If your job is regulated by the federal government, you get federal holidays instead of the provincial holidays. Find out more about <GcdsLink href="/federal-and-provincial-holidays">who gets federal holidays</GcdsLink>.
           </Text>
-        </GcdsDetails>
+        </Details>
 
-        {formdata.holidaytype.other &&
-          <GcdsSelect
+        {formdata.holidayType.other &&
+          <Select
             selectId="select-province"
             label="If this holiday occurs in a specific province or territory, select the location."
             name="province"
@@ -207,10 +190,10 @@ const StepOne = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
                 {provinces[key]}
               </option>
             ))}
-          </GcdsSelect>
+          </Select>
         }
 
-        <GcdsFileUploader
+        <FileUploader
           label="Upload an image of this holiday"
           uploaderId="image"
           name="image"
@@ -218,13 +201,14 @@ const StepOne = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
           {...(formdata.image ? {value: formdata.image} : {})}
           onChange={handleInputChange}
         />
-      </GcdsFieldset>
+      </Fieldset>
 
-      <GcdsButton
+      <Button
         type="submit"
+        buttonRole="primary"
       >
         Next step
-      </GcdsButton>
+      </Button>
     </>
   )
 });
