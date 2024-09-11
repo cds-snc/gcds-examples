@@ -1,5 +1,24 @@
 /* App CSS */
 
+/* General */
+table {
+  width: 100%;
+}
+
+table img {
+  width: 3rem;
+}
+
+@media only screen and (width < 40em) {
+  table thead {
+    display: none;
+  }
+
+  table td {
+    display: block;
+  }
+}
+
 gcds-fieldset:has( > gcds-radio-group),
 gcds-fieldset:has( > gcds-checkbox) {
   --gcds-fieldset-font-desktop: var(--gcds-label-font-desktop);

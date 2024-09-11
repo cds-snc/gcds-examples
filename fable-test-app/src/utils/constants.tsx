@@ -13,3 +13,5 @@ export const provinces: any = {
   SK: "Saskatchewan",
   YT: "Yukon"
 };
+
+export const API_BASE_URL = 'https://canada-holidays.ca/api/v1/';
