@@ -3,7 +3,7 @@ import { Text, Button, Input, Stepper } from '../../components';
 
 import { GcdsErrorSummary } from '@cdssnc/gcds-components-react';
 
-interface StepOneProps {
+interface StepTwoProps {
   formdata: {
     fullname: string,
     email: string,
@@ -12,7 +12,7 @@ interface StepOneProps {
   previousStep: (e: any) => void;
 };
 
-const StepTwo = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, heading) => {
+const StepTwo = forwardRef<HTMLGcdsStepperElement, StepTwoProps>(( props, heading) => {
 
   const { formdata, handleInputChange, previousStep } = props;
 

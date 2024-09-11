@@ -115,7 +115,7 @@ const StepOne = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
 
         <Textarea
           label="How did you learn of this holiday?"
-          textareaId="textarea"
+          textareaId="learnOfHoliday"
           name="learnOfHoliday"
           value={formdata.learnOfHoliday}
           onInput={handleInputChange}
@@ -130,7 +130,7 @@ const StepOne = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
         <Fieldset
           legend="What type of holiday is this?"
           hint="Select all that apply"
-          fieldsetId="typeofholiday"
+          fieldsetId="typeOfHoliday"
           validateOn="submit"
           required
           className="mt-400"
@@ -175,7 +175,7 @@ const StepOne = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
 
         {formdata.holidayType.other &&
           <Select
-            selectId="select-province"
+            selectId="province"
             label="If this holiday occurs in a specific province or territory, select the location."
             name="province"
             hint="If this question does not apply, select 'Does not apply'."
@@ -195,7 +195,7 @@ const StepOne = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
 
         <FileUploader
           label="Upload an image of this holiday"
-          uploaderId="image"
+          uploaderId="holidayImage"
           name="image"
           className="mb-300"
           {...(formdata.image ? {value: formdata.image} : {})}
