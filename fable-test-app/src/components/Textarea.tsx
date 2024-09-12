@@ -1,44 +1,40 @@
 import React from 'react';
-import { GcdsSelect } from "@cdssnc/gcds-components-react";
+import { GcdsTextarea } from "@cdssnc/gcds-components-react";
 
-interface SelectProps {
-  children: React.ReactNode;
+interface TextareaProps {
   hint?: string;
   label: string;
   name: string;
   onInput?: (e: any) => void;
-  selectId: string;
+  textareaId: string;
   value?: string;
-  defaultValue: string;
   validateOn?: "blur" | "submit" | "other";
   required?: boolean;
+  className?: string;
 }
 
-const Select: React.FC<SelectProps> = React.memo(({
-  children,
+const Textarea: React.FC<TextareaProps> = React.memo(({
   hint,
   label,
   name,
   onInput,
-  selectId,
-  defaultValue,
+  textareaId,
   validateOn,
   required,
-  value
+  value,
+  className
 }) => (
-  <GcdsSelect
-    selectId={selectId}
+  <GcdsTextarea
+    textareaId={textareaId}
     label={label}
     hint={hint}
     name={name}
     value={value}
-    defaultValue={defaultValue}
     validateOn={validateOn}
     onInput={onInput}
     required={required}
-  >
-    {children}
-  </GcdsSelect>
+    className={className}
+  ></GcdsTextarea>
 ));
 
-export default Select;
+export default Textarea;

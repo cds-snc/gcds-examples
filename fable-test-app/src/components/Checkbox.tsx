@@ -1,44 +1,43 @@
 import React from 'react';
-import { GcdsSelect } from "@cdssnc/gcds-components-react";
+import { GcdsCheckbox } from "@cdssnc/gcds-components-react";
 
-interface SelectProps {
-  children: React.ReactNode;
+interface CheckboxProps {
   hint?: string;
   label: string;
   name: string;
   onInput?: (e: any) => void;
-  selectId: string;
+  checkboxId: string;
   value?: string;
-  defaultValue: string;
   validateOn?: "blur" | "submit" | "other";
   required?: boolean;
+  className?: string;
+  checked?: boolean;
 }
 
-const Select: React.FC<SelectProps> = React.memo(({
-  children,
+const Checkbox: React.FC<CheckboxProps> = React.memo(({
   hint,
   label,
   name,
   onInput,
-  selectId,
-  defaultValue,
+  checkboxId,
   validateOn,
   required,
-  value
+  value,
+  className,
+  checked
 }) => (
-  <GcdsSelect
-    selectId={selectId}
+  <GcdsCheckbox
+    checkboxId={checkboxId}
     label={label}
     hint={hint}
     name={name}
     value={value}
-    defaultValue={defaultValue}
     validateOn={validateOn}
     onInput={onInput}
     required={required}
-  >
-    {children}
-  </GcdsSelect>
+    className={className}
+    checked={checked}
+  ></GcdsCheckbox>
 ));
 
-export default Select;
+export default Checkbox;
