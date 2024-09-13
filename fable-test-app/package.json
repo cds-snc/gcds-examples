@@ -11,8 +11,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@cdssnc/gcds-components": "^0.25.1",
-    "@cdssnc/gcds-components-react": "^0.25.1",
+    "@cdssnc/gcds-components": "^0.26.0",
+    "@cdssnc/gcds-components-react": "^0.26.0",
     "@cdssnc/gcds-utility": "^1.4.0",
     "axios": "^1.7.5",
     "react": "^18.3.1",

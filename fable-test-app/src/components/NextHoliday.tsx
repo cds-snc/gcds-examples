@@ -1,10 +1,7 @@
 import React from 'react';
 import { Text, Heading } from '../components';
 
-type Provinces = {
-  id: string;
-  nameEn: string;
-}
+import { Provinces } from '../utils/constants';
 
 interface NextHolidayProps {
   display?: 'banner' | 'table' | 'homepage';
@@ -45,10 +42,10 @@ const NextHoliday: React.FC<NextHolidayProps> = ({
       if (observedIn.length === 1) {
         return <abbr title={observedIn[0].nameEn}>{observedIn[0].id}</abbr>;
       } else {
-        return observedIn.map((value, i: number) => <>
+        return observedIn.map((value, i: number) => <span key={i}>
           {i === observedIn.length - 1 && " and "}
           <abbr title={value.nameEn}>{value.id}</abbr>{i != observedIn.length - 1 ? ", " : "."}
-        </>);
+        </span>);
       }
     }
   };
@@ -77,13 +74,13 @@ const NextHoliday: React.FC<NextHolidayProps> = ({
         alt="Calendar icon with a clock in the bottom right corner."
       />
   ) : display ==='homepage' ? (
-    <section className="pt-700 pb-700 mb-300 next-holiday-homepage">
+    <section className={`pt-700 pb-700 mb-300 next-holiday-homepage ${federal ? `img-federal` : 'img-nonfederal'}`}>
       <div className="bg-light md:px-450 px-250 d-block pt-100 pb-500">
         <Heading tag="h2">
-          {federal ? 
-            "Next federal statutory holiday"
+          {federal ?
+            <span className="font-secondary">Next federal statutory holiday</span>
           :
-            "Next non-federal statutory holiday"
+            <span className="font-secondary">Next non-federal statutory holiday</span>
           }
         </Heading>
         <strong className="d-block mb-100 font-h4">

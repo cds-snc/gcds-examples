@@ -3,20 +3,7 @@ import axios from 'axios';
 
 // Components (internal)
 import { DateModified, Heading, NextHoliday, Text, Button } from '../components';
-
-type Provinces = {
-  id: string;
-  nameEn: string;
-}
-
-type holidayObject = {
-  id: number;
-  date: string;
-  nameEn: string;
-  nameFr: string;
-  provinces: Provinces[];
-  federal: number;
-}
+import { holidayObject } from '../utils/constants';
 
 const Home: React.FC = () => {
   const currentDate = new Date().getTime();
