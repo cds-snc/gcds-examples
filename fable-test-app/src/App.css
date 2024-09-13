@@ -30,3 +30,13 @@ gcds-fieldset:has( > gcds-checkbox) {
     --gcds-fieldset-font-mobile: var(--gcds-label-font-mobile);
   }
 }
+.next-holiday-homepage {
+  background: url('/backgrounds/federal.png') top center no-repeat;
+  background-size: cover;
+  width: 100vw;
+  color: var(--gcds-color-blue-800);
+}
+
+.next-holiday-homepage div {
+  max-width: 62ch;
+}

@@ -15,6 +15,7 @@ const About: React.FC = () => {
       <Heading tag="h2">Learn more about the GC Design System</Heading>
 
       <Grid
+        columnsDesktop="1fr 1fr"
         columnsTablet="1fr 1fr"
       >
         <Card

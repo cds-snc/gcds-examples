@@ -1,19 +1,28 @@
 import React from 'react';
-import { Text } from '../components';
+import { Text, Heading } from '../components';
+
+type Provinces = {
+  id: string;
+  nameEn: string;
+}
 
 interface NextHolidayProps {
-  display?: 'banner' | 'table';
+  display?: 'banner' | 'table' | 'homepage';
   isCurrentHoliday? : boolean;
   nextHoliday: {
     date: string;
     nameEn: string;
   } | null;
+  federal?: boolean;
+  observedIn?: Provinces[];
 }
 
 const NextHoliday: React.FC<NextHolidayProps> = ({
   display = 'banner',
   isCurrentHoliday = false,
-  nextHoliday
+  nextHoliday,
+  federal,
+  observedIn
 }) => {
   // Calculate days until the next holiday
   const calcNextHoliday = (dateString: string) => {
@@ -21,6 +30,27 @@ const NextHoliday: React.FC<NextHolidayProps> = ({
     const holidayDate = new Date(dateString);
 
     return Math.floor((holidayDate.getTime() - today.getTime()) / (1000 * 3600 * 24));
+  };
+
+  // Get long version of date
+  const nextHolidayDate = (dateString: string) => {
+    const holidayDate = new Date(dateString);
+
+    return `${holidayDate.toLocaleString('default', { month: 'long' })} ${holidayDate.getDate()}`;
+  };
+
+  // Create formatted list of <abbr> elements for provinces
+  const formatObservedIn = () => {
+    if (observedIn) {
+      if (observedIn.length === 1) {
+        return <abbr title={observedIn[0].nameEn}>{observedIn[0].id}</abbr>;
+      } else {
+        return observedIn.map((value, i: number) => <>
+          {i === observedIn.length - 1 && " and "}
+          <abbr title={value.nameEn}>{value.id}</abbr>{i != observedIn.length - 1 ? ", " : "."}
+        </>);
+      }
+    }
   };
 
   const daysToNextHoliday = nextHoliday ? calcNextHoliday(nextHoliday.date) : null;
@@ -46,6 +76,43 @@ const NextHoliday: React.FC<NextHolidayProps> = ({
         src="/icons/icon-calendar.svg"
         alt="Calendar icon with a clock in the bottom right corner."
       />
+  ) : display ==='homepage' ? (
+    <section className="pt-700 pb-700 mb-300 next-holiday-homepage">
+      <div className="bg-light md:px-450 px-250 d-block pt-100 pb-500">
+        <Heading tag="h2">
+          {federal ? 
+            "Next federal statutory holiday"
+          :
+            "Next non-federal statutory holiday"
+          }
+        </Heading>
+        <strong className="d-block mb-100 font-h4">
+          {nextHoliday.nameEn}
+        </strong>
+        <div className="font-h5 font-medium">
+          <time>
+            {nextHolidayDate(nextHoliday.date)}
+          </time>
+          {!federal ? 
+            <p className="d-inline font-h5 font-medium">
+              &nbsp;- Observed in {formatObservedIn()}
+            </p>
+          :
+            null
+          }
+        </div>
+      </div>
+      <div className="d-flex bg-primary md:align-items-center align-items-center text-light md:px-450 px-250 py-200">
+        <Text textRole="light" marginBottom="0">
+          <strong>That's in {daysToNextHoliday} days!</strong>
+        </Text>
+        <img
+          className="d-inline-block ms-400"
+          src="/icons/icon-calendar.svg"
+          alt="Calendar icon with a clock in the bottom right corner."
+        />
+      </div>
+    </section>
   ) : null;
 };
 
