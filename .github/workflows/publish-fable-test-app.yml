@@ -1,0 +1,36 @@
+name: Publish fable test app
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'fable-test-app/**'
+
+jobs:
+  build-deploy:
+    name: Publish fable test app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+
+      - uses: actions/setup-node@97ca147735c170fb35096b39ef17a0fc5d9270ac
+        with:
+          node-version: 18
+
+      - name: Install Fable test app
+        run: npm install
+        working-directory: ./fable-test-app
+
+      - name: Build Fable test app
+        run: npm run build
+        working-directory: ./fable-test-app
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3.9.3
+        with:
+          publish_dir: ./fable-test-app/dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          keep_files: false
