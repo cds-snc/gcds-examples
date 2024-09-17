@@ -9,7 +9,7 @@ interface SelectProps {
   onInput?: (e: any) => void;
   selectId: string;
   value?: string;
-  defaultValue: string;
+  defaultValue?: string;
   validateOn?: "blur" | "submit" | "other";
   required?: boolean;
 }

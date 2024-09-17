@@ -5,7 +5,7 @@ interface DetailsProps {
   children: React.ReactNode;
   detailsTitle: string;
   open?: boolean;
-  className: string;
+  className?: string;
 }
 
 const Details: React.FC<DetailsProps> = React.memo(({ children, detailsTitle, open = false, className }) => (
