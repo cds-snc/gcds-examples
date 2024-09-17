@@ -11,7 +11,7 @@ interface NextHolidayProps {
     nameEn: string;
   } | null;
   federal?: boolean;
-  observedIn?: Provinces[];
+  provincesObservedIn?: Provinces[];
 }
 
 const NextHoliday: React.FC<NextHolidayProps> = ({
@@ -19,7 +19,7 @@ const NextHoliday: React.FC<NextHolidayProps> = ({
   isCurrentHoliday = false,
   nextHoliday,
   federal,
-  observedIn
+  provincesObservedIn
 }) => {
   // Calculate days until the next holiday
   const calcNextHoliday = (dateString: string) => {
@@ -30,21 +30,21 @@ const NextHoliday: React.FC<NextHolidayProps> = ({
   };
 
   // Get long version of date
-  const nextHolidayDate = (dateString: string) => {
+  const formatDate = (dateString: string) => {
     const holidayDate = new Date(dateString);
 
     return `${holidayDate.toLocaleString('default', { month: 'long' })} ${holidayDate.getDate()}`;
   };
 
   // Create formatted list of <abbr> elements for provinces
-  const formatObservedIn = () => {
-    if (observedIn) {
-      if (observedIn.length === 1) {
-        return <abbr title={observedIn[0].nameEn}>{observedIn[0].id}</abbr>;
+  const getObservedInProvinces = () => {
+    if (provincesObservedIn) {
+      if (provincesObservedIn.length === 1) {
+        return <abbr title={provincesObservedIn[0].nameEn}>{provincesObservedIn[0].id}</abbr>;
       } else {
-        return observedIn.map((value, i: number) => <span key={i}>
-          {i === observedIn.length - 1 && " and "}
-          <abbr title={value.nameEn}>{value.id}</abbr>{i != observedIn.length - 1 ? ", " : "."}
+        return provincesObservedIn.map((value, i: number) => <span key={i}>
+          {i === provincesObservedIn.length - 1 && " and "}
+          <abbr title={value.nameEn}>{value.id}</abbr>{i != provincesObservedIn.length - 1 ? ", " : "."}
         </span>);
       }
     }
@@ -88,11 +88,11 @@ const NextHoliday: React.FC<NextHolidayProps> = ({
         </strong>
         <div className="font-h5 font-medium">
           <time>
-            {nextHolidayDate(nextHoliday.date)}
+            {formatDate(nextHoliday.date)}
           </time>
           {!federal ? 
             <p className="d-inline font-h5 font-medium">
-              &nbsp;- Observed in {formatObservedIn()}
+              &nbsp;- Observed in {getObservedInProvinces()}
             </p>
           :
             null

@@ -6,7 +6,7 @@ import { DateModified, Heading, NextHoliday, Text, Button } from '../components'
 import { holidayObject } from '../utils/constants';
 
 const Home: React.FC = () => {
-  const currentDate = new Date().getTime();
+  const currentDate = new Date("2024-02-13").getTime();
   const [nextFederal, setNextFederal] = useState<holidayObject>();
   const [nextNationwide, setNextNationwide] = useState<holidayObject>();
 
@@ -16,21 +16,18 @@ const Home: React.FC = () => {
 
       // Assign next federal holiday
       let fedAssigned = false;
+      let nationwideAssigned = false;
       data.holidays.map((holiday: holidayObject) => {
+        const holidayDate = new Date (holiday.date).getTime();
+        
         if (holiday.federal === 1) {
-          const holidayDate = new Date (holiday.date).getTime();
-          if (holidayDate > currentDate && !fedAssigned) {
+          if (!fedAssigned && holidayDate > currentDate) {
             fedAssigned = true;
             setNextFederal(holiday);
           }
         }
-      });
-
-      // Assign next nationwide holiday
-      let nationwideAssigned = false;
-      data.holidays.map((holiday: holidayObject) => {
-        const holidayDate = new Date (holiday.date).getTime();
-        if (holidayDate > currentDate && !nationwideAssigned) {
+        
+        if (!nationwideAssigned && holidayDate > currentDate) {
           nationwideAssigned = true;
           setNextNationwide(holiday);
         }
@@ -66,7 +63,7 @@ const Home: React.FC = () => {
       <NextHoliday
         display="homepage"
         nextHoliday={{ date: nextNationwide?.date as string, nameEn: nextNationwide?.nameEn as string }}
-        observedIn={nextNationwide?.provinces}
+        provincesObservedIn={nextNationwide?.provinces}
       />
 
       <DateModified>2024-08-28</DateModified>
