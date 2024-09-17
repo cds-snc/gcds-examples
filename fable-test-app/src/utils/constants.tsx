@@ -15,3 +15,17 @@ export const provinces: any = {
 };
 
 export const API_BASE_URL = 'https://canada-holidays.ca/api/v1/';
+
+export type Provinces = {
+  id: string;
+  nameEn: string;
+};
+
+export type holidayObject = {
+  id: number;
+  date: string;
+  nameEn: string;
+  nameFr: string;
+  provinces: Provinces[];
+  federal: number;
+};
