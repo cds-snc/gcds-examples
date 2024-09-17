@@ -6,7 +6,7 @@ import { DateModified, Heading, NextHoliday, Text, Button } from '../components'
 import { holidayObject } from '../utils/constants';
 
 const Home: React.FC = () => {
-  const currentDate = new Date("2024-02-13").getTime();
+  const currentDate = new Date().getTime();
   const [nextFederal, setNextFederal] = useState<holidayObject>();
   const [nextNationwide, setNextNationwide] = useState<holidayObject>();
 
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
       let nationwideAssigned = false;
       data.holidays.map((holiday: holidayObject) => {
         const holidayDate = new Date (holiday.date).getTime();
-        
+
         if (holiday.federal === 1) {
           if (!fedAssigned && holidayDate > currentDate) {
             fedAssigned = true;
