@@ -25,6 +25,8 @@ jobs:
 
       - name: Build Fable test app
         run: npm run build
+        env:
+          PUBLIC_URL: ${{ secrets.GH_PAGES_URL }}
         working-directory: ./fable-test-app
 
       - name: Deploy
