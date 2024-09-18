@@ -18,3 +18,33 @@ table img {
     display: block;
   }
 }
+
+gcds-fieldset:has( > gcds-radio-group),
+gcds-fieldset:has( > gcds-checkbox) {
+  --gcds-fieldset-font-desktop: var(--gcds-label-font-desktop);
+}
+
+@media only screen and (width < 48em) {
+  gcds-fieldset:has( > gcds-radio-group),
+  gcds-fieldset:has( > gcds-checkbox) {
+    --gcds-fieldset-font-mobile: var(--gcds-label-font-mobile);
+  }
+}
+
+/* Homepage */
+
+.img-federal {
+  background: url('/backgrounds/federal.png') top center no-repeat;
+  background-size: cover;
+}
+.img-nonfederal {
+  background: url('/backgrounds/non-federal.png') top center no-repeat;
+  background-size: cover;
+}
+
+.next-holiday-homepage {
+  color: var(--gcds-color-blue-800);
+}
+.next-holiday-homepage div {
+  max-width: 62ch;
+}
