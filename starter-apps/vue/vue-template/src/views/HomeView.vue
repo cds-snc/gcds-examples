@@ -2,13 +2,14 @@
 import { useI18n } from 'vue-i18n'
 import Heading from '@/components/Heading.vue'
 import Text from '@/components/Text.vue'
+import DateModified from '@/components/DateModified.vue'
 
 const { t } = useI18n()
 </script>
 <template>
   <div>
     <section>
-      <Heading class="mb-400" tag="h1">{{ t('homePage.heading') }}</Heading>
+      <Heading tag="h1">{{ t('homePage.heading') }}</Heading>
       <Text>
         {{ t('homePage.paragraph') }}
       </Text>
@@ -19,5 +20,6 @@ const { t } = useI18n()
         {{ t('homePage.paragraph3') }}
       </Text>
     </section>
+    <DateModified date="2024-09-10"></DateModified>
   </div>
 </template>

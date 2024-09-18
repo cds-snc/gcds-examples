@@ -28,10 +28,6 @@ export const fr = {
         intro:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt.'
       }
-    },
-    about2: {
-      name: 'À propos 2',
-      heading: 'À propos 2'
     }
   },
   french: 'Français',
@@ -45,14 +41,22 @@ export const fr = {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor dolor in hendrerit egestas. Suspendisse euismod vehicula vestibulum. Integer tincidunt mauris imperdiet mauris interdum, a euismod dolor mattis.',
     form: {
       versionNumber: 'Paquet et version des composants de Système de design GC',
+      versionNumberHint: 'ex. @cdssnc/gcds-components-vue@0.x.x',
       title: 'Titre',
+      titleHint: 'Choisissez un titre pour votre rapport de bogue',
       titlePlaceholder: 'bogue: ',
       currentBehavior: 'Comportement observé',
+      currentBehaviorHint: 'Décrivez le comportement actuel',
       expectedBehavior: 'Comportement attendu',
+      expectedBehaviorHint: 'Décrivez le comportement attendu',
       stepsToReproduce: 'Étapes pour reproduire le bogue',
+      stepsToReproduceHint: 'Listez les étapes pour reproduire le bogue',
       codeReproductionURL: 'URL de reproduction du code',
+      codeReproductionURLHint: 'Fournir une URL pour la reproduction du code',
       systemInfo: 'Information sur le système',
+      systemInfoHint: 'Fournir des informations sur votre système',
       additionalInformation: 'Informations supplémentaires',
+      additionalInformationHint: 'Fournir des informations supplémentaires',
       submit: 'Envoyer',
       confirmation: 'Confirmation'
     },

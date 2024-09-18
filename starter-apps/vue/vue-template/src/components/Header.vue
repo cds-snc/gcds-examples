@@ -46,12 +46,12 @@ const navElements = [
 </script>
 
 <template>
-  <gcds-header skip-to-href="#main">
+  <gcds-header :lang-href="getOtherLangPath" skip-to-href="#main">
     <gcds-search slot="search"></gcds-search>
     <div slot="toggle">
       <AppLink :to="getOtherLangPath">{{ t('langToggle') }}</AppLink>
     </div>
-    <gcds-top-nav slot="menu" alignment="right" label="Top navigation">
+    <gcds-top-nav slot="menu" label="Top navigation">
       <!--
         Using <AppLink component="nav"> here will utilize RouterLink, but at the moment it does not get styled
         correctly due to <gcds-nav-link> looking for a direct parent <gcds-top-nav> component.

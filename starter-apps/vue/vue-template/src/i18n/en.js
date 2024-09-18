@@ -29,10 +29,6 @@ export const en = {
         intro:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor dolor in hendrerit egestas. Suspendisse euismod vehicula vestibulum. Integer tincidunt mauris imperdiet mauris interdum, a euismod dolor mattis.'
       }
-    },
-    about2: {
-      name: 'About 2',
-      heading: 'About 2'
     }
   },
   french: 'French',
@@ -46,14 +42,22 @@ export const en = {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor dolor in hendrerit egestas. Suspendisse euismod vehicula vestibulum. Integer tincidunt mauris imperdiet mauris interdum, a euismod dolor mattis.',
     form: {
       versionNumber: 'GC Design System Components Package and Version',
+      versionNumberHint: 'e.g. @cdssnc/gcds-components-vue@0.x.x',
       title: 'Title',
+      titleHint: 'Choose a title for your bug report',
       titlePlaceholder: 'bug: ',
       currentBehavior: 'Current Behavior',
+      currentBehaviorHint: 'Describe the current behavior',
       expectedBehavior: 'Expected Behavior',
+      expectedBehaviorHint: 'Describe the expected behavior',
       stepsToReproduce: 'Steps to Reproduce',
+      stepsToReproduceHint: 'List the steps to reproduce',
       codeReproductionURL: 'Code Reproduction URL',
+      codeReproductionURLHint: 'Provide a URL to the code reproduction',
       systemInfo: 'System Info',
+      systemInfoHint: 'Provide information about your system',
       additionalInformation: 'Additional Information',
+      additionalInformationHint: 'Provide any additional information',
       submit: 'Submit',
       confirmation: 'Confirmation'
     },

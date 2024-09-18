@@ -9,6 +9,7 @@ import Text from '@/components/Text.vue'
 import Input from '@/components/forms/Input.vue'
 import TextArea from '@/components/forms/TextArea.vue'
 import Button from '@/components/forms/Button.vue'
+import DateModified from '@/components/DateModified.vue'
 
 const { t } = useI18n()
 
@@ -82,7 +83,7 @@ const githubIssueURL = () => {
 <template>
   <div>
     <section>
-      <Heading class="mb-400" tag="h1">{{ t('reportABugPage.heading') }}</Heading>
+      <Heading tag="h1">{{ t('reportABugPage.heading') }}</Heading>
       <Text>{{ t('reportABugPage.intro') }}</Text>
     </section>
     <form
@@ -96,6 +97,7 @@ const githubIssueURL = () => {
       <Input
         :id="formElements.version"
         v-model="formData.version"
+        :hint="t('reportABugPage.form.versionNumberHint')"
         :label="t('reportABugPage.form.versionNumber')"
         :name="formElements.version"
         required
@@ -103,6 +105,7 @@ const githubIssueURL = () => {
       <Input
         :id="formElements.title"
         v-model="formData.title"
+        :hint="t('reportABugPage.form.titleHint')"
         :label="t('reportABugPage.form.title')"
         :name="formElements.title"
         :placeholder="t('reportABugPage.form.titlePlaceholder')"
@@ -111,12 +114,14 @@ const githubIssueURL = () => {
       <TextArea
         :id="formElements.currentBehavior"
         v-model="formData.currentBehavior"
+        :hint="t('reportABugPage.form.currentBehaviorHint')"
         :label="t('reportABugPage.form.currentBehavior')"
         :name="formElements.currentBehavior"
       ></TextArea>
       <TextArea
         :id="formElements.expectedBehavior"
         v-model="formData.expectedBehavior"
+        :hint="t('reportABugPage.form.expectedBehaviorHint')"
         :label="t('reportABugPage.form.expectedBehavior')"
         :name="formElements.expectedBehavior"
         required
@@ -124,6 +129,7 @@ const githubIssueURL = () => {
       <TextArea
         :id="formElements.systemInfo"
         v-model="formData.systemInfo"
+        :hint="t('reportABugPage.form.systemInfoHint')"
         :label="t('reportABugPage.form.systemInfo')"
         :name="formElements.systemInfo"
         required
@@ -131,6 +137,7 @@ const githubIssueURL = () => {
       <TextArea
         :id="formElements.stepsToReproduce"
         v-model="formData.stepsToReproduce"
+        :hint="t('reportABugPage.form.stepsToReproduceHint')"
         :label="t('reportABugPage.form.stepsToReproduce')"
         :name="formElements.stepsToReproduce"
         required
@@ -138,6 +145,7 @@ const githubIssueURL = () => {
       <Input
         :id="formElements.codeReproductionUrl"
         v-model="formData.codeReproductionUrl"
+        :hint="t('reportABugPage.form.codeReproductionURLHint')"
         :label="t('reportABugPage.form.codeReproductionURL')"
         :name="formElements.codeReproductionUrl"
         required
@@ -146,6 +154,7 @@ const githubIssueURL = () => {
       <TextArea
         :id="formElements.additionalInfo"
         v-model="formData.additionalInfo"
+        :hint="t('reportABugPage.form.additionalInformationHint')"
         :label="t('reportABugPage.form.additionalInformation')"
         :name="formElements.additionalInfo"
       ></TextArea>
@@ -190,5 +199,6 @@ const githubIssueURL = () => {
         }}</Button>
       </section>
     </div>
+    <DateModified date="2024-09-10"></DateModified>
   </div>
 </template>

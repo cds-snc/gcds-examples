@@ -2,15 +2,17 @@
 import { useI18n } from 'vue-i18n'
 import Heading from '@/components/Heading.vue'
 import Text from '@/components/Text.vue'
+import DateModified from '@/components/DateModified.vue'
 
 const { t } = useI18n()
 </script>
 <template>
   <div class="about">
-    <Heading class="mb-400" tag="h1">{{ t('aboutPage.about1.heading') }}</Heading>
+    <Heading tag="h1">{{ t('aboutPage.about1.heading') }}</Heading>
     <Text>
       {{ t('aboutPage.about1.intro') }}
     </Text>
+    <DateModified date="2024-09-10"></DateModified>
   </div>
 </template>
 

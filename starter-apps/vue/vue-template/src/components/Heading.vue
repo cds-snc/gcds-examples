@@ -1,6 +1,8 @@
 <script setup>
-const { tag } = defineProps(['tag'])
+const { tag, marginBottom, marginTop } = defineProps(['tag'])
 </script>
 <template>
-  <gcds-heading :tag="tag"><slot></slot></gcds-heading>
+  <gcds-heading :margin-bottom="marginBottom" :margin-top="marginTop" :tag="tag"
+    ><slot></slot
+  ></gcds-heading>
 </template>

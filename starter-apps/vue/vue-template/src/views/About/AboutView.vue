@@ -4,21 +4,20 @@ import { getLocalizedPath } from '@/router'
 import { useI18n } from 'vue-i18n'
 import Text from '@/components/Text.vue'
 import Heading from '@/components/Heading.vue'
+import DateModified from '@/components/DateModified.vue'
 
 const { t } = useI18n()
 </script>
 <template>
   <div class="about">
-    <Heading class="mb-400" tag="h1">{{ t('aboutPage.heading') }}</Heading>
+    <Heading tag="h1">{{ t('aboutPage.heading') }}</Heading>
     <Text>
       {{ t('aboutPage.intro') }}
     </Text>
     <section>
       <AppLink :to="getLocalizedPath('about/about1')">{{ t('aboutPage.about1.heading') }}</AppLink>
     </section>
-    <section>
-      <AppLink :to="getLocalizedPath('about/about2')">{{ t('aboutPage.about2.heading') }}</AppLink>
-    </section>
+    <DateModified date="2024-09-10"></DateModified>
   </div>
 </template>
 

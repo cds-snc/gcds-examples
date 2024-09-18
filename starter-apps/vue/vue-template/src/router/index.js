@@ -27,10 +27,6 @@ const localizedPaths = {
     [EN]: 'about/about1/nested-in-about1-2',
     [FR]: 'a-propos/a-propos1/imbriqué-dans-a-propos1-2'
   },
-  'about/about2': {
-    [EN]: 'about/about2',
-    [FR]: 'a-propos/a-propos2'
-  },
   reportABug: {
     [EN]: 'report-a-bug',
     [FR]: 'signaler-un-bug'

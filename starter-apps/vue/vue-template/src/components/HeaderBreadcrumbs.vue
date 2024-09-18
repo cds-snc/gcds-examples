@@ -12,28 +12,13 @@ const props = defineProps({
   currentRoute: String
 })
 
-// TODO: Easy way to get breadcrumbs for each route. You may change this to be more dynamic.
+// TODO: Here is an example of a quick way to get breadcrumbs for each route. You may want to change this to be more dynamic.
+// In this example, only about/about1 has a parent other than home.
 const breadcrumbOptions = {
-  about: [
-    {
-      label: t('about'),
-      to: getLocalizedPath('about')
-    }
-  ],
   'about/about1': [
     {
       label: t('about'),
       to: getLocalizedPath('about')
-    },
-    {
-      label: t('aboutPage.about1.heading'),
-      to: getLocalizedPath('about/about1')
-    }
-  ],
-  reportABug: [
-    {
-      label: t('reportABug'),
-      to: getLocalizedPath('reportABug')
     }
   ]
 }
@@ -45,7 +30,12 @@ const breadcrumbs = computed(() => {
 </script>
 <template>
   <gcds-breadcrumbs slot="breadcrumb">
-    <AppLink :to="getLocalizedPath(HOME)" component="breadcrumb">{{ t(HOME) }}</AppLink>
+    <AppLink
+      v-if="props.currentRoute != 'home'"
+      :to="getLocalizedPath(HOME)"
+      component="breadcrumb"
+      >{{ t(HOME) }}</AppLink
+    >
     <AppLink
       v-for="(crumb, index) in breadcrumbs"
       :key="index"
