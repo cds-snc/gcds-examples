@@ -42,7 +42,7 @@ const About: React.FC = () => {
           cardTitleTag="h3"
           badge="Code"
           href="https://github.com/cds-snc/gcds-components"
-          imgSrc="github.png"
+          imgSrc="/github.png"
           imgAlt=""
         />
       </Grid>
