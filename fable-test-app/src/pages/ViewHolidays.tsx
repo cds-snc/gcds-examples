@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 // Components (internal)
@@ -120,11 +120,11 @@ const ViewHolidays = () => {
 
       {provinceId === 'federal' ? (
         <Details detailsTitle="What are federal holidays?" open>
-          <Text marginBottom="0">If your job is regulated by the federal government, you get federal holidays instead of the provincial holidays. Find out more about <Link className="link-default" to="/federal-and-provincial-holidays">who gets federal holidays</Link>.</Text>
+          <Text marginBottom="0">If your job is regulated by the federal government, you get federal holidays instead of the provincial holidays. Find out more about <a className="link-default" href="/federal-and-provincial-holidays">who gets federal holidays</a>.</Text>
         </Details>
       ) : (
         <Details detailsTitle="What are optional holidays?" open>
-          <Text marginBottom="0">Optional holidays are commonly observed but not legally mandated. Businesses may choose to opt-in to optional holidays but they don't have to. Find out more about <Link className="link-default" to="/optional-holidays">optional holidays</Link>.</Text>
+          <Text marginBottom="0">Optional holidays are commonly observed but not legally mandated. Businesses may choose to opt-in to optional holidays but they don't have to. Find out more about <a className="link-default" href="/optional-holidays">optional holidays</a>.</Text>
         </Details>
       )}
 
