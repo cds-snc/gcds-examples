@@ -1,4 +1,4 @@
-import React, { LegacyRef } from 'react';
+import React from 'react';
 import { GcdsStepper } from "@cdssnc/gcds-components-react";
 
 interface StepperProps {
@@ -7,7 +7,6 @@ interface StepperProps {
   currentStep: number;
   totalSteps: number;
   className?: string;
-  ref: LegacyRef<HTMLGcdsStepperElement> | undefined;
   tabIndex: number;
 }
 
@@ -17,7 +16,6 @@ const Stepper: React.FC<StepperProps> = React.memo(({
   currentStep,
   totalSteps,
   className,
-  ref,
   tabIndex
 }) => (
   <GcdsStepper
@@ -25,7 +23,6 @@ const Stepper: React.FC<StepperProps> = React.memo(({
     currentStep={currentStep}
     totalSteps={totalSteps}
     className={className}
-    ref={ref}
     tabIndex={tabIndex}
   >
     {children}
