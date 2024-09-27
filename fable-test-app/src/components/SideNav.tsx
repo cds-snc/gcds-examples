@@ -38,7 +38,7 @@ const navLinks = [
 
 const SideNav: React.FC = () => {
   const { pathname } = useLocation();
-  const isCurrentPath = (href: string) => href === pathname;
+  const isCurrentPath = (href: string) => pathname.includes(href);
 
   return (
     <GcdsSideNav label="Canada holidays" className="lg:bg-light">
