@@ -9,14 +9,14 @@ export const en = {
       "You'll find all the necessary setup, including Vue Router, Pinia for state management, VITest for unit testing, and a selection of GCDS components to get you started on your project."
   },
   about: 'About',
-  about1: 'About 1',
+  aboutTopic: 'Topic',
   aboutPage: {
     heading: 'About',
     intro:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt.',
-    about1: {
-      name: 'About 1',
-      heading: 'About 1',
+      'This Vue.js starter template integrates X Design System components, providing a solid foundation for building modern, responsive web applications. It streamlines development by offering pre-built, customizable UI elements that ensure design consistency and flexibility. Perfect for both small-scale projects and large applications, this template helps you focus on delivering a polished user experience with minimal setup.',
+    aboutTopic: {
+      name: 'Topic',
+      heading: 'Topic',
       intro:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt.',
       nestedInAbout1_1: {
@@ -42,7 +42,7 @@ export const en = {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor dolor in hendrerit egestas. Suspendisse euismod vehicula vestibulum. Integer tincidunt mauris imperdiet mauris interdum, a euismod dolor mattis.',
     form: {
       versionNumber: 'GC Design System Components Package and Version',
-      versionNumberHint: 'e.g. @cdssnc/gcds-components-vue@0.x.x',
+      versionNumberHint: "e.g. {'@'}cdssnc/gcds-components-vue{'@'}0.x.x",
       title: 'Title',
       titleHint: 'Choose a title for your bug report',
       titlePlaceholder: 'bug: ',

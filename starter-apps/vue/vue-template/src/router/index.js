@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Home from '../views/Home.vue'
 import i18n, { defaultLocale } from '@/i18n/index.js'
 import { forceRefresh } from '@/utils/refresh.js'
 import { EN, FR, HOME } from '@/config/constants.js'
@@ -15,17 +15,9 @@ const localizedPaths = {
     [EN]: 'about',
     [FR]: 'a-propos'
   },
-  'about/about1': {
-    [EN]: 'about/about1',
-    [FR]: 'a-propos/a-propos1'
-  },
-  'about/about1/nested-in-about1-1': {
-    [EN]: 'about/about1/nested-in-about1',
-    [FR]: 'a-propos/a-propos1/imbriqué-dans-a-propos1'
-  },
-  'about/about1/nested-in-about1-2': {
-    [EN]: 'about/about1/nested-in-about1-2',
-    [FR]: 'a-propos/a-propos1/imbriqué-dans-a-propos1-2'
+  'about/topic': {
+    [EN]: 'about/topic',
+    [FR]: 'a-propos/sujet'
   },
   reportABug: {
     [EN]: 'report-a-bug',
@@ -45,7 +37,7 @@ const routes = [
       {
         path: '',
         name: HOME,
-        component: HomeView,
+        component: Home,
         alias: ['', localizedPaths.home[EN], localizedPaths.home[FR]]
       },
       {
@@ -53,26 +45,14 @@ const routes = [
         name: 'about', // route level code-splitting
         // this generates a separate chunk (About.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
-        component: () => import('../views/About/AboutView.vue'),
+        component: () => import('../views/About/About.vue'),
         alias: localizedPaths.about[FR]
       },
       {
-        path: localizedPaths['about/about1'][EN],
-        name: 'about/about1',
-        component: () => import('../views/About/About1.vue'),
-        alias: localizedPaths['about/about1'][FR],
-        meta: {
-          i18nName: 'about1',
-          parentPaths: {
-            EN: [
-              {
-                path: localizedPaths.about[EN],
-                name: localizedPaths.about[EN]
-              }
-            ],
-            FR: [localizedPaths.about[FR]]
-          }
-        }
+        path: localizedPaths['about/topic'][EN],
+        name: 'about/topic',
+        component: () => import('../views/About/AboutTopic.vue'),
+        alias: localizedPaths['about/topic'][FR]
       },
       {
         path: localizedPaths.reportABug[EN],

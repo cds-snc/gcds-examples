@@ -30,15 +30,14 @@ describe('HeaderBreadcrumbs', () => {
   it('displays the correct breadcrumb items', () => {
     const wrapper = mount(HeaderBreadcrumbs, {
       props: {
-        currentRoute: 'about/about1'
+        currentRoute: 'about/topic'
       },
       ...mountOptions
     })
     const items = wrapper.findAll('gcds-breadcrumbs-item')
 
-    expect(items.length).toBe(3)
+    expect(items.length).toBe(2)
     expect(items[0].text()).toBe('Home')
     expect(items[1].text()).toBe('About')
-    expect(items[2].text()).toBe('About 1')
   })
 })

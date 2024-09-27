@@ -8,9 +8,9 @@ const { t } = useI18n()
 </script>
 <template>
   <div class="about">
-    <Heading tag="h1">{{ t('aboutPage.about1.heading') }}</Heading>
+    <Heading tag="h1">{{ t('aboutPage.aboutTopic.heading') }}</Heading>
     <Text>
-      {{ t('aboutPage.about1.intro') }}
+      {{ t('aboutPage.aboutTopic.intro') }}
     </Text>
     <DateModified date="2024-09-10"></DateModified>
   </div>

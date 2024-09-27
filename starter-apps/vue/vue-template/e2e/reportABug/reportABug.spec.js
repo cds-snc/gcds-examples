@@ -4,12 +4,12 @@ import { fr } from '@/i18n/fr.js'
 
 test('visit bug report page', async ({ page }) => {
   await page.goto('/en/report-a-bug')
-  await expect(page.locator('gcds-heading')).toHaveText(en.reportABugPage.heading)
+  await expect(page.locator('gcds-heading').first()).toHaveText(en.reportABugPage.heading)
   await expect(page.locator('gcds-text').first()).toHaveText(en.reportABugPage.intro)
 })
 
 test('switches to french', async ({ page }) => {
   await page.goto('/en/report-a-bug')
   await page.click('text=Français')
-  await expect(page.locator('gcds-heading')).toHaveText(fr.reportABugPage.heading)
+  await expect(page.locator('gcds-heading').first()).toHaveText(fr.reportABugPage.heading)
 })

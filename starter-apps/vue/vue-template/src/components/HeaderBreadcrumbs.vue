@@ -13,9 +13,9 @@ const props = defineProps({
 })
 
 // TODO: Here is an example of a quick way to get breadcrumbs for each route. You may want to change this to be more dynamic.
-// In this example, only about/about1 has a parent other than home.
+// In this example, only about/aboutTopic has a parent other than home.
 const breadcrumbOptions = {
-  'about/about1': [
+  'about/topic': [
     {
       label: t('about'),
       to: getLocalizedPath('about')
@@ -30,6 +30,7 @@ const breadcrumbs = computed(() => {
 </script>
 <template>
   <gcds-breadcrumbs slot="breadcrumb">
+    <!-- Home breadcrumb. In this configuration, it only shows up when the current route is something other than "Home" -->
     <AppLink
       v-if="props.currentRoute != 'home'"
       :to="getLocalizedPath(HOME)"

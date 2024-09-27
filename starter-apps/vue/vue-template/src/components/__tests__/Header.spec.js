@@ -10,7 +10,7 @@ vi.mock('vue-router', async (importOriginal) => {
     ...actual,
     useRouter: () => ({
       currentRoute: {
-        value: { name: 'about1' }
+        value: { name: 'aboutTopic' }
       }
     }),
     RouterLink: {
@@ -45,6 +45,6 @@ describe('Header', () => {
 
   it('has a language switcher', () => {
     const wrapper = shallowMount(Header, mountOptions)
-    expect(wrapper.find('div[slot=toggle]').exists()).toBe(true)
+    expect(wrapper.find('app-link-stub[component="lang-toggle"]').exists()).toBe(true)
   })
 })

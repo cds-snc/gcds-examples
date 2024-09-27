@@ -15,7 +15,9 @@ const { t } = useI18n()
       {{ t('aboutPage.intro') }}
     </Text>
     <section>
-      <AppLink :to="getLocalizedPath('about/about1')">{{ t('aboutPage.about1.heading') }}</AppLink>
+      <AppLink :to="getLocalizedPath('about/topic')">{{
+        t('aboutPage.aboutTopic.heading')
+      }}</AppLink>
     </section>
     <DateModified date="2024-09-10"></DateModified>
   </div>

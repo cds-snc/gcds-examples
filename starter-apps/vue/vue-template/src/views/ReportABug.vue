@@ -10,6 +10,7 @@ import Input from '@/components/forms/Input.vue'
 import TextArea from '@/components/forms/TextArea.vue'
 import Button from '@/components/forms/Button.vue'
 import DateModified from '@/components/DateModified.vue'
+import ErrorSummary from '@/components/forms/ErrorSummary.vue'
 
 const { t } = useI18n()
 
@@ -94,6 +95,7 @@ const githubIssueURL = () => {
       @gcdsValid="handleValid"
       @submit.prevent="handleSubmit"
     >
+      <ErrorSummary listen />
       <Input
         :id="formElements.version"
         v-model="formData.version"
@@ -101,6 +103,7 @@ const githubIssueURL = () => {
         :label="t('reportABugPage.form.versionNumber')"
         :name="formElements.version"
         required
+        validate-on="submit"
       ></Input>
       <Input
         :id="formElements.title"
@@ -110,6 +113,7 @@ const githubIssueURL = () => {
         :name="formElements.title"
         :placeholder="t('reportABugPage.form.titlePlaceholder')"
         required
+        validate-on="submit"
       ></Input>
       <TextArea
         :id="formElements.currentBehavior"
@@ -117,6 +121,7 @@ const githubIssueURL = () => {
         :hint="t('reportABugPage.form.currentBehaviorHint')"
         :label="t('reportABugPage.form.currentBehavior')"
         :name="formElements.currentBehavior"
+        validate-on="submit"
       ></TextArea>
       <TextArea
         :id="formElements.expectedBehavior"
@@ -125,6 +130,7 @@ const githubIssueURL = () => {
         :label="t('reportABugPage.form.expectedBehavior')"
         :name="formElements.expectedBehavior"
         required
+        validate-on="submit"
       ></TextArea>
       <TextArea
         :id="formElements.systemInfo"
@@ -133,6 +139,7 @@ const githubIssueURL = () => {
         :label="t('reportABugPage.form.systemInfo')"
         :name="formElements.systemInfo"
         required
+        validate-on="submit"
       ></TextArea>
       <TextArea
         :id="formElements.stepsToReproduce"
@@ -141,6 +148,7 @@ const githubIssueURL = () => {
         :label="t('reportABugPage.form.stepsToReproduce')"
         :name="formElements.stepsToReproduce"
         required
+        validate-on="submit"
       ></TextArea>
       <Input
         :id="formElements.codeReproductionUrl"
@@ -150,6 +158,7 @@ const githubIssueURL = () => {
         :name="formElements.codeReproductionUrl"
         required
         type="url"
+        validate-on="submit"
       ></Input>
       <TextArea
         :id="formElements.additionalInfo"
@@ -157,6 +166,7 @@ const githubIssueURL = () => {
         :hint="t('reportABugPage.form.additionalInformationHint')"
         :label="t('reportABugPage.form.additionalInformation')"
         :name="formElements.additionalInfo"
+        validate-on="submit"
       ></TextArea>
       <Button type="submit">{{ t('reportABugPage.form.submit') }}</Button>
     </form>

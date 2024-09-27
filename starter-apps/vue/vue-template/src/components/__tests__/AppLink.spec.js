@@ -31,4 +31,11 @@ describe('AppLink', () => {
     })
     expect(wrapper.find('gcds-breadcrumbs-item').exists()).toBe(true)
   })
+
+  it('renders gcds-lang-toggle when component prop is lang-toggle', () => {
+    const wrapper = shallowMount(AppLink, {
+      props: { to: '/test', component: 'lang-toggle' }
+    })
+    expect(wrapper.find('gcds-lang-toggle').exists()).toBe(true)
+  })
 })

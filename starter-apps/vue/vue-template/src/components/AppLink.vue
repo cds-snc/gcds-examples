@@ -12,6 +12,7 @@
  * - <gcds-link> component: https://design-system.alpha.canada.ca/en/components/link/
  * - <gcds-nav-link> component: https://design-system.alpha.canada.ca/en/components/top-navigation/
  * - <gcds-breadcrumbs-item> component: https://design-system.alpha.canada.ca/en/components/breadcrumbs/
+ * - <gcds-lang-toggle> component: https://design-system.alpha.canada.ca/en/components/lang-toggle/
  */
 import { RouterLink, useLink } from 'vue-router'
 
@@ -52,6 +53,10 @@ const { navigate } = useLink(props)
     >
       <slot />
     </gcds-breadcrumbs-item>
+    <gcds-lang-toggle
+      v-else-if="props.component === 'lang-toggle'"
+      :href="props.to"
+    ></gcds-lang-toggle>
     <gcds-link
       v-else
       :class="{ [props.inactiveClass]: props.inactiveClass && $route.path !== props.to }"
