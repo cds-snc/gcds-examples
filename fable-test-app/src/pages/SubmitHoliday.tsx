@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 // Components (internal)
 import {
@@ -30,8 +30,6 @@ const SubmitHoliday: React.FC = () => {
   });
   const [focusHeading, setFocusHeading] = useState(false);
 
-  const heading = useRef<HTMLGcdsStepperElement>(null);
-
   // Handle form inputs to set into state
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
@@ -49,7 +47,7 @@ const SubmitHoliday: React.FC = () => {
     setFocusHeading(true);
     setStep(step - 1);
     setTimeout(() => {
-      heading.current!.focus();
+      document.querySelector('gcds-stepper')?.focus();
       setFocusHeading(false);
     }, 50);
   };
@@ -72,7 +70,7 @@ const SubmitHoliday: React.FC = () => {
   return (
     <section>
       <Heading tag="h1">Submit a holiday</Heading>
-      <Text>
+      <Text marginBottom="500">
         This is a form you can use to submit a holiday that we're missing. There's a few steps involved to showcase our form components.
       </Text>
 
@@ -91,7 +89,6 @@ const SubmitHoliday: React.FC = () => {
             formdata={formData}
             focusHeading={focusHeading}
             handleInputChange={handleInputChange}
-            ref={heading}
           />
         : 
         step === 2 ?
@@ -99,7 +96,6 @@ const SubmitHoliday: React.FC = () => {
             formdata={formData}
             handleInputChange={handleInputChange}
             previousStep={previousStep}
-            ref={heading}
           />
          :
           <Success />
