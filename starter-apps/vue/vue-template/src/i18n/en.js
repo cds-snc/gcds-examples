@@ -4,7 +4,7 @@ export const en = {
     heading: 'Home',
     paragraph: 'Welcome to the Vue Starter App that leverages GC Design System components!',
     paragraph2:
-      'This starter app template is designed to help developers quickly set up a modern Vue.js application while adhering to the accessibility and design standards set by the Government of Canada.',
+      'This starter app template is designed to help developers quickly set up a modern Vue application while adhering to the accessibility and design standards set by the Government of Canada.',
     paragraph3:
       "You'll find all the necessary setup, including Vue Router, Pinia for state management, VITest for unit testing, and a selection of GCDS components to get you started on your project."
   },
@@ -13,22 +13,12 @@ export const en = {
   aboutPage: {
     heading: 'About',
     intro:
-      'This Vue.js starter template integrates X Design System components, providing a solid foundation for building modern, responsive web applications. It streamlines development by offering pre-built, customizable UI elements that ensure design consistency and flexibility. Perfect for both small-scale projects and large applications, this template helps you focus on delivering a polished user experience with minimal setup.',
+      'This Vue starter template integrates Design System components, providing a solid foundation for building modern, responsive web applications. It streamlines development by offering pre-built, customizable UI elements that ensure design consistency and flexibility. Perfect for both small-scale projects and large applications, this template helps you focus on delivering a polished user experience with minimal setup.',
     aboutTopic: {
       name: 'Topic',
       heading: 'Topic',
       intro:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt.',
-      nestedInAbout1_1: {
-        heading: 'Nested in About 1',
-        intro:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt. Nullam nec purus nec nunc tincidunt tincidunt.'
-      },
-      nestedInAbout1_2: {
-        heading: 'Nested in About 1-2',
-        intro:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor dolor in hendrerit egestas. Suspendisse euismod vehicula vestibulum. Integer tincidunt mauris imperdiet mauris interdum, a euismod dolor mattis.'
-      }
+        'This is a sample topic page within a parent About page. Here, you can see how the breadcrumb navigation behaves within the site structure. The breadcrumbs provide a visual guide for the current location on the site, allowing for seamless navigation between sections.',
     }
   },
   french: 'French',
@@ -39,7 +29,7 @@ export const en = {
   reportABugPage: {
     heading: 'Report a Bug',
     intro:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor dolor in hendrerit egestas. Suspendisse euismod vehicula vestibulum. Integer tincidunt mauris imperdiet mauris interdum, a euismod dolor mattis.',
+      'Create a report to help us improve GC Design System.',
     form: {
       versionNumber: 'GC Design System Components Package and Version',
       versionNumberHint: "e.g. {'@'}cdssnc/gcds-components-vue{'@'}0.x.x",
