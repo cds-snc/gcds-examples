@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Text, Button, Input, Stepper } from '../../components';
 
 import { GcdsErrorSummary } from '@cdssnc/gcds-components-react';
@@ -12,16 +12,14 @@ interface StepTwoProps {
   previousStep: (e: any) => void;
 };
 
-const StepTwo = forwardRef<HTMLGcdsStepperElement, StepTwoProps>(( props, heading) => {
+const StepTwo: React.FC<StepTwoProps> = ((props) => {
 
   const { formdata, handleInputChange, previousStep } = props;
 
   useEffect(() => {
-    if(heading && typeof heading !== "function" && heading.current) {
-      setTimeout(() => {
-        heading.current?.focus();
-      }, 150);
-    }
+    setTimeout(() => {
+      document.querySelector('gcds-stepper')?.focus()
+    }, 150);
   }, []);
 
   return (
@@ -30,8 +28,8 @@ const StepTwo = forwardRef<HTMLGcdsStepperElement, StepTwoProps>(( props, headin
       tag="h2"
       currentStep={2}
       totalSteps={2}
-      ref={heading}
       tabIndex={-1}
+      className="mb-500"
     >
       Contact information
     </Stepper>

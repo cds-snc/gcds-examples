@@ -1,15 +1,15 @@
-import { forwardRef, useEffect } from 'react';
+import { useEffect } from 'react';
 
 import { Button } from '../../components';
 
-const Success = forwardRef<HTMLGcdsStepperElement>((_, heading) => {
+const Success: React.FC = () => {
 
   useEffect(() => {
-    if(heading && typeof heading !== "function" && heading.current) {
-      setTimeout(() => {
-        heading.current?.focus();
-      }, 50);
-    }
+
+    setTimeout(() => {
+      // document.querySelector('gcds-notice')?.focus();
+    }, 50);
+
   }, []);
 
   return (
@@ -17,7 +17,6 @@ const Success = forwardRef<HTMLGcdsStepperElement>((_, heading) => {
       {/* <GcdsNotice
         noticeTitle="Your holiday request was submitted."
         type="success"
-        ref={heading}
       >
         <Text marginBottom="0">
           We hope to add this holiday to our app soon.
@@ -42,6 +41,6 @@ const Success = forwardRef<HTMLGcdsStepperElement>((_, heading) => {
       </Button>
     </>
   );
-});
+};
 
 export default Success;

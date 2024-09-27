@@ -1,4 +1,4 @@
-import { forwardRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   Text,
   Select,
@@ -36,7 +36,7 @@ interface StepOneProps {
   focusHeading: boolean;
 };
 
-const StepOne = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, heading) => {
+const StepOne: React.FC<StepOneProps> = (( props ) => {
 
   const { formdata, handleInputChange, focusHeading } = props;
 
@@ -48,9 +48,9 @@ const StepOne = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
 
   useEffect(() => {
     // only focus the stepper heading when returning from step 2
-    if(heading && typeof heading !== "function" && heading.current && focusHeading) {
+    if(focusHeading) {
       setTimeout(() => {
-        heading.current?.focus();
+        document.querySelector('gcds-stepper')?.focus();
       }, 150);
     }
   }, []);
@@ -61,8 +61,8 @@ const StepOne = forwardRef<HTMLGcdsStepperElement, StepOneProps>(( props, headin
         tag="h2"
         currentStep={1}
         totalSteps={2}
-        ref={heading}
         tabIndex={-1}
+        className="mb-500"
       >
         About this holiday
       </Stepper>
