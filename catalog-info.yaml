@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gcds-examples
+  description: GC Design System repository containing code examples
+  labels:
+    license: MIT
+spec:
+  type: website
+  lifecycle: experimental
+  owner: ds-dev
