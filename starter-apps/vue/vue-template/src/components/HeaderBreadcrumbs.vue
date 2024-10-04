@@ -13,7 +13,7 @@ const props = defineProps({
 })
 
 // TODO: Here is an example of a quick way to get breadcrumbs for each route. You may want to change this to be more dynamic.
-// In this example, only about/aboutTopic has a parent other than home.
+// In this example, only about/topic has a parent other than home.
 const breadcrumbOptions = {
   'about/topic': [
     {
