@@ -39,32 +39,6 @@
     <!-- Custom styles -->
     <!-- TODO: If needed, uncomment and link your custom CSS file here. -->
     <!-- <link rel="stylesheet" href="path/to/custom.css" /> -->
-
-    <!-- Custom styles - social media -->
-    <!-- TODO: If unneeded, remove from file. -->
-    <style>
-      ul.social-media > li::before {
-        width: 2.375rem;
-        display: inline-block;
-        vertical-align: middle;
-        padding-inline-end: var(--gcds-spacing-100);
-      }
-      ul.social-media > li:has( > .facebook)::before {
-        content: url(../assets/facebook.svg);
-      }
-      ul.social-media > li:has( > .twitter)::before {
-        content: url(../assets/x.svg);
-      }
-      ul.social-media > li:has( > .instagram)::before {
-        content: url(../assets/instagram.svg);
-      }
-      ul.social-media > li:has( > .youtube)::before {
-        content: url(../assets/youtube.svg);
-      }
-      ul.social-media > li:has( > .linkedin)::before {
-        content: url(../assets/linkedin.svg);
-      }
-    </style>
   </head>
 
   <body>
@@ -109,6 +83,7 @@
             </gcds-text>
           </div>
           <div class="d-none lg:d-block">
+            <!-- TODO: Update the main image. -->
             <img src="https://dummyimage.com/520x200/000000/FFFFFF.png" alt="" />
           </div>
         </gcds-grid>
@@ -346,43 +321,49 @@
           </gcds-grid>
         </section>
 
-        <!---------- Featured ---------->
-        <!-- TODO: Update the heading, image and text content. -->
-        <section>
-          <gcds-sr-only tag="h2">
-            Featured
-          </gcds-sr-only>
+        <div>
           <gcds-grid
             tag="div"
             columns-desktop="2fr 1fr"
             columns-tablet="1fr"
             class="mt-400"
           >
-            <gcds-grid
-              tag="div"
-              columns-desktop="1fr 1fr"
-              columns-tablet="1fr 1fr"
-            >
-              <img src="https://dummyimage.com/360x203/000000/FFFFFF.png" alt="" class="img-full">
-              <div>
-                <gcds-heading
-                  margin-bottom="200"
-                  margin-top="0"
-                  tag="h3"
-                >
-                  <gcds-link
-                    href="#"
-                    class="font-text"
+            <!---------- Featured ---------->
+            <!-- TODO: Update the heading, image and text content. -->
+            <section>
+              <gcds-sr-only tag="h2">
+                Featured
+              </gcds-sr-only>
+              <gcds-grid
+                tag="div"
+                columns-desktop="1fr 1fr"
+                columns-tablet="1fr 1fr"
+              >
+                <!-- TODO: Update the Featured image -->
+                <img src="https://dummyimage.com/360x203/000000/FFFFFF.png" alt="" class="img-full">
+                <div>
+                  <gcds-heading
+                    margin-bottom="200"
+                    margin-top="0"
+                    tag="h3"
                   >
-                    Heading link
-                  </gcds-link>
-                </gcds-heading>
-                <gcds-text>
-                  Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to.
-                </gcds-text>
-              </div>
-            </gcds-grid>
-            <div>
+                    <gcds-link
+                      href="#"
+                      class="font-text"
+                    >
+                      Heading link
+                    </gcds-link>
+                  </gcds-heading>
+                  <gcds-text>
+                    Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to.
+                  </gcds-text>
+                </div>
+              </gcds-grid>
+            </section>
+
+            <!---------- Featured ---------->
+            <!-- TODO: Update links to social media pages or remove -->
+            <section>
               <gcds-heading
                 margin-top="0"
                 tag="h2"
@@ -390,49 +371,64 @@
                 On social media
               </gcds-heading>
               <ul class="ms-400 d-block social-media">
-                <li class="mb-100">
-                  <gcds-link href="#" class="font-bold facebook">
+                <li class="mb-200 d-flex">
+                  <img src="../assets/facebook.svg" alt="" />
+                  <gcds-link href="#" class="ms-200 align-content-center">
+                    <strong>
                       <gcds-sr-only tag="span">
                         Facebook:
                       </gcds-sr-only>
                       FacebookPageName
+                    </strong>
                   </gcds-link>
                 </li>
-                <li class="mb-100">
-                  <gcds-link href="#" class="font-bold twitter">
+                <li class="mb-100 d-flex">
+                  <img src="../assets/x.svg" alt="" />
+                  <gcds-link href="#" class="ms-200 align-content-center">
+                    <strong>
                       <gcds-sr-only tag="span">
                         X:
                       </gcds-sr-only>
                       @XAccount
+                    </strong>
                   </gcds-link>
                 </li>
-                <li class="mb-100">
-                  <gcds-link href="#" class="font-bold youtube">
+                <li class="mb-100 d-flex">
+                  <img src="../assets/youtube.svg" alt="" />
+                  <gcds-link href="#" class="ms-200 align-content-center">
+                    <strong>
                       <gcds-sr-only tag="span">
                         Youtube:
                       </gcds-sr-only>
                       YoutubeName
+                    </strong>
                   </gcds-link>
-                <li class="mb-100">
-                  <gcds-link href="#" class="font-bold instagram">
+                <li class="mb-100 d-flex">
+                  <img src="../assets/instagram.svg" alt="" />
+                  <gcds-link href="#" class="ms-200 align-content-center">
+                    <strong>
                       <gcds-sr-only tag="span">
                         Instagram:
                       </gcds-sr-only>
                       InstagramName
+                    </strong>
                   </gcds-link>
                 </li>
-                <li>
-                  <gcds-link href="#" class="font-bold linkedin">
+                <li class="d-flex">
+                  <img src="../assets/linkedin.svg" alt="" />
+                  <gcds-link href="#" class="ms-200 align-content-center">
+                    <strong>
                       <gcds-sr-only tag="span">
                         LinkedIn:
                       </gcds-sr-only>
                       LinkedInName
+                    </strong>
                   </gcds-link>
                 </li>
               </ul>
-            </div>
+            </section>
           </gcds-grid>
-        </section>
+        </div>
 
         <!---------- Contributors ---------->
         <!-- TODO: Update the link content. -->
