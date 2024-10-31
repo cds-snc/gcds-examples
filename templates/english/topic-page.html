@@ -109,7 +109,7 @@
             </gcds-text>
           </div>
           <div class="d-none lg:d-block">
-            <img src="https://dummyimage.com/520x200/000000/FFFFFF.png" alt="" class="">
+            <img src="https://dummyimage.com/520x200/000000/FFFFFF.png" alt="" />
           </div>
         </gcds-grid>
       </gcds-container>
@@ -181,8 +181,8 @@
         <!---------- Services and information ---------->
         <!-- TODO: Update the heading and text content. -->
         <section>
-          <gcds-sr-only>
-            <gcds-heading margin-top="0" margin-bottom="0" tag="h2">Services and information</gcds-heading>
+          <gcds-sr-only tag="h2">
+            Services and information
           </gcds-sr-only>
           <gcds-grid
             tag="div"
@@ -349,8 +349,8 @@
         <!---------- Featured ---------->
         <!-- TODO: Update the heading, image and text content. -->
         <section>
-          <gcds-sr-only>
-            <gcds-heading margin-top="0" margin-bottom="0" tag="h2">Featured</gcds-heading>
+          <gcds-sr-only tag="h2">
+            Featured
           </gcds-sr-only>
           <gcds-grid
             tag="div"
@@ -387,48 +387,46 @@
                 margin-top="0"
                 tag="h2"
               >
-                <span class="font-h6">
-                  On social media
-                </span>
+                On social media
               </gcds-heading>
               <ul class="ms-400 d-block social-media">
                 <li class="mb-100">
                   <gcds-link href="#" class="font-bold facebook">
-                      <gcds-sr-only>
+                      <gcds-sr-only tag="span">
                         Facebook:
                       </gcds-sr-only>
-                      Facebook
+                      FacebookPageName
                   </gcds-link>
                 </li>
                 <li class="mb-100">
                   <gcds-link href="#" class="font-bold twitter">
-                      <gcds-sr-only>
+                      <gcds-sr-only tag="span">
                         X:
                       </gcds-sr-only>
-                      @X
+                      @XAccount
                   </gcds-link>
                 </li>
                 <li class="mb-100">
                   <gcds-link href="#" class="font-bold youtube">
-                      <gcds-sr-only>
+                      <gcds-sr-only tag="span">
                         Youtube:
                       </gcds-sr-only>
-                      Youtube
+                      YoutubeName
                   </gcds-link>
                 <li class="mb-100">
                   <gcds-link href="#" class="font-bold instagram">
-                      <gcds-sr-only>
+                      <gcds-sr-only tag="span">
                         Instagram:
                       </gcds-sr-only>
-                      Instagram
+                      InstagramName
                   </gcds-link>
                 </li>
                 <li>
                   <gcds-link href="#" class="font-bold linkedin">
-                      <gcds-sr-only>
+                      <gcds-sr-only tag="span">
                         LinkedIn:
                       </gcds-sr-only>
-                      LinkedIn
+                      LinkedInName
                   </gcds-link>
                 </li>
               </ul>
@@ -438,7 +436,7 @@
 
         <!---------- Contributors ---------->
         <!-- TODO: Update the link content. -->
-        <section class="">
+        <section>
           <gcds-heading
             tag="h2"
             margin-bottom="0"
@@ -462,7 +460,12 @@
         </section>
 
         <!-- TODO: Update the date to reflect the page's most recent change. -->
-        <gcds-date-modified>2024-08-22</gcds-date-modified>
+         <section>
+          <gcds-sr-only tag="h2">
+            Page details
+          </gcds-sr-only>
+          <gcds-date-modified>2024-08-22</gcds-date-modified>
+         </section>
       </gcds-container>
     </gcds-container>
 
