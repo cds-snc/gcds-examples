@@ -25,7 +25,7 @@ const Success: React.FC = () => {
 
       <Button
         buttonRole="secondary"
-        className="me-500"
+        className="me-600"
         type="link"
         href="/"
       >
