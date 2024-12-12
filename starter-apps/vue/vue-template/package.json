@@ -13,7 +13,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "@cdssnc/gcds-components-vue": "^0.26.2",
+    "@cdssnc/gcds-components-vue": "^0.29.1",
     "@cdssnc/gcds-utility": "^1.4.0",
     "pinia": "^2.1.7",
     "vue": "^3.4.29",
