@@ -14,13 +14,13 @@ const FederalAndProvincialHolidays: React.FC = () => {
       <Text>Approximately 6 % of Canadians work in federally-regulated industries. Some examples are:</Text>
       <ul className='list-disc'>
         <li>
-          <Text marginBottom='150'>banks</Text>
+          <Text marginBottom='100'>banks</Text>
         </li>
         <li>
-          <Text marginBottom='150'>airlines</Text>
+          <Text marginBottom='100'>airlines</Text>
         </li>
         <li>
-          <Text marginBottom='150'>post offices</Text>
+          <Text marginBottom='100'>post offices</Text>
         </li>
         <li>
           <Text>the federal civil service</Text>

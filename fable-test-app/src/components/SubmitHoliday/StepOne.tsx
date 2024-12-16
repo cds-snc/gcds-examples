@@ -62,7 +62,7 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
         currentStep={1}
         totalSteps={2}
         tabIndex={-1}
-        className="mb-500"
+        className="mb-600"
       >
         About this holiday
       </Stepper>
@@ -79,7 +79,7 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
           name="holidayName"
           required
           size={20}
-          className="mt-400 mb-300"
+          className="mt-300 mb-225"
           validateOn="submit"
           value={formdata.holidayName}
           onInput={handleInputChange}
@@ -88,7 +88,7 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
         <Fieldset
           legend="Is this a new holiday (created within the past year)?"
           fieldsetId="newHoliday"
-          className="mb-300"
+          className="mb-225"
           validateOn="submit"
           required
         >
@@ -106,7 +106,7 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
           name="holidayDate"
           format="full"
           validateOn="submit"
-          className="mb-300"
+          className="mb-225"
           required
           value={formdata.holidayDate}
           onInput={handleInputChange}
@@ -125,7 +125,7 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
       <Fieldset
         legend="Type of holiday"
         fieldsetId="holidayType"
-        className="mt-500"
+        className="mt-600"
       >
         <Fieldset
           legend="What type of holiday is this?"
@@ -133,7 +133,7 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
           fieldsetId="typeOfHoliday"
           validateOn="submit"
           required
-          className="mt-400"
+          className="mt-300"
         >
           <Checkbox
             checkboxId="federal"
@@ -165,7 +165,7 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
         </Fieldset>
         <Details
           detailsTitle="What are federal holidays?"
-          className="mb-300"
+          className="mb-225"
         >
           {/* The page this will link to hasn't been created yet */}
           <Text marginBottom="0">
@@ -197,7 +197,7 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
           label="Upload an image of this holiday"
           uploaderId="holidayImage"
           name="image"
-          className="mb-300"
+          className="mb-225"
           {...(formdata.image ? {value: formdata.image} : {})}
           onChange={handleInputChange}
         />

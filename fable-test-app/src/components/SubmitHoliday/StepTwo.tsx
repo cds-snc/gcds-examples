@@ -29,7 +29,7 @@ const StepTwo: React.FC<StepTwoProps> = ((props) => {
       currentStep={2}
       totalSteps={2}
       tabIndex={-1}
-      className="mb-500"
+      className="mb-600"
     >
       Contact information
     </Stepper>
@@ -63,7 +63,7 @@ const StepTwo: React.FC<StepTwoProps> = ((props) => {
 
     <Button
       buttonRole="secondary"
-      className="me-500"
+      className="me-600"
       onGcdsClick={previousStep}
       type="button"
     >
