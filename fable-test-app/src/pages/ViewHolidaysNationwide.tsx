@@ -18,6 +18,7 @@ interface MappedHoliday {
   date: string;
   name: string;
   location: string;
+  duplicateDate: boolean;
 }
 
 const ViewHolidaysNationwide = () => {
@@ -75,9 +76,10 @@ const ViewHolidaysNationwide = () => {
 
     return Array.from(holidayMap.entries()).flatMap(([date, holidays]) => {
       return holidays.map((holiday, index) => ({
-        date: index === 0 ? formatDate(date) : '',
+        date: formatDate(date),
         name: holiday.nameEn,
-        location: formatLocation(holiday.provinces, holiday.federal)
+        location: formatLocation(holiday.provinces, holiday.federal),
+        duplicateDate: index === 0 ? false : true
       }));
     });
   };
@@ -127,27 +129,31 @@ const ViewHolidaysNationwide = () => {
       <table className="mb-450">
         <thead>
           <tr className="text-left bb-sm b-default">
-            <th className="py-300">
-              <Heading tag="h4" marginBottom="0" marginTop="0">Day</Heading>
+            <th className="py-225 font-h4">
+              Day
             </th>
-            <th className="py-300">
-              <Heading tag="h4" marginBottom="0" marginTop="0">Holiday</Heading>
+            <th className="py-225 font-h4">
+              Holiday
             </th>
-            <th className="py-300">
-              <Heading tag="h4" marginBottom="0" marginTop="0">Location</Heading>
+            <th className="py-225 font-h4">
+              Location
             </th>
           </tr>
         </thead>
         <tbody>
           {holidays.map((holiday, index) => (
             <tr key={index} className="bb-sm b-default">
-                <td className="sm:pe-400 pe-0 sm:py-300 py-200">
-                  <strong>{holiday.date}</strong>
+                <td className="sm:pe-300 pe-0 sm:py-225 py-150">
+                  {!holiday.duplicateDate ? 
+                    <strong>{holiday.date}</strong>
+                  :
+                    <strong className="visibility-sr-only">{holiday.date}</strong>
+                  }
                 </td>
-                <td className="sm:pe-400 pe-0 sm:pt-300 pt-0 sm:pb-300 pb-200">
+                <td className="sm:pe-300 pe-0 sm:pt-225 pt-0 sm:pb-225 pb-150">
                   {holiday.name}
                 </td>
-                <td className="sm:pt-300 pt-0 sm:pb-300 pb-200">{holiday.location}</td>
+                <td className="sm:pt-225 pt-0 sm:pb-225 pb-150">{holiday.location}</td>
             </tr>
         ))}
         </tbody>

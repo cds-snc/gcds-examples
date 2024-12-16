@@ -1,8 +1,6 @@
 import React from 'react';
 import { GcdsContainer } from "@cdssnc/gcds-components-react";
-
-// Define spacing values for margin + padding
-type SpacingValues = "0" | "50" | "100" | "150" | "200" | "250" | "300" | "400" | "450" | "500" | "550" | "600" | "700" | "800" | "900" | "1000";
+import { SpacingValues } from '../utils/constants';
 
 interface ContainerProps {
   border?: boolean;
