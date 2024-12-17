@@ -20,6 +20,7 @@ const Success: React.FC = () => {
         type="success"
         noticeTitleTag='h2'
         className='mb-600'
+        tabIndex={0}
       >
         <Text marginBottom="0">
           We hope to add this holiday to our app soon.
