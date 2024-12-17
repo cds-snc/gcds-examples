@@ -1,27 +1,31 @@
 import { useEffect } from 'react';
 
-import { Button } from '../../components';
+import { Button, Text } from '../../components';
+import { GcdsNotice } from '@cdssnc/gcds-components-react';
 
 const Success: React.FC = () => {
 
   useEffect(() => {
 
     setTimeout(() => {
-      // document.querySelector('gcds-notice')?.focus();
+      document.querySelector('gcds-notice')?.focus();
     }, 50);
 
   }, []);
 
   return (
     <>
-      {/* <GcdsNotice
+      <GcdsNotice
         noticeTitle="Your holiday request was submitted."
         type="success"
+        noticeTitleTag='h2'
+        className='mb-600'
+        tabIndex={0}
       >
         <Text marginBottom="0">
           We hope to add this holiday to our app soon.
         </Text>
-      </GcdsNotice> */}
+      </GcdsNotice>
 
       <Button
         buttonRole="secondary"
