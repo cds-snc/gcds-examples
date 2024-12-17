@@ -70,7 +70,7 @@ const SubmitHoliday: React.FC = () => {
   return (
     <section>
       <Heading tag="h1">Submit a holiday</Heading>
-      <Text marginBottom="500">
+      <Text marginBottom="600">
         This is a form you can use to submit a holiday that we're missing. There's a few steps involved to showcase our form components.
       </Text>
 

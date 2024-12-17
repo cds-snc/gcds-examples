@@ -12,7 +12,7 @@ const OptionalHolidays: React.FC = () => {
       <Heading tag="h2">Examples of optional holidays</Heading>
       <ul className='list-disc'>
         <li>
-          <Text marginBottom='150'>The August Civic Holiday is not a statutory holiday in Ontario, but many businesses still give their employees the day off.</Text>
+          <Text marginBottom='100'>The August Civic Holiday is not a statutory holiday in Ontario, but many businesses still give their employees the day off.</Text>
         </li>
         <li>
           <Text>Boxing Day is only a statutory holiday in Ontario. For all other provinces in Canada, Boxing Day is an optional holiday.</Text>
@@ -23,7 +23,7 @@ const OptionalHolidays: React.FC = () => {
       <Text>Statutory holidays are government-legislated and they are mandatory. On a statutory holiday, your employer is legally required to:</Text>
       <ul className='list-disc'>
         <li>
-          <Text marginBottom='150'>give you the day off, or</Text>
+          <Text marginBottom='100'>give you the day off, or</Text>
         </li>
         <li>
           <Text>pay you more for working on the holiday</Text>
@@ -35,10 +35,10 @@ const OptionalHolidays: React.FC = () => {
       <Text>Employers might observe optional holidays for various reasons:</Text>
       <ul className='list-disc'>
         <li>
-          <Text marginBottom='150'>If you are unionized, your collective agreement may include optional holidays not legislated by your province</Text>
+          <Text marginBottom='100'>If you are unionized, your collective agreement may include optional holidays not legislated by your province</Text>
         </li>
         <li>
-          <Text marginBottom='150'>Some businesses shut down on days that schools and post offices are closed</Text>
+          <Text marginBottom='100'>Some businesses shut down on days that schools and post offices are closed</Text>
         </li>
         <li>
           <Text>Businesses may have traditionally observed an optional holiday, and it is now an expectation</Text>

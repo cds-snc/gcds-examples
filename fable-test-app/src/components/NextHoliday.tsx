@@ -33,7 +33,7 @@ const NextHoliday: React.FC<NextHolidayProps> = ({
   const formatDate = (dateString: string) => {
     const holidayDate = new Date(dateString);
 
-    return `${holidayDate.toLocaleString('default', { month: 'long' })} ${holidayDate.getDate()}`;
+    return `${holidayDate.toLocaleString('default', { month: 'long' })} ${holidayDate.getUTCDate()}`;
   };
 
   // Create formatted list of <abbr> elements for provinces

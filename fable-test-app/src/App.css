@@ -11,7 +11,11 @@ table img {
 
 @media only screen and (width < 40em) {
   table thead {
-    display: none;
+    display: block;
+    width: 0;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
   }
 
   table td {

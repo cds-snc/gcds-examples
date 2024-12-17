@@ -89,18 +89,18 @@ const ViewHolidays = () => {
       <table className="mb-450">
         <thead>
           <tr className="text-left bb-sm b-default">
-            <th className="py-300">
-              <Heading tag="h4" marginBottom="0" marginTop="0">Day</Heading>
+            <th className="py-225 font-h4">
+              Day
             </th>
-            <th className="py-300">
-              <Heading tag="h4" marginBottom="0" marginTop="0">Holiday</Heading>
+            <th className="py-225 font-h4">
+              Holiday
             </th>
           </tr>
         </thead>
         <tbody>
           {holidays.map(holiday => (
             <tr key={holiday.id} className="bb-sm b-default">
-              <td className="sm:pe-400 pe-0 sm:py-300 py-200">
+              <td className="sm:pe-300 pe-0 sm:py-225 py-150">
                 <span className="d-flex align-items-center">
                   <NextHoliday
                     display="table"
@@ -110,7 +110,7 @@ const ViewHolidays = () => {
                   <strong>{formatDate(holiday.date)}</strong>
                 </span>
               </td>
-              <td className="sm:pt-300 pt-0 sm:pb-300 pb-200">
+              <td className="sm:pt-225 pt-0 sm:pb-225 pb-150">
                 {holiday.nameEn} {holiday.optional ? ' (optional)' : ''}
               </td>
             </tr>
