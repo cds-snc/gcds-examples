@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/@cdssnc/gcds-components/dist/gcds/gcds.css';
+
+/* Reset Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
