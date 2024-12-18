@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-// import { GcdsComponentsModule } from '/Users/daine-rosetrinidad/projects/gcds/gcds-components/packages/angular/';
-// import { GcdsComponentsModule } from '/Users/daine-rosetrinidad/projects/gcds/gcds-components/packages/angular/dist/'
 import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
 
 @Component({
