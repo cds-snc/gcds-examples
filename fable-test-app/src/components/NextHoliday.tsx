@@ -51,6 +51,7 @@ const NextHoliday: React.FC<NextHolidayProps> = ({
   };
 
   const daysToNextHoliday = nextHoliday ? calcNextHoliday(nextHoliday.date) : null;
+  const dayOrDays = daysToNextHoliday === 1 ? 'day' : 'days';
 
   if (!nextHoliday) {
     return null;
@@ -64,7 +65,7 @@ const NextHoliday: React.FC<NextHolidayProps> = ({
         alt="Calendar icon with a clock in the bottom right corner."
       />
       <Text textRole="light" marginBottom="0">
-        <strong>Next holiday is {nextHoliday.nameEn} — that's {daysToNextHoliday} days away</strong>
+        <strong>Next holiday is {nextHoliday.nameEn} — that's {daysToNextHoliday} {dayOrDays} away</strong>
       </Text>
     </div>
   ) : isCurrentHoliday ? (
@@ -101,7 +102,7 @@ const NextHoliday: React.FC<NextHolidayProps> = ({
       </div>
       <div className="d-flex bg-primary md:align-items-center align-items-center text-light md:px-450 px-250 py-200">
         <Text textRole="light" marginBottom="0">
-          <strong>That's in {daysToNextHoliday} days!</strong>
+          <strong>That's in {daysToNextHoliday} {dayOrDays}!</strong>
         </Text>
         <img
           className="d-inline-block ms-400"
