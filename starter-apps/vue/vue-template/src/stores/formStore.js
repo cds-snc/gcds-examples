@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 export const useFormStore = defineStore('form', {
   state: () => ({
     formData: {
+      gender: '',
       version: '',
       title: '',
       currentBehavior: '',

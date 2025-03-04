@@ -11,6 +11,7 @@ import TextArea from '@/components/forms/TextArea.vue'
 import Button from '@/components/forms/Button.vue'
 import DateModified from '@/components/DateModified.vue'
 import ErrorSummary from '@/components/forms/ErrorSummary.vue'
+import Radios from '@/components/forms/Radios.vue'
 
 const { t } = useI18n()
 
@@ -23,6 +24,7 @@ const formData = ref({ ...formStore.formData })
 const submitted = ref(formStore.submitted)
 
 const formElements = {
+  gender: 'gender',
   version: 'version',
   title: 'title',
   currentBehavior: 'currentBehavior',
@@ -39,11 +41,14 @@ const handleError = (event) => {
   if (!errors.includes(event.detail.id)) {
     errors.push(event.detail.id)
   }
+  console.log("handleError - errors", errors)
 }
 const handleValid = (event) => {
   if (errors.includes(event.detail.id)) {
     errors = errors.filter((error) => error !== event.detail.id)
   }
+  console.log("handleValid - errors", errors)
+  console.log("handleValid - formData", formData)
 }
 async function handleSubmit() {
   setTimeout(() => {
@@ -51,9 +56,16 @@ async function handleSubmit() {
     if (errors.length === 0) {
       formStore.submitForm(formData.value)
       submitted.value = formStore.submitted
+
+      console.log("formData", formData, formData.value)
     }
   }, 50)
 }
+
+const genderOptions = [
+  { "label": "Male", "id": "gender-m", "value": "male", "hint": "Description or example to make the option clearer."},
+  { "label": "Female", "id": "gender-f", "value": "female", "hint": "Description or example to make the option clearer."}
+]
 
 // Link to the GitHub issue form with the form data pre-filled
 const githubIssueURL = () => {
@@ -96,6 +108,15 @@ const githubIssueURL = () => {
       @submit.prevent="handleSubmit"
     >
       <ErrorSummary listen />
+      <Radios
+        :id="formElements.gender"
+        :name="formElements.gender"
+        :options="genderOptions"
+        legend="Select a gender option"
+        validate-on="submit"
+        v-model="formData.gender"
+        required
+      ></Radios>
       <Input
         :id="formElements.version"
         v-model="formData.version"
@@ -173,6 +194,9 @@ const githubIssueURL = () => {
 
     <div v-if="submitted">
       <Heading tag="h2">{{ t('reportABugPage.form.confirmation') }}</Heading>
+      <Text>
+        <strong>Gender:</strong> {{ formData.gender }}
+      </Text>
       <Text>
         <strong>{{ t('reportABugPage.form.versionNumber') }}:</strong> {{ formData.version }}
       </Text>
