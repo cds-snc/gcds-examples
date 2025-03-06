@@ -63,7 +63,7 @@ async function handleSubmit() {
 }
 
 const genderOptions = [
-  { "label": "Male", "id": "gender-m", "value": "male", "hint": "Description or example to make the option clearer."},
+  { "label": "Male", "id": "gender-m", "value": "male", "hint": "Description or example to make the option clearer.", "required": true},
   { "label": "Female", "id": "gender-f", "value": "female", "hint": "Description or example to make the option clearer."}
 ]
 
@@ -115,7 +115,7 @@ const githubIssueURL = () => {
         legend="Select a gender option"
         validate-on="submit"
         v-model="formData.gender"
-        required
+
       ></Radios>
       <Input
         :id="formElements.version"

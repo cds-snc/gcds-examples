@@ -3,6 +3,39 @@
   <gcds-text>
     This is a simple Angular app that uses the GC Design System. It is a good starting point for building a new Angular app with the GC Design System.
   </gcds-text>
+  <form name="reportABug" (ngSubmit)="onSubmit()">
+    <input type="text" [(ngModel)]="firstName" name="firstName"/>
+    <gcds-text>{{ firstName }}</gcds-text>
+
+    <gcds-input type="text" [(ngModel)]="lastName" name="lastName" hint="Last Name" value="{{ lastName }}" errorMessage="This is the error message"/>
+    <gcds-text>{{ lastName }}</gcds-text>
+
+    <gcds-radios
+      name="packageSelected"
+      legend="Choose which package you're using"
+      [options]="packageOptions"
+      [(ngModel)]="selectedPackage"
+      required="false"
+      hint="Please select the package you're using"
+      error-message="Error message for package selection"
+      value="male"
+      validate-on="submit"
+    >
+    </gcds-radios>
+    <gcds-input
+      name="email"
+      label="Email"
+      type="email"
+      [(ngModel)]="formEmail"
+      required="true"
+      hint="Please enter your email address"
+      error-message="Error message for email"
+      validate-on="submit"></gcds-input>
+
+    <gcds-button type="submit">Submit</gcds-button>
+    <gcds-text>Selected Package: {{ selectedPackage }}</gcds-text>
+
+  </form>
 </gcds-container>
 
 <router-outlet />
