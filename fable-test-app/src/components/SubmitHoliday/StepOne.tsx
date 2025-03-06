@@ -11,6 +11,7 @@ import {
   FileUploader,
   Checkbox,
   RadioGroup,
+  Radios,
   Stepper
 } from '../../components';
 import { provinces } from '../../utils/constants';
@@ -21,6 +22,7 @@ interface StepOneProps {
   formdata: {
     holidayName: string,
     newHoliday: string,
+    newHoliday2: string,
     holidayDate: string,
     learnOfHoliday: string,
     holidayType: {
@@ -85,6 +87,17 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
           onInput={handleInputChange}
         />
 
+        <Radios
+            name="newHoliday2"
+            legend="Do you want a new holiday?"
+            options={newHolidayOptions}
+            onGcdsChange={handleInputChange}
+            validateOn="submit"
+            value={formdata.newHoliday2}
+            required
+        >
+        </Radios>
+
         <Fieldset
           legend="Is this a new holiday (created within the past year)?"
           fieldsetId="newHoliday"
@@ -98,6 +111,8 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
             onGcdsChange={handleInputChange}
           >
           </RadioGroup>
+
+
         </Fieldset>
 
         <DateInput
