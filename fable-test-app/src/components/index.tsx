@@ -14,6 +14,7 @@ export { default as Textarea } from './Textarea';
 export { default as Fieldset } from './Fieldset';
 export { default as FileUploader } from './FileUploader';
 export { default as Checkbox } from './Checkbox';
+export { default as Checkboxes } from './Checkboxes';
 export { default as RadioGroup } from './RadioGroup';
 export { default as Stepper } from './Stepper';
 export { default as StepOne } from './SubmitHoliday/StepOne';

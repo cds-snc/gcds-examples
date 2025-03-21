@@ -17,11 +17,7 @@ const SubmitHoliday: React.FC = () => {
     newHoliday: '',
     holidayDate: '',
     learnOfHoliday: '',
-    holidayType: {
-      federal: false,
-      national: false,
-      other: false
-    },
+    holidayType: [],
     otherHoliday: '',
     province: '',
     image: null,
@@ -35,9 +31,6 @@ const SubmitHoliday: React.FC = () => {
     const { name, value } = e.target;
     if (name === "newHoliday") {
       setFormData({...formData, [name]: e.detail});
-    } else if (name === "holidayType") {
-      let type = formData.holidayType;
-      setFormData({...formData, [name]: { ...type, [value]: !type[value as keyof typeof type] }});
     } else {
       setFormData({...formData, [name]: value});
     }

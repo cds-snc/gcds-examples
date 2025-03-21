@@ -9,9 +9,9 @@ import {
   Textarea,
   Fieldset,
   FileUploader,
-  Checkbox,
   RadioGroup,
-  Stepper
+  Stepper,
+  Checkboxes
 } from '../../components';
 import { provinces } from '../../utils/constants';
 
@@ -23,11 +23,7 @@ interface StepOneProps {
     newHoliday: string,
     holidayDate: string,
     learnOfHoliday: string,
-    holidayType: {
-      federal: boolean,
-      national: boolean,
-      other: boolean
-    },
+    holidayType: Array<string>,
     otherHoliday: string,
     province: string,
     image: string[] | null,
@@ -127,7 +123,35 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
         fieldsetId="holidayType"
         className="mt-600"
       >
-        <Fieldset
+        {/* Implementation of new gcds-checkboxes component */}
+        <Checkboxes
+          legend="What type of holiday is this?"
+          hint="Select all that apply"
+          name="holidayType"
+          validateOn="submit"
+          value={formdata.holidayType}
+          required
+          onInput={handleInputChange}
+          options={[
+            {
+              label: "Federal",
+              id: "federal",
+              value: "federal"
+            },
+            {
+              label: "National",
+              id: "national",
+              value: "national"
+            },
+            {
+              label: "Other",
+              id: "other",
+              value: "other"
+            }
+          ]}
+        ></Checkboxes>
+
+        {/* <Fieldset
           legend="What type of holiday is this?"
           hint="Select all that apply"
           fieldsetId="typeOfHoliday"
@@ -162,7 +186,8 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
             onInput={handleInputChange}
           >
           </Checkbox>
-        </Fieldset>
+        </Fieldset> */}
+
         <Details
           detailsTitle="What are federal holidays?"
           className="mb-225"
@@ -173,7 +198,7 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
           </Text>
         </Details>
 
-        {formdata.holidayType.other &&
+        {formdata.holidayType.includes('other') &&
           <Select
             selectId="province"
             label="If this holiday occurs in a specific province or territory, select the location."
