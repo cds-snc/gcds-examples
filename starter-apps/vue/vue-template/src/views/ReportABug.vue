@@ -11,6 +11,7 @@ import TextArea from '@/components/forms/TextArea.vue'
 import Button from '@/components/forms/Button.vue'
 import DateModified from '@/components/DateModified.vue'
 import ErrorSummary from '@/components/forms/ErrorSummary.vue'
+import Checkboxes from '@/components/forms/Checkboxes.vue'
 
 const { t } = useI18n()
 
@@ -30,7 +31,8 @@ const formElements = {
   systemInfo: 'systemInfo',
   stepsToReproduce: 'stepsToReproduce',
   codeReproductionUrl: 'codeReproductionUrl',
-  additionalInfo: 'additionalInfo'
+  additionalInfo: 'additionalInfo',
+  check: 'check'
 }
 
 let errors = []
@@ -80,6 +82,11 @@ const githubIssueURL = () => {
 
   return url
 }
+
+const options = [
+   { "label": "Check 1", "id": "check1", "value": "check1", "hint": "Description or example to make the option clearer."},
+   { "label": "Check 2", "id": "check2", "value": "check2", "hint": "Description or example to make the option clearer."}
+ ]
 </script>
 <template>
   <div>
@@ -96,6 +103,15 @@ const githubIssueURL = () => {
       @submit.prevent="handleSubmit"
     >
       <ErrorSummary listen />
+      <Checkboxes
+         :id="formElements.check"
+         :name="formElements.check"
+         :options="options"
+         legend="Select one of the checkboxes"
+         validate-on="submit"
+         v-model="formData.check"
+         required
+      ></Checkboxes>
       <Input
         :id="formElements.version"
         v-model="formData.version"

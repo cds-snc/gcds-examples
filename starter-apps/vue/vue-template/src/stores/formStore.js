@@ -10,7 +10,8 @@ export const useFormStore = defineStore('form', {
       systemInfo: '',
       stepsToReproduce: '',
       codeReproductionUrl: '',
-      additionalInfo: ''
+      additionalInfo: '',
+      check: []
     },
     submitted: false
   }),
