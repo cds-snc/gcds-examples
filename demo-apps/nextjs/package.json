@@ -11,7 +11,7 @@
   "dependencies": {
     "@cdssnc/gcds-components-react-ssr": "^0.26.1-canary.0",
     "@cdssnc/gcds-utility": "^1.5.0",
-    "next": "14.2.26",
+    "next": "15.3.2",
     "react": "^18",
     "react-dom": "^18"
   },
