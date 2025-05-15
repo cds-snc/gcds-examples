@@ -12,7 +12,7 @@ const { id, name, options, required, hint, legend, validateOn, validator } = def
 const model = defineModel()
 </script>
 <template>
-  <gcds-checkboxes
+  <gcds-radios
     v-model="model"
     :options="options"
     :hint="hint"
@@ -22,5 +22,5 @@ const model = defineModel()
     :required="required"
     :validate-on="validateOn"
     :validator="validator"
-  ></gcds-checkboxes>
+  ></gcds-radios>
 </template>

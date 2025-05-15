@@ -12,6 +12,7 @@ import Button from '@/components/forms/Button.vue'
 import DateModified from '@/components/DateModified.vue'
 import ErrorSummary from '@/components/forms/ErrorSummary.vue'
 import Checkboxes from '@/components/forms/Checkboxes.vue'
+import Radios from '@/components/forms/Radios.vue'
 
 const { t } = useI18n()
 
@@ -32,7 +33,8 @@ const formElements = {
   stepsToReproduce: 'stepsToReproduce',
   codeReproductionUrl: 'codeReproductionUrl',
   additionalInfo: 'additionalInfo',
-  check: 'check'
+  check: 'check',
+  radios: 'radios'
 }
 
 let errors = []
@@ -83,10 +85,14 @@ const githubIssueURL = () => {
   return url
 }
 
-const options = [
-   { "label": "Check 1", "id": "check1", "value": "check1", "hint": "Description or example to make the option clearer."},
-   { "label": "Check 2", "id": "check2", "value": "check2", "hint": "Description or example to make the option clearer."}
- ]
+const checkBoxOptions = [
+  { "label": "Check 1", "id": "check1", "value": "check1", "hint": "Description or example to make the option clearer."},
+  { "label": "Check 2", "id": "check2", "value": "check2", "hint": "Description or example to make the option clearer."}
+]
+const radiosOptions = [
+  { "label": "Yes", "id": "radio1", "value": "yes", "hint": "Description or example to make the option clearer."},
+  { "label": "No", "id": "radio2", "value": "no", "hint": "Description or example to make the option clearer."}
+]
 </script>
 <template>
   <div>
@@ -103,15 +109,31 @@ const options = [
       @submit.prevent="handleSubmit"
     >
       <ErrorSummary listen />
-      <Checkboxes
-         :id="formElements.check"
-         :name="formElements.check"
-         :options="options"
-         legend="Select one of the checkboxes"
-         validate-on="submit"
-         v-model="formData.check"
-         required
-      ></Checkboxes>
+
+      <gcds-fieldset
+        legend="New form components"
+        legend-size="h2"
+        hint="These are not useful to the form"
+      >
+        <Checkboxes
+          :id="formElements.check"
+          :name="formElements.check"
+          :options="checkBoxOptions"
+          legend="Select one of the checkboxes"
+          validate-on="submit"
+          v-model="formData.check"
+          required
+        ></Checkboxes>
+        <Radios
+          :id="formElements.radios"
+          :name="formElements.radios"
+          :options="radiosOptions"
+          legend="Select one of the radio buttons"
+          validate-on="submit"
+          v-model="formData.radios"
+          required
+        ></Radios>
+      </gcds-fieldset>
       <Input
         :id="formElements.version"
         v-model="formData.version"
