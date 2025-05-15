@@ -29,11 +29,8 @@ const SubmitHoliday: React.FC = () => {
   // Handle form inputs to set into state
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
-    if (name === "newHoliday") {
-      setFormData({...formData, [name]: e.detail});
-    } else {
-      setFormData({...formData, [name]: value});
-    }
+
+    setFormData({...formData, [name]: value});
   };
 
   const previousStep = () => {

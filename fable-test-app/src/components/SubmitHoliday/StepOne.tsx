@@ -11,7 +11,8 @@ import {
   FileUploader,
   RadioGroup,
   Stepper,
-  Checkboxes
+  Checkboxes,
+  Radios
 } from '../../components';
 import { provinces } from '../../utils/constants';
 
@@ -37,9 +38,9 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
   const { formdata, handleInputChange, focusHeading } = props;
 
   const newHolidayOptions = [
-    { "label": "Yes", "id": "radio1", "value": "yes", "checked": formdata.newHoliday === "yes"},
-    { "label": "No", "id": "radio2", "value": "no", "checked": formdata.newHoliday === "no"},
-    { "label": "Not sure", "id": "radio3", "value": "notsure", "checked": formdata.newHoliday === "notsure"}
+    { "label": "Yes", "id": "radio1", "value": "yes"},
+    { "label": "No", "id": "radio2", "value": "no"},
+    { "label": "Not sure", "id": "radio3", "value": "notsure"}
   ];
 
   useEffect(() => {
@@ -67,7 +68,7 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
 
       <Fieldset
         legend="General holiday information"
-        fieldsetId="holdayInformation"
+        legendSize='h3'
       >
         <Input
           inputId="holidayName"
@@ -81,6 +82,8 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
           onInput={handleInputChange}
         />
 
+        {/* Leaving here to compare to new component
+        
         <Fieldset
           legend="Is this a new holiday (created within the past year)?"
           fieldsetId="newHoliday"
@@ -94,7 +97,17 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
             onGcdsChange={handleInputChange}
           >
           </RadioGroup>
-        </Fieldset>
+        </Fieldset> */}
+
+        <Radios
+          legend="Is this a new holiday (created within the past year)?"
+          name="newHoliday"
+          options={newHolidayOptions}
+          onInput={handleInputChange}
+          validateOn="submit"
+          value={formdata.newHoliday}
+          required
+        ></Radios>
 
         <DateInput
           legend="When will this holiday occur?"
@@ -120,7 +133,7 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
 
       <Fieldset
         legend="Type of holiday"
-        fieldsetId="holidayType"
+        legendSize='h3'
         className="mt-600"
       >
         {/* Implementation of new gcds-checkboxes component */}
