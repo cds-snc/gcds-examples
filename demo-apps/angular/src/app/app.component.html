@@ -1,8 +1,71 @@
-<gcds-container centered id="main" main-container size="xl" tag="main">
+<gcds-container [centered]="true" id="main" main-container size="xl" tag="main">
   <gcds-heading tag="h1">Hello, world!</gcds-heading>
   <gcds-text>
     This is a simple Angular app that uses the GC Design System. It is a good starting point for building a new Angular app with the GC Design System.
   </gcds-text>
+
+  <gcds-text>
+    Find examples below using the ngModel in Angular.
+  </gcds-text>
+
+  <gcds-heading tag="h2">
+    Text
+  </gcds-heading>
+
+  <gcds-textarea label="Textarea" name="textarea" textarea-id="textarea" [(ngModel)]="name"></gcds-textarea>
+  <gcds-input type="text" input-id="red" name="name" label="Text input" [(ngModel)]="name"></gcds-input>
+  <input type="text" [(ngModel)]="name" placeholder="Enter your text">
+
+  <p>You entered: {{ name }}</p>
+
+  <hr/>
+
+  <gcds-heading tag="h2">
+    Number
+  </gcds-heading>
+  
+  <gcds-input type="number" input-id="red" name="number" label="Number" [(ngModel)]="number"></gcds-input>
+  <input type="number" [(ngModel)]="number" placeholder="Enter your number">
+
+  <p>You entered: {{ number }}</p>
+
+  <hr/>
+
+  <gcds-heading tag="h2">
+    Date
+  </gcds-heading>
+
+  <gcds-date-input legend="Full" name="date" format="full" [(ngModel)]="date"></gcds-date-input>
+  <gcds-date-input legend="Compact" name="date" format="compact" [(ngModel)]="date"></gcds-date-input>
+
+  <p>The date: {{ date }}</p>
+
+  <hr/>
+
+  <gcds-heading tag="h2">
+    Select
+  </gcds-heading>
+
+
+  <select [(ngModel)]="select">
+    <option value="-" disabled selected>Select an option</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+
+  <gcds-select label="Select" select-id="select" name="select" default-value="Select an option" [(ngModel)]="select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </gcds-select>
+
+
+
+  <p>You selected: {{ select }}</p>
+
 </gcds-container>
 
 <router-outlet />
