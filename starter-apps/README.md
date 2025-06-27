@@ -1,54 +1,20 @@
-# Vue3 Starter App with GCDS Components Vue Package
-This is a starter app that you can use to bootstrap your project using Vue3 and GCDS Components
+# Starter Apps
 
-## Project Structure
-A brief overview of the project structure:
+This folder contains example **starter applications** for various frameworks, intended to serve as a foundation when bootstrapping new projects using our design system. 
 
-```graphql
-vue-template/                     # Project root (Javascript)
-├── e2e/                          # End-to-end tests
-├── public/                       # Static assets
-├── src/                          # Source files
-│   ├── assets/                   # Project assets
-│   ├── components/               # Vue components
-│   │   ├── __tests__/            # Unit tests
-│   │   ├── forms/                # Form components
-│   │   ├── AppLink.vue           # GCDS implementation of a router link component
-│   │   ├── Container.vue         # Example of usage of the GCDS container component
-│   │   ├── DateModified.vue      # Example of usage of the GCDS date modified component
-│   │   ├── Header.vue            # Example of usage of the GCDS header component
-│   │   ├── Footer.vue            # Example of usage of the GCDS footer component
-│   │   ├── HeaderBreadcrumbs.vue # Example of usage of the GCDS breadcrumbs component
-│   │   ├── Heading.vue           # Example of usage of the GCDS heading component
-│   │   ├── NavLink.vue           # Example of usage of the GCDS nav link component
-│   │   └── Text.vue              # Example of usage of the GCDS text component
-│   ├── config                    # Configuration files
-│   │   └── constants.js          # Constants fie
-│   ├── i18n                      # Configuration files
-│   │   ├── en.js                 # English translations
-│   │   └── fr.js                 # French translations
-│   │   └── index.js              # Constants fie
-│   ├── router                    # Router config folder
-│   │   └── index.js              # Router configuration
-│   ├── stores                    # Pinia store folder
-│   │   └── formStore.js          # Example store file for forms
-│   ├── utils                     # Utility functions
-│   │   ├── nav.js                # Navigation utility functions
-│   │   └── refresh.js            # Utility function to refresh states
-│   ├── views                     # Views folder
-│   │   ├── About/                # View files for the about page
-│   │   ├── HomeView.vue          # Example view file
-│   │   ├── NotFound.vue          # Page not found view file
-│   │   └── ReportABug.vue        # Example view file using GCDS components
-│   ├── App.vue                   # Root component
-│   └──main.js                   # Entry point
-├── .gitignore                    # Git ignore rules
-├── index.html                    # HTML template
-├── package.json                  # Project metadata and dependencies
-├── README.md                     # Project documentation
-├── .eslintrc.js                  # ESLint configuration
-├── .prettierrc.js                # Prettier configuration
-├── playwright.config.js          # Playwright configuration
-├── vitest.config.js              # Vite test configuration
-└── vite.config.js                # Vite configuration
-```
+_Future / Planned_ We hope to eventually integrate these into a CLI tool (`create-starter-app`) to simplify the project setup process.
+
+## 📦 What's Inside
+
+Each folder in this directory is a complete starter app for a specific framework or setup:
+
+- `vue/` – Starter app built with Vue 3 + Vite
+- `angular/` – *(planned)*
+- `react/` – *(planned)*
+
+Each starter includes:
+
+- Basic layout and routing
+- Integration with our design system
+- Sample components and usage
+- Linting, formatting, and recommended tooling setup
