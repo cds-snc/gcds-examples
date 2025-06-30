@@ -41,7 +41,7 @@ vue-template/                     # Project root (Javascript)
 │   │   ├── NotFound.vue          # Page not found view file
 │   │   └── ReportABug.vue        # Example view file using GCDS components
 │   ├── App.vue                   # Root component
-│   └──main.js                   # Entry point
+│   └──main.js                    # Entry point
 ├── .gitignore                    # Git ignore rules
 ├── index.html                    # HTML template
 ├── package.json                  # Project metadata and dependencies
