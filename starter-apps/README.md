@@ -9,8 +9,8 @@ _Future / Planned_ We hope to eventually integrate these into a CLI tool (`creat
 Each folder in this directory is a complete starter app for a specific framework or setup:
 
 - `vue/` – Starter app built with Vue 3 + Vite
-- `angular/` – *(planned)*
-- `react/` – *(planned)*
+- `angular/` – *(coming soon)*
+- `react/` – *(coming soon)*
 
 Each starter includes:
 
