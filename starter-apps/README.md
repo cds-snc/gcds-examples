@@ -15,6 +15,6 @@ Each folder in this directory is a complete starter app for a specific framework
 Each starter includes:
 
 - Basic layout and routing
-- Integration with our design system
+- Integration with the GC Design System
 - Sample components and usage
 - Linting, formatting, and recommended tooling setup
