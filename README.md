@@ -4,7 +4,7 @@
 ## Demo apps
 - [Vue3](/demo-apps/vue3)
 - React (coming soon)
-- [NextJS](/demo-apps/vue3)
+- [NextJS](/demo-apps/nextjs)
 - [Angular](/demo-apps/angular)
 
 ## Examples in production
