@@ -47,7 +47,7 @@ const navElements = [
 
 <template>
   <gcds-header :lang-href="getOtherLangPath" skip-to-href="#main-content">
-    <gcds-search slot="search"></gcds-search>
+    <gcds-search slot="search" />
     <AppLink :to="getLocalizedPath(HOME)" component="lang-toggle" />
 
     <gcds-top-nav slot="menu" alignment="right" label="Top navigation">
