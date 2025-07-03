@@ -7,19 +7,11 @@ import DateModified from '@/components/DateModified.vue'
 const { t } = useI18n()
 </script>
 <template>
-  <div>
-    <section>
-      <Heading tag="h1">{{ t('homePage.heading') }}</Heading>
-      <Text>
-        {{ t('homePage.paragraph') }}
-      </Text>
-      <Text>
-        {{ t('homePage.paragraph2') }}
-      </Text>
-      <Text>
-        {{ t('homePage.paragraph3') }}
-      </Text>
-    </section>
-    <DateModified date="2024-09-10"></DateModified>
-  </div>
+  <section>
+    <Heading tag="h1">{{ t('homePage.heading') }}</Heading>
+    <Text>{{ t('homePage.paragraph') }}</Text>
+    <Text>{{ t('homePage.paragraph2') }}</Text>
+    <Text>{{ t('homePage.paragraph3') }}</Text>
+  </section>
+  <DateModified date="2024-09-10"></DateModified>
 </template>

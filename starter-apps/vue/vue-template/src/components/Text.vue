@@ -17,6 +17,6 @@ const props = defineProps([
     :size="props.size"
     :text-role="props.textRole"
   >
-    <slot></slot>
+    <slot />
   </gcds-text>
 </template>
