@@ -1,44 +1,101 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-CA">
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
   <file id="ngi18n" original="ng.template">
     <unit id="7377177725309760290">
       <notes>
-        <note category="location">src/app/app.component.html:3</note>
+        <note category="location">src/app/app.component.html:6</note>
       </notes>
       <segment>
         <source>Top navigation</source>
       </segment>
     </unit>
-    <unit id="8364309938383915497">
+    <unit id="common.pageTitle.home">
       <notes>
-        <note category="location">src/app/app.component.html:4</note>
+        <note category="location">src/app/app.component.html:8,10</note>
+        <note category="location">src/app/pages/home/home.component.html:2,4</note>
       </notes>
       <segment>
         <source> Home </source>
       </segment>
     </unit>
-    <unit id="1726363342938046830">
+    <unit id="common.pageTitle.about">
       <notes>
-        <note category="location">src/app/app.component.html:5</note>
+        <note category="location">src/app/app.component.html:11,13</note>
       </notes>
       <segment>
-        <source>About</source>
+        <source> About </source>
       </segment>
     </unit>
-    <unit id="7681084894365071533">
+    <unit id="common.pageTitle.reportABug">
       <notes>
-        <note category="location">src/app/app.component.html:6</note>
+        <note category="location">src/app/app.component.html:17,19</note>
       </notes>
       <segment>
-        <source>Report a Bug</source>
+        <source> Report a Bug </source>
       </segment>
     </unit>
     <unit id="2821179408673282599">
       <notes>
-        <note category="location">src/app/app.component.html:10</note>
+        <note category="location">src/app/app.component.html:22</note>
       </notes>
       <segment>
         <source>Home</source>
+      </segment>
+    </unit>
+    <unit id="9144847140234297407">
+      <notes>
+        <note category="location">src/app/app.routes.ts:10</note>
+      </notes>
+      <segment>
+        <source>@@common.pageTitle.home</source>
+      </segment>
+    </unit>
+    <unit id="2258626075596997635">
+      <notes>
+        <note category="location">src/app/app.routes.ts:18</note>
+      </notes>
+      <segment>
+        <source>@@common.pageTitle.about</source>
+      </segment>
+    </unit>
+    <unit id="2599711649695158964">
+      <notes>
+        <note category="location">src/app/app.routes.ts:23</note>
+      </notes>
+      <segment>
+        <source>@@common.pageTitle.about.topic</source>
+      </segment>
+    </unit>
+    <unit id="1709903395881978720">
+      <notes>
+        <note category="location">src/app/app.routes.ts:30</note>
+      </notes>
+      <segment>
+        <source>@@common.pageTitle.reportABug</source>
+      </segment>
+    </unit>
+    <unit id="8045428243809057885">
+      <notes>
+        <note category="location">src/app/pages/home/home.component.html:4,6</note>
+      </notes>
+      <segment>
+        <source> Welcome to the Angular Starter App that leverages GC Design System components! </source>
+      </segment>
+    </unit>
+    <unit id="7600330836722778442">
+      <notes>
+        <note category="location">src/app/pages/home/home.component.html:8,10</note>
+      </notes>
+      <segment>
+        <source> This starter app template is designed to help developers quickly set up a modern Angular application while adhering to the accessibility and design standards set by the Government of Canada. </source>
+      </segment>
+    </unit>
+    <unit id="2533510957832530280">
+      <notes>
+        <note category="location">src/app/pages/home/home.component.html:13,15</note>
+      </notes>
+      <segment>
+        <source> You&apos;ll find all the necessary setup, including Angular Routing, ESLint for linting, Jasmine for unit testing, @angular/localize for localization and a selection of GCDS components to get you started on your project. </source>
       </segment>
     </unit>
   </file>

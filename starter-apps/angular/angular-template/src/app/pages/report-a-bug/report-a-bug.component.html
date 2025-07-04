@@ -1,1 +1,101 @@
-<p>report-a-bug works!</p>
+<section>
+  <gcds-heading tag="h1">Report a Bug</gcds-heading>
+  <gcds-text>Create a report to help us improve GC Design System.</gcds-text>
+</section>
+@if (!submitted()) {
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <gcds-input
+    formControlName="version"
+    label="GC Design System Components Package and Version"
+    hint="e.g. @cdssnc/gcds-components-angular@0.x.x"
+    [required]="true"
+    validateOn="submit"
+  ></gcds-input>
+  <gcds-input
+    formControlName="title"
+    label="Title"
+    hint="Choose a title for your bug report"
+    [required]="true"
+    validateOn="submit"
+  ></gcds-input>
+  <gcds-textarea
+    formControlName="currentBehavior"
+    label="Current Behavior"
+    hint="Describe the current behavior"
+    validateOn="submit"
+  ></gcds-textarea>
+  <gcds-textarea
+    formControlName="expectedBehavior"
+    label="Expected Behavior"
+    hint="Describe the expected behavior"
+    [required]="true"
+    validateOn="submit"
+  ></gcds-textarea>
+  <gcds-textarea
+    formControlName="systemInfo"
+    label="System Info"
+    hint="Provide information about your system"
+    [required]="true"
+    validateOn="submit"
+  ></gcds-textarea>
+  <gcds-textarea
+    formControlName="stepsToReproduce"
+    label="Steps to Reproduce"
+    hint="List the steps to reproduce"
+    [required]="true"
+    validateOn="submit"
+  ></gcds-textarea>
+  <gcds-input
+    formControlName="codeReproductionUrl"
+    label="Code Reproduction URL"
+    hint="Provide a URL to the code reproduction"
+    [required]="true"
+    validateOn="submit"
+  ></gcds-input>
+  <gcds-textarea
+    formControlName="additionalInfo"
+    label="Additionnal Information"
+    hint="Provide any additionnal information"
+    validateOn="submit"
+  ></gcds-textarea>
+  <gcds-button type="submit">Submit</gcds-button>
+</form>
+} @else {
+<gcds-heading tag="h2">Confirmation</gcds-heading>
+<gcds-text>
+  <strong>GC Design System Components Package and Version:</strong>
+  {{ formGroup.value.version }}
+</gcds-text>
+<gcds-text>
+  <strong>Current Behavior:</strong>
+  {{ formGroup.value.currentBehavior }}
+</gcds-text>
+<gcds-text>
+  <strong>Expected Behavior:</strong>
+  {{ formGroup.value.expectedBehavior }}
+</gcds-text>
+<gcds-text>
+  <strong>System Info:</strong>
+  {{ formGroup.value.systemInfo }}
+</gcds-text>
+<gcds-text>
+  <strong>Steps to Reproduce:</strong>
+  {{ formGroup.value.stepsToReproduce }}
+</gcds-text>
+<gcds-text>
+  <strong>Code Reproduction URL:</strong>
+  {{ formGroup.value.codeReproductionUrl }}
+</gcds-text>
+<gcds-text>
+  <strong>Additional Information:</strong>
+  {{ formGroup.value.additionalInfo }}
+</gcds-text>
+<section>
+  <gcds-heading tag="h2">Start an issue on GitHub</gcds-heading>
+  <gcds-link [href]="issueUrl()" target="_blank" type="link">
+    Open issue on Github
+  </gcds-link>
+</section>
+}
+
+<gcds-date-modified>2025-07-04</gcds-date-modified>

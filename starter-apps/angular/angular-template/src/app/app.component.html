@@ -1,9 +1,21 @@
-<gcds-header [langHref]="currentLocale === 'en' ? '/fr' : '/en'">
+<gcds-header
+  [langHref]="currentLocale === 'en' ? '/fr' : '/en'"
+  skipToHref="#main-content"
+>
   <gcds-search slot="search"></gcds-search>
   <gcds-top-nav slot="menu" alignment="right" label="Top navigation" i18n-label>
-    <gcds-nav-link routerLink="/" slot="home" i18n> Home </gcds-nav-link>
-    <gcds-nav-link routerLink="/about" i18n>About</gcds-nav-link>
-    <gcds-nav-link routerLink="/report-a-bug" i18n>Report a Bug</gcds-nav-link>
+    <gcds-nav-link routerLink="/" slot="home" i18n="@@common.pageTitle.home">
+      Home
+    </gcds-nav-link>
+    <gcds-nav-link routerLink="/about" i18n="@@common.pageTitle.about">
+      About
+    </gcds-nav-link>
+    <gcds-nav-link
+      routerLink="/report-a-bug"
+      i18n="@@common.pageTitle.reportABug"
+    >
+      Report a Bug
+    </gcds-nav-link>
   </gcds-top-nav>
 
   <gcds-breadcrumbs slot="breadcrumb">
@@ -11,7 +23,7 @@
     <gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
   </gcds-breadcrumbs>
 </gcds-header>
-<gcds-container size="xl" tag="main">
+<gcds-container size="xl" tag="main" [centered]="true" [mainContainer]="true">
   <router-outlet></router-outlet>
 </gcds-container>
 <gcds-footer display="full"></gcds-footer>

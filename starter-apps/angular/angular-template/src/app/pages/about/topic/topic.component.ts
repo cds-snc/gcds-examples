@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
 
 @Component({
-  selector: 'app-about',
+  selector: 'app-topic',
   imports: [GcdsComponentsModule],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.scss',
+  templateUrl: './topic.component.html',
+  styleUrl: './topic.component.scss',
 })
-export class AboutComponent {}
+export class TopicComponent {}
