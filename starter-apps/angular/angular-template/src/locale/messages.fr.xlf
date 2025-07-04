@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en-CA" trgLang="fr-CA">
+  <file id="ngi18n" original="ng.template">
+    <unit id="7377177725309760290">
+      <notes>
+        <note category="location">src/app/app.component.html:3</note>
+      </notes>
+      <segment>
+        <source>Top navigation</source>
+        <target>Navigation du Haut</target>
+      </segment>
+    </unit>
+    <unit id="8364309938383915497">
+      <notes>
+        <note category="location">src/app/app.component.html:4</note>
+      </notes>
+      <segment>
+        <source> Home </source>
+        <target>Accueil</target>
+      </segment>
+    </unit>
+    <unit id="1726363342938046830">
+      <notes>
+        <note category="location">src/app/app.component.html:5</note>
+      </notes>
+      <segment>
+        <source>About</source>
+        <target>A propos</target>
+      </segment>
+    </unit>
+    <unit id="7681084894365071533">
+      <notes>
+        <note category="location">src/app/app.component.html:6</note>
+      </notes>
+      <segment>
+        <source>Report a Bug</source>
+        <target>Rapporter un bug</target>
+      </segment>
+    </unit>
+    <unit id="2821179408673282599">
+      <notes>
+        <note category="location">src/app/app.component.html:10</note>
+      </notes>
+      <segment>
+        <source>Home</source>
+        <target>Accueil</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

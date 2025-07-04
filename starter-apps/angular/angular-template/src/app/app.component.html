@@ -1,23 +1,13 @@
-<gcds-header langHref="#">
+<gcds-header [langHref]="currentLocale === 'en' ? '/fr' : '/en'">
   <gcds-search slot="search"></gcds-search>
-  <gcds-top-nav slot="menu" alignment="right" label="Top navigation">
-    <gcds-nav-link routerLink="/" [current]="true" slot="home">
-      Home
-    </gcds-nav-link>
-    <gcds-nav-link href="#">Why GC Notify</gcds-nav-link>
-
-    <gcds-nav-group open-trigger="Features" menu-label="Features">
-      <gcds-nav-link href="#">Create reusable templates</gcds-nav-link>
-      <gcds-nav-link href="#">Personalize messages</gcds-nav-link>
-      <gcds-nav-link href="#">Schedule messages</gcds-nav-link>
-      <gcds-nav-link href="#">Send messages automatically</gcds-nav-link>
-    </gcds-nav-group>
-
-    <gcds-nav-link href="#">Contact us</gcds-nav-link>
+  <gcds-top-nav slot="menu" alignment="right" label="Top navigation" i18n-label>
+    <gcds-nav-link routerLink="/" slot="home" i18n> Home </gcds-nav-link>
+    <gcds-nav-link routerLink="/about" i18n>About</gcds-nav-link>
+    <gcds-nav-link routerLink="/report-a-bug" i18n>Report a Bug</gcds-nav-link>
   </gcds-top-nav>
 
   <gcds-breadcrumbs slot="breadcrumb">
-    <gcds-breadcrumbs-item href="#">Home page</gcds-breadcrumbs-item>
+    <gcds-breadcrumbs-item href="#" i18n>Home</gcds-breadcrumbs-item>
     <gcds-breadcrumbs-item href="#">Parent page link</gcds-breadcrumbs-item>
   </gcds-breadcrumbs>
 </gcds-header>

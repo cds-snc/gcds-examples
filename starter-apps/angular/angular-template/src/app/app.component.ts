@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, LOCALE_ID } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
 
@@ -9,5 +9,5 @@ import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'angular-template';
+  protected readonly currentLocale = inject(LOCALE_ID);
 }
