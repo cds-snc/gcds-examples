@@ -18,7 +18,7 @@ const SubmitHoliday: React.FC = () => {
   <Button
     type="link"
     buttonId="submitHolidayStart"
-    buttonRole="primary"
+    buttonRole="start"
     href='/submit-a-holiday-form'
   >
     Submit your holiday
