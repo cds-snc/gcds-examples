@@ -21,7 +21,6 @@ import {
   NotFound,
   OptionalHolidays,
   SubmitHoliday,
-  SubmitHolidayForm,
   ViewHolidays,
   ViewHolidaysNationwide
 } from './pages';
@@ -39,7 +38,6 @@ const App: React.FC = () => {
             <Route path="/federal-and-provincial-holidays" element={<FederalAndProvincialHolidays />} />
             <Route path="/optional-holidays" element={<OptionalHolidays />} />
             <Route path="/submit-a-holiday" element={<SubmitHoliday />} />
-            <Route path="/submit-a-holiday-form" element={<SubmitHolidayForm />} />
             <Route path="/view-holidays/:provinceId" element={<ViewHolidays />} />
             <Route path="/view-holidays/nationwide" element={<ViewHolidaysNationwide />} />
 
