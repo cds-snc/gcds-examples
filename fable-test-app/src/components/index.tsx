@@ -23,3 +23,4 @@ export { default as NextHoliday } from './NextHoliday';
 export { default as Select } from './Select';
 export { default as SideNav } from './SideNav';
 export { default as Text } from './Text';
+export { default as SrOnly } from './SrOnly'

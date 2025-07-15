@@ -48,7 +48,7 @@ const Home: React.FC = () => {
 
       <Heading tag="h2">Notice a holiday missing?</Heading>
       <Text>
-        You can submit a holiday for review. Before submitting an entry, please take a moment to view <Link to="/nationwide">all of the holidays</Link> in our data set. If the holiday in question is still missing after review, you can fill out a quick 2 page form and submit.
+        You can submit a holiday for review. Before submitting an entry, please take a moment to view <Link to="/view-holidays/nationwide">all of the holidays</Link> in our data set. If the holiday in question is still missing after review, you can fill out a quick 2 page form and submit.
       </Text>
 
       <Button
@@ -72,7 +72,7 @@ const Home: React.FC = () => {
         provincesObservedIn={nextNationwide?.provinces}
       />
 
-      <DateModified>2024-08-28</DateModified>
+      <DateModified>2025-07-15</DateModified>
     </section>
   )
 };

@@ -54,7 +54,7 @@ const About: React.FC = () => {
         Paul Craig is the original creator of this site...
       </Text>
 
-      <DateModified>2024-08-28</DateModified>
+      <DateModified>2025-07-15</DateModified>
     </section>
   )
 };

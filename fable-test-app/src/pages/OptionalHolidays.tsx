@@ -46,7 +46,7 @@ const OptionalHolidays: React.FC = () => {
       </ul>
       <Text>Whatever the case may be, optional holidays are never guaranteed. Always check with your employer to make sure if optional holidays apply to you.</Text>
 
-      <DateModified>2024-08-28</DateModified>
+      <DateModified>2025-07-15</DateModified>
     </section>
   )
 };

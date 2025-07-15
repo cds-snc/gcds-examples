@@ -10,7 +10,7 @@ const NotFound: React.FC = () => {
       <Heading tag="h1">Page could not be found</Heading>
       <Text>Check you've entered the correct web address or  <Link className="link-default" to="/">go back to the homepage</Link>.</Text>
 
-      <DateModified>2024-08-28</DateModified>
+      <DateModified>2025-07-15</DateModified>
     </section>
   )
 };
