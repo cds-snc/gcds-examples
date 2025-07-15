@@ -8,9 +8,9 @@ import {
 
 const navLinks = [
   {
-    groupLabel: "View holidays",
+    groupLabel: "Holidays",
     links: [
-      { href: "/view-holidays/nationwide", label: "Nationwide" },
+      { href: "/view-holidays/nationwide", label: "All" },
       { href: "/view-holidays/federal", label: "Federal" },
       { href: "/view-holidays/alberta", label: "Alberta" },
       { href: "/view-holidays/british-columbia", label: "British Columbia" },
