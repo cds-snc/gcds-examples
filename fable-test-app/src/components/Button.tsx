@@ -6,7 +6,7 @@ interface ButtonProps {
   className?: string;
   type: "submit" | "button" | "link" | "reset";
   buttonId?: string;
-  buttonRole: "primary" | "secondary" | "danger";
+  buttonRole: "primary" | "secondary" | "danger" | "start";
   onGcdsClick?: (e: any) => void;
   href?: string;
 }
