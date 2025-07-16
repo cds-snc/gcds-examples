@@ -33,7 +33,7 @@ const FederalAndProvincialHolidays: React.FC = () => {
       <Text>For example, the province of Ontario does not observe Remembrance Day, which means on November 11, post offices are closed but schools are open.</Text>
       <Text>Ontario observes Family Day but the federal government does not. So that means on the third Monday in February, schools are closed but post offices will be open.</Text>
 
-      <DateModified>2024-08-28</DateModified>
+      <DateModified>2025-07-16</DateModified>
     </section>
   )
 };

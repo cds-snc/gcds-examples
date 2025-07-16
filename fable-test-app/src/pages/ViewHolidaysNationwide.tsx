@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 // Components (internal)
-import { DateModified, Heading, Select } from '../components';
+import { DateModified, Heading, Select, SrOnly } from '../components';
 import { formatDate, generateYearsList } from '../utils/utils';
 import { API_BASE_URL } from '../utils/constants';
 
@@ -159,12 +159,12 @@ const ViewHolidaysNationwide = () => {
         </tbody>
       </table>
 
-      <DateModified>2024-08-28</DateModified>
+      <DateModified>2025-07-16</DateModified>
 
       {/* Hidden aria-live region for announcing year updates */}
-      <p ref={yearAnnouncementRef} aria-live="polite" className="sr-only">
-        {yearAnnouncement}
-      </p>
+      <div ref={yearAnnouncementRef} aria-live="polite">
+        <SrOnly tag="p">{yearAnnouncement}</SrOnly>
+      </div>
     </section>
   );
 };
