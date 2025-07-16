@@ -41,7 +41,7 @@ const Home: React.FC = () => {
 
   return (
     <section>
-      <Heading tag="h1">Canada holidays</Heading>
+      <Heading tag="h1">Canada holidayss</Heading>
       <Text>
         This app shows all Canadian holidays and uses GC Design System.
       </Text>
