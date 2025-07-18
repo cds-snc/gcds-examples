@@ -7,7 +7,7 @@
         <note category="location">src/app/layout/header/header.component.html:11,13</note>
         <note category="location">src/app/pages/home/home.component.html:2,3</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Home</source>
         <target>Accueil</target>
       </segment>
@@ -18,7 +18,7 @@
         <note category="location">src/app/layout/header/header.component.html:18,20</note>
         <note category="location">src/app/pages/about/about.component.html:1,2</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>About</source>
         <target>A Propos</target>
       </segment>
@@ -27,8 +27,9 @@
       <notes>
         <note category="location">src/app/app.routes.ts:23</note>
         <note category="location">src/app/pages/about/about.component.html:12,13</note>
+        <note category="location">src/app/pages/about/topic/topic.component.html:2,4</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Topic</source>
         <target>Sujet</target>
       </segment>
@@ -38,7 +39,7 @@
         <note category="location">src/app/app.routes.ts:30</note>
         <note category="location">src/app/layout/header/header.component.html:25,27</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Report a Bug</source>
         <target>Rapporter un bug</target>
       </segment>
@@ -47,7 +48,7 @@
       <notes>
         <note category="location">src/app/layout/header/header.component.html:6</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Top navigation</source>
         <target>Navigation du haut</target>
       </segment>
@@ -56,7 +57,7 @@
       <notes>
         <note category="location">src/app/layout/header/header.component.html:8,10</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source> Angular App </source>
         <target>App Angular</target>
       </segment>
@@ -66,7 +67,7 @@
         <note category="location">src/app/pages/about/about.component.html:3,10</note>
         <note category="description">About Page Main Content</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source> This Angular starter template integrates Design System components, providing a
           solid foundation for building modern, responsive web applications. It streamlines
           development by offering pre-built, customizable UI elements that ensure design consistency
@@ -85,10 +86,10 @@
     </unit>
     <unit id="1007173588668114291">
       <notes>
-        <note category="location">src/app/pages/about/topic/topic.component.html:3,8</note>
+        <note category="location">src/app/pages/about/topic/topic.component.html:5,10</note>
         <note category="description">Topic Page Main Content</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source> This is a sample topic page within a parent About page. Here, you can see how the
           breadcrumb navigation behaves within the site structure. The breadcrumbs provide a visual
           guide for the current location on the site, allowing for seamless navigation between
@@ -106,7 +107,7 @@
         <note category="location">src/app/pages/home/home.component.html:4,7</note>
         <note category="description">Home Page Welcome Msg</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source> Welcome to the Angular Starter App that leverages GC Design System components! </source>
         <target> Bienvenue dans l'application Angular Starter qui exploite les composants du système
           de conception GC ! </target>
@@ -117,7 +118,7 @@
         <note category="location">src/app/pages/home/home.component.html:8,12</note>
         <note category="description">Home Page Obj of Template</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source> This starter app template is designed to help developers quickly set up a modern
           Angular application while adhering to the accessibility and design standards set by the
           Government of Canada. </source>
@@ -132,7 +133,7 @@
         <note category="location">src/app/pages/home/home.component.html:13,18</note>
         <note category="description">Home Page Content of Template</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source> You'll find all the necessary setup, including Angular Routing, ESLint for
           linting, Jasmine for unit testing, @angular/localize for localization and a selection of
           GCDS components to get you started on your project. </source>
@@ -142,13 +143,12 @@
         </target>
       </segment>
     </unit>
-
     <unit id="2181422118474908300">
       <notes>
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:10,11</note>
         <note category="description">Report a Bug Form Version Label</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>GC Design System Components Package and Version</source>
         <target>Paquet et version des composants de Système de design GC</target>
       </segment>
@@ -158,7 +158,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:12,14</note>
         <note category="description">Report a Bug Form Version Hint</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>e.g. @cdssnc/gcds-components-angular@0.x.x</source>
         <target>ex. @cdssnc/gcds-components-angular@0.x.x</target>
       </segment>
@@ -168,7 +168,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:20</note>
         <note category="description">Report a Bug Form Tile Label</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Title</source>
         <target>Titre</target>
       </segment>
@@ -178,7 +178,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:21,23</note>
         <note category="description">Report a Bug Form Title Hint</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Choose a title for your bug report</source>
         <target>Choisissez un titre pour votre rapport de bogue</target>
       </segment>
@@ -188,7 +188,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:28,29</note>
         <note category="description">Report a Bug Form Current Behavior Label</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Current Behavior</source>
         <target>Comportement observé</target>
       </segment>
@@ -198,7 +198,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:30,33</note>
         <note category="description">Report a Bug Form Current Behavior Hint</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Describe the current behavior</source>
         <target>Décrivez le comportement observé</target>
       </segment>
@@ -208,7 +208,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:36,37</note>
         <note category="description">Report a Bug Form Expected Behavior Label</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Expected Behavior</source>
         <target>Comportement attendu</target>
       </segment>
@@ -218,7 +218,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:38,41</note>
         <note category="description">Report a Bug Form Expected Behavior Hint</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Describe the expected behavior</source>
         <target>Décrivez le comportement attendu</target>
       </segment>
@@ -228,7 +228,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:45,46</note>
         <note category="description">Report a Bug Form System Info Label</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>System Info</source>
         <target>Information sur le système</target>
       </segment>
@@ -238,7 +238,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:47,49</note>
         <note category="description">Report a Bug Form System Info Hint</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Provide information about your system</source>
         <target>Fournir des informations sur votre système</target>
       </segment>
@@ -248,7 +248,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:54,55</note>
         <note category="description">Report a Bug Form Step to Reproduce Label</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Steps to Reproduce</source>
         <target>Étapes de reproduction du bogue</target>
       </segment>
@@ -258,7 +258,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:56,59</note>
         <note category="description">Report a Bug Form Step to Reproduce Hint</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>List the steps to reproduce</source>
         <target>Listez les étapes de reproduction du bogue</target>
       </segment>
@@ -268,7 +268,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:63,64</note>
         <note category="description">Report a Bug Form Url Label</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Code Reproduction URL</source>
         <target>URL de reproduction du code</target>
       </segment>
@@ -278,7 +278,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:65,67</note>
         <note category="description">Report a Bug Form Url Hint</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Provide a URL to the code reproduction</source>
         <target>Fournir une URL pour la reproduction du code</target>
       </segment>
@@ -288,7 +288,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:72,73</note>
         <note category="description">Report a Bug Form Additional Info Label</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Additionnal Information</source>
         <target>Informations supplémentaires</target>
       </segment>
@@ -298,7 +298,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:74,77</note>
         <note category="description">Report a Bug Form Additional Info Hint</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Provide any additionnal information</source>
         <target>Fournir des informations supplémentaires</target>
       </segment>
@@ -308,7 +308,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:78,82</note>
         <note category="description">Report a Bug Submit Button</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Submit</source>
         <target>Envoyer</target>
       </segment>
@@ -318,7 +318,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:83,86</note>
         <note category="description">Report a Bug Confirmation Title</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Confirmation</source>
         <target>Confirmation</target>
       </segment>
@@ -328,7 +328,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:87,89</note>
         <note category="description">Report a Bug Form Version</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>GC Design System Components Package and Version:</source>
         <target>Paquet et version des composants de Système de design GC:</target>
       </segment>
@@ -338,7 +338,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:92,93</note>
         <note category="description">Report a Bug Form Current Behavior</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Current Behavior:</source>
         <target>Comportement observé:</target>
       </segment>
@@ -348,7 +348,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:96,97</note>
         <note category="description">Report a Bug Form Expected Behavior</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Expected Behavior:</source>
         <target>Comportement observé:</target>
       </segment>
@@ -358,7 +358,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:100,101</note>
         <note category="description">Report a Bug Form System Info</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>System Info:</source>
         <target>Information sur le système:</target>
       </segment>
@@ -368,7 +368,7 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:105,107</note>
         <note category="description">Report a Bug Form Steps to Reproduce</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Steps to Reproduce:</source>
         <target>Étapes pour reproduire le bogue:</target>
       </segment>
@@ -378,40 +378,37 @@
         <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:111,113</note>
         <note category="description">Report a Bug Form Code Reproduction Url</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Code Reproduction URL:</source>
         <target>URL de reproduction du code:</target>
       </segment>
     </unit>
-    <unit id="1141246653281186757">
+    <unit id="2978175809906717992">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:116,119</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:117,119</note>
         <note category="description">Report a Bug Form Additional Info</note>
       </notes>
       <segment>
-        <source>
-          <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other"
-            dispStart="&lt;strong>" dispEnd="&lt;/strong>">Additional Information:</pc>
-          <ph id="1" equiv="INTERPOLATION" disp="{{ formGroup.value.additionalInfo }}" />
-        </source>
+        <source>Additional Information:</source>
+        <target>Informations supplémentaires:</target>
       </segment>
     </unit>
     <unit id="3415000254154575887">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:121,124</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:123,126</note>
         <note category="description">Report a Bug Form Start Issue Github</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source>Start an issue on GitHub</source>
         <target>Créer un ticket sur Github</target>
       </segment>
     </unit>
     <unit id="5627097823503804914">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:129,134</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:131,136</note>
         <note category="description">Report a Bug Form Open Issue Github</note>
       </notes>
-      <segment state="final">
+      <segment>
         <source> Open issue on Github </source>
         <target>Ouvrir un ticket sur Github</target>
       </segment>
