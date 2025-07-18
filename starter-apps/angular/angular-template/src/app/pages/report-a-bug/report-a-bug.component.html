@@ -6,55 +6,71 @@
 <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
   <gcds-input
     formControlName="version"
+    i18n-label="Report a Bug Form Version Label"
     label="GC Design System Components Package and Version"
+    i18n-hint="Report a Bug Form Version Hint"
     hint="e.g. @cdssnc/gcds-components-angular@0.x.x"
     [required]="true"
     validateOn="submit"
   ></gcds-input>
   <gcds-input
     formControlName="title"
+    i18n-label="Report a Bug Form Tile Label"
     label="Title"
+    i18n-hint="Report a Bug Form Title Hint"
     hint="Choose a title for your bug report"
     [required]="true"
     validateOn="submit"
   ></gcds-input>
   <gcds-textarea
     formControlName="currentBehavior"
+    i18n-label="Report a Bug Form Current Behavior Label"
     label="Current Behavior"
+    i18n-hint="Report a Bug Form Current Behavior Hint"
     hint="Describe the current behavior"
     validateOn="submit"
   ></gcds-textarea>
   <gcds-textarea
     formControlName="expectedBehavior"
+    i18n-label="Report a Bug Form Expected Behavior Label"
     label="Expected Behavior"
+    i18n-hint="Report a Bug Form Expected Behavior Hint"
     hint="Describe the expected behavior"
     [required]="true"
     validateOn="submit"
   ></gcds-textarea>
   <gcds-textarea
     formControlName="systemInfo"
+    i18n-label="Report a Bug Form System Info Label"
     label="System Info"
+    i18n-hint="Report a Bug Form System Info Hint"
     hint="Provide information about your system"
     [required]="true"
     validateOn="submit"
   ></gcds-textarea>
   <gcds-textarea
     formControlName="stepsToReproduce"
+    i18n-label="Report a Bug Form Step to Reproduce Label"
     label="Steps to Reproduce"
+    i18n-hint="Report a Bug Form Step to Reproduce Hint"
     hint="List the steps to reproduce"
     [required]="true"
     validateOn="submit"
   ></gcds-textarea>
   <gcds-input
     formControlName="codeReproductionUrl"
+    i18n-label="Report a Bug Form Url Label"
     label="Code Reproduction URL"
+    i18n-hint="Report a Bug Form Url Hint"
     hint="Provide a URL to the code reproduction"
     [required]="true"
     validateOn="submit"
   ></gcds-input>
   <gcds-textarea
     formControlName="additionalInfo"
+    i18n-label="Report a Bug Form Additional Info Label"
     label="Additionnal Information"
+    i18n-hint="Report a Bug Form Additional Info Hint"
     hint="Provide any additionnal information"
     validateOn="submit"
   ></gcds-textarea>

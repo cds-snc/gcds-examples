@@ -12,10 +12,10 @@ export const routes: Routes = [
   },
   {
     path: 'about',
+    title: $localize`:@@common.pageTitle.about:About`,
     children: [
       {
         path: '',
-        title: $localize`:@@common.pageTitle.about:About`,
         component: AboutComponent,
       },
       {
