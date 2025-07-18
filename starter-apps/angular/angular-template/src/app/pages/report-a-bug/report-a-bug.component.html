@@ -74,41 +74,60 @@
     hint="Provide any additionnal information"
     validateOn="submit"
   ></gcds-textarea>
-  <gcds-button type="submit">Submit</gcds-button>
+  <gcds-button type="submit" i18n="Report a Bug Submit Button"
+    >Submit</gcds-button
+  >
 </form>
 } @else {
-<gcds-heading tag="h2">Confirmation</gcds-heading>
+<gcds-heading tag="h2" i18n="Report a Bug Confirmation Title"
+  >Confirmation</gcds-heading
+>
 <gcds-text>
-  <strong>GC Design System Components Package and Version:</strong>
+  <strong i18n="Report a Bug Form Version"
+    >GC Design System Components Package and Version:</strong
+  >
   {{ formGroup.value.version }}
 </gcds-text>
 <gcds-text>
-  <strong>Current Behavior:</strong>
+  <strong i18n="Report a Bug Form Current Behavior">Current Behavior:</strong>
   {{ formGroup.value.currentBehavior }}
 </gcds-text>
 <gcds-text>
-  <strong>Expected Behavior:</strong>
+  <strong i18n="Report a Bug Form Expected Behavior">Expected Behavior:</strong>
   {{ formGroup.value.expectedBehavior }}
 </gcds-text>
 <gcds-text>
-  <strong>System Info:</strong>
+  <strong i18n="Report a Bug Form System Info">System Info:</strong>
   {{ formGroup.value.systemInfo }}
 </gcds-text>
 <gcds-text>
-  <strong>Steps to Reproduce:</strong>
+  <strong i18n="Report a Bug Form Steps to Reproduce"
+    >Steps to Reproduce:</strong
+  >
   {{ formGroup.value.stepsToReproduce }}
 </gcds-text>
 <gcds-text>
-  <strong>Code Reproduction URL:</strong>
+  <strong i18n="Report a Bug Form Code Reproduction Url"
+    >Code Reproduction URL:</strong
+  >
   {{ formGroup.value.codeReproductionUrl }}
 </gcds-text>
 <gcds-text>
-  <strong>Additional Information:</strong>
+  <strong i18n="Report a Bug Form Additional Info"
+    >Additional Information:</strong
+  >
   {{ formGroup.value.additionalInfo }}
 </gcds-text>
 <section>
-  <gcds-heading tag="h2">Start an issue on GitHub</gcds-heading>
-  <gcds-link [href]="issueUrl()" target="_blank" type="link">
+  <gcds-heading tag="h2" i18n="Report a Bug Form Start Issue Github"
+    >Start an issue on GitHub</gcds-heading
+  >
+  <gcds-link
+    [href]="issueUrl()"
+    target="_blank"
+    type="link"
+    i18n="Report a Bug Form Open Issue Github"
+  >
     Open issue on Github
   </gcds-link>
 </section>
