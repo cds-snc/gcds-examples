@@ -1,0 +1,31 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive</title>
+
+        <!-- GC Design System Utility -->
+    <link rel="stylesheet" href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-utility@latest/dist/gcds-utility.min.css">
+
+    <script src="../scripts/iframe-size.js" defer></script>
+    <style>
+      main {
+        height: 400px;
+      }
+    </style>
+
+    <style>
+      body {
+        height: fit-content;
+      }
+    </style>
+  </head>
+  <body data-iframe="responsive">
+    <main class="container-full lg:bg-primary md:bg-dark sm:bg-disabled md:text-light d-flex">
+      <p class="d-none lg:d-block text-current align-self-center">This is visible in the large viewport size.</p>
+      <p class="d-none md:d-block lg:d-none text-current align-self-center">This is visible in the medium viewport size.</p>
+      <p class="d-none sm:d-block md:d-none align-self-center">This is visible in the small viewport size.</p>
+      <p class="xs:d-block sm:d-none align-self-center">This is visible in the extra small viewport size.</p>
+    </main>
+  </body>
+</html>

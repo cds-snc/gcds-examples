@@ -1,0 +1,380 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCDS Forum - CSS Shortcuts</title>
+
+    <!-- GC Design System Utility -->
+    <link rel="stylesheet" href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-utility@latest/dist/gcds-utility.min.css">
+
+    <!-- Prism core + default theme -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" rel="stylesheet" /> -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+
+    <!-- Language support (example: HTML, CSS, JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-markup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-css.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
+
+    <!-- Normalize-whitespace plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+
+    <!-- GC Design System -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.42.0/dist/gcds/gcds.css"
+    />
+    <script
+      type="module"
+      src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.42.0/dist/gcds/gcds.esm.js"
+    ></script>
+
+    <script>
+      Prism.plugins.NormalizeWhitespace.setDefaults({
+        'remove-trailing': true,
+        'remove-indent': true,
+        'left-trim': true,
+        'right-trim': true,
+        'tabs-to-spaces': 2
+      });
+
+      // Resize iframes if interal size changes
+      window.addEventListener("message", ev => {
+        const iframe = document.getElementById(ev.data.name);
+
+        if (iframe && iframe.height !== ev.data.height && ev.data.height > 60) {
+          iframe.height = ev.data.height;
+        }
+      });
+    </script>
+
+    <link rel="stylesheet" href="./prism.css">
+
+    <style>
+      iframe {
+        border: var(--gcds-border-width-sm) solid var(--gcds-color-grayscale-700);
+        width: 100%;
+      }
+
+      iframe.resize {
+        resize: horizontal;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container-xl mx-auto mt-300 xl:px-0 sm:px-600 px-225 pb-800">
+      <h1>GCDS Forum - CSS Shortcuts</h1>
+
+      <h2>What is CSS shortcuts?</h2>
+
+      <ul class="list-disc">
+        <li>Every digital product needs some custom styling. We help you get it from the start.</li>
+        <li>A CSS utility framework built to match GC Design System (GCDS) styles and Canada.ca standards.</li>
+        <li>Provides predefined CSS utility classes that apply core design elements, like colours, spacing, and typography, to your HTML.</li>
+        <li>The classes align with our <a href="https://design-system.alpha.canada.ca/en/styles/">GCDS design tokens</a> for consistency and ease of use.</li>
+        <li>Using CSS Shortcuts in your project is optional. It can be added alongside your existing CSS.</li>
+      </ul>
+
+      <h2>Why CSS shortcuts?</h2>
+
+      <h3>Match styles</h3>
+
+      <ul class="list-disc">
+        <li>CSS Shortcuts lets you apply predefined <a href="https://design-system.alpha.canada.ca/en/styles/">design tokens</a> directly to your HTML elements.</li>
+        <li>These design tokens are used throughout GCDS, so your custom code will match our components.</li>
+        <li>Included reset styles apply Government of Canada standards from the start, allowing a consistent look from the start.</li>
+      </ul>
+
+      <h3>Faster development, less maintenance</h3>
+
+      <ul class="list-disc">
+        <li>Your code becomes simpler, clearer, and easier to maintain.</li>
+        <li>We handle the updates so you don't have to.</li>
+      </ul>
+
+      <h3>No third-party dependency</h3>
+
+      <ul class="list-disc">
+        <li>CSS Shortcuts is built to meet the needs of the Government of Canada.</li>
+        <li>Unlike other commonly used utility frameworks like Bootstrap or Tailwind, CSS Shortcuts is fully under our control.</li>
+        <li>Modern CSS implementation.</li>
+      </ul>
+
+      <h2>Who is this for?</h2>
+
+      <ul class="list-disc">
+        <li>If you are a web publisher publishing on Canada.ca using AEM, this may not be for you yet. If you are a web developer building custom code this might come in handy.</li>
+        <li>CSS shortcuts provides utility classes to enhance your development without the need to create your own styles.</li>
+      </ul>
+
+      
+      <hr class="mt-500"/>
+
+      <h2>CSS shortcuts examples</h2>
+
+      <h3>Responsive classes</h3>
+
+      <p>Each class in CSS shortcuts has a modifier to work on specific viewport sizes. These are applied to each class like <code>{size}:{class-name}</code>.</p>
+
+      <p>The available sizes are:</p>
+
+      <ul class="list-disc mb-400">
+        <li><strong>xs:</strong> Extra small</li>
+        <li><strong>sm:</strong> Small</li>
+        <li><strong>md:</strong> Medium</li>
+        <li><strong>lg:</strong> Large</li>
+        <li><strong>xl:</strong> Extra large</li>
+      </ul>
+
+      <p class="visibility-sr-only">The example shows white text with a dark background saying "This is visible in the large viewport size.". Modifying the display frame's width will change the background colour and text to reflect the new viewport size.</p>
+      <iframe id="responsive" title="Responsive classes example" src="examples/responsive.html" class="resize container-xl be-lg"></iframe>
+      <small class="d-block">Grab and drag the bottom-right corner to change the width of the display frame.</small>
+
+      <gcds-details details-title="Responsive example code">
+        <pre><code class="language-html">
+          &#x3C;main class=&#x22;container-full lg:bg-primary md:bg-dark sm:bg-disabled md:text-light d-flex&#x22;&#x3E;
+            &#x3C;p class=&#x22;d-none lg:d-block text-current align-self-center&#x22;&#x3E;This is visible in the large viewport size.&#x3C;/p&#x3E;
+            &#x3C;p class=&#x22;d-none md:d-block lg:d-none text-current align-self-center&#x22;&#x3E;This is visible in the medium viewport size.&#x3C;/p&#x3E;
+            &#x3C;p class=&#x22;d-none sm:d-block md:d-none align-self-center&#x22;&#x3E;This is visible in the small viewport size.&#x3C;/p&#x3E;
+            &#x3C;p class=&#x22;xs:d-block sm:d-none align-self-center&#x22;&#x3E;This is visible in the extra small viewport size.&#x3C;/p&#x3E;
+          &#x3C;/main&#x3E;
+        </code></pre>
+      </gcds-details>
+
+      <h3>Containers</h3>
+
+      <p>CSS shortcuts also has classes to easily define container sizes using the same small to extra large scale.</p>
+
+      <p class="visibility-sr-only">The example shows 6 list items with a black border set to the different widths available using the container classes.</p>
+      <iframe id="containers" title="Containers example" src="examples/containers.html"></iframe>
+
+      <gcds-details details-title="Containers example code">
+        <pre><code class="language-html">
+          &#x3C;ul&#x3E;
+            &#x3C;li class=&#x22;container-xs p-150 b-sm bb-0&#x22;&#x3E;XS&#x3C;/li&#x3E;
+            &#x3C;li class=&#x22;container-sm p-150 b-sm bb-0&#x22;&#x3E;SM&#x3C;/li&#x3E;
+            &#x3C;li class=&#x22;container-md p-150 b-sm bb-0&#x22;&#x3E;MD&#x3C;/li&#x3E;
+            &#x3C;li class=&#x22;container-lg p-150 b-sm bb-0&#x22;&#x3E;LG&#x3C;/li&#x3E;
+            &#x3C;li class=&#x22;container-xl p-150 b-sm bb-0&#x22;&#x3E;XL&#x3C;/li&#x3E;
+            &#x3C;li class=&#x22;container-full p-150 b-sm&#x22;&#x3E;
+              Full (full width of parent container)
+            &#x3C;/li&#x3E;
+          &#x3C;/ul&#x3E;
+        </code></pre>
+      </gcds-details>
+
+      <h3>Typography</h3>
+
+      <p>CSS shortcuts comes with reset styles to ensure consistent styling between browsers. These styles also set the default typography styles to match the canada.ca standards.</p>
+
+      <div class="d-grid grid-cols-2 gap-300">
+        <div>
+          <h4>With typography defaults</h4>
+          <p class="visibility-sr-only">The example shows basic HTML elements (headings, paragraphs, and other text eleemnts) with the default styling loaded from CSS shortcuts.</p>
+          <iframe id="with-uf" title="Typography defaults" src="examples/with-uf.html"></iframe>
+        </div>
+        <div>
+          <h4>Without typography defaults</h4>
+          <p class="visibility-sr-only">The example shows basic HTML elements (headings, paragraphs, and other text eleemnts) with the browser default styling without CSS shortcuts.</p>
+          <iframe id="no-uf" title="Without typography defaults" src="examples/no-uf.html"></iframe>
+        </div>
+      </div>
+
+      <gcds-details details-title="Typography defaults example code">
+        <pre><code class="language-html">
+          &#x3C;h1&#x3E;Heading 1&#x3C;/h1&#x3E;
+          &#x3C;h2&#x3E;Heading 2&#x3C;/h2&#x3E;
+          &#x3C;h3&#x3E;Heading 3&#x3C;/h3&#x3E;
+          &#x3C;h4&#x3E;Heading 4&#x3C;/h4&#x3E;
+          &#x3C;h5&#x3E;Heading 5&#x3C;/h5&#x3E;
+          &#x3C;h6&#x3E;Heading 6&#x3C;/h6&#x3E;
+
+          &#x3C;p&#x3E;This is a paragraph.&#x3C;/p&#x3E;
+
+          &#x3C;small&#x3E;This is small text.&#x3C;/small&#x3E;
+
+          &#x3C;a href=&#x22;#&#x22;&#x3E;This is a link&#x3C;/a&#x3E;
+
+          &#x3C;code&#x3E;This is a code element&#x3C;/code&#x3E;
+        </code></pre>
+      </gcds-details>
+
+      <h3>Lists</h3>
+
+      <p>With the reset styles contained in CSS shortcuts, developers will now have to be more intentional with styling lists. Lists by default will be unstyled and need a class assigned to them to choose the style of the marker.</p>
+
+      <p class="visibility-sr-only">The example shows 6 lists in two coloumns. The left column has a 3 unordered lists with various marker styles applied using CSS shrtcut classes. The left column has a 3 ordered lists with various marker styles applied using CSS shrtcut classes.</p>
+      <iframe id="lists" title="Lists example" src="examples/lists.html"></iframe>
+
+      <gcds-details details-title="Lists example code">
+        <pre><code class="language-html">
+          &#x3C;main class=&#x22;d-grid grid-cols-2 gap-300 container-xl mx-auto mt-300 xl:px-0 sm:px-600 px-225&#x22;&#x3E;
+            &#x3C;div&#x3E;
+              &#x3C;h4&#x3E;Unordered lists&#x3C;/h4&#x3E;
+
+              &#x3C;ul&#x3E;
+                &#x3C;li&#x3E;List item 1&#x3C;/li&#x3E;
+                &#x3C;li&#x3E;List item 2&#x3C;/li&#x3E;
+                &#x3C;li&#x3E;List item 3&#x3C;/li&#x3E;
+              &#x3C;/ul&#x3E;
+              &#x3C;ul class=&#x22;list-disc&#x22;&#x3E;
+                &#x3C;li&#x3E;List item 1&#x3C;/li&#x3E;
+                &#x3C;li&#x3E;List item 2&#x3C;/li&#x3E;
+                &#x3C;li&#x3E;List item 3&#x3C;/li&#x3E;
+              &#x3C;/ul&#x3E;
+              &#x3C;ul class=&#x22;list-circle&#x22;&#x3E;
+                &#x3C;li&#x3E;List item 1&#x3C;/li&#x3E;
+                &#x3C;li&#x3E;List item 2&#x3C;/li&#x3E;
+                &#x3C;li&#x3E;List item 3&#x3C;/li&#x3E;
+              &#x3C;/ul&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;div&#x3E;
+              &#x3C;h4&#x3E;Ordered lists&#x3C;/h4&#x3E;
+
+              &#x3C;ol&#x3E;
+                &#x3C;li&#x3E;List item 1&#x3C;/li&#x3E;
+                &#x3C;li&#x3E;List item 2&#x3C;/li&#x3E;
+                &#x3C;li&#x3E;List item 3&#x3C;/li&#x3E;
+              &#x3C;/ol&#x3E;
+              &#x3C;ol class=&#x22;list-decimal&#x22;&#x3E;
+                &#x3C;li&#x3E;List item 1&#x3C;/li&#x3E;
+                &#x3C;li&#x3E;List item 2&#x3C;/li&#x3E;
+                &#x3C;li&#x3E;List item 3&#x3C;/li&#x3E;
+              &#x3C;/ol&#x3E;
+              &#x3C;ol class=&#x22;list-lower-alpha&#x22;&#x3E;
+                &#x3C;li&#x3E;List item 1&#x3C;/li&#x3E;
+                &#x3C;li&#x3E;List item 2&#x3C;/li&#x3E;
+                &#x3C;li&#x3E;List item 3&#x3C;/li&#x3E;
+              &#x3C;/ol&#x3E;
+            &#x3C;/div&#x3E;
+          &#x3C;/main&#x3E;
+        </code></pre>
+      </gcds-details>
+
+      <h3>Margin/padding</h3>
+
+      <p>CSS shortcuts has a wide variety of margin and padding classes taking advantage of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values">CSS logical properties</a>. This allows you to write the CSS once for a variety of different layouts based on language direction.</p>
+      
+      <p>The margin/padding scale is based off the <a href="https://design-system.alpha.canada.ca/en/styles/spacing/">spacing scale</a> available in GCDS.</p>
+
+      <div class="d-grid grid-cols-2 gap-300">
+        <div>
+          <h4>Margin/padding classes <abbr title="Left-to-right">LTR</abbr></h4>
+          <p class="visibility-sr-only">The example shows paragraphs with a black border and increased padding on all sides in a left to right reading pattern.</p>
+          <iframe id="margin-padding-ltr" title="Typography defaults" src="examples/margin-padding-ltr.html"></iframe>
+        </div>
+        <div>
+          <h4>Margin/padding classes <abbr title="Right-to-left">RTL</abbr></h4>
+          <p class="visibility-sr-only">The example shows paragraphs with a black border and increased padding on all sides in a right to left reading pattern. All padding is a reverse of the other example.</p>
+          <iframe id="margin-padding-rtl" title="Without typography defaults" src="examples/margin-padding-rtl.html"></iframe>
+        </div>
+      </div>
+
+      <gcds-details details-title="Margin + padding example code">
+        <pre><code class="language-html">
+          &#x3C;p class=&#x22;pt-400 pb-300 ps-800 pe-100 b-solid b-sm bs-lg&#x22;&#x3E;This paragraph has padding applied to all sides by individual classes.&#x3C;/p&#x3E;
+          &#x3C;p class=&#x22;px-800 py-300 b-solid b-sm bs-lg&#x22;&#x3E;This paragraph has padding applied to all the sides using two classes.&#x3C;/p&#x3E;
+          &#x3C;p class=&#x22;p-400 b-solid b-sm bs-lg&#x22;&#x3E;This paragraph has padding applied to all the sides using one class.&#x3C;/p&#x3E;
+        </code></pre>
+      </gcds-details>
+
+      <h3>Grid</h3>
+
+      <p>CSS shortcuts provides several options to create a layout, one method is taking advantage of CSS grids. There are several different ways to configure your grid, one way is to use the <code>grid-cols-{column-number}</code> classes.</p>
+
+      <p class="visibility-sr-only">The example shows a 3 column layout with each div in the column showcasing one of the icons from the GCDS icon library. When the width of the frame is changed, the 3 columns will reduce to 2 and then to 1.</p>
+      <iframe id="grid" title="Grid example" src="examples/grid.html" class="resize container-xl be-lg"></iframe>
+      <small class="d-block">Grab and drag the bottom-right corner to change the width of the display frame.</small>
+
+      <gcds-details details-title="Grid + icon example code">
+        <pre><code class="language-html">
+          &#x3C;main class=&#x22;d-grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-300 container-xl mx-auto mt-300 xl:px-0 sm:px-600 px-225&#x22;&#x3E;
+            &#x3C;div class=&#x22;b-sm p-150&#x22;&#x3E;
+              &#x3C;span class=&#x22;gcds-icon-info-circle icon-h3&#x22;&#x3E;&#x3C;/span&#x3E;
+              &#x3C;p&#x3E;Info circle&#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;div class=&#x22;b-sm p-150&#x22;&#x3E;
+              &#x3C;span class=&#x22;gcds-icon-warning-triangle icon-h3&#x22;&#x3E;&#x3C;/span&#x3E;
+              &#x3C;p&#x3E;Warning triangle&#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;div class=&#x22;b-sm p-150&#x22;&#x3E;
+              &#x3C;span class=&#x22;gcds-icon-exclamation-circle icon-h3&#x22;&#x3E;&#x3C;/span&#x3E;
+              &#x3C;p&#x3E;Exclamation circle&#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;div class=&#x22;b-sm p-150&#x22;&#x3E;
+              &#x3C;span class=&#x22;gcds-icon-checkmark-circle icon-h3&#x22;&#x3E;&#x3C;/span&#x3E;
+              &#x3C;p&#x3E;Checkmark circle&#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;div class=&#x22;b-sm p-150&#x22;&#x3E;
+              &#x3C;span class=&#x22;gcds-icon-chevron-left icon-h3&#x22;&#x3E;&#x3C;/span&#x3E;
+              &#x3C;p&#x3E;Chevron left&#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;div class=&#x22;b-sm p-150&#x22;&#x3E;
+              &#x3C;span class=&#x22;gcds-icon-chevron-right icon-h3&#x22;&#x3E;&#x3C;/span&#x3E;
+              &#x3C;p&#x3E;Chevron right&#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;div class=&#x22;b-sm p-150&#x22;&#x3E;
+              &#x3C;span class=&#x22;gcds-icon-chevron-down icon-h3&#x22;&#x3E;&#x3C;/span&#x3E;
+              &#x3C;p&#x3E;Chevron down&#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;div class=&#x22;b-sm p-150&#x22;&#x3E;
+              &#x3C;span class=&#x22;gcds-icon-chevron-left icon-h3&#x22;&#x3E;&#x3C;/span&#x3E;
+              &#x3C;p&#x3E;Chevron left&#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;div class=&#x22;b-sm p-150&#x22;&#x3E;
+              &#x3C;span class=&#x22;gcds-icon-close icon-h3&#x22;&#x3E;&#x3C;/span&#x3E;
+              &#x3C;p&#x3E;Close&#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;div class=&#x22;b-sm p-150&#x22;&#x3E;
+              &#x3C;span class=&#x22;gcds-icon-download icon-h3&#x22;&#x3E;&#x3C;/span&#x3E;
+              &#x3C;p&#x3E;Download&#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;div class=&#x22;b-sm p-150&#x22;&#x3E;
+              &#x3C;span class=&#x22;gcds-icon-email icon-h3&#x22;&#x3E;&#x3C;/span&#x3E;
+              &#x3C;p&#x3E;Email&#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;div class=&#x22;b-sm p-150&#x22;&#x3E;
+              &#x3C;span class=&#x22;gcds-icon-external icon-h3&#x22;&#x3E;&#x3C;/span&#x3E;
+              &#x3C;p&#x3E;External&#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;div class=&#x22;b-sm p-150&#x22;&#x3E;
+              &#x3C;span class=&#x22;gcds-icon-phone icon-h3&#x22;&#x3E;&#x3C;/span&#x3E;
+              &#x3C;p&#x3E;Phone&#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+            &#x3C;div class=&#x22;b-sm p-150&#x22;&#x3E;
+              &#x3C;span class=&#x22;gcds-icon-search icon-h3&#x22;&#x3E;&#x3C;/span&#x3E;
+              &#x3C;p&#x3E;Search&#x3C;/p&#x3E;
+            &#x3C;/div&#x3E;
+          &#x3C;/main&#x3E;
+        </code></pre>
+      </gcds-details>
+
+      <h3>Accessibility</h3>
+
+      <p>CSS shortcuts has a couple accessibility features backed in like a reduced motion media query for users who prefer that.</p>
+
+      <pre><code class="language-css">
+        // Force reduced motion for users who have preference set to reduce
+        @media (prefers-reduced-motion: reduce) {
+          *,
+          ::before,
+          ::after {
+            animation-delay: -1ms !important;
+            animation-duration: 1ms !important;
+            animation-iteration-count: 1 !important;
+            background-attachment: initial !important;
+            scroll-behavior: auto !important;
+            transition-duration: 0s !important;
+            transition-delay: 0s !important;
+          }
+        }
+      </code></pre>
+
+      <hr class="mt-500"/>
+
+      <h2>When?</h2>
+
+      <p>Keep an eye on your inbox or check the <a href="https://design-system.alpha.canada.ca/en/">GC Design System website</a> shortly to see when CSS shortcuts goes live.</p>
+    </main>
+  </body>
+</html>

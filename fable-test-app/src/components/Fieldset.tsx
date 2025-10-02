@@ -4,9 +4,7 @@ import { GcdsFieldset } from "@cdssnc/gcds-components-react";
 interface InputProps {
   hint?: string;
   legend: string;
-  fieldsetId: string;
-  validateOn?: "blur" | "submit" | "other";
-  required?: boolean;
+  legendSize: "h2" | "h3" | "h4" | "h5" | "h6";
   className?: string;
   children: React.ReactNode;
 }
@@ -14,18 +12,14 @@ interface InputProps {
 const Fieldset: React.FC<InputProps> = React.memo(({
   hint,
   legend,
-  fieldsetId,
-  validateOn,
-  required,
+  legendSize,
   className,
   children
 }) => (
   <GcdsFieldset
-    fieldsetId={fieldsetId}
     legend={legend}
+    legendSize={legendSize}
     hint={hint}
-    validateOn={validateOn}
-    required={required}
     className={className}
   >
     {children}
