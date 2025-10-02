@@ -17,11 +17,7 @@ const SubmitHoliday: React.FC = () => {
     newHoliday: '',
     holidayDate: '',
     learnOfHoliday: '',
-    holidayType: {
-      federal: false,
-      national: false,
-      other: false
-    },
+    holidayType: [],
     otherHoliday: '',
     province: '',
     image: null,
@@ -33,14 +29,8 @@ const SubmitHoliday: React.FC = () => {
   // Handle form inputs to set into state
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
-    if (name === "newHoliday") {
-      setFormData({...formData, [name]: e.detail});
-    } else if (name === "holidayType") {
-      let type = formData.holidayType;
-      setFormData({...formData, [name]: { ...type, [value]: !type[value as keyof typeof type] }});
-    } else {
-      setFormData({...formData, [name]: value});
-    }
+
+    setFormData({ ...formData, [name]: value });
   };
 
   const previousStep = () => {
@@ -75,6 +65,7 @@ const SubmitHoliday: React.FC = () => {
       </Text>
 
       <form
+        noValidate
         onSubmit={(e) => {
           e.preventDefault();
           setTimeout(() => {
@@ -90,19 +81,19 @@ const SubmitHoliday: React.FC = () => {
             focusHeading={focusHeading}
             handleInputChange={handleInputChange}
           />
-        : 
-        step === 2 ?
-          <StepTwo
-            formdata={formData}
-            handleInputChange={handleInputChange}
-            previousStep={previousStep}
-          />
-         :
-          <Success />
+          :
+          step === 2 ?
+            <StepTwo
+              formdata={formData}
+              handleInputChange={handleInputChange}
+              previousStep={previousStep}
+            />
+            :
+            <Success />
         }
       </form>
 
-      <DateModified>2025-07-16</DateModified>
+      <DateModified>2024-08-28</DateModified>
     </section>
   )
 };
