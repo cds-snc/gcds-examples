@@ -82,23 +82,6 @@ const StepOne: React.FC<StepOneProps> = ((props) => {
           onInput={handleInputChange}
         />
 
-        {/* Leaving here to compare to new component
-        
-        <Fieldset
-          legend="Is this a new holiday (created within the past year)?"
-          fieldsetId="newHoliday"
-          className="mb-225"
-          validateOn="submit"
-          required
-        >
-          <RadioGroup
-            name="newHoliday"
-            options={newHolidayOptions}
-            onGcdsChange={handleInputChange}
-          >
-          </RadioGroup>
-        </Fieldset> */}
-
         <Radios
           legend="Is this a new holiday (created within the past year)?"
           name="newHoliday"
@@ -163,43 +146,6 @@ const StepOne: React.FC<StepOneProps> = ((props) => {
             }
           ]}
         ></Checkboxes>
-
-        {/* <Fieldset
-          legend="What type of holiday is this?"
-          hint="Select all that apply"
-          fieldsetId="typeOfHoliday"
-          validateOn="submit"
-          required
-          className="mt-300"
-        >
-          <Checkbox
-            checkboxId="federal"
-            label="Federal"
-            name="holidayType"
-            value="federal"
-            {...(formdata.holidayType.federal ? {checked: true} : {})}
-            onInput={handleInputChange}
-          >
-          </Checkbox>
-          <Checkbox
-            checkboxId="national"
-            label="National"
-            name="holidayType"
-            value="national"
-            {...(formdata.holidayType.national ? {checked: true} : {})}
-            onInput={handleInputChange}
-          >
-          </Checkbox>
-          <Checkbox
-            checkboxId="other"
-            label="Other (specific provinces and/or territories)"
-            name="holidayType"
-            value="other"
-            {...(formdata.holidayType.other ? {checked: true} : {})}
-            onInput={handleInputChange}
-          >
-          </Checkbox>
-        </Fieldset> */}
 
         <Details
           detailsTitle="What are federal holidays?"
