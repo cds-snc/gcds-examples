@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-// GCDS Utility Framework
-import '../node_modules/@cdssnc/gcds-utility/dist/gcds-utility.min.css';
+// GCDS CSS shortcuts
+import '@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';
 
 // GCDS Components
 import '@cdssnc/gcds-components-react/gcds.css';
@@ -30,7 +30,7 @@ const App: React.FC = () => {
     <Router>
       <Header />
       <Container id="main-content" size="xl" tag="main" mainContainer centered>
-        <Grid columnsDesktop="320px 1fr" columns="1fr">
+        <Grid columnsDesktop="320px 1fr" columns="1fr" display="grid">
           <SideNav />
           <Routes>
             <Route path="/" element={<Home />} />
