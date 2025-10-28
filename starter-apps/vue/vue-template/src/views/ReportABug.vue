@@ -33,24 +33,23 @@ const formElements = {
   additionalInfo: 'additionalInfo'
 }
 
-let errors = []
+const errors = new Set();
 
-const handleError = (event) => {
-  if (!errors.includes(event.detail.id)) {
-    errors.push(event.detail.id)
-  }
+const handleError = (key) => {
+  if (key) errors.add(key);
 }
 
-const handleValid = (event) => {
-  if (errors.includes(event.detail.id)) {
-    errors = errors.filter((error) => error !== event.detail.id)
-  }
+const handleValid = (key) => {
+  if (key) errors.delete(key);
 }
 
-async function handleSubmit() {
+async function handleSubmit(e) {
   setTimeout(() => {
     // Check if there are any errors before submitting the form
-    if (errors.length === 0) {
+    const form = e.target; // or e.currentTarget
+    const hasErrors = !form.checkValidity();
+
+    if (errors.size === 0 && !hasErrors) {
       formStore.submitForm(formData.value)
       submitted.value = formStore.submitted
     }
@@ -92,9 +91,10 @@ const githubIssueURL = () => {
     v-if="!submitted"
     :key="reportABugKey"
     name="bugReportForm"
-    @gcdsError="handleError"
-    @gcdsValid="handleValid"
-    @submit.prevent="handleSubmit"
+    @gcdsError="(e) => handleError(e.target.id || e.target.name)"
+    @gcdsValid="(e) => handleValid(e.target.id || e.target.name)"
+    @submit.prevent="(e) => handleSubmit(e)"
+    novalidate
   >
     <ErrorSummary listen />
     <Input
