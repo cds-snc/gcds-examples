@@ -54,6 +54,4 @@ vue-template/                     # Project root (Javascript)
 ```
 
 ## Future / Planned
-Future / Planned
-
 The `vue-template` project is the default and first starter template, built in JavaScript to establish the base structure for GCDS Vue starter apps; future variants like `vue-template-typescript` will follow the same pattern with TypeScript support.
