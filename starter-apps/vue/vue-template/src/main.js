@@ -1,5 +1,5 @@
 import '@cdssnc/gcds-components-vue/gcds.css';
-import '@cdssnc/gcds-utility/dist/gcds-utility.min.css';
+import '@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
