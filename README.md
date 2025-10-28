@@ -1,10 +1,14 @@
-# Generic Project Template
+# GC Design System repository for examples on how to use our different products
+⚠️ This is not official documentation yet, we are in the process of adding more examples to this repository.
 
-This repository provides some base files for setting up a repository at
-CDS. Plan is to create more project template for specific technologies:
+## Demo apps
+- [Vue3](/demo-apps/vue3)
+- React (coming soon)
+- [NextJS](/demo-apps/nextjs)
+- [Angular](/demo-apps/angular)
 
-- project-template-terraform
-- project-template-python
-- project-template-nodejs
+## Examples in production
+- [Eleventy (Static Site Generator)](https://github.com/cds-snc/gcds-docs) _our documentation website was built with 11ty + GCDS Components_
 
-Note that default community health files are maintained at https://github.com/cds-snc/.github 
+## Starter apps
+- [Vue3](/starter-apps/vue/vue-template)
