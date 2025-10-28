@@ -46,7 +46,7 @@ const handleValid = (key) => {
 async function handleSubmit(e) {
   setTimeout(() => {
     // Check if there are any errors before submitting the form
-    const form = e.target; // or e.currentTarget
+    const form = e.currentTarget;
     const hasErrors = !form.checkValidity();
 
     if (errors.size === 0 && !hasErrors) {
