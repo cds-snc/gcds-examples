@@ -2,84 +2,53 @@
 <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
   <file id="ngi18n" original="ng.template">
     <unit id="common.pageTitle.home">
-      <notes>
-        <note category="location">src/app/app.routes.ts:10</note>
-        <note category="location">src/app/layout/header/header.component.html:11,13</note>
-        <note category="location">src/app/pages/home/home.component.html:2,3</note>
-      </notes>
       <segment>
         <source>Home</source>
       </segment>
     </unit>
     <unit id="common.pageTitle.about">
-      <notes>
-        <note category="location">src/app/app.routes.ts:15</note>
-        <note category="location">src/app/layout/header/header.component.html:18,20</note>
-        <note category="location">src/app/pages/about/about.component.html:1,2</note>
-      </notes>
       <segment>
         <source>About</source>
       </segment>
     </unit>
     <unit id="common.pageTitle.about.topic">
-      <notes>
-        <note category="location">src/app/app.routes.ts:23</note>
-        <note category="location">src/app/pages/about/about.component.html:16,17</note>
-        <note category="location">src/app/pages/about/topic/topic.component.html:2,4</note>
-      </notes>
       <segment>
         <source>Topic</source>
       </segment>
     </unit>
     <unit id="common.pageTitle.reportABug">
-      <notes>
-        <note category="location">src/app/app.routes.ts:30</note>
-        <note category="location">src/app/layout/header/header.component.html:25,27</note>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:2,3</note>
-      </notes>
       <segment>
         <source>Report a Bug</source>
       </segment>
     </unit>
     <unit id="7377177725309760290">
-      <notes>
-        <note category="location">src/app/layout/header/header.component.html:6</note>
-      </notes>
       <segment>
         <source>Top navigation</source>
       </segment>
     </unit>
     <unit id="common.appName">
-      <notes>
-        <note category="location">src/app/layout/header/header.component.html:8,10</note>
-      </notes>
       <segment>
         <source> Angular App </source>
       </segment>
     </unit>
     <unit id="1228117683635893745">
       <notes>
-        <note category="location">src/app/pages/about/about.component.html:3,11</note>
         <note category="description">About Page Main Content</note>
       </notes>
       <segment>
-        <source> This Angular starter template integrates Design System components, providing a solid foundation for building modern, responsive web applications. It streamlines development by offering pre-built, customizable UI elements that ensure design consistency and flexibility. Perfect for both small-scale projects and large applications, this template helps you focus on delivering a polished user experience with minimal setup.
-</source>
+        <source> This Angular starter template integrates Design System components, providing a solid foundation for building modern, responsive web applications. It streamlines development by offering pre-built, customizable UI elements that ensure design consistency and flexibility. Perfect for both small-scale projects and large applications, this template helps you focus on delivering a polished user experience with minimal setup. </source>
       </segment>
     </unit>
     <unit id="1007173588668114291">
       <notes>
-        <note category="location">src/app/pages/about/topic/topic.component.html:5,10</note>
         <note category="description">Topic Page Main Content</note>
       </notes>
       <segment>
-        <source> This is a sample topic page within a parent About page. Here, you can see how the breadcrumb navigation behaves within the site structure. The breadcrumbs provide a visual guide for the current location on the site, allowing for seamless navigation between sections.
-</source>
+        <source> This is a sample topic page within a parent About page. Here, you can see how the breadcrumb navigation behaves within the site structure. The breadcrumbs provide a visual guide for the current location on the site, allowing for seamless navigation between sections. </source>
       </segment>
     </unit>
     <unit id="page.home.welcome">
       <notes>
-        <note category="location">src/app/pages/home/home.component.html:3,4</note>
         <note category="description">Home Page Welcome Msg</note>
       </notes>
       <segment>
@@ -88,7 +57,6 @@
     </unit>
     <unit id="7600330836722778442">
       <notes>
-        <note category="location">src/app/pages/home/home.component.html:5,8</note>
         <note category="description">Home Page Obj of Template</note>
       </notes>
       <segment>
@@ -97,7 +65,6 @@
     </unit>
     <unit id="2533510957832530280">
       <notes>
-        <note category="location">src/app/pages/home/home.component.html:9,13</note>
         <note category="description">Home Page Content of Template</note>
       </notes>
       <segment>
@@ -105,16 +72,12 @@
       </segment>
     </unit>
     <unit id="page.reportABug.subtitle">
-      <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:3,5</note>
-      </notes>
       <segment>
         <source>Create a report to help us improve GC Design System.</source>
       </segment>
     </unit>
     <unit id="2181422118474908300">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:12,13</note>
         <note category="description">Report a Bug Form Version Label</note>
       </notes>
       <segment>
@@ -123,7 +86,6 @@
     </unit>
     <unit id="2356275478599190309">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:14,16</note>
         <note category="description">Report a Bug Form Version Hint</note>
       </notes>
       <segment>
@@ -132,7 +94,6 @@
     </unit>
     <unit id="5701618810648052610">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:24</note>
         <note category="description">Report a Bug Form Tile Label</note>
       </notes>
       <segment>
@@ -141,7 +102,6 @@
     </unit>
     <unit id="5699360942243336971">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:25,27</note>
         <note category="description">Report a Bug Form Title Hint</note>
       </notes>
       <segment>
@@ -150,7 +110,6 @@
     </unit>
     <unit id="3169984556072458130">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:34,35</note>
         <note category="description">Report a Bug Form Current Behavior Label</note>
       </notes>
       <segment>
@@ -159,7 +118,6 @@
     </unit>
     <unit id="3088942842674902128">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:36,39</note>
         <note category="description">Report a Bug Form Current Behavior Hint</note>
       </notes>
       <segment>
@@ -168,7 +126,6 @@
     </unit>
     <unit id="9083655282026288033">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:44,45</note>
         <note category="description">Report a Bug Form Expected Behavior Label</note>
       </notes>
       <segment>
@@ -177,7 +134,6 @@
     </unit>
     <unit id="1650678681905814317">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:46,49</note>
         <note category="description">Report a Bug Form Expected Behavior Hint</note>
       </notes>
       <segment>
@@ -186,7 +142,6 @@
     </unit>
     <unit id="3811407979880504315">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:55,56</note>
         <note category="description">Report a Bug Form System Info Label</note>
       </notes>
       <segment>
@@ -195,7 +150,6 @@
     </unit>
     <unit id="619586271410335067">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:57,59</note>
         <note category="description">Report a Bug Form System Info Hint</note>
       </notes>
       <segment>
@@ -204,7 +158,6 @@
     </unit>
     <unit id="261411122719804682">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:66,67</note>
         <note category="description">Report a Bug Form Step to Reproduce Label</note>
       </notes>
       <segment>
@@ -213,7 +166,6 @@
     </unit>
     <unit id="1123388131790928516">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:68,71</note>
         <note category="description">Report a Bug Form Step to Reproduce Hint</note>
       </notes>
       <segment>
@@ -222,7 +174,6 @@
     </unit>
     <unit id="8367071988397450880">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:77,78</note>
         <note category="description">Report a Bug Form Url Label</note>
       </notes>
       <segment>
@@ -231,7 +182,6 @@
     </unit>
     <unit id="4668565277926800570">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:79,81</note>
         <note category="description">Report a Bug Form Url Hint</note>
       </notes>
       <segment>
@@ -240,7 +190,6 @@
     </unit>
     <unit id="8168957461252807409">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:88,89</note>
         <note category="description">Report a Bug Form Additional Info Label</note>
       </notes>
       <segment>
@@ -249,7 +198,6 @@
     </unit>
     <unit id="3615986342840499859">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:90,93</note>
         <note category="description">Report a Bug Form Additional Info Hint</note>
       </notes>
       <segment>
@@ -258,7 +206,6 @@
     </unit>
     <unit id="935187492052582731">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:93,96</note>
         <note category="description">Report a Bug Submit Button</note>
       </notes>
       <segment>
@@ -267,7 +214,6 @@
     </unit>
     <unit id="page.reportABug.confirmation">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:96,98</note>
         <note category="description">Report a Bug Confirmation Title</note>
       </notes>
       <segment>
@@ -276,7 +222,6 @@
     </unit>
     <unit id="2691181952636983124">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:98,99</note>
         <note category="description">Report a Bug Form Version</note>
       </notes>
       <segment>
@@ -285,7 +230,6 @@
     </unit>
     <unit id="5975983251974868004">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:102,103</note>
         <note category="description">Report a Bug Form Current Behavior</note>
       </notes>
       <segment>
@@ -294,7 +238,6 @@
     </unit>
     <unit id="6726660696357172528">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:106,107</note>
         <note category="description">Report a Bug Form Expected Behavior</note>
       </notes>
       <segment>
@@ -303,7 +246,6 @@
     </unit>
     <unit id="1932450673101499330">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:110,111</note>
         <note category="description">Report a Bug Form System Info</note>
       </notes>
       <segment>
@@ -312,7 +254,6 @@
     </unit>
     <unit id="2668864338310993858">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:114,115</note>
         <note category="description">Report a Bug Form Steps to Reproduce</note>
       </notes>
       <segment>
@@ -321,7 +262,6 @@
     </unit>
     <unit id="9217618482080600767">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:118,119</note>
         <note category="description">Report a Bug Form Code Reproduction Url</note>
       </notes>
       <segment>
@@ -330,7 +270,6 @@
     </unit>
     <unit id="2978175809906717992">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:122,123</note>
         <note category="description">Report a Bug Form Additional Info</note>
       </notes>
       <segment>
@@ -339,7 +278,6 @@
     </unit>
     <unit id="3415000254154575887">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:126,127</note>
         <note category="description">Report a Bug Form Start Issue Github</note>
       </notes>
       <segment>
@@ -348,7 +286,6 @@
     </unit>
     <unit id="5627097823503804914">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:127,131</note>
         <note category="description">Report a Bug Form Open Issue Github</note>
       </notes>
       <segment>
