@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
   <file id="ngi18n" original="ng.template">
     <unit id="common.pageTitle.home">
@@ -24,7 +24,7 @@
     <unit id="common.pageTitle.about.topic">
       <notes>
         <note category="location">src/app/app.routes.ts:23</note>
-        <note category="location">src/app/pages/about/about.component.html:12,13</note>
+        <note category="location">src/app/pages/about/about.component.html:16,17</note>
         <note category="location">src/app/pages/about/topic/topic.component.html:2,4</note>
       </notes>
       <segment>
@@ -35,6 +35,7 @@
       <notes>
         <note category="location">src/app/app.routes.ts:30</note>
         <note category="location">src/app/layout/header/header.component.html:25,27</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:2,3</note>
       </notes>
       <segment>
         <source>Report a Bug</source>
@@ -58,15 +59,11 @@
     </unit>
     <unit id="1228117683635893745">
       <notes>
-        <note category="location">src/app/pages/about/about.component.html:3,10</note>
+        <note category="location">src/app/pages/about/about.component.html:3,11</note>
         <note category="description">About Page Main Content</note>
       </notes>
       <segment>
-        <source> This Angular starter template integrates Design System components, providing a
-          solid foundation for building modern, responsive web applications. It streamlines
-          development by offering pre-built, customizable UI elements that ensure design consistency
-          and flexibility. Perfect for both small-scale projects and large applications, this
-          template helps you focus on delivering a polished user experience with minimal setup.
+        <source> This Angular starter template integrates Design System components, providing a solid foundation for building modern, responsive web applications. It streamlines development by offering pre-built, customizable UI elements that ensure design consistency and flexibility. Perfect for both small-scale projects and large applications, this template helps you focus on delivering a polished user experience with minimal setup.
 </source>
       </segment>
     </unit>
@@ -76,16 +73,13 @@
         <note category="description">Topic Page Main Content</note>
       </notes>
       <segment>
-        <source> This is a sample topic page within a parent About page. Here, you can see how the
-          breadcrumb navigation behaves within the site structure. The breadcrumbs provide a visual
-          guide for the current location on the site, allowing for seamless navigation between
-          sections.
+        <source> This is a sample topic page within a parent About page. Here, you can see how the breadcrumb navigation behaves within the site structure. The breadcrumbs provide a visual guide for the current location on the site, allowing for seamless navigation between sections.
 </source>
       </segment>
     </unit>
-    <unit id="8045428243809057885">
+    <unit id="page.home.welcome">
       <notes>
-        <note category="location">src/app/pages/home/home.component.html:4,7</note>
+        <note category="location">src/app/pages/home/home.component.html:3,4</note>
         <note category="description">Home Page Welcome Msg</note>
       </notes>
       <segment>
@@ -94,29 +88,33 @@
     </unit>
     <unit id="7600330836722778442">
       <notes>
-        <note category="location">src/app/pages/home/home.component.html:8,12</note>
+        <note category="location">src/app/pages/home/home.component.html:5,8</note>
         <note category="description">Home Page Obj of Template</note>
       </notes>
       <segment>
-        <source> This starter app template is designed to help developers quickly set up a modern
-          Angular application while adhering to the accessibility and design standards set by the
-          Government of Canada. </source>
+        <source> This starter app template is designed to help developers quickly set up a modern Angular application while adhering to the accessibility and design standards set by the Government of Canada. </source>
       </segment>
     </unit>
     <unit id="2533510957832530280">
       <notes>
-        <note category="location">src/app/pages/home/home.component.html:13,18</note>
+        <note category="location">src/app/pages/home/home.component.html:9,13</note>
         <note category="description">Home Page Content of Template</note>
       </notes>
       <segment>
-        <source> You&apos;ll find all the necessary setup, including Angular Routing, ESLint for
-          linting, Jasmine for unit testing, @angular/localize for localization and a selection of
-          GCDS components to get you started on your project. </source>
+        <source> You&apos;ll find all the necessary setup, including Angular Routing, ESLint for linting, Jasmine for unit testing, @angular/localize for localization and a selection of GCDS components to get you started on your project. </source>
+      </segment>
+    </unit>
+    <unit id="page.reportABug.subtitle">
+      <notes>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:3,5</note>
+      </notes>
+      <segment>
+        <source>Create a report to help us improve GC Design System.</source>
       </segment>
     </unit>
     <unit id="2181422118474908300">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:10,11</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:12,13</note>
         <note category="description">Report a Bug Form Version Label</note>
       </notes>
       <segment>
@@ -125,7 +123,7 @@
     </unit>
     <unit id="2356275478599190309">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:12,14</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:14,16</note>
         <note category="description">Report a Bug Form Version Hint</note>
       </notes>
       <segment>
@@ -134,7 +132,7 @@
     </unit>
     <unit id="5701618810648052610">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:20</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:24</note>
         <note category="description">Report a Bug Form Tile Label</note>
       </notes>
       <segment>
@@ -143,7 +141,7 @@
     </unit>
     <unit id="5699360942243336971">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:21,23</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:25,27</note>
         <note category="description">Report a Bug Form Title Hint</note>
       </notes>
       <segment>
@@ -152,7 +150,7 @@
     </unit>
     <unit id="3169984556072458130">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:28,29</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:34,35</note>
         <note category="description">Report a Bug Form Current Behavior Label</note>
       </notes>
       <segment>
@@ -161,7 +159,7 @@
     </unit>
     <unit id="3088942842674902128">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:30,33</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:36,39</note>
         <note category="description">Report a Bug Form Current Behavior Hint</note>
       </notes>
       <segment>
@@ -170,7 +168,7 @@
     </unit>
     <unit id="9083655282026288033">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:36,37</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:44,45</note>
         <note category="description">Report a Bug Form Expected Behavior Label</note>
       </notes>
       <segment>
@@ -179,7 +177,7 @@
     </unit>
     <unit id="1650678681905814317">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:38,41</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:46,49</note>
         <note category="description">Report a Bug Form Expected Behavior Hint</note>
       </notes>
       <segment>
@@ -188,7 +186,7 @@
     </unit>
     <unit id="3811407979880504315">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:45,46</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:55,56</note>
         <note category="description">Report a Bug Form System Info Label</note>
       </notes>
       <segment>
@@ -197,7 +195,7 @@
     </unit>
     <unit id="619586271410335067">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:47,49</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:57,59</note>
         <note category="description">Report a Bug Form System Info Hint</note>
       </notes>
       <segment>
@@ -206,7 +204,7 @@
     </unit>
     <unit id="261411122719804682">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:54,55</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:66,67</note>
         <note category="description">Report a Bug Form Step to Reproduce Label</note>
       </notes>
       <segment>
@@ -215,7 +213,7 @@
     </unit>
     <unit id="1123388131790928516">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:56,59</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:68,71</note>
         <note category="description">Report a Bug Form Step to Reproduce Hint</note>
       </notes>
       <segment>
@@ -224,7 +222,7 @@
     </unit>
     <unit id="8367071988397450880">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:63,64</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:77,78</note>
         <note category="description">Report a Bug Form Url Label</note>
       </notes>
       <segment>
@@ -233,43 +231,43 @@
     </unit>
     <unit id="4668565277926800570">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:65,67</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:79,81</note>
         <note category="description">Report a Bug Form Url Hint</note>
       </notes>
       <segment>
         <source>Provide a URL to the code reproduction</source>
       </segment>
     </unit>
-    <unit id="4834614791330785738">
+    <unit id="8168957461252807409">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:72,73</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:88,89</note>
         <note category="description">Report a Bug Form Additional Info Label</note>
       </notes>
       <segment>
-        <source>Additionnal Information</source>
+        <source>Additional Information</source>
       </segment>
     </unit>
-    <unit id="4537745910658342477">
+    <unit id="3615986342840499859">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:74,77</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:90,93</note>
         <note category="description">Report a Bug Form Additional Info Hint</note>
       </notes>
       <segment>
-        <source>Provide any additionnal information</source>
+        <source>Provide any additional information</source>
       </segment>
     </unit>
     <unit id="935187492052582731">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:78,82</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:93,96</note>
         <note category="description">Report a Bug Submit Button</note>
       </notes>
       <segment>
         <source>Submit</source>
       </segment>
     </unit>
-    <unit id="1234709746630139322">
+    <unit id="page.reportABug.confirmation">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:83,86</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:96,98</note>
         <note category="description">Report a Bug Confirmation Title</note>
       </notes>
       <segment>
@@ -278,7 +276,7 @@
     </unit>
     <unit id="2691181952636983124">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:87,89</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:98,99</note>
         <note category="description">Report a Bug Form Version</note>
       </notes>
       <segment>
@@ -287,7 +285,7 @@
     </unit>
     <unit id="5975983251974868004">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:92,93</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:102,103</note>
         <note category="description">Report a Bug Form Current Behavior</note>
       </notes>
       <segment>
@@ -296,7 +294,7 @@
     </unit>
     <unit id="6726660696357172528">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:96,97</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:106,107</note>
         <note category="description">Report a Bug Form Expected Behavior</note>
       </notes>
       <segment>
@@ -305,7 +303,7 @@
     </unit>
     <unit id="1932450673101499330">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:100,101</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:110,111</note>
         <note category="description">Report a Bug Form System Info</note>
       </notes>
       <segment>
@@ -314,7 +312,7 @@
     </unit>
     <unit id="2668864338310993858">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:105,107</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:114,115</note>
         <note category="description">Report a Bug Form Steps to Reproduce</note>
       </notes>
       <segment>
@@ -323,7 +321,7 @@
     </unit>
     <unit id="9217618482080600767">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:111,113</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:118,119</note>
         <note category="description">Report a Bug Form Code Reproduction Url</note>
       </notes>
       <segment>
@@ -332,7 +330,7 @@
     </unit>
     <unit id="2978175809906717992">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:117,119</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:122,123</note>
         <note category="description">Report a Bug Form Additional Info</note>
       </notes>
       <segment>
@@ -341,7 +339,7 @@
     </unit>
     <unit id="3415000254154575887">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:123,126</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:126,127</note>
         <note category="description">Report a Bug Form Start Issue Github</note>
       </notes>
       <segment>
@@ -350,7 +348,7 @@
     </unit>
     <unit id="5627097823503804914">
       <notes>
-        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:131,136</note>
+        <note category="location">src/app/pages/report-a-bug/report-a-bug.component.html:127,131</note>
         <note category="description">Report a Bug Form Open Issue Github</note>
       </notes>
       <segment>
