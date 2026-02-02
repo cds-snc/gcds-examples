@@ -7,7 +7,7 @@ This is a starter app that you can use to bootstrap your project using Angular a
 A brief overview of the project structure:
 
 ```graphql
-angular-template/                                                     # Project root (Javascript)
+angular-template/                                                     # Project root
 ├── e2e/                                                              # End-to-end tests
 ├── public/                                                           # Static assets
 ├── src/                                                              # Source files
