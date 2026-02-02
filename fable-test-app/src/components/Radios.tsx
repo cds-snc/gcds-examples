@@ -1,43 +1,48 @@
 import React from 'react';
-import { GcdsCheckbox } from "@cdssnc/gcds-components-react";
+import { GcdsRadios } from "@cdssnc/gcds-components-react";
 
-interface CheckboxProps {
-  hint?: string;
+type RadioObject = {
+  id: string;
   label: string;
+  value: string;
+  hint?: string;
+  checked?: boolean;
+};
+
+interface RadiosProps {
+  hint?: string;
+  legend: string;
   name: string;
   onInput?: (e: any) => void;
-  checkboxId: string;
   value?: string;
   validateOn?: "blur" | "submit" | "other";
   required?: boolean;
   className?: string;
-  checked?: boolean;
+  options: string | RadioObject[];
 }
 
-const Checkbox: React.FC<CheckboxProps> = React.memo(({
+const Radios: React.FC<RadiosProps> = React.memo(({
   hint,
-  label,
+  legend,
   name,
   onInput,
-  checkboxId,
   validateOn,
   required,
   value,
   className,
-  checked
+  options
 }) => (
-  <GcdsCheckbox
-    checkboxId={checkboxId}
-    label={label}
+  <GcdsRadios
+    legend={legend}
     hint={hint}
     name={name}
+    options={options}
     value={value}
     validateOn={validateOn}
     onInput={onInput}
     required={required}
     className={className}
-    checked={checked}
-  ></GcdsCheckbox>
+  ></GcdsRadios>
 ));
 
-export default Checkbox;
+export default Radios;

@@ -9,9 +9,9 @@ import {
   Textarea,
   Fieldset,
   FileUploader,
-  Checkbox,
-  RadioGroup,
-  Stepper
+  Stepper,
+  Checkboxes,
+  Radios
 } from '../../components';
 import { provinces } from '../../utils/constants';
 
@@ -23,11 +23,7 @@ interface StepOneProps {
     newHoliday: string,
     holidayDate: string,
     learnOfHoliday: string,
-    holidayType: {
-      federal: boolean,
-      national: boolean,
-      other: boolean
-    },
+    holidayType: Array<string>,
     otherHoliday: string,
     province: string,
     image: string[] | null,
@@ -36,19 +32,19 @@ interface StepOneProps {
   focusHeading: boolean;
 };
 
-const StepOne: React.FC<StepOneProps> = (( props ) => {
+const StepOne: React.FC<StepOneProps> = ((props) => {
 
   const { formdata, handleInputChange, focusHeading } = props;
 
   const newHolidayOptions = [
-    { "label": "Yes", "id": "radio1", "value": "yes", "checked": formdata.newHoliday === "yes"},
-    { "label": "No", "id": "radio2", "value": "no", "checked": formdata.newHoliday === "no"},
-    { "label": "Not sure", "id": "radio3", "value": "notsure", "checked": formdata.newHoliday === "notsure"}
+    { "label": "Yes", "id": "radio1", "value": "yes" },
+    { "label": "No", "id": "radio2", "value": "no" },
+    { "label": "Not sure", "id": "radio3", "value": "notsure" }
   ];
 
   useEffect(() => {
     // only focus the stepper heading when returning from step 2
-    if(focusHeading) {
+    if (focusHeading) {
       setTimeout(() => {
         document.querySelector('gcds-stepper')?.focus();
       }, 150);
@@ -71,7 +67,7 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
 
       <Fieldset
         legend="General holiday information"
-        fieldsetId="holdayInformation"
+        legendSize='h3'
       >
         <Input
           inputId="holidayName"
@@ -85,20 +81,15 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
           onInput={handleInputChange}
         />
 
-        <Fieldset
+        <Radios
           legend="Is this a new holiday (created within the past year)?"
-          fieldsetId="newHoliday"
-          className="mb-225"
+          name="newHoliday"
+          options={newHolidayOptions}
+          onInput={handleInputChange}
           validateOn="submit"
+          value={formdata.newHoliday}
           required
-        >
-          <RadioGroup
-            name="newHoliday"
-            options={newHolidayOptions}
-            onGcdsChange={handleInputChange}
-          >
-          </RadioGroup>
-        </Fieldset>
+        ></Radios>
 
         <DateInput
           legend="When will this holiday occur?"
@@ -124,45 +115,37 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
 
       <Fieldset
         legend="Type of holiday"
-        fieldsetId="holidayType"
+        legendSize='h3'
         className="mt-600"
       >
-        <Fieldset
+        {/* Implementation of new gcds-checkboxes component */}
+        <Checkboxes
           legend="What type of holiday is this?"
           hint="Select all that apply"
-          fieldsetId="typeOfHoliday"
+          name="holidayType"
           validateOn="submit"
+          value={formdata.holidayType}
           required
-          className="mt-300"
-        >
-          <Checkbox
-            checkboxId="federal"
-            label="Federal"
-            name="holidayType"
-            value="federal"
-            {...(formdata.holidayType.federal ? {checked: true} : {})}
-            onInput={handleInputChange}
-          >
-          </Checkbox>
-          <Checkbox
-            checkboxId="national"
-            label="National"
-            name="holidayType"
-            value="national"
-            {...(formdata.holidayType.national ? {checked: true} : {})}
-            onInput={handleInputChange}
-          >
-          </Checkbox>
-          <Checkbox
-            checkboxId="other"
-            label="Other (specific provinces and/or territories)"
-            name="holidayType"
-            value="other"
-            {...(formdata.holidayType.other ? {checked: true} : {})}
-            onInput={handleInputChange}
-          >
-          </Checkbox>
-        </Fieldset>
+          onInput={handleInputChange}
+          options={[
+            {
+              label: "Federal",
+              id: "federal",
+              value: "federal"
+            },
+            {
+              label: "National",
+              id: "national",
+              value: "national"
+            },
+            {
+              label: "Other",
+              id: "other",
+              value: "other"
+            }
+          ]}
+        ></Checkboxes>
+
         <Details
           detailsTitle="What are federal holidays?"
           className="mb-225"
@@ -173,7 +156,7 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
           </Text>
         </Details>
 
-        {formdata.holidayType.other &&
+        {formdata.holidayType.includes('other') &&
           <Select
             selectId="province"
             label="If this holiday occurs in a specific province or territory, select the location."
@@ -198,7 +181,7 @@ const StepOne: React.FC<StepOneProps> = (( props ) => {
           uploaderId="holidayImage"
           name="image"
           className="mb-225"
-          {...(formdata.image ? {value: formdata.image} : {})}
+          {...(formdata.image ? { value: formdata.image } : {})}
           onChange={handleInputChange}
         />
       </Fieldset>
