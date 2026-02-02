@@ -4,11 +4,11 @@ import { By } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { GcdsBreadcrumbs, GcdsBreadcrumbsItem } from '@cdssnc/gcds-components-angular';
 import { Breadcrumb, BreadcrumbService } from '../../breadcrumb.service';
-import { HeaderComponent } from './header.component';
+import { Header } from './header';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('Header', () => {
+  let component: Header;
+  let fixture: ComponentFixture<Header>;
 
   const breadcrumbService = jasmine.createSpyObj('BreadcrumbService', ['breadcrumbs']);
   const breadcrumbItems: Breadcrumb[] = [
@@ -28,7 +28,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent],
+      imports: [Header],
       providers: [
         {
           provide: ActivatedRoute,
@@ -41,7 +41,7 @@ describe('HeaderComponent', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(Header);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

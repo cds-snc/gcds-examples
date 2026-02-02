@@ -5,14 +5,12 @@ import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
 @Component({
   selector: 'app-report-a-bug',
   imports: [GcdsComponentsModule, ReactiveFormsModule],
-  templateUrl: './report-a-bug.component.html',
-  styleUrl: './report-a-bug.component.scss',
+  templateUrl: './report-a-bug.html',
+  styleUrl: './report-a-bug.scss',
 })
-export class ReportABugComponent {
+export class ReportABug {
   protected readonly submitted = signal(false);
-  protected readonly issueUrl = signal(
-    'https://github.com/cds-snc/gcds-components/issues/new'
-  );
+  protected readonly issueUrl = signal('https://github.com/cds-snc/gcds-components/issues/new');
 
   protected readonly formGroup = new FormGroup({
     version: new FormControl<string | null>(null),
@@ -38,7 +36,7 @@ export class ReportABugComponent {
           `&sys_info=${this.formGroup.value.systemInfo}` +
           `&steps_to_reproduce=${this.formGroup.value.stepsToReproduce}` +
           `&code_url=${this.formGroup.value.codeReproductionUrl}` +
-          `&more_info=${this.formGroup.value.additionalInfo}`
+          `&more_info=${this.formGroup.value.additionalInfo}`,
       );
     }
   }

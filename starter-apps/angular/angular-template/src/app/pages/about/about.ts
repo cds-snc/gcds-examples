@@ -4,7 +4,7 @@ import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
 @Component({
   selector: 'app-about',
   imports: [GcdsComponentsModule],
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.scss',
+  templateUrl: './about.html',
+  styleUrl: './about.scss',
 })
-export class AboutComponent {}
+export class About {}

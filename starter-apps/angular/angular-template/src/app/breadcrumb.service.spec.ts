@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { provideRouter, Routes } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { App } from './app';
 import { BreadcrumbService } from './breadcrumb.service';
 
 @Component({ template: '' })
@@ -30,7 +30,7 @@ describe('BreadcrumbService', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [App],
       providers: [BreadcrumbService, provideRouter(TEST_ROUTES)],
     });
 

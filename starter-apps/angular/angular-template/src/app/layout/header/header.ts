@@ -5,10 +5,10 @@ import { BreadcrumbService } from '../../breadcrumb.service';
 @Component({
   selector: 'app-header',
   imports: [GcdsComponentsModule],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+  templateUrl: './header.html',
+  styleUrl: './header.scss',
 })
-export class HeaderComponent {
+export class Header {
   protected readonly currentLocale = inject(LOCALE_ID);
   protected readonly breadcrumbService = inject(BreadcrumbService);
 }

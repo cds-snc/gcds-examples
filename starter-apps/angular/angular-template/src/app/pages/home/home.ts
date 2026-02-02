@@ -4,7 +4,7 @@ import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
 @Component({
   selector: 'app-home',
   imports: [GcdsComponentsModule],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  templateUrl: './home.html',
+  styleUrl: './home.scss',
 })
-export class HomeComponent {}
+export class Home {}

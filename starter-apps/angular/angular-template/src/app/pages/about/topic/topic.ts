@@ -4,7 +4,7 @@ import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
 @Component({
   selector: 'app-topic',
   imports: [GcdsComponentsModule],
-  templateUrl: './topic.component.html',
-  styleUrl: './topic.component.scss',
+  templateUrl: './topic.html',
+  styleUrl: './topic.scss',
 })
-export class TopicComponent {}
+export class Topic {}
