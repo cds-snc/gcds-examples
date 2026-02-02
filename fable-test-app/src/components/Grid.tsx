@@ -25,14 +25,14 @@ interface GridProps {
   placeContent?: ContentValues;
   placeItems?: "center" | "end" | "start" | "stretch";
   tag?: "article"
-    | "aside"
-    | "div"
-    | "dl"
-    | "main"
-    | "nav"
-    | "ol"
-    | "section"
-    | "ul";
+  | "aside"
+  | "div"
+  | "dl"
+  | "main"
+  | "nav"
+  | "ol"
+  | "section"
+  | "ul";
 }
 
 const Grid: React.FC<GridProps> = React.memo(({

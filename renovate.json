@@ -1,0 +1,23 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "local>cds-snc/renovate-config"
+  ],
+  "schedule": ["every weekend"],
+  "dependencyDashboard": true,
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["security"],
+      "enabled": true
+    },
+    {
+      "matchPackagePatterns": ["^@cdssnc/gcds-.*", "^@gcds-core/.*"],
+      "enabled": true,
+      "updateTypes": ["major", "minor", "patch"]
+    },
+    {
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "enabled": false
+    }
+  ]
+}
