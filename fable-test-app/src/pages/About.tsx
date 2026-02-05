@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 // Components (internal)
-import { DateModified, Heading, Text, Card, Grid } from '../components';
+import { DateModified, Heading, Text, Card, Grid } from "../components";
 
 const About: React.FC = () => {
   return (
@@ -14,11 +14,9 @@ const About: React.FC = () => {
 
       <Heading tag="h2">Learn more about the GC Design System</Heading>
 
-      <Grid
-        columnsDesktop="1fr 1fr"
-        columnsTablet="1fr 1fr"
-      >
+      <Grid columnsDesktop="1fr 1fr" columnsTablet="1fr 1fr">
         <Card
+          className="mb-300"
           cardTitle="Figma library"
           description="View all of our styles and components to use in your designs."
           cardTitleTag="h3"
@@ -28,6 +26,7 @@ const About: React.FC = () => {
           imgAlt=""
         />
         <Card
+          className="mb-300"
           cardTitle="Documentation site"
           description="View all of our styles and components along with guidance on how to use them."
           cardTitleTag="h3"
@@ -37,6 +36,7 @@ const About: React.FC = () => {
           imgAlt=""
         />
         <Card
+          className="mb-300"
           cardTitle="GitHub repo"
           description="View our code in Github for all of our components."
           cardTitleTag="h3"
@@ -47,16 +47,13 @@ const About: React.FC = () => {
         />
       </Grid>
 
-
       <Heading tag="h2">Special thanks to Paul Craig</Heading>
 
-      <Text>
-        Paul Craig is the original creator of this site...
-      </Text>
+      <Text>Paul Craig is the original creator of this site...</Text>
 
       <DateModified>2025-07-16</DateModified>
     </section>
-  )
+  );
 };
 
 export default About;

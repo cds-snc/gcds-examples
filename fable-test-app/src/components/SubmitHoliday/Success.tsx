@@ -1,25 +1,22 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-import { Button, Text } from '../../components';
-import { GcdsNotice } from '@cdssnc/gcds-components-react';
+import { Button, Text } from "../../components";
+import { GcdsNotice } from "@cdssnc/gcds-components-react";
 
 const Success: React.FC = () => {
-
   useEffect(() => {
-
     setTimeout(() => {
-      document.querySelector('gcds-notice')?.focus();
+      document.querySelector("gcds-notice")?.focus();
     }, 50);
-
   }, []);
 
   return (
     <>
       <GcdsNotice
         noticeTitle="Your holiday request was submitted."
-        type="success"
-        noticeTitleTag='h2'
-        className='mb-600'
+        noticeRole="success"
+        noticeTitleTag="h2"
+        className="mb-600"
         tabIndex={0}
       >
         <Text marginBottom="0">
@@ -27,20 +24,11 @@ const Success: React.FC = () => {
         </Text>
       </GcdsNotice>
 
-      <Button
-        buttonRole="secondary"
-        className="me-600"
-        type="link"
-        href="/"
-      >
+      <Button buttonRole="secondary" className="me-600" type="link" href="/">
         Back to homepage
       </Button>
-      
-      <Button
-        type="link"
-        buttonRole="primary"
-        href="/submit-a-holiday"
-      >
+
+      <Button type="link" buttonRole="primary" href="/submit-a-holiday">
         Submit another holiday
       </Button>
     </>
