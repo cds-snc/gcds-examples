@@ -20,14 +20,14 @@
     "@angular/router": "^19.0.0",
     "@cdssnc/gcds-components": "^0.30.0",
     "@cdssnc/gcds-components-angular": "^0.30.0",
-    "@cdssnc/gcds-utility": "^1.5.0",
+    "@gcds-core/css-shortcuts": "^1.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.0.5",
-    "@angular/cli": "^19.0.5",
+    "@angular/cli": "^19.2.19",
     "@angular/compiler-cli": "^19.0.0",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.4.0",
