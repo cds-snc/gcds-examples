@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /* GC Design System Components */
-@import '@cdssnc/gcds-components/dist/gcds/gcds.css';
+@import '@gcds-core/components/dist/gcds/gcds.css';
 /* GC Design System CSS Utility Framework */
-@import '@cdssnc/gcds-utility/dist/gcds-utility.min.css';
+@import '@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';
 
