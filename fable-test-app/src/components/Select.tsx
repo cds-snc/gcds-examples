@@ -1,5 +1,5 @@
-import React from 'react';
-import { GcdsSelect } from "@cdssnc/gcds-components-react";
+import React from "react";
+import { GcdsSelect } from "@gcds-core/components-react";
 
 interface SelectProps {
   children: React.ReactNode;
@@ -14,31 +14,33 @@ interface SelectProps {
   required?: boolean;
 }
 
-const Select: React.FC<SelectProps> = React.memo(({
-  children,
-  hint,
-  label,
-  name,
-  onInput,
-  selectId,
-  defaultValue,
-  validateOn,
-  required,
-  value
-}) => (
-  <GcdsSelect
-    selectId={selectId}
-    label={label}
-    hint={hint}
-    name={name}
-    value={value}
-    defaultValue={defaultValue}
-    validateOn={validateOn}
-    onInput={onInput}
-    required={required}
-  >
-    {children}
-  </GcdsSelect>
-));
+const Select: React.FC<SelectProps> = React.memo(
+  ({
+    children,
+    hint,
+    label,
+    name,
+    onInput,
+    selectId,
+    defaultValue,
+    validateOn,
+    required,
+    value,
+  }) => (
+    <GcdsSelect
+      selectId={selectId}
+      label={label}
+      hint={hint}
+      name={name}
+      value={value}
+      defaultValue={defaultValue}
+      validateOn={validateOn}
+      onInput={onInput}
+      required={required}
+    >
+      {children}
+    </GcdsSelect>
+  ),
+);
 
 export default Select;

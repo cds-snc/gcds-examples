@@ -1,5 +1,5 @@
-import React from 'react';
-import { GcdsGrid } from "@cdssnc/gcds-components-react";
+import React from "react";
+import { GcdsGrid } from "@gcds-core/components-react";
 
 type ContentValues =
   | "center"
@@ -12,60 +12,63 @@ type ContentValues =
 
 interface GridProps {
   children?: React.ReactNode;
+  alignment?: "start" | "center" | "end";
   alignItems?: "baseline" | "center" | "end" | "start" | "stretch";
   columns?: string;
   columnsDesktop?: string;
   columnsTablet?: string;
   container?: "full" | "xl" | "lg" | "md" | "sm" | "xs";
-  centered?: boolean,
-  display?: "grid" | "inline-grid" | undefined,
-  equalRowHeight?: boolean,
+  display?: "grid" | "inline-grid";
+  equalRowHeight?: boolean;
   justifyContent?: ContentValues;
   justifyItems?: "center" | "end" | "start" | "stretch";
   placeContent?: ContentValues;
   placeItems?: "center" | "end" | "start" | "stretch";
-  tag?: "article"
-  | "aside"
-  | "div"
-  | "dl"
-  | "main"
-  | "nav"
-  | "ol"
-  | "section"
-  | "ul";
+  tag?:
+    | "article"
+    | "aside"
+    | "div"
+    | "dl"
+    | "main"
+    | "nav"
+    | "ol"
+    | "section"
+    | "ul";
 }
 
-const Grid: React.FC<GridProps> = React.memo(({
-  columns,
-  columnsDesktop,
-  columnsTablet,
-  container,
-  centered,
-  display,
-  equalRowHeight,
-  justifyContent,
-  justifyItems,
-  placeContent,
-  placeItems,
-  tag = "div",
-  children
-}) => (
-  <GcdsGrid
-    columns={columns}
-    columnsDesktop={columnsDesktop}
-    columnsTablet={columnsTablet}
-    container={container}
-    centered={centered}
-    display={display}
-    equalRowHeight={equalRowHeight}
-    justifyContent={justifyContent}
-    justifyItems={justifyItems}
-    placeContent={placeContent}
-    placeItems={placeItems}
-    tag={tag}
-  >
-    {children}
-  </GcdsGrid>
-));
+const Grid: React.FC<GridProps> = React.memo(
+  ({
+    alignment,
+    columns,
+    columnsDesktop,
+    columnsTablet,
+    container,
+    display = "grid",
+    equalRowHeight,
+    justifyContent,
+    justifyItems,
+    placeContent,
+    placeItems,
+    tag = "div",
+    children,
+  }) => (
+    <GcdsGrid
+      alignment={alignment}
+      columns={columns}
+      columnsDesktop={columnsDesktop}
+      columnsTablet={columnsTablet}
+      container={container}
+      display={display}
+      equalRowHeight={equalRowHeight}
+      justifyContent={justifyContent}
+      justifyItems={justifyItems}
+      placeContent={placeContent}
+      placeItems={placeItems}
+      tag={tag}
+    >
+      {children}
+    </GcdsGrid>
+  ),
+);
 
 export default Grid;

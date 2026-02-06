@@ -1,5 +1,5 @@
-import React from 'react';
-import { GcdsRadios } from "@cdssnc/gcds-components-react";
+import React from "react";
+import { GcdsRadios } from "@gcds-core/components-react";
 
 type RadioObject = {
   id: string;
@@ -21,28 +21,30 @@ interface RadiosProps {
   options: string | RadioObject[];
 }
 
-const Radios: React.FC<RadiosProps> = React.memo(({
-  hint,
-  legend,
-  name,
-  onInput,
-  validateOn,
-  required,
-  value,
-  className,
-  options
-}) => (
-  <GcdsRadios
-    legend={legend}
-    hint={hint}
-    name={name}
-    options={options}
-    value={value}
-    validateOn={validateOn}
-    onInput={onInput}
-    required={required}
-    className={className}
-  ></GcdsRadios>
-));
+const Radios: React.FC<RadiosProps> = React.memo(
+  ({
+    hint,
+    legend,
+    name,
+    onInput,
+    validateOn,
+    required,
+    value,
+    className,
+    options,
+  }) => (
+    <GcdsRadios
+      legend={legend}
+      hint={hint}
+      name={name}
+      options={options}
+      value={value}
+      validateOn={validateOn}
+      onInput={onInput}
+      required={required}
+      className={className}
+    ></GcdsRadios>
+  ),
+);
 
 export default Radios;
