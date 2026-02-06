@@ -1,5 +1,5 @@
 import React from "react";
-import { GcdsContainer } from "@cdssnc/gcds-components-react";
+import { GcdsContainer } from "@gcds-core/components-react";
 import { SpacingValues } from "../utils/constants";
 
 interface ContainerProps {

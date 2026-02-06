@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css";
 
 // GCDS Components
-import "@cdssnc/gcds-components-react/gcds.css";
+import "@gcds-core/components-react/gcds.css";
 
 // App CSS - uncomment to add custom CSS
 import "./App.css";

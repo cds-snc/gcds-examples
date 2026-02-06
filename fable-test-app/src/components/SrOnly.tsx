@@ -1,5 +1,5 @@
 import React from "react";
-import { GcdsSrOnly } from "@cdssnc/gcds-components-react";
+import { GcdsSrOnly } from "@gcds-core/components-react";
 
 interface ContainerProps {
   children: React.ReactNode;

@@ -1,5 +1,5 @@
-import React from 'react';
-import { GcdsInput } from "@cdssnc/gcds-components-react";
+import React from "react";
+import { GcdsInput } from "@gcds-core/components-react";
 
 interface InputProps {
   hint?: string;
@@ -15,32 +15,34 @@ interface InputProps {
   type?: "text" | "email" | "number" | "password" | "search";
 }
 
-const Input: React.FC<InputProps> = React.memo(({
-  hint,
-  label,
-  name,
-  onInput,
-  inputId,
-  validateOn,
-  required,
-  value,
-  size,
-  className,
-  type
-}) => (
-  <GcdsInput
-    inputId={inputId}
-    label={label}
-    hint={hint}
-    name={name}
-    value={value}
-    validateOn={validateOn}
-    onInput={onInput}
-    required={required}
-    size={size}
-    className={className}
-    type={type}
-  ></GcdsInput>
-));
+const Input: React.FC<InputProps> = React.memo(
+  ({
+    hint,
+    label,
+    name,
+    onInput,
+    inputId,
+    validateOn,
+    required,
+    value,
+    size,
+    className,
+    type,
+  }) => (
+    <GcdsInput
+      inputId={inputId}
+      label={label}
+      hint={hint}
+      name={name}
+      value={value}
+      validateOn={validateOn}
+      onInput={onInput}
+      required={required}
+      size={size}
+      className={className}
+      type={type}
+    ></GcdsInput>
+  ),
+);
 
 export default Input;

@@ -1,5 +1,5 @@
-import React from 'react';
-import { GcdsFieldset } from "@cdssnc/gcds-components-react";
+import React from "react";
+import { GcdsFieldset } from "@gcds-core/components-react";
 
 interface InputProps {
   hint?: string;
@@ -9,21 +9,17 @@ interface InputProps {
   children: React.ReactNode;
 }
 
-const Fieldset: React.FC<InputProps> = React.memo(({
-  hint,
-  legend,
-  legendSize,
-  className,
-  children
-}) => (
-  <GcdsFieldset
-    legend={legend}
-    legendSize={legendSize}
-    hint={hint}
-    className={className}
-  >
-    {children}
-  </GcdsFieldset>
-));
+const Fieldset: React.FC<InputProps> = React.memo(
+  ({ hint, legend, legendSize, className, children }) => (
+    <GcdsFieldset
+      legend={legend}
+      legendSize={legendSize}
+      hint={hint}
+      className={className}
+    >
+      {children}
+    </GcdsFieldset>
+  ),
+);
 
 export default Fieldset;

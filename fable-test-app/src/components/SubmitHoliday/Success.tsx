@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 import { Button, Text } from "../../components";
-import { GcdsNotice } from "@cdssnc/gcds-components-react";
+import { GcdsNotice } from "@gcds-core/components-react";
 
 const Success: React.FC = () => {
   useEffect(() => {

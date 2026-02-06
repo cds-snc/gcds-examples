@@ -1,5 +1,5 @@
 import React from "react";
-import { GcdsGrid } from "@cdssnc/gcds-components-react";
+import { GcdsGrid } from "@gcds-core/components-react";
 
 type ContentValues =
   | "center"

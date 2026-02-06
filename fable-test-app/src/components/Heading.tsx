@@ -1,5 +1,5 @@
 import React from "react";
-import { GcdsHeading } from "@cdssnc/gcds-components-react";
+import { GcdsHeading } from "@gcds-core/components-react";
 import { SpacingValues } from "../utils/constants";
 
 interface HeadingProps {

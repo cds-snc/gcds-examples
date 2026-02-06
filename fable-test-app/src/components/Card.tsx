@@ -1,5 +1,5 @@
 import React from "react";
-import { GcdsCard } from "@cdssnc/gcds-components-react";
+import { GcdsCard } from "@gcds-core/components-react";
 
 interface CardProps {
   children?: React.ReactNode;
