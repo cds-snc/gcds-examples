@@ -2,9 +2,8 @@
 <template>
   <gcds-container
     id="main-content"
-    centered
-    main-container
-    size="xl"
+    alignment="center"
+    layout="page"
     tag="main"
   >
     <slot />
