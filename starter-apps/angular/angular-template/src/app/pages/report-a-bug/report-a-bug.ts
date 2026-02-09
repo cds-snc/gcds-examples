@@ -27,16 +27,18 @@ export class ReportABug {
     if (this.formGroup.valid) {
       this.submitted.set(true);
       this.issueUrl.set(
-        `https://github.com/cds-snc/gcds-components/issues/new` +
-          `?=&template=bug_report.yml` +
-          `&title=${this.formGroup.value.title}` +
-          `&package_version=${this.formGroup.value.version}` +
-          `&current_behavior=${this.formGroup.value.currentBehavior}` +
-          `&expected_behavior=${this.formGroup.value.expectedBehavior}` +
-          `&sys_info=${this.formGroup.value.systemInfo}` +
-          `&steps_to_reproduce=${this.formGroup.value.stepsToReproduce}` +
-          `&code_url=${this.formGroup.value.codeReproductionUrl}` +
-          `&more_info=${this.formGroup.value.additionalInfo}`,
+        encodeURIComponent(
+          `https://github.com/cds-snc/gcds-components/issues/new` +
+            `?=&template=bug_report.yml` +
+            `&title=${this.formGroup.value.title}` +
+            `&package_version=${this.formGroup.value.version}` +
+            `&current_behavior=${this.formGroup.value.currentBehavior}` +
+            `&expected_behavior=${this.formGroup.value.expectedBehavior}` +
+            `&sys_info=${this.formGroup.value.systemInfo}` +
+            `&steps_to_reproduce=${this.formGroup.value.stepsToReproduce}` +
+            `&code_url=${this.formGroup.value.codeReproductionUrl}` +
+            `&more_info=${this.formGroup.value.additionalInfo}`,
+        ),
       );
     }
   }
