@@ -1,6 +1,10 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import { GcdsBreadcrumbs, GcdsBreadcrumbsItem, GcdsHeader } from "@cdssnc/gcds-components-react";
+import React from "react";
+import { useLocation } from "react-router-dom";
+import {
+  GcdsBreadcrumbs,
+  GcdsBreadcrumbsItem,
+  GcdsHeader,
+} from "@gcds-core/components-react";
 
 const Header: React.FC = () => {
   const { pathname } = useLocation();

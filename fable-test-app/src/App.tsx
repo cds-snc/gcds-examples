@@ -1,17 +1,17 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // GCDS CSS shortcuts
-import '@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';
+import "@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css";
 
 // GCDS Components
-import '@cdssnc/gcds-components-react/gcds.css';
+import "@gcds-core/components-react/gcds.css";
 
 // App CSS - uncomment to add custom CSS
-import './App.css'
+import "./App.css";
 
 // Components (internal)
-import { Container, Footer, Grid, Header, SideNav } from './components';
+import { Container, Footer, Grid, Header, SideNav } from "./components";
 
 // Pages
 import {
@@ -22,24 +22,33 @@ import {
   OptionalHolidays,
   SubmitHoliday,
   ViewHolidays,
-  ViewHolidaysNationwide
-} from './pages';
+  ViewHolidaysNationwide,
+} from "./pages";
 
 const App: React.FC = () => {
   return (
     <Router>
       <Header />
-      <Container id="main-content" size="xl" tag="main" mainContainer centered>
+      <Container id="main-content" tag="main" layout="page">
         <Grid columnsDesktop="320px 1fr" columns="1fr" display="grid">
           <SideNav />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/federal-and-provincial-holidays" element={<FederalAndProvincialHolidays />} />
+            <Route
+              path="/federal-and-provincial-holidays"
+              element={<FederalAndProvincialHolidays />}
+            />
             <Route path="/optional-holidays" element={<OptionalHolidays />} />
             <Route path="/submit-a-holiday" element={<SubmitHoliday />} />
-            <Route path="/view-holidays/:provinceId" element={<ViewHolidays />} />
-            <Route path="/view-holidays/nationwide" element={<ViewHolidaysNationwide />} />
+            <Route
+              path="/view-holidays/:provinceId"
+              element={<ViewHolidays />}
+            />
+            <Route
+              path="/view-holidays/nationwide"
+              element={<ViewHolidaysNationwide />}
+            />
 
             {/* Catch-all route for 404 */}
             <Route path="*" element={<NotFound />} />

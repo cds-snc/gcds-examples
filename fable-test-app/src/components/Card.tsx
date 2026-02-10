@@ -1,38 +1,43 @@
-import React from 'react';
-import { GcdsCard } from "@cdssnc/gcds-components-react";
+import React from "react";
+import { GcdsCard } from "@gcds-core/components-react";
 
 interface CardProps {
   children?: React.ReactNode;
   cardTitle: string;
-  cardTitleTag: "a" | "h3" | "h4" | "h5" | "h6";
+  cardTitleTag: "h3" | "h4" | "h5" | "h6";
+  className?: string;
   href: string;
   description?: string;
   badge?: string;
   imgSrc?: string;
-  imgAlt?: string
+  imgAlt?: string;
 }
 
-const Card: React.FC<CardProps> = React.memo(({
-  badge,
-  cardTitle,
-  cardTitleTag = "a",
-  description,
-  href,
-  imgSrc,
-  imgAlt,
-  children
-}) => (
-  <GcdsCard
-    badge={badge}
-    cardTitle={cardTitle}
-    cardTitleTag={cardTitleTag}
-    description={description}
-    href={href}
-    imgSrc={imgSrc}
-    imgAlt={imgAlt}
-  >
-    {children}
-  </GcdsCard>
-));
+const Card: React.FC<CardProps> = React.memo(
+  ({
+    badge,
+    cardTitle,
+    cardTitleTag,
+    description,
+    href,
+    imgSrc,
+    imgAlt,
+    children,
+    ...rest
+  }) => (
+    <GcdsCard
+      badge={badge}
+      cardTitle={cardTitle}
+      cardTitleTag={cardTitleTag}
+      description={description}
+      href={href}
+      imgSrc={imgSrc}
+      imgAlt={imgAlt}
+      {...rest}
+    >
+      {children}
+    </GcdsCard>
+  ),
+);
 
 export default Card;
