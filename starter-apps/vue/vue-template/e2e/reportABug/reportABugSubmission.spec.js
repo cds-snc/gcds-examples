@@ -8,7 +8,7 @@ test('report bug form', async ({ page }) => {
   await page.getByLabel('Current Behavior').fill('current behavior')
   await page.getByLabel('Expected Behavior').fill('expected behavior')
   await page.getByLabel('Steps to Reproduce').fill('steps to reproduce')
-  await page.getByLabel('Code Reproduction URL').fill('code reproduction url')
+  await page.getByLabel('Code Reproduction URL').fill('http://code-reproduction-url.com')
   await page.getByLabel('System Info').fill('system info')
   await page.getByLabel('Additional Information').fill('additional information')
   await page.click('text=Submit')
