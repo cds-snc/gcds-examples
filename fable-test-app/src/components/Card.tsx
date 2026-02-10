@@ -5,6 +5,7 @@ interface CardProps {
   children?: React.ReactNode;
   cardTitle: string;
   cardTitleTag: "h3" | "h4" | "h5" | "h6";
+  className?: string;
   href: string;
   description?: string;
   badge?: string;
