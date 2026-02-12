@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="fr">
+  <file id="ngi18n" original="ng.template">
+    <unit id="common.pageTitle.home">
+      <segment>
+        <source>Home</source>
+        <target>Accueil</target>
+      </segment>
+    </unit>
+    <unit id="common.pageTitle.about">
+      <segment>
+        <source>About</source>
+        <target>A Propos</target>
+      </segment>
+    </unit>
+    <unit id="common.pageTitle.about.topic">
+      <segment>
+        <source>Topic</source>
+        <target>Sujet</target>
+      </segment>
+    </unit>
+    <unit id="common.pageTitle.reportABug">
+      <segment>
+        <source>Report a Bug</source>
+        <target>Rapporter un bug</target>
+      </segment>
+    </unit>
+    <unit id="7377177725309760290">
+      <segment>
+        <source>Top navigation</source>
+        <target>Navigation du haut</target>
+      </segment>
+    </unit>
+    <unit id="common.appName">
+      <segment>
+        <source> Angular App </source>
+        <target>App Angular</target>
+      </segment>
+    </unit>
+    <unit id="1228117683635893745">
+      <notes>
+        <note category="description">About Page Main Content</note>
+      </notes>
+      <segment>
+        <source> This Angular starter template integrates Design System components, providing a solid foundation for building modern, responsive web applications. It streamlines development by offering pre-built, customizable UI elements that ensure design consistency and flexibility. Perfect for both small-scale projects and large applications, this template helps you focus on delivering a polished user experience with minimal setup. </source>
+        <target>Ce modèle de démarrage Angular intègre composants du Système de design GC, offrant une base solide pour la création d'applications Web modernes et réactives. Il rationalise le développement en proposant des éléments d'interface utilisateur prédéfinis et personnalisables qui garantissent la cohérence et la flexibilité de la conception. Parfait pour les projets à petite échelle comme pour les applications de grande envergure, ce modèle vous aide à vous concentrer sur la fourniture d'une expérience utilisateur soignée avec une configuration minimale. </target>
+      </segment>
+    </unit>
+    <unit id="1007173588668114291">
+      <notes>
+        <note category="description">Topic Page Main Content</note>
+      </notes>
+      <segment>
+        <source> This is a sample topic page within a parent About page. Here, you can see how the breadcrumb navigation behaves within the site structure. The breadcrumbs provide a visual guide for the current location on the site, allowing for seamless navigation between sections. </source>
+        <target>Il s'agit d'un exemple de page de rubrique au sein d'une page À propos parente. Ici, vous pouvez voir comment la navigation par fil d'Ariane se comporte au sein de la structure du site. Le fil d'Ariane fournit un guide visuel pour l'emplacement actuel sur le site, permettant une navigation transparente entre les sections. </target>
+      </segment>
+    </unit>
+    <unit id="page.home.welcome">
+      <notes>
+        <note category="description">Home Page Welcome Msg</note>
+      </notes>
+      <segment>
+        <source> Welcome to the Angular Starter App that leverages GC Design System components! </source>
+        <target> Bienvenue dans l'application Angular Starter qui exploite les composants du système de conception GC ! </target>
+      </segment>
+    </unit>
+    <unit id="7600330836722778442">
+      <notes>
+        <note category="description">Home Page Obj of Template</note>
+      </notes>
+      <segment>
+        <source> This starter app template is designed to help developers quickly set up a modern Angular application while adhering to the accessibility and design standards set by the Government of Canada. </source>
+        <target>Ce modèle d'application de démarrage est conçu pour aider les développeurs à configurer rapidement une application Angular moderne tout en adhérant aux normes d'accessibilité et de conception définies par le gouvernement du Canada. </target>
+      </segment>
+    </unit>
+    <unit id="2533510957832530280">
+      <notes>
+        <note category="description">Home Page Content of Template</note>
+      </notes>
+      <segment>
+        <source> You'll find all the necessary setup, including Angular Routing, ESLint for linting, Jasmine for unit testing, @angular/localize for localization and a selection of GCDS components to get you started on your project. </source>
+        <target>Vous trouverez tous les outils nécessaires, incluant Angular Routing, Esling pour le linting, Jasmine pour les tests unitaires, @angular/localize pour la localisation and une selection de composants GCDS pour vous aider a démarrer votre projet. </target>
+      </segment>
+    </unit>
+    <unit id="2181422118474908300">
+      <notes>
+        <note category="description">Report a Bug Form Version Label</note>
+      </notes>
+      <segment>
+        <source>GC Design System Components Package and Version</source>
+        <target>Paquet et version des composants de Système de design GC</target>
+      </segment>
+    </unit>
+    <unit id="2356275478599190309">
+      <notes>
+        <note category="description">Report a Bug Form Version Hint</note>
+      </notes>
+      <segment>
+        <source>e.g. @cdssnc/gcds-components-angular@0.x.x</source>
+        <target>ex. @cdssnc/gcds-components-angular@0.x.x</target>
+      </segment>
+    </unit>
+    <unit id="5701618810648052610">
+      <notes>
+        <note category="description">Report a Bug Form Tile Label</note>
+      </notes>
+      <segment>
+        <source>Title</source>
+        <target>Titre</target>
+      </segment>
+    </unit>
+    <unit id="5699360942243336971">
+      <notes>
+        <note category="description">Report a Bug Form Title Hint</note>
+      </notes>
+      <segment>
+        <source>Choose a title for your bug report</source>
+        <target>Choisissez un titre pour votre rapport de bogue</target>
+      </segment>
+    </unit>
+    <unit id="3169984556072458130">
+      <notes>
+        <note category="description">Report a Bug Form Current Behavior Label</note>
+      </notes>
+      <segment>
+        <source>Current Behavior</source>
+        <target>Comportement observé</target>
+      </segment>
+    </unit>
+    <unit id="3088942842674902128">
+      <notes>
+        <note category="description">Report a Bug Form Current Behavior Hint</note>
+      </notes>
+      <segment>
+        <source>Describe the current behavior</source>
+        <target>Décrivez le comportement observé</target>
+      </segment>
+    </unit>
+    <unit id="9083655282026288033">
+      <notes>
+        <note category="description">Report a Bug Form Expected Behavior Label</note>
+      </notes>
+      <segment>
+        <source>Expected Behavior</source>
+        <target>Comportement attendu</target>
+      </segment>
+    </unit>
+    <unit id="1650678681905814317">
+      <notes>
+        <note category="description">Report a Bug Form Expected Behavior Hint</note>
+      </notes>
+      <segment>
+        <source>Describe the expected behavior</source>
+        <target>Décrivez le comportement attendu</target>
+      </segment>
+    </unit>
+    <unit id="3811407979880504315">
+      <notes>
+        <note category="description">Report a Bug Form System Info Label</note>
+      </notes>
+      <segment>
+        <source>System Info</source>
+        <target>Information sur le système</target>
+      </segment>
+    </unit>
+    <unit id="619586271410335067">
+      <notes>
+        <note category="description">Report a Bug Form System Info Hint</note>
+      </notes>
+      <segment>
+        <source>Provide information about your system</source>
+        <target>Fournir des informations sur votre système</target>
+      </segment>
+    </unit>
+    <unit id="261411122719804682">
+      <notes>
+        <note category="description">Report a Bug Form Step to Reproduce Label</note>
+      </notes>
+      <segment>
+        <source>Steps to Reproduce</source>
+        <target>Étapes de reproduction du bogue</target>
+      </segment>
+    </unit>
+    <unit id="1123388131790928516">
+      <notes>
+        <note category="description">Report a Bug Form Step to Reproduce Hint</note>
+      </notes>
+      <segment>
+        <source>List the steps to reproduce</source>
+        <target>Listez les étapes de reproduction du bogue</target>
+      </segment>
+    </unit>
+    <unit id="8367071988397450880">
+      <notes>
+        <note category="description">Report a Bug Form Url Label</note>
+      </notes>
+      <segment>
+        <source>Code Reproduction URL</source>
+        <target>URL de reproduction du code</target>
+      </segment>
+    </unit>
+    <unit id="4668565277926800570">
+      <notes>
+        <note category="description">Report a Bug Form Url Hint</note>
+      </notes>
+      <segment>
+        <source>Provide a URL to the code reproduction</source>
+        <target>Fournir une URL pour la reproduction du code</target>
+      </segment>
+    </unit>
+    <unit id="8168957461252807409">
+      <notes>
+        <note category="description">Report a Bug Form Additional Info Label</note>
+      </notes>
+      <segment state="translated">
+        <source>Additional Information</source>
+        <target>Informations complémentaires</target>
+      </segment>
+    </unit>
+    <unit id="3615986342840499859">
+      <notes>
+        <note category="description">Report a Bug Form Additional Info Hint</note>
+      </notes>
+      <segment state="translated">
+        <source>Provide any additional information</source>
+        <target>Fournissez toute information supplémentaire.</target>
+      </segment>
+    </unit>
+    <unit id="935187492052582731">
+      <notes>
+        <note category="description">Report a Bug Submit Button</note>
+      </notes>
+      <segment>
+        <source>Submit</source>
+        <target>Envoyer</target>
+      </segment>
+    </unit>
+    <unit id="page.reportABug.confirmation">
+      <notes>
+        <note category="description">Report a Bug Confirmation Title</note>
+      </notes>
+      <segment>
+        <source>Confirmation</source>
+        <target>Confirmation</target>
+      </segment>
+    </unit>
+    <unit id="2691181952636983124">
+      <notes>
+        <note category="description">Report a Bug Form Version</note>
+      </notes>
+      <segment>
+        <source>GC Design System Components Package and Version:</source>
+        <target>Paquet et version des composants de Système de design GC:</target>
+      </segment>
+    </unit>
+    <unit id="5975983251974868004">
+      <notes>
+        <note category="description">Report a Bug Form Current Behavior</note>
+      </notes>
+      <segment>
+        <source>Current Behavior:</source>
+        <target>Comportement observé:</target>
+      </segment>
+    </unit>
+    <unit id="6726660696357172528">
+      <notes>
+        <note category="description">Report a Bug Form Expected Behavior</note>
+      </notes>
+      <segment>
+        <source>Expected Behavior:</source>
+        <target>Comportement observé:</target>
+      </segment>
+    </unit>
+    <unit id="1932450673101499330">
+      <notes>
+        <note category="description">Report a Bug Form System Info</note>
+      </notes>
+      <segment>
+        <source>System Info:</source>
+        <target>Information sur le système:</target>
+      </segment>
+    </unit>
+    <unit id="2668864338310993858">
+      <notes>
+        <note category="description">Report a Bug Form Steps to Reproduce</note>
+      </notes>
+      <segment>
+        <source>Steps to Reproduce:</source>
+        <target>Étapes pour reproduire le bogue:</target>
+      </segment>
+    </unit>
+    <unit id="9217618482080600767">
+      <notes>
+        <note category="description">Report a Bug Form Code Reproduction Url</note>
+      </notes>
+      <segment>
+        <source>Code Reproduction URL:</source>
+        <target>URL de reproduction du code:</target>
+      </segment>
+    </unit>
+    <unit id="2978175809906717992">
+      <notes>
+        <note category="description">Report a Bug Form Additional Info</note>
+      </notes>
+      <segment>
+        <source>Additional Information:</source>
+        <target>Informations supplémentaires:</target>
+      </segment>
+    </unit>
+    <unit id="3415000254154575887">
+      <notes>
+        <note category="description">Report a Bug Form Start Issue Github</note>
+      </notes>
+      <segment>
+        <source>Start an issue on GitHub</source>
+        <target>Créer un ticket sur Github</target>
+      </segment>
+    </unit>
+    <unit id="5627097823503804914">
+      <notes>
+        <note category="description">Report a Bug Form Open Issue Github</note>
+      </notes>
+      <segment>
+        <source> Open issue on Github </source>
+        <target>Ouvrir un ticket sur Github</target>
+      </segment>
+    </unit>
+    <unit id="page.reportABug.subtitle">
+      <segment state="translated">
+        <source>Create a report to help us improve GC Design System.</source>
+        <target>Créez un rapport pour nous aider à améliorer le Système de design GC</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

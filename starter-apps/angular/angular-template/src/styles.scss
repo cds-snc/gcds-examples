@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@cdssnc/gcds-components/dist/gcds/gcds.css";
+
+body {
+  margin: 0px;
+  font: var(--gcds-font-text);
+  color: var(--gcds-text-primary);
+}

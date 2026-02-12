@@ -1,0 +1,36 @@
+<gcds-header
+  [langHref]="currentLocale === 'en' ? '/fr' : '/en'"
+  skipToHref="#main-content"
+>
+  <gcds-search slot="search"></gcds-search>
+  <gcds-top-nav slot="menu" alignment="right" label="Top navigation" i18n-label>
+    <gcds-nav-link routerLink="/" href="/" slot="home" i18n="@@common.appName">
+      Angular App
+    </gcds-nav-link>
+    <gcds-nav-link routerLink="/" href="/" i18n="@@common.pageTitle.home">
+      Home
+    </gcds-nav-link>
+    <gcds-nav-link
+      routerLink="/about"
+      href="/about"
+      i18n="@@common.pageTitle.about"
+    >
+      About
+    </gcds-nav-link>
+    <gcds-nav-link
+      routerLink="/report-a-bug"
+      href="/report-a-bug"
+      i18n="@@common.pageTitle.reportABug"
+    >
+      Report a Bug
+    </gcds-nav-link>
+  </gcds-top-nav>
+
+  <gcds-breadcrumbs slot="breadcrumb">
+    @for (crumb of breadcrumbService.breadcrumbs(); track crumb.url) {
+    <gcds-breadcrumbs-item [routerLink]="crumb.url" [href]="crumb.url">
+      {{ crumb.title }}
+    </gcds-breadcrumbs-item>
+    }
+  </gcds-breadcrumbs>
+</gcds-header>
