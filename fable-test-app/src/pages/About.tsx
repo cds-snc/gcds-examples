@@ -31,7 +31,7 @@ const About: React.FC = () => {
           description="View all of our styles and components along with guidance on how to use them."
           cardTitleTag="h3"
           badge="Guidance"
-          href="https://design-system.alpha.canada.ca"
+          href="https://design-system.canada.ca"
           imgSrc="/docs.png"
           imgAlt=""
         />
