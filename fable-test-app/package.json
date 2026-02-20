@@ -14,10 +14,10 @@
     "@gcds-core/components": "^1.0.0",
     "@gcds-core/components-react": "^1.0.0",
     "@gcds-core/css-shortcuts": "^1.0.0",
-    "axios": "^1.8.2",
+    "axios": "^1.13.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.1"
+    "react-router-dom": "^6.30.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
@@ -31,6 +31,6 @@
     "globals": "^15.9.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^7.0.4"
+    "vite": "^7.3.1"
   }
 }
