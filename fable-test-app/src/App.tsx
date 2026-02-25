@@ -25,6 +25,7 @@ import {
   ViewHolidays,
   ViewHolidaysNationwide,
 } from "./pages";
+import TableGridJS from "./pages/TableGridJS.tsx";
 
 const App: React.FC = () => {
   return (
@@ -43,6 +44,7 @@ const App: React.FC = () => {
             <Route path="/optional-holidays" element={<OptionalHolidays />} />
             <Route path="/submit-a-holiday" element={<SubmitHoliday />} />
             <Route path="/table" element={<Table />} />
+            <Route path="/table-gridjs" element={<TableGridJS />} />
             <Route
               path="/view-holidays/:provinceId"
               element={<ViewHolidays />}
