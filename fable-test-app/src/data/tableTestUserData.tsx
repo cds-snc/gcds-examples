@@ -1,4 +1,4 @@
-export const tableTestUserColumns = {
+export const tableTestSubmissionColumns = {
   submission_id: "Submission ID",
   submitter_name: "Submitter name",
   date_submitted: "Date submitted",
@@ -6,7 +6,7 @@ export const tableTestUserColumns = {
   assigned_reviewer: "Assigned reviewer"
 };
 
-export const tableTestUserData = [
+export const tableTestSubmissionData = [
   {
     submission_id: "EXP-2026-001",
     submitter_name: "John A. Smith",
