@@ -1,0 +1,22 @@
+/* Custom styles for all tables in TableGridJS */
+table {
+  border-collapse: collapse;
+  width: 100%;
+
+  font-size: var(--gcds-font-sizes-text-small) ;
+}
+table th, table td {
+  /*border: 1px solid #ccc;*/
+  border: var(--gcds-container-border);
+  padding: var(--gcds-spacing-100)
+}
+table th {
+  background: var(--gcds-color-blue-600);
+  color: var(--gcds-color-white);
+  font-weight: 600;
+}
+/** Zebra striping for even rows */
+table tr:nth-child(even) {
+  background: var(--gcds-color-grayscale-50);
+}
+
