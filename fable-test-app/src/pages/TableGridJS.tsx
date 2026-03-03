@@ -88,7 +88,7 @@ const Table: React.FC = () => {
             <Heading tag="h2">Submissions</Heading>
             <Text>Government export certificate application table. Approve or reject pending submissions.</Text>
 
-            <div style={{ marginBottom: '1em' }}>
+            <div className="mb-100">
                 <GcdsButton size="small" type="button" onClick={() => setLanguageKey(languageKey === 'en' ? 'fr' : 'en')}>
                     {languageKey === 'en' ? 'Table française' : 'English table'}
                 </GcdsButton>

@@ -1,10 +1,11 @@
 @import "https://unpkg.com/gridjs@6.2.0/dist/theme/mermaid.min.css";
 .gridjs-table.gcds-table{
-  /*font-size: 20px;*/
+  font-size: 18px;
 }
 .gridjs-table.gcds-table th{
-  background-color: var(--gcds-color-blue-700);
-  color: var(--gcds-color-white);
+  background-color: var(--gcds-color-grayscale-50);
+  color: var(--gcds-color-black);
+  font-weight: normal ;
   border: 1px solid var(--gcds-color-grayscale-50);
   padding: 6px 8px;
 }
