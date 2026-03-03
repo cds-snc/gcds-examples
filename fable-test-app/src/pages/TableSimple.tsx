@@ -4,8 +4,10 @@ import { DataTable } from "simple-datatables"
 import "simple-datatables/dist/style.css";
 import { faker } from "@faker-js/faker";
 
+import { tableTestSubmissionData, tableTestSubmissionColumns } from "../data/tableTestSubmissionsData";
+
 // Components (internal)
-import { DateModified, Heading, Text } from "../components";
+import { DateModified, Heading } from "../components";
 
 function getRowCountFromQuery() {
   const params = new URLSearchParams(window.location.search);
@@ -35,8 +37,8 @@ const TableSimple: React.FC = () => {
     if (tableRef.current) {
       dataTable.current = new DataTable(tableRef.current, {
         searchable: true,
-        perPage: 25,
-        perPageSelect: [25, 50, 75, 100, 250, ["All", 0]],
+        perPage: 10,
+        perPageSelect: [5, 10, 15, 20, 25, ["All", 0]],
       });
     }
 
@@ -51,24 +53,28 @@ const TableSimple: React.FC = () => {
     <section>
       <Heading tag="h1">Simple-datatables test page</Heading>
 
-      <Text>
-        This page is meant to test the simple-datatables framework. Add a <code>?rows=</code> query parameter to the URL to generate more rows and test pagination (e.g. <code>?rows=100</code>).
-      </Text>
-
-      <table ref={tableRef}>
+      <table id="simple-datatable" ref={tableRef}>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Country</th>
+            <th>ID</th>
+            <th>Submitter</th>
+            <th>Date submitted</th>
+            <th>Status</th>
+            <th>Reviewer</th>
           </tr>
         </thead>
         <tbody>
-          {rows.map((row, index) => (
+          {tableTestSubmissionData.map((row: typeof tableTestSubmissionColumns, index: number) => (
             <tr key={index}>
-              <td>{row.name}</td>
-              <td>{row.job}</td>
-              <td>{row.country}</td>
+              <td data-label="ID:">{row.submission_id}</td>
+              <td data-label="Submitter:">{row.submitter_name}</td>
+              <td data-label="Date submitted:"><time dateTime={row.date_submitted}>{row.date_submitted}</time></td>
+              <td data-label="Status:">
+                <span className={`status-pill ${row.status.toLowerCase().replace(/\s+/g, '-')}`}>
+                  {row.status}
+                </span>
+              </td>
+              <td data-label="Reviewer:">{row.assigned_reviewer}</td>
             </tr>
           ))}
         </tbody>
