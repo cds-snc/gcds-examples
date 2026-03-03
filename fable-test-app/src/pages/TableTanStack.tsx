@@ -1,137 +1,106 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React from "react";
 import {
   ColumnDef,
   flexRender,
   getCoreRowModel,
-  getFilteredRowModel,
   getSortedRowModel,
   getPaginationRowModel,
-  SortingState,
   useReactTable,
 } from "@tanstack/react-table";
 
+import {
+  tableTestSubmissionColumns,
+  tableTestSubmissionData,
+} from "../data/tableTestSubmissionsData";
+
 // Components (internal)
-import { Button, Heading, Icon, Input, Select, Text } from "../components";
+import { Heading, Pagination, Text } from "../components";
 
 // Styles
 import "./TableTanStack.css";
 
 interface TableRow {
-  date: string;
-  nameEn: string;
-  location: string;
+  submission_id: string;
+  submitter_name: string;
+  date_submitted: string;
+  status: string;
+  assigned_reviewer: string;
 }
 
-// Constant for page sizes
-const PAGE_SIZES = [10, 20, 50, 100];
+const columns: ColumnDef<TableRow>[] = Object.entries(
+  tableTestSubmissionColumns,
+).map(([key, header]) => {
+  if (key === "submission_id") {
+    return {
+      accessorKey: key,
+      header,
+      cell: ({ getValue }) => {
+        const value = getValue<string>();
+        return <a href={`/submission/${value}`}>{value}</a>;
+      },
+    };
+  } else if (key === "date_submitted") {
+    return {
+      accessorKey: key,
+      header,
+      cell: ({ getValue }) =>
+        new Date(getValue<string>()).toLocaleString("en-CA", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+    };
+  } else {
+    return { accessorKey: key, header };
+  }
+});
 
 const TableTanStack: React.FC = () => {
-  const [data, setData] = useState<TableRow[]>([]);
-  const [sorting, setSorting] = useState<SortingState>([]);
-  const [globalFilter, setGlobalFilter] = useState("");
-  const [columnVisibility, setColumnVisibility] = useState({});
-
-  const [pageIndex, setPageIndex] = useState(0);
-  const [pageSize, setPageSize] = useState(20); // rows per page
-
-  useEffect(() => {
-    const fetchHolidays = async () => {
-      try {
-        const res = await fetch(
-          "https://canada-holidays.ca/api/v1/holidays?year=2026",
-        );
-
-        if (!res.ok) {
-          console.error("Failed to fetch holidays", res.status);
-          return;
-        }
-
-        const responseJson = await res.json();
-        const holidaysList = responseJson.holidays || responseJson;
-
-        // Flatten for table: one row per province observing the holiday
-        const flattened: TableRow[] = holidaysList.flatMap((h: any) =>
-          (h.provinces || []).map((p: any) => ({
-            date: h.date,
-            nameEn: h.nameEn,
-            location: p.nameEn,
-          })),
-        );
-
-        setData(flattened);
-      } catch (err) {
-        console.error("Error fetching holiday API", err);
-      }
-    };
-
-    fetchHolidays();
-  }, []);
-
-  const columns = useMemo<ColumnDef<TableRow>[]>(
-    () => [
-      {
-        accessorKey: "date",
-        header: "Date",
-        sortingFn: "datetime",
-        cell: ({ getValue }) =>
-          new Date(getValue<string>()).toLocaleDateString("en-CA", {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-          }),
-      },
-      { accessorKey: "nameEn", header: "Holiday" },
-      { accessorKey: "location", header: "Location" },
-    ],
-    [],
-  );
-
   const table = useReactTable({
-    data,
+    data: tableTestSubmissionData,
     columns,
-    state: {
-      sorting,
-      globalFilter,
-      pagination: { pageIndex, pageSize },
-      columnVisibility,
+    initialState: {
+      pagination: {
+        pageSize: 20,
+      },
     },
-    onSortingChange: setSorting,
-    onGlobalFilterChange: setGlobalFilter,
-    onPaginationChange: (updater) => {
-      const newState =
-        typeof updater === "function"
-          ? updater({ pageIndex, pageSize })
-          : updater;
-      setPageIndex(newState.pageIndex);
-      setPageSize(newState.pageSize);
-    },
-    onColumnVisibilityChange: setColumnVisibility,
-    globalFilterFn: "includesString",
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    manualPagination: false,
   });
 
+  // Calculate pagination range for summary
+  const { pageIndex, pageSize } = table.getState().pagination;
+  const totalRows = table.getFilteredRowModel().rows.length;
+  const startRow = totalRows === 0 ? 0 : pageIndex * pageSize + 1;
+  const endRow = Math.min((pageIndex + 1) * pageSize, totalRows);
+  const pageSummary = `Showing submissions ${startRow} - ${endRow} of ${totalRows}`;
+
   return (
-    <section className="section-tan-stack">
+    <section className="mb-1200 section-tan-stack">
       <Heading tag="h1">TanStack table</Heading>
-      <Text>This section is testing TanStack.</Text>
+      <Text>
+        This page shows a list of test submissions. You can sort the columns by
+        clicking on the headers and navigate through pages using the pagination
+        controls.
+      </Text>
+      <Text
+        text-role="secondary"
+        size="small"
+        marginBottom="200"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        {pageSummary}
+      </Text>
 
-      <Input
-        inputId="holiday-search"
-        label="Search holidays"
-        hint="Search by holiday name, date, or location."
-        type="search"
-        value={globalFilter}
-        onInput={(e) => setGlobalFilter(e.target.value)}
-      />
-
-      <div className="mt-600 mb-300 table-container">
+      <div className="mb-300 table-container">
         <table>
-          <caption>
-            Table listing all public holidays and where they are observed
+          <caption className="visibility-sr-only">
+            This table lists submission ID, submitter name, submission date,
+            review status, and assigned reviewer. Columns are sortable.
           </caption>
 
           <thead>
@@ -159,33 +128,20 @@ const TableTanStack: React.FC = () => {
                           : "none"
                       }
                     >
-                      <div className="d-flex align-items-center justify-content-between">
-                        <button
-                          onClick={header.column.getToggleSortingHandler()}
-                          aria-label={ariaLabel}
-                        >
-                          {flexRender(
-                            header.column.columnDef.header,
-                            header.getContext(),
-                          )}
-                          {sorted === "asc" && " ▲"}
-                          {sorted === "desc" && " ▼"}
-                        </button>
-
-                        {/* Visibility toggle button */}
-                        <button
-                          onClick={() => header.column.toggleVisibility()}
-                          aria-label={
-                            header.column.getIsVisible()
-                              ? `Hide ${header.column.id}`
-                              : `Show ${header.column.id}`
-                          }
-                        >
-                          {header.column.getIsVisible() ? (
-                            <Icon name="close" />
-                          ) : null}
-                        </button>
-                      </div>
+                      <button
+                        type="button"
+                        onClick={header.column.getToggleSortingHandler()}
+                        aria-label={ariaLabel}
+                      >
+                        {flexRender(
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
+                        {sorted === "asc" && <span aria-hidden="true"> ▲</span>}
+                        {sorted === "desc" && (
+                          <span aria-hidden="true"> ▼</span>
+                        )}
+                      </button>
                     </th>
                   );
                 })}
@@ -194,63 +150,37 @@ const TableTanStack: React.FC = () => {
           </thead>
 
           <tbody>
-            {table.getRowModel().rows.map((row) => (
-              <tr key={row.id}>
-                {row.getVisibleCells().map((cell) => (
-                  <td key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
-                ))}
+            {table.getRowModel().rows.length === 0 ? (
+              <tr>
+                <td colSpan={columns.length}>No submissions found.</td>
               </tr>
-            ))}
+            ) : (
+              table.getRowModel().rows.map((row) => (
+                <tr key={row.id}>
+                  {row.getAllCells().map((cell) => (
+                    <td key={cell.id}>
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext(),
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
 
-      <nav
-        className="d-flex sm:flex-row flex-col sm:align-items-center sm:justify-content-between gap-200"
-        aria-label="Table pagination"
-      >
-        <div>
-          {table.getCanPreviousPage() && (
-            <Button
-              type="button"
-              size="small"
-              buttonRole="secondary"
-              onGcdsClick={() => table.previousPage()}
-            >
-              <Icon name="chevron-left" /> Previous
-            </Button>
-          )}
-          <span className="mx-150" aria-live="polite">
-            Page {table.getState().pagination.pageIndex + 1} of{" "}
-            {table.getPageCount()}
-          </span>
-          {table.getCanNextPage() && (
-            <Button
-              type="button"
-              size="small"
-              buttonRole="secondary"
-              onGcdsClick={() => table.nextPage()}
-            >
-              Next <Icon name="chevron-right" />
-            </Button>
-          )}
-        </div>
-        <Select
-          selectId="page-size"
-          label="Select rows per page"
-          name="page-size"
-          hideLabel
-          value={table.getState().pagination.pageSize.toString()}
-          onInput={(e) => table.setPageSize(Number(e.target.value))}
-        >
-          {PAGE_SIZES.map((size) => (
-            <option key={size} value={size}>
-              Show {size}
-            </option>
-          ))}
-        </Select>
+      <nav aria-label="Table pagination">
+        <Pagination
+          label="Submission results"
+          currentPage={table.getState().pagination.pageIndex + 1}
+          totalPages={table.getPageCount()}
+          onPageChange={(page) => {
+            table.setPageIndex(page - 1);
+          }}
+        />
       </nav>
     </section>
   );

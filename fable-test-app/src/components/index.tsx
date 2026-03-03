@@ -21,6 +21,7 @@ export { default as StepOne } from "./SubmitHoliday/StepOne";
 export { default as StepTwo } from "./SubmitHoliday/StepTwo";
 export { default as Success } from "./SubmitHoliday/Success";
 export { default as NextHoliday } from "./NextHoliday";
+export { default as Pagination } from "./Pagination";
 export { default as Select } from "./Select";
 export { default as SideNav } from "./SideNav";
 export { default as Text } from "./Text";
