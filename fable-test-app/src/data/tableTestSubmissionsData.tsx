@@ -1,9 +1,9 @@
 export const tableTestSubmissionColumns = {
-  submission_id: "Submission ID",
+  submission_id: "ID", // Submissions ID
   submitter_name: "Submitter name",
   date_submitted: "Date submitted",
   status: "Status",
-  assigned_reviewer: "Assigned reviewer"
+  assigned_reviewer: "Reviewer" // Assigned reviewer
 };
 
 export const tableTestSubmissionData = [

@@ -27,6 +27,9 @@ import {
   ViewHolidays,
   ViewHolidaysNationwide,
 } from "./pages";
+import TableGridJS from "./pages/TableGridJS.tsx";
+import TableAgGrid from "./pages/TableAgGrid.tsx";
+import TableTabulator from "./pages/TableTabulator.tsx";
 
 const App: React.FC = () => {
   return (
@@ -45,6 +48,9 @@ const App: React.FC = () => {
             <Route path="/optional-holidays" element={<OptionalHolidays />} />
             <Route path="/submit-a-holiday" element={<SubmitHoliday />} />
             <Route path="/table" element={<Table />} />
+            <Route path="/table-gridjs" element={<TableGridJS />} />
+            <Route path="/table-aggrid" element={<TableAgGrid />} />
+            <Route path="/table-tabulator" element={<TableTabulator />} />
             <Route
               path="/table/tan-stack-scroll"
               element={<TableTanStackScroll />}
