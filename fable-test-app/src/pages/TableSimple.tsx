@@ -5,9 +5,10 @@ import "simple-datatables/dist/style.css";
 import { faker } from "@faker-js/faker";
 
 import { tableTestSubmissionData, tableTestSubmissionColumns } from "../data/tableTestSubmissionsData";
+import './TableSimple.css';
 
 // Components (internal)
-import { DateModified, Heading } from "../components";
+import { DateModified, Heading, Button } from "../components";
 
 function getRowCountFromQuery() {
   const params = new URLSearchParams(window.location.search);
@@ -38,7 +39,32 @@ const TableSimple: React.FC = () => {
       dataTable.current = new DataTable(tableRef.current, {
         searchable: true,
         perPage: 10,
+        // perPageSelect: false,
         perPageSelect: [5, 10, 15, 20, 25, ["All", 0]],
+        template: (options, dom) => `<div class='${options.classes.top}'>
+          ${options.paging && options.perPageSelect ?
+            `<div class='${options.classes.dropdown}'>
+                  <label>
+                      <select class='${options.classes.selector}'></select> ${options.labels.perPage}
+                  </label>
+              </div>` :
+            ""
+          }
+          ${options.searchable ?
+            `<div class='${options.classes.search}'>
+                  <input class='${options.classes.input}' placeholder='${options.labels.placeholder}' type='search' title='${options.labels.searchTitle}'${dom.id ? ` aria-controls="${dom.id}"` : ""}>
+              </div>` :
+            ""
+          }
+      </div>
+      ${options.paging ?
+            `<div class='${options.classes.info}'></div>` :
+            ""
+          }
+      <div class='${options.classes.container}'${options.scrollY.length ? ` style='height: ${options.scrollY}; overflow-Y: auto;'` : ""}></div>
+      <div class='${options.classes.bottom}'>
+        <nav style="float: left;" class='${options.classes.pagination}'></nav>
+      </div>`
       });
     }
 
@@ -51,22 +77,23 @@ const TableSimple: React.FC = () => {
 
   return (
     <section>
-      <Heading tag="h1">Simple-datatables test page</Heading>
+      <Heading tag="h1">Submissions</Heading>
 
       <table id="simple-datatable" ref={tableRef}>
         <thead>
           <tr>
-            <th>ID</th>
+            <th>Submission ID</th>
             <th>Submitter</th>
             <th>Date submitted</th>
             <th>Status</th>
             <th>Reviewer</th>
+            <th data-sortable="false"><span className="visibility-sr-only">Actions</span></th>
           </tr>
         </thead>
         <tbody>
           {tableTestSubmissionData.map((row: typeof tableTestSubmissionColumns, index: number) => (
             <tr key={index}>
-              <td data-label="ID:">{row.submission_id}</td>
+              <td data-label="Submission ID:"><a href="#">{row.submission_id}</a></td>
               <td data-label="Submitter:">{row.submitter_name}</td>
               <td data-label="Date submitted:"><time dateTime={row.date_submitted}>{row.date_submitted}</time></td>
               <td data-label="Status:">
@@ -75,6 +102,11 @@ const TableSimple: React.FC = () => {
                 </span>
               </td>
               <td data-label="Reviewer:">{row.assigned_reviewer}</td>
+              <td>
+                <button type="button" className="simple-test-button">
+                  Update <span className="visibility-sr-only">: {row.submission_id}</span>
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
