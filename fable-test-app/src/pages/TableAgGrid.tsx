@@ -4,8 +4,8 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import "./TableAgGrid.css";
 import { Heading, Text, DateModified } from "../components";
-import { tableTestSubmissionData, tableTestSubmissionColumns } from "../data/tableTestSubmissionsData.tsx";
-import StatusPill from "../components/StatusPill.tsx";
+import { tableTestSubmissionData, tableTestSubmissionColumns } from "../data/tableTestSubmissionsData";
+import StatusPill from "../components/StatusPill";
 import {
     ModuleRegistry,
     ColumnAutoSizeModule,
@@ -116,6 +116,7 @@ const agGridColumns: ColDef[] = [
 
 const TableAgGrid: React.FC = () => {
   const [rowData] = useState(tableTestSubmissionData);
+  const [quickFilter, setQuickFilter] = useState("");
   const defaultColDef = useMemo(() => ({
     flex: 1,
     minWidth: 120,
@@ -131,6 +132,18 @@ const TableAgGrid: React.FC = () => {
       <Text>
         This table uses AG Grid to display the same data as the GridJS example, with sorting, filtering, and resizing enabled.
       </Text>
+      <div className="mb-200">
+        <label htmlFor="aggrid-search">Search: </label>
+        <input
+          id="aggrid-search"
+          type="text"
+          value={quickFilter}
+          onChange={e => setQuickFilter(e.target.value)}
+          placeholder="Type to filter table..."
+          style={{ fontSize: 16, width: 240 }}
+          className="px-50 py-100"
+        />
+      </div>
       <div className="ag-theme-alpine">
         <AgGridReact
           rowData={rowData}
@@ -139,6 +152,8 @@ const TableAgGrid: React.FC = () => {
           domLayout="autoHeight"
           pagination={true}
           paginationPageSize={10}
+          paginationAutoPageSize={false}
+          quickFilterText={quickFilter}
         />
       </div>
       <DateModified>2026-03-03</DateModified>
