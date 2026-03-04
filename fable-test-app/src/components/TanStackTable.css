@@ -1,7 +1,23 @@
 .section-tan-stack {
+  overflow: hidden;
+
   .table-container {
     /* max-height: 30rem; */
     /* overflow-y: auto; */
+    max-width: 100%;
+
+    &.layout-scroll {
+      overflow-x: auto;
+
+      table {
+        min-width: 600px;
+
+        th,
+        td {
+          display: table-cell;
+        }
+      }
+    }
 
     table {
       table-layout: fixed;
