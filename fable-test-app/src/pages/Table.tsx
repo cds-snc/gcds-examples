@@ -17,7 +17,8 @@ const Table: React.FC = () => {
         <li>
             <a href="/table/simple">Simple-datatables</a>
         </li>
-        <li><Link to="/table-gridjs">Table 3: Data Table - GridJS example</Link></li>
+        <li><Link to="/table-gridjs">GridJS Table</Link></li>
+        <li><Link to="/table-gridjs">Tabulator Table</Link></li>
       </ul>
 
       <DateModified>2026-02-24</DateModified>

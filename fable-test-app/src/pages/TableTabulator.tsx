@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import "tabulator-tables/dist/css/tabulator.min.css";
 import "./TableTabulator.css";
 import { Heading, Text, DateModified } from "../components";
-import { tableTestSubmissionData, tableTestSubmissionColumns } from "../data/tableTestSubmissionsData.tsx";
+import { tableTestSubmissionData, tableTestSubmissionColumns } from "../data/tableTestSubmissionsData";
 import {TabulatorFull as Tabulator} from 'tabulator-tables';
 import ReactDOMServer from "react-dom/server";
-import StatusPill from "../components/StatusPill.tsx";
+import StatusPill from "../components/StatusPill";
 
 const TableTabulator: React.FC = () => {
   const tableRef = useRef<HTMLDivElement>(null);
