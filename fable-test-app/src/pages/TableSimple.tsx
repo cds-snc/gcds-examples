@@ -93,7 +93,7 @@ const TableSimple: React.FC = () => {
         <tbody>
           {tableTestSubmissionData.map((row: typeof tableTestSubmissionColumns, index: number) => (
             <tr key={index}>
-              <td data-label="Submission ID:"><a href="#">{row.submission_id}</a></td>
+              <td data-label="Submission ID:"><a href={`#${row.submission_id}`}>{row.submission_id}</a></td>
               <td data-label="Submitter:">{row.submitter_name}</td>
               <td data-label="Date submitted:"><time dateTime={row.date_submitted}>{row.date_submitted}</time></td>
               <td data-label="Status:">
