@@ -19,7 +19,8 @@ const Select: React.FC<SelectProps> = React.memo(
   ({
     children,
     hint,
-    label, hideLabel,
+    label,
+    hideLabel,
     name,
     onInput,
     selectId,

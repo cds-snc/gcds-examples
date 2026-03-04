@@ -17,8 +17,19 @@ const Table: React.FC = () => {
         <li>
             <a href="/table/simple">Simple-datatables</a>
         </li>
-        <li><Link to="/table-gridjs">GridJS Table</Link></li>
-        <li><Link to="/table-tabulator">Tabulator Table</Link></li>
+        <li>
+            <Link to="/table-gridjs">GridJS Table</Link>
+        </li>
+        <li>
+            <Link to="/table-tabulator">Tabulator Table</Link>
+        </li>
+        <li>
+           <a href="/table/tan-stack-scroll">TanStack table - scroll</a>
+        </li>
+        <li>
+            <a href="/table/tan-stack-stacked">TanStack table - stacked</a>
+        </li>
+
       </ul>
 
       <DateModified>2026-02-24</DateModified>
