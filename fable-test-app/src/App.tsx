@@ -22,6 +22,7 @@ import {
   OptionalHolidays,
   SubmitHoliday,
   Table,
+  TableSimple,
   TableTanStackScroll,
   TableTanStackStacked,
   ViewHolidays,
@@ -48,6 +49,7 @@ const App: React.FC = () => {
             <Route path="/optional-holidays" element={<OptionalHolidays />} />
             <Route path="/submit-a-holiday" element={<SubmitHoliday />} />
             <Route path="/table" element={<Table />} />
+            <Route path="/table/simple" element={<TableSimple />} />
             <Route path="/table-gridjs" element={<TableGridJS />} />
             <Route path="/table-aggrid" element={<TableAgGrid />} />
             <Route path="/table-tabulator" element={<TableTabulator />} />
