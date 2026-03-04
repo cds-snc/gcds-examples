@@ -87,26 +87,29 @@ const Table: React.FC = () => {
                 component.
                 This page uses GridJS (https://gridjs.io/) to demonstrate three different table implementations:
             </Text>
-            <Checkboxes
-                legend="Select row"
-                name="Select"
-                value={[]}
-                hideLabel
-                options={[
-                    {
-                        label: "select",
-                        id: "select",
-                    }
-                ]}
-            />
+            {/* Code cleanup, don't show this on the test, but keeping it here for reference */}
+            {/*<Checkboxes*/}
+            {/*    legend="Select row"*/}
+            {/*    name="Select"*/}
+            {/*    value={[]}*/}
+            {/*    hideLabel*/}
+            {/*    options={[*/}
+            {/*        {*/}
+            {/*            label: "select",*/}
+            {/*            id: "select",*/}
+            {/*        }*/}
+            {/*    ]}*/}
+            {/*/>*/}
             <Heading tag="h2">Submissions</Heading>
             <Text>Government export certificate application table. Approve or reject pending submissions.</Text>
 
-            <div className="mb-100">
-                <GcdsButton size="small" type="button" onClick={() => setLanguageKey(languageKey === 'en' ? 'fr' : 'en')}>
-                    {languageKey === 'en' ? 'Table française' : 'English table'}
-                </GcdsButton>
-            </div>
+            {/* Code cleanup, don't show this on the test, but keeping it here for reference */}
+
+            {/*<div className="mb-100">*/}
+            {/*    <GcdsButton size="small" type="button" onClick={() => setLanguageKey(languageKey === 'en' ? 'fr' : 'en')}>*/}
+            {/*        {languageKey === 'en' ? 'Table française' : 'English table'}*/}
+            {/*    </GcdsButton>*/}
+            {/*</div>*/}
 
             <table ref={submissionsTableRef}>
                 <thead>
