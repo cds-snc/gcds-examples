@@ -13,6 +13,18 @@ const Table: React.FC = () => {
         component.
       </Text>
 
+      <ul className="list-disc">
+        <li>
+          <a href="/table/simple">Simple-datatables</a>
+        </li>
+        <li>
+          <a href="/table/tan-stack-scroll">TanStack table - scroll</a>
+        </li>
+        <li>
+          <a href="/table/tan-stack-stacked">TanStack table - stacked</a>
+        </li>
+      </ul>
+
       <DateModified>2026-02-24</DateModified>
     </section>
   );

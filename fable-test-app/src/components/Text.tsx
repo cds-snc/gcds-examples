@@ -8,6 +8,7 @@ interface TextProps {
   marginTop?: SpacingValues;
   size?: "body" | "small";
   textRole?: "light" | "primary" | "secondary";
+  ariaLive?: "off" | "polite" | "assertive";
 }
 
 const Text: React.FC<TextProps> = React.memo(
@@ -17,12 +18,15 @@ const Text: React.FC<TextProps> = React.memo(
     marginTop = "0",
     size = "body",
     textRole = "primary",
+    ariaLive = undefined,
   }) => (
     <GcdsText
       marginBottom={marginBottom}
       marginTop={marginTop}
       size={size}
       textRole={textRole}
+      aria-live={ariaLive}
+      role={ariaLive ? "status" : undefined}
     >
       {children}
     </GcdsText>
