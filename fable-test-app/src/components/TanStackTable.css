@@ -72,6 +72,10 @@
       table {
         min-width: 45rem;
 
+        thead {
+          display: table-header-group;
+        }
+
         th,
         td {
           display: table-cell;
