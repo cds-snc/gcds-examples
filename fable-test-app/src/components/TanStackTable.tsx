@@ -187,7 +187,7 @@ const TanStackTable: React.FC<TanStackTableProps> = ({
                     </td>
                   ))}
                   <td data-label="Action">
-                    <Button buttonRole="secondary" size="small">
+                    <Button type="button" buttonRole="secondary" size="small">
                       Update
                       <span className="visibility-sr-only">
                         submission {row.original.submission_id}
