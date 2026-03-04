@@ -1,0 +1,31 @@
+/* Tabulator custom styles for TableTabulator */
+.tabulator {
+  font-size: 18px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+}
+.tabulator .tabulator-header .tabulator-col {
+  background: var(--gcds-color-blue-100, #e6f0fa);
+  color: var(--gcds-color-black, #222);
+  font-weight: 600;
+  font-size: 18px;
+  border-right: 1px solid #e0e0e0;
+}
+.tabulator .tabulator-header .tabulator-col:focus {
+  outline: 2px solid var(--gcds-color-blue-600, #005ea5);
+  outline-offset: 2px;
+  background: var(--gcds-color-blue-200, #cce0f7);
+}
+.tabulator .tabulator-tableholder .tabulator-row {
+  font-size: 18px;
+}
+.tabulator .tabulator-cell {
+  border-right: 1px solid #e0e0e0;
+}
+.tabulator .tabulator-row.tabulator-selected {
+  background: var(--gcds-color-blue-050, #f0f6fa);
+}
+.tabulator-paginator {
+  min-height: 40px;
+}

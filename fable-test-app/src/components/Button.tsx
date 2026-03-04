@@ -8,17 +8,19 @@ interface ButtonProps {
   buttonId?: string;
   buttonRole: "primary" | "secondary" | "danger" | "start";
   onGcdsClick?: (e: any) => void;
+  size?: "small" | "regular";
   href?: string;
 }
 
 const Button: React.FC<ButtonProps> = React.memo(
-  ({ children, className, type, buttonId, buttonRole, onGcdsClick, href }) => (
+  ({ children, className, type, buttonId, buttonRole, onGcdsClick, href, size }) => (
     <GcdsButton
       type={type}
       buttonId={buttonId}
       buttonRole={buttonRole}
       className={className}
       onGcdsClick={onGcdsClick}
+      size={size}
       href={href}
     >
       {children}
