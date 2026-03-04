@@ -17,11 +17,11 @@
     "@gcds-core/css-shortcuts": "^1.0.0",
     "ag-grid-community": "^35.1.0",
     "ag-grid-react": "^35.1.0",
-    "axios": "^1.8.2",
+    "axios": "^1.13.5",
     "gridjs": "^6.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.1",
+    "react-router-dom": "^6.30.3",
     "simple-datatables": "^10.2.0",
     "tabulator-tables": "^6.3.1"
   },
@@ -38,6 +38,6 @@
     "globals": "^15.9.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^7.0.4"
+    "vite": "^7.3.1"
   }
 }
