@@ -5,6 +5,7 @@ interface SelectProps {
   children: React.ReactNode;
   hint?: string;
   label: string;
+  hideLabel?: boolean;
   name: string;
   onInput?: (e: any) => void;
   selectId: string;
@@ -19,6 +20,7 @@ const Select: React.FC<SelectProps> = React.memo(
     children,
     hint,
     label,
+    hideLabel,
     name,
     onInput,
     selectId,
@@ -30,6 +32,7 @@ const Select: React.FC<SelectProps> = React.memo(
     <GcdsSelect
       selectId={selectId}
       label={label}
+      hideLabel={hideLabel}
       hint={hint}
       name={name}
       value={value}

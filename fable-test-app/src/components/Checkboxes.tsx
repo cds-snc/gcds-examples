@@ -11,7 +11,9 @@ type CheckObject = {
 
 interface CheckboxProps {
   hint?: string;
-  legend: string;
+  legend?: string;
+  hideLabel?: boolean;
+  hideLegend?: boolean;
   name: string;
   onInput?: (e: any) => void;
   value?: Array<string>;
@@ -25,6 +27,7 @@ const Checkboxes: React.FC<CheckboxProps> = React.memo(
   ({
     hint,
     legend,
+    hideLabel, hideLegend,
     name,
     onInput,
     validateOn,
@@ -35,6 +38,8 @@ const Checkboxes: React.FC<CheckboxProps> = React.memo(
   }) => (
     <GcdsCheckboxes
       legend={legend}
+      hideLabel={hideLabel}
+      hideLegend={hideLegend}
       hint={hint}
       name={name}
       options={options}

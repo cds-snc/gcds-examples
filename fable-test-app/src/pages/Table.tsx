@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom";
 // Components (internal)
 import { DateModified, Heading, Text } from "../components";
 
@@ -15,8 +15,21 @@ const Table: React.FC = () => {
 
       <ul className="list-disc">
         <li>
-          <a href="/table/simple">Simple-datatables</a>
+            <a href="/table/simple">Simple-datatables</a>
         </li>
+        <li>
+            <Link to="/table-gridjs">GridJS Table</Link>
+        </li>
+        <li>
+            <Link to="/table-tabulator">Tabulator Table</Link>
+        </li>
+        <li>
+           <a href="/table/tan-stack-scroll">TanStack table - scroll</a>
+        </li>
+        <li>
+            <a href="/table/tan-stack-stacked">TanStack table - stacked</a>
+        </li>
+
       </ul>
 
       <DateModified>2026-02-24</DateModified>
