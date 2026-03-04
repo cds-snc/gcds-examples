@@ -6,8 +6,8 @@ interface ButtonProps {
   className?: string;
   type: "submit" | "button" | "link" | "reset";
   buttonId?: string;
-  buttonRole: "primary" | "secondary" | "danger" | "start";
-  size: "regular" | "small";
+  buttonRole?: "primary" | "secondary" | "danger" | "start";
+  size?: "regular" | "small";
   onGcdsClick?: (e: any) => void;
   href?: string;
 }
@@ -18,7 +18,7 @@ const Button: React.FC<ButtonProps> = React.memo(
     className,
     type,
     buttonId,
-    buttonRole,
+    buttonRole = "primary",
     size = "regular",
     onGcdsClick,
     href,
