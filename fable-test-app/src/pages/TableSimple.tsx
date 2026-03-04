@@ -8,7 +8,7 @@ import { tableTestSubmissionData, tableTestSubmissionColumns } from "../data/tab
 import './TableSimple.css';
 
 // Components (internal)
-import { DateModified, Heading, Button } from "../components";
+import { DateModified, Heading } from "../components";
 
 function getRowCountFromQuery() {
   const params = new URLSearchParams(window.location.search);
