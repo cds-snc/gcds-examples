@@ -24,9 +24,5 @@
   border-right: 1px solid #e0e0e0;
 }
 .tabulator .tabulator-row.tabulator-selected {
-  background: var(--gcds-color-blue-050, #f0f6fa);
+  background: var(--gcds-color-blue-50, #f0f6fa);
 }
-.tabulator-paginator {
-
-
-

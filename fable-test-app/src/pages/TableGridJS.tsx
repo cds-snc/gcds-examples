@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import {GcdsButton} from "@gcds-core/components-react";
-import {Checkboxes} from "../components";
+// import {GcdsButton} from "@gcds-core/components-react";
+// import {Checkboxes} from "../components";
 import { Grid } from "gridjs";
 // GridJS config
 // https://github.com/grid-js/gridjs/blob/master/src/config.ts#L22-L89
@@ -25,7 +25,9 @@ import "./TableGridJS.css"
 const Table: React.FC = () => {
     const submissionsTableRef = useRef<HTMLTableElement>(null)
     const wrapperRef = useRef<HTMLDivElement>(null);
-    const [languageKey, setLanguageKey] = useState<'en' | 'fr'>('en');
+    // const [languageKey, setLanguageKey] = useState<'en' | 'fr'>('en');
+    const [languageKey] = useState<'en' | 'fr'>('en');
+
 
     const language = {
         'fr': {
