@@ -40,7 +40,7 @@ const columns: ColumnDef<TableRow>[] = Object.entries(
       header,
       cell: ({ getValue }) => {
         const value = getValue<string>();
-        return <a href={`/submission/${value}`}>{value}</a>;
+        return <a href={`#${value}`}>{value}</a>;
       },
     };
   } else if (key === "date_submitted") {

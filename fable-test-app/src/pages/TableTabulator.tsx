@@ -17,6 +17,32 @@ const TableTabulator: React.FC = () => {
     if (tableDiv) {
       // Prepare columns for Tabulator
       const columns = Object.entries(tableTestSubmissionColumns).map(([field, title]) => {
+        if (field === "submission_id") {
+          return {
+            title,
+            field,
+            hozAlign: "left",
+            formatter: (cell: any) => {
+              const value = cell.getValue();
+              // Use an anchor tag for the link
+              return `<a href="/table-tabulator#${value}" class="gcds-link">${value}</a>`;
+            },
+            formatterParams: { allowHtml: true }
+          };
+        }
+        if (field === "date_submitted") {
+          return {
+            title,
+            field,
+            hozAlign: "left",
+            width: 110,
+            formatter: (cell: any) => {
+              const value = cell.getValue();
+              // Format as YYYY-MM-DD (date only)
+              return new Date(value).toLocaleDateString('en-CA');
+            }
+          };
+        }
         if (field === "status") {
           return {
             title,
@@ -30,7 +56,6 @@ const TableTabulator: React.FC = () => {
               else if (value === "Rejected") status = "rejected";
               return ReactDOMServer.renderToString(<StatusPill status={status} />);
             },
-            // Allow HTML rendering
             formatterParams: { allowHtml: true }
           };
         }
@@ -40,6 +65,17 @@ const TableTabulator: React.FC = () => {
           hozAlign: "left"
         };
       });
+      // Add actions column
+      columns.push({
+        title: "Actions",
+        field: "actions",
+        hozAlign: "center",
+        headerSort: false,
+        formatter: () => {
+          return '<button class="simple-test-button" tabindex="0">Update</button>';
+        },
+        width: 80
+      } as any);
       // Destroy previous instance if any
       const tabInstance = (tableDiv as unknown as { _tabulator?: { destroy: () => void } })._tabulator;
       if (tabInstance) {
@@ -86,10 +122,9 @@ const TableTabulator: React.FC = () => {
 
   return (
     <section>
-      <Heading tag="h1">Tabulator Table Example</Heading>
-      <Text>
-        This table uses Tabulator to display the same data as the GridJS example, with sorting, pagination, and column resizing enabled.
-      </Text>
+      <Heading tag="h1">Submissions</Heading>
+      <Text>Government export certificate application table. Approve or reject pending submissions.</Text>
+
       <div style={{ marginBottom: "1em" }}>
         <label htmlFor="tabulator-search">Search: </label>
         <input

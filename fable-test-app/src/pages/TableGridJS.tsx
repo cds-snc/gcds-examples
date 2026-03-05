@@ -15,19 +15,18 @@ import { Grid } from "gridjs";
  */
 
 // Components (internal)
-import { DateModified, Heading, Text } from "../components";
+import { DateModified, Heading, Text} from "../components";
 import StatusPill from "../components/StatusPill.tsx";
 
 // Test data we're all using for the data table fable test
 import { tableTestSubmissionData, tableTestSubmissionColumns } from "../data/tableTestSubmissionsData.tsx";
 import "./TableGridJS.css"
+import {Link} from "react-router-dom";
 
 const Table: React.FC = () => {
     const submissionsTableRef = useRef<HTMLTableElement>(null)
     const wrapperRef = useRef<HTMLDivElement>(null);
-    // const [languageKey, setLanguageKey] = useState<'en' | 'fr'>('en');
     const [languageKey] = useState<'en' | 'fr'>('en');
-
 
     const language = {
         'fr': {
@@ -66,8 +65,8 @@ const Table: React.FC = () => {
 
     useEffect(() => {
         if (wrapperRef.current !== null) {
-            wrapperRef.current.innerHTML = "";
             if(submissionsTableRef.current === null) return;
+            wrapperRef.current.innerHTML = "";
             new Grid({
                 from: submissionsTableRef.current,
                 search: true,
@@ -83,12 +82,9 @@ const Table: React.FC = () => {
 
     return (
         <section>
-            <Heading tag="h1">Table test page</Heading>
-            <Text>
-                This page is meant to test a few potential frameworks for our new table
-                component.
-                This page uses GridJS (https://gridjs.io/) to demonstrate three different table implementations:
-            </Text>
+            <Heading tag="h1">Submissions</Heading>
+            <Text>Government export certificate application table. Approve or reject pending submissions.</Text>
+
             {/* Code cleanup, don't show this on the test, but keeping it here for reference */}
             {/*<Checkboxes*/}
             {/*    legend="Select row"*/}
@@ -102,8 +98,6 @@ const Table: React.FC = () => {
             {/*        }*/}
             {/*    ]}*/}
             {/*/>*/}
-            <Heading tag="h2">Submissions</Heading>
-            <Text>Government export certificate application table. Approve or reject pending submissions.</Text>
 
             {/* Code cleanup, don't show this on the test, but keeping it here for reference */}
 
@@ -120,6 +114,9 @@ const Table: React.FC = () => {
                     {Object.entries(tableTestSubmissionColumns).map(([key, label]) => (
                         <th key={key} tabIndex={0} className="focusable-th">{label}</th>
                     ))}
+                    <th>
+                        Actions
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -145,7 +142,9 @@ const Table: React.FC = () => {
                             {/*></Checkboxes>*/}
                             {/*<input type="checkbox" aria-label={`Select submission ${row.submission_id}`} />*/}
                         {/*</td>*/}
-                        <td>{row.submission_id}</td>
+                        <td>
+                            <Link to={`/table-gridjs#${row.submission_id}`}>{row.submission_id}</Link>
+                        </td>
                         <td>{row.submitter_name}</td>
                         <td>{new Date(row.date_submitted).toLocaleDateString('en-CA')}</td>
                         <td>
@@ -157,6 +156,11 @@ const Table: React.FC = () => {
                             } />
                         </td>
                         <td>{row.assigned_reviewer}</td>
+                        <td>
+                            <button type="button" className="simple-test-button">
+                                Update <span className="visibility-sr-only">: {row.submission_id}</span>
+                            </button>
+                        </td>
                     </tr>
                 ))}
                 </tbody>

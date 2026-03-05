@@ -13,3 +13,47 @@
 .gridjs-table.gcds-table td{
   padding: 2px 8px;
 }
+
+/* Table tests - buttons */
+.simple-test-button {
+  background-color: var(--gcds-button-secondary-default-background);
+  color: var(--gcds-button-secondary-default-text);
+  border: var(--gcds-button-border-width) solid currentColor;
+  display: inline-block;
+  width: auto;
+  text-align: center;
+  text-wrap: balance;
+  border-radius: var(--gcds-button-border-radius);
+  transition: all 0.15s ease-in-out;
+  font-size: 15px;
+  padding: 4px 4px;
+  min-width: 0;
+  min-height: 0;
+}
+@media only screen and (width < 48em) {
+  .simple-test-button {
+    font-size: 12px;
+    padding: 1px 6px;
+  }
+}
+.simple-test-button:hover {
+  background-color: var(--gcds-button-secondary-hover-background);
+}
+.simple-test-button:focus {
+  background-color: var(--gcds-button-shared-focus-background);
+  color: var(--gcds-button-shared-focus-text);
+  outline: var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);
+  outline-offset: var(--gcds-button-border-width);
+  border-color: var(--gcds-button-shared-focus-background);
+  box-shadow: var(--gcds-button-shared-focus-box-shadow);
+}
+.simple-test-button:active {
+  background-color: var(--gcds-button-shared-active-background);
+  border-color: var(--gcds-button-shared-active-background);
+  color: var(--gcds-button-shared-active-text);
+}
+
+.pill {
+  font-size: .9rem;
+  min-width: 10em;
+}
