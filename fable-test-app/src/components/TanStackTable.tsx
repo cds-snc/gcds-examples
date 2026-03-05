@@ -110,7 +110,9 @@ const TanStackTable: React.FC<TanStackTableProps> = ({
         <table>
           <caption className="visibility-sr-only">
             This table lists submission ID, submitter name, submission date,
-            review status, and assigned reviewer. Columns are sortable.
+            review status, and assigned reviewer. Column headers can be selected
+            to sort. Select the same header again to change the sort order
+            between ascending, descending, and unsorted.
           </caption>
 
           <thead>
@@ -118,13 +120,13 @@ const TanStackTable: React.FC<TanStackTableProps> = ({
               <tr key={group.id}>
                 {group.headers.map((header) => {
                   const sorted = header.column.getIsSorted();
-                  const ariaLabel = `Sort by ${header.column.id}${
-                    sorted
-                      ? sorted === "asc"
-                        ? ", currently ascending"
-                        : ", currently descending"
-                      : ""
-                  }`;
+                  const sortedState =
+                    sorted === "asc"
+                      ? "ascending"
+                      : sorted === "desc"
+                        ? "descending"
+                        : "unsorted";
+                  const ariaLabel = `Sort ${header.column.id}, currently ${sortedState}, click to change order.`;
 
                   return (
                     <th
