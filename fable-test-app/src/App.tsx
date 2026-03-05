@@ -1,17 +1,17 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // GCDS CSS shortcuts
-import '@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';
+import "@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css";
 
 // GCDS Components
-import '@cdssnc/gcds-components-react/gcds.css';
+import "@gcds-core/components-react/gcds.css";
 
 // App CSS - uncomment to add custom CSS
-import './App.css'
+import "./App.css";
 
 // Components (internal)
-import { Container, Footer, Grid, Header, SideNav } from './components';
+import { Container, Footer, Grid, Header, SideNav } from "./components";
 
 // Pages
 import {
@@ -21,25 +21,54 @@ import {
   NotFound,
   OptionalHolidays,
   SubmitHoliday,
+  Table,
+  TableSimple,
+  TableTanStackScroll,
+  TableTanStackStacked,
   ViewHolidays,
-  ViewHolidaysNationwide
-} from './pages';
+  ViewHolidaysNationwide,
+} from "./pages";
+import TableGridJS from "./pages/TableGridJS.tsx";
+import TableAgGrid from "./pages/TableAgGrid.tsx";
+import TableTabulator from "./pages/TableTabulator.tsx";
 
 const App: React.FC = () => {
   return (
     <Router>
       <Header />
-      <Container id="main-content" size="xl" tag="main" mainContainer centered>
+      <Container id="main-content" tag="main" layout="page">
         <Grid columnsDesktop="320px 1fr" columns="1fr" display="grid">
           <SideNav />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/federal-and-provincial-holidays" element={<FederalAndProvincialHolidays />} />
+            <Route
+              path="/federal-and-provincial-holidays"
+              element={<FederalAndProvincialHolidays />}
+            />
             <Route path="/optional-holidays" element={<OptionalHolidays />} />
             <Route path="/submit-a-holiday" element={<SubmitHoliday />} />
-            <Route path="/view-holidays/:provinceId" element={<ViewHolidays />} />
-            <Route path="/view-holidays/nationwide" element={<ViewHolidaysNationwide />} />
+            <Route path="/table" element={<Table />} />
+            <Route path="/table/simple" element={<TableSimple />} />
+            <Route path="/table-gridjs" element={<TableGridJS />} />
+            <Route path="/table-aggrid" element={<TableAgGrid />} />
+            <Route path="/table-tabulator" element={<TableTabulator />} />
+            <Route
+              path="/table/tan-stack-scroll"
+              element={<TableTanStackScroll />}
+            />
+            <Route
+              path="/table/tan-stack-stacked"
+              element={<TableTanStackStacked />}
+            />
+            <Route
+              path="/view-holidays/:provinceId"
+              element={<ViewHolidays />}
+            />
+            <Route
+              path="/view-holidays/nationwide"
+              element={<ViewHolidaysNationwide />}
+            />
 
             {/* Catch-all route for 404 */}
             <Route path="*" element={<NotFound />} />

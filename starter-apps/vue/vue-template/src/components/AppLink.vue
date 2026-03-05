@@ -9,10 +9,10 @@
  *    or a prop to display a mailto link, which are supported by <gcds-link>.
  *
  * @see
- * - <gcds-link> component: https://design-system.alpha.canada.ca/en/components/link/
- * - <gcds-nav-link> component: https://design-system.alpha.canada.ca/en/components/top-navigation/
- * - <gcds-breadcrumbs-item> component: https://design-system.alpha.canada.ca/en/components/breadcrumbs/
- * - <gcds-lang-toggle> component: https://design-system.alpha.canada.ca/en/components/lang-toggle/
+ * - <gcds-link> component: https://design-system.canada.ca/en/components/link/
+ * - <gcds-nav-link> component: https://design-system.canada.ca/en/components/top-navigation/
+ * - <gcds-breadcrumbs-item> component: https://design-system.canada.ca/en/components/breadcrumbs/
+ * - <gcds-lang-toggle> component: https://design-system.canada.ca/en/components/lang-toggle/
  */
 import { RouterLink, useLink } from 'vue-router'
 

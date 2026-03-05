@@ -11,16 +11,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@cdssnc/gcds-components": "^0.43.0",
-    "@cdssnc/gcds-components-react": "^0.43.0",
+    "@faker-js/faker": "^10.3.0",
+    "@gcds-core/components": "^1.0.0",
+    "@gcds-core/components-react": "^1.0.0",
     "@gcds-core/css-shortcuts": "^1.0.0",
+    "ag-grid-community": "^35.1.0",
+    "ag-grid-react": "^35.1.0",
     "axios": "^1.8.2",
+    "gridjs": "^6.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.1"
+    "react-router-dom": "^6.26.1",
+    "simple-datatables": "^10.2.0",
+    "tabulator-tables": "^6.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@tanstack/react-table": "^8.21.3",
     "@types/node": "^22.5.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
