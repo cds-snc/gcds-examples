@@ -2,13 +2,13 @@
 import { RouterLink, useLink } from 'vue-router'
 
 defineOptions({
-  inheritAttrs: false,
+  inheritAttrs: false
 })
 
 const props = defineProps({
   ...RouterLink.props,
   inactiveClass: String,
-  isExternal: Boolean,
+  isExternal: Boolean
 })
 
 const {
@@ -17,7 +17,6 @@ const {
   // function to navigate to the link
   navigate
 } = useLink(props)
-
 </script>
 
 <template>

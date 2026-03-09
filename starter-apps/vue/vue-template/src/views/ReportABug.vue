@@ -33,21 +33,21 @@ const formElements = {
   additionalInfo: 'additionalInfo'
 }
 
-const errors = new Set();
+const errors = new Set()
 
 const handleError = (key) => {
-  if (key) errors.add(key);
+  if (key) errors.add(key)
 }
 
 const handleValid = (key) => {
-  if (key) errors.delete(key);
+  if (key) errors.delete(key)
 }
 
 async function handleSubmit(e) {
   setTimeout(() => {
     // Check if there are any errors before submitting the form
-    const form = e.target;
-    const hasErrors = !form.checkValidity();
+    const form = e.target
+    const hasErrors = !form.checkValidity()
 
     if (errors.size === 0 && !hasErrors) {
       formStore.submitForm(formData.value)
