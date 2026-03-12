@@ -1,7 +1,7 @@
 import { createApp } from 'vue';
-import { GcdsComponents } from '@cdssnc/gcds-components-vue';
+import { GcdsComponents } from '@gcds-core/components-vue';
 
-import '@cdssnc/gcds-components-vue/gcds.css';
+import '@gcds-core/components-vue/gcds.css';
 import './style.css';
 import App from './App.vue';
 
