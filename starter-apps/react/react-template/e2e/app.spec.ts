@@ -1,6 +1,14 @@
-import { expect, test } from '@playwright/test'
+import { expect, test, type Page } from '@playwright/test'
 
 import { resources } from '../src/i18n/resources'
+
+async function clickLanguageToggle(page: Page, expectedLangHref: string): Promise<void> {
+  await expect(page.locator('gcds-header')).toHaveAttribute('lang-href', expectedLangHref)
+
+  const toggleLink = page.locator(`gcds-header a[href="${expectedLangHref}"]`).first()
+  await expect(toggleLink).toBeVisible()
+  await toggleLink.click()
+}
 
 test('visits the app root url', async ({ page }) => {
   await page.goto('/')
@@ -15,7 +23,7 @@ test('visits the app root url', async ({ page }) => {
 
 test('switches to french', async ({ page }) => {
   await page.goto('/')
-  await page.click('text=Français')
+  await clickLanguageToggle(page, '/fr/')
 
   await expect(page.locator('gcds-heading').first()).toHaveText(
     resources.fr.translation.homePage.heading
@@ -24,7 +32,7 @@ test('switches to french', async ({ page }) => {
 
 test('switches to english', async ({ page }) => {
   await page.goto('/fr/')
-  await page.click('text=English')
+  await clickLanguageToggle(page, '/en/')
 
   await expect(page.locator('gcds-heading').first()).toHaveText(
     resources.en.translation.homePage.heading
