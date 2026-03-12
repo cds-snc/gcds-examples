@@ -9,12 +9,15 @@
     "preview": "vite preview",
     "test:unit": "vitest",
     "test:e2e": "playwright test",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --ignore-path .gitignore",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier --write src/",
+    "format:check": "prettier --check src/",
+    "check": "npm run lint && npm run format:check && npm run test:unit -- --run && npm run build"
   },
   "dependencies": {
-    "@cdssnc/gcds-components-vue": "^0.43.1",
-    "@gcds-core/css-shortcuts": "^1.0.1",
+    "@gcds-core/components-vue": "^1.0.0",
+    "@gcds-core/css-shortcuts": "^1.1.0",
     "pinia": "^2.1.7",
     "vue": "^3.5.13",
     "vue-i18n": "^9.14.3",

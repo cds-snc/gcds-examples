@@ -6,7 +6,7 @@ export const en = {
     paragraph2:
       'This starter app template is designed to help developers quickly set up a modern Vue application while adhering to the accessibility and design standards set by the Government of Canada.',
     paragraph3:
-      "You'll find all the necessary setup, including Vue Router, Pinia for state management, VITest for unit testing, and a selection of GCDS components to get you started on your project."
+      "You'll find all the necessary setup, including Vue Router, Pinia for state management, Vitest for unit testing, and a selection of GCDS components to get you started on your project."
   },
   about: 'About',
   aboutTopic: 'Topic',
@@ -18,7 +18,7 @@ export const en = {
       name: 'Topic',
       heading: 'Topic',
       intro:
-        'This is a sample topic page within a parent About page. Here, you can see how the breadcrumb navigation behaves within the site structure. The breadcrumbs provide a visual guide for the current location on the site, allowing for seamless navigation between sections.',
+        'This is a sample topic page within a parent About page. Here, you can see how the breadcrumb navigation behaves within the site structure. The breadcrumbs provide a visual guide for the current location on the site, allowing for seamless navigation between sections.'
     }
   },
   french: 'French',
@@ -28,11 +28,10 @@ export const en = {
   homeNavLink: 'Vue App',
   reportABugPage: {
     heading: 'Report a Bug',
-    intro:
-      'Create a report to help us improve GC Design System.',
+    intro: 'Create a report to help us improve GC Design System.',
     form: {
       versionNumber: 'GC Design System Components Package and Version',
-      versionNumberHint: "e.g. {'@'}cdssnc/gcds-components-vue{'@'}0.x.x",
+      versionNumberHint: "e.g. {'@'}gcds-core/components-vue{'@'}1.x.x",
       title: 'Title',
       titleHint: 'Choose a title for your bug report',
       titlePlaceholder: 'bug: ',
