@@ -12,7 +12,7 @@ test('shows localized breadcrumbs for about topic route', async ({ page }) => {
     expect.arrayContaining([resources.en.translation.home, resources.en.translation.about])
   )
 
-  await page.goto('/fr/a-propos/sujet')
+  await page.click('text=Français')
 
   const frBreadcrumbs = await page
     .locator('gcds-breadcrumbs gcds-breadcrumbs-item')
