@@ -2,7 +2,11 @@ import { expect, test, type Page } from '@playwright/test'
 
 import { resources } from '../src/i18n/resources'
 
-async function expectBreadcrumbLinks(page: Page, homeHref: string, aboutHref: string): Promise<void> {
+async function expectBreadcrumbLinks(
+  page: Page,
+  homeHref: string,
+  aboutHref: string
+): Promise<void> {
   await expect(page.locator(`gcds-breadcrumbs a[href="${homeHref}"]`)).toHaveCount(1)
   await expect(page.locator(`gcds-breadcrumbs a[href="${aboutHref}"]`)).toHaveCount(1)
 }
