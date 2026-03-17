@@ -1,6 +1,6 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue';
 import Header from './components/Header.vue';
+import HelloWorld from './components/HelloWorld.vue';
 import ColorsVue from './components/Colors.vue';
 
 import { ref, defineModel } from 'vue';
@@ -16,11 +16,11 @@ const selectedColor = defineModel('selectedColor');
 </script>
 
 <template>
-  <div>
-    <Header />
+  <Header />
+  <gcds-container tag="main" layout="page">
     <HelloWorld msg="Hello, World!" />
     <ColorsVue />
-  </div>
+  </gcds-container>
 </template>
 
 <style scoped></style>

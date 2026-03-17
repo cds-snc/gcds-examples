@@ -5,11 +5,13 @@ defineProps({
 </script>
 
 <template>
-  <div>
+  <section>
     <gcds-heading tag="h1">{{ msg }}</gcds-heading>
-    <gcds-text>This is an example code which includes both Vue and also GCDS.</gcds-text>
+    <gcds-text>
+      This is an example code which includes both Vue and also GCDS.
+    </gcds-text>
     <gcds-text>Fork it to use it.</gcds-text>
-  </div>
+  </section>
 </template>
 
 <style scoped></style>
