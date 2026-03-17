@@ -1,0 +1,131 @@
+<section>
+  <gcds-heading tag="h1" i18n="@@common.pageTitle.reportABug">Report a Bug</gcds-heading>
+  <gcds-text i18n="@@page.reportABug.subtitle">Create a report to help us improve GC Design System.</gcds-text>
+</section>
+@if (!submitted()) {
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <gcds-input
+      formControlName="version"
+      name="version"
+      inputId="version"
+      i18n-label="Report a Bug Form Version Label"
+      label="GC Design System Components Package and Version"
+      i18n-hint="Report a Bug Form Version Hint"
+      hint="e.g. @cdssnc/gcds-components-angular@0.x.x"
+      [required]="true"
+      validateOn="submit"
+    ></gcds-input>
+    <gcds-input
+      formControlName="title"
+      name="title"
+      inputId="title"
+      i18n-label="Report a Bug Form Tile Label"
+      label="Title"
+      i18n-hint="Report a Bug Form Title Hint"
+      hint="Choose a title for your bug report"
+      [required]="true"
+      validateOn="submit"
+    ></gcds-input>
+    <gcds-textarea
+      formControlName="currentBehavior"
+      name="currentBehavior"
+      inputId="currentBehavior"
+      i18n-label="Report a Bug Form Current Behavior Label"
+      label="Current Behavior"
+      i18n-hint="Report a Bug Form Current Behavior Hint"
+      hint="Describe the current behavior"
+      validateOn="submit"
+    ></gcds-textarea>
+    <gcds-textarea
+      formControlName="expectedBehavior"
+      name="expectedBehavior"
+      inputId="expectedBehavior"
+      i18n-label="Report a Bug Form Expected Behavior Label"
+      label="Expected Behavior"
+      i18n-hint="Report a Bug Form Expected Behavior Hint"
+      hint="Describe the expected behavior"
+      [required]="true"
+      validateOn="submit"
+    ></gcds-textarea>
+    <gcds-textarea
+      formControlName="systemInfo"
+      name="systemInfo"
+      inputId="systemInfo"
+      i18n-label="Report a Bug Form System Info Label"
+      label="System Info"
+      i18n-hint="Report a Bug Form System Info Hint"
+      hint="Provide information about your system"
+      [required]="true"
+      validateOn="submit"
+    ></gcds-textarea>
+    <gcds-textarea
+      formControlName="stepsToReproduce"
+      name="stepsToReproduce"
+      inputId="stepsToReproduce"
+      i18n-label="Report a Bug Form Step to Reproduce Label"
+      label="Steps to Reproduce"
+      i18n-hint="Report a Bug Form Step to Reproduce Hint"
+      hint="List the steps to reproduce"
+      [required]="true"
+      validateOn="submit"
+    ></gcds-textarea>
+    <gcds-input
+      formControlName="codeReproductionUrl"
+      name="codeReproductionUrl"
+      inputId="codeReproductionUrl"
+      i18n-label="Report a Bug Form Url Label"
+      label="Code Reproduction URL"
+      i18n-hint="Report a Bug Form Url Hint"
+      hint="Provide a URL to the code reproduction"
+      [required]="true"
+      validateOn="submit"
+    ></gcds-input>
+    <gcds-textarea
+      formControlName="additionalInfo"
+      name="additionalInfo"
+      inputId="additionalInfo"
+      i18n-label="Report a Bug Form Additional Info Label"
+      label="Additional Information"
+      i18n-hint="Report a Bug Form Additional Info Hint"
+      hint="Provide any additional information"
+      validateOn="submit"
+    ></gcds-textarea>
+    <gcds-button type="submit" i18n="Report a Bug Submit Button">Submit</gcds-button>
+  </form>
+} @else {
+  <gcds-heading tag="h2" i18n="Report a Bug Confirmation Title@@page.reportABug.confirmation">Confirmation</gcds-heading>
+  <gcds-text>
+    <strong i18n="Report a Bug Form Version">GC Design System Components Package and Version:</strong>
+    {{ formGroup.value.version }}
+  </gcds-text>
+  <gcds-text>
+    <strong i18n="Report a Bug Form Current Behavior">Current Behavior:</strong>
+    {{ formGroup.value.currentBehavior }}
+  </gcds-text>
+  <gcds-text>
+    <strong i18n="Report a Bug Form Expected Behavior">Expected Behavior:</strong>
+    {{ formGroup.value.expectedBehavior }}
+  </gcds-text>
+  <gcds-text>
+    <strong i18n="Report a Bug Form System Info">System Info:</strong>
+    {{ formGroup.value.systemInfo }}
+  </gcds-text>
+  <gcds-text>
+    <strong i18n="Report a Bug Form Steps to Reproduce">Steps to Reproduce:</strong>
+    {{ formGroup.value.stepsToReproduce }}
+  </gcds-text>
+  <gcds-text>
+    <strong i18n="Report a Bug Form Code Reproduction Url">Code Reproduction URL:</strong>
+    {{ formGroup.value.codeReproductionUrl }}
+  </gcds-text>
+  <gcds-text>
+    <strong i18n="Report a Bug Form Additional Info">Additional Information:</strong>
+    {{ formGroup.value.additionalInfo }}
+  </gcds-text>
+  <section>
+    <gcds-heading tag="h2" i18n="Report a Bug Form Start Issue Github">Start an issue on GitHub</gcds-heading>
+    <gcds-link [href]="issueUrl()" target="_blank" type="link" i18n="Report a Bug Form Open Issue Github"> Open issue on Github </gcds-link>
+  </section>
+}
+
+<gcds-date-modified>2025-07-04</gcds-date-modified>
