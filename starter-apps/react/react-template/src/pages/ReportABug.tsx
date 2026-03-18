@@ -148,6 +148,7 @@ export default function ReportABugPage() {
 
           <GcdsButton type="submit">{t('reportABugPage.form.submit')}</GcdsButton>
         </form>
+   </section>
       ) : (
         <div>
           <section>
