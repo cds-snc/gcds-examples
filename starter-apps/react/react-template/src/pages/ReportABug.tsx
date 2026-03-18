@@ -180,6 +180,7 @@ export default function ReportABugPage() {
             <strong>{t('reportABugPage.form.additionalInformation')}:</strong>{' '}
             {formData.additionalInfo}
           </GcdsText>
+      </section>
 
           <section>
             <GcdsHeading tag="h2">{t('reportABugPage.openGithub')}</GcdsHeading>
