@@ -58,7 +58,6 @@ export default function ReportABugPage() {
       <section>
         <GcdsHeading tag="h1">{t('reportABugPage.heading')}</GcdsHeading>
         <GcdsText>{t('reportABugPage.intro')}</GcdsText>
-      </section>
 
       {!submitted ? (
         <form name="bugReportForm" noValidate onSubmit={handleSubmit}>
