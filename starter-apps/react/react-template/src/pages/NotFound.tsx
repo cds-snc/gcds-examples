@@ -5,7 +5,7 @@ export default function NotFoundPage() {
   const { t } = useTranslation()
 
   return (
-    <>
+    <section>
       <GcdsHeading tag="h1">{t('notFoundPage.heading')}</GcdsHeading>
       <GcdsText>{t('notFoundPage.intro')}</GcdsText>
       <GcdsDateModified>2024-09-10</GcdsDateModified>
