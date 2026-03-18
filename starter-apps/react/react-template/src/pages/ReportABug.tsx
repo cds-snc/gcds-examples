@@ -150,7 +150,8 @@ export default function ReportABugPage() {
         </form>
       ) : (
         <div>
-          <GcdsHeading tag="h2">{t('reportABugPage.form.confirmation')}</GcdsHeading>
+          <section>
+              <GcdsHeading tag="h2">{t('reportABugPage.form.confirmation')}</GcdsHeading>
           <GcdsText>
             <strong>{t('reportABugPage.form.versionNumber')}:</strong> {formData.version}
           </GcdsText>
