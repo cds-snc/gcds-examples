@@ -84,7 +84,7 @@ export default function AppShell({ locale }: AppShellProps) {
         </GcdsBreadcrumbs>
       </GcdsHeader>
 
-      <GcdsContainer id="main-content" layout="page" size="xl" tag="main">
+      <GcdsContainer id="main-content" layout="page" tag="main">
         <Outlet />
       </GcdsContainer>
 
