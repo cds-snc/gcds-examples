@@ -7,7 +7,8 @@ export default function AboutTopicPage() {
   return (
     <>
       <GcdsHeading tag="h1">{t('aboutPage.aboutTopic.heading')}</GcdsHeading>
-      <GcdsText>{t('aboutPage.aboutTopic.intro')}</GcdsText>
+          <GcdsText>{t('aboutPage.aboutTopic.intro')}</GcdsText>
+      </section>
       <GcdsDateModified>2024-09-10</GcdsDateModified>
     </>
   )
