@@ -13,7 +13,8 @@ export default function AboutPage() {
 
   return (
     <>
-      <GcdsHeading tag="h1">{t('aboutPage.heading')}</GcdsHeading>
+      <section>
+          <GcdsHeading tag="h1">{t('aboutPage.heading')}</GcdsHeading>
       <GcdsText>{t('aboutPage.intro')}</GcdsText>
       <section>
         <AppLink to={getLocalizedPath('aboutTopic', locale)}>
