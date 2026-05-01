@@ -4,8 +4,8 @@
 ## Demo apps
 - [Vue3](/demo-apps/vue3)
 - React (coming soon)
-- [NextJS](/demo-apps/nextjs)
 - [Angular](/demo-apps/angular)
+- [React (Fable test app)](/fable-test-app)
 
 ## Examples in production
 - [Eleventy (Static Site Generator)](https://github.com/cds-snc/gcds-docs) _our documentation website was built with 11ty + GCDS Components_

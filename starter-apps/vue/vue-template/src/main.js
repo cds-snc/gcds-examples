@@ -1,9 +1,9 @@
-import '@cdssnc/gcds-components-vue/gcds.css';
+import '@gcds-core/components-vue/gcds.css';
 import '@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { GcdsComponents } from '@cdssnc/gcds-components-vue';
+import { GcdsComponents } from '@gcds-core/components-vue';
 
 
 import App from './App.vue'

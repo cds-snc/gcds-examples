@@ -1,5 +1,5 @@
-import React from 'react';
-import { GcdsDateInput } from "@cdssnc/gcds-components-react";
+import React from "react";
+import { GcdsDateInput } from "@gcds-core/components-react";
 
 interface InputProps {
   hint?: string;
@@ -13,28 +13,30 @@ interface InputProps {
   format: "full" | "compact";
 }
 
-const Input: React.FC<InputProps> = React.memo(({
-  hint,
-  legend,
-  name,
-  onInput,
-  validateOn,
-  required,
-  value,
-  className,
-  format
-}) => (
-  <GcdsDateInput
-    legend={legend}
-    hint={hint}
-    name={name}
-    value={value}
-    validateOn={validateOn}
-    onInput={onInput}
-    required={required}
-    className={className}
-    format={format}
-  ></GcdsDateInput>
-));
+const Input: React.FC<InputProps> = React.memo(
+  ({
+    hint,
+    legend,
+    name,
+    onInput,
+    validateOn,
+    required,
+    value,
+    className,
+    format,
+  }) => (
+    <GcdsDateInput
+      legend={legend}
+      hint={hint}
+      name={name}
+      value={value}
+      validateOn={validateOn}
+      onInput={onInput}
+      required={required}
+      className={className}
+      format={format}
+    ></GcdsDateInput>
+  ),
+);
 
 export default Input;
