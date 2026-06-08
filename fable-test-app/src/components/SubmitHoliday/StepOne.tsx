@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   Text,
   Select,
@@ -34,6 +34,8 @@ interface StepOneProps {
 
 const StepOne: React.FC<StepOneProps> = (props) => {
   const { formdata, handleInputChange, focusHeading } = props;
+  const [announcement, setAnnouncement] = useState('');
+  const previousHolidayType = useRef(formdata.holidayType);
 
   const newHolidayOptions = [
     { label: "Yes", id: "radio1", value: "yes" },
@@ -48,7 +50,18 @@ const StepOne: React.FC<StepOneProps> = (props) => {
         document.querySelector("gcds-stepper")?.focus();
       }, 150);
     }
-  }, []);
+
+    const hadOther = previousHolidayType.current.includes('other');
+    const hasOther = formdata.holidayType.includes('other');
+
+    if (hasOther && !hadOther) {
+      setAnnouncement('Additional field available: Province/territory');
+    } else if (!hasOther && hadOther) {
+      setAnnouncement('Additional field removed.');
+    }
+
+    previousHolidayType.current = formdata.holidayType;
+  }, [formdata.holidayType, focusHeading]);
 
   return (
     <>
@@ -61,6 +74,14 @@ const StepOne: React.FC<StepOneProps> = (props) => {
       >
         About this holiday
       </Stepper>
+
+      <div
+        aria-live="polite"
+        aria-atomic="true"
+        className="sr-only"
+      >
+        {announcement}
+      </div>
 
       <GcdsErrorSummary listen />
 
@@ -175,7 +196,7 @@ const StepOne: React.FC<StepOneProps> = (props) => {
           name="image"
           className="mb-225"
           {...(formdata.image ? { value: formdata.image } : {})}
-          onChange={handleInputChange}
+          onInput={handleInputChange}
         />
       </Fieldset>
 

@@ -54,6 +54,9 @@ const SideNav: React.FC = () => {
 
   return (
     <GcdsSideNav label="Canada holidays" className="lg:bg-light">
+      <GcdsNavLink href="/" slot="home">
+        Canada holidays
+      </GcdsNavLink>
       {navLinks.map((group, index) => (
         <GcdsNavGroup
           key={index}
