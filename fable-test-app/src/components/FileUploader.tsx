@@ -6,6 +6,7 @@ interface FileUploaderProps {
   label: string;
   name: string;
   onChange?: (e: any) => void;
+  onInput?: (e: any) => void;
   uploaderId: string;
   value?: string[] | undefined;
   validateOn?: "blur" | "submit" | "other";
@@ -19,6 +20,7 @@ const FileUploader: React.FC<FileUploaderProps> = React.memo(
     label,
     name,
     onChange,
+    onInput,
     uploaderId,
     validateOn,
     required,
@@ -30,9 +32,10 @@ const FileUploader: React.FC<FileUploaderProps> = React.memo(
       label={label}
       hint={hint}
       name={name}
-      value={value}
+      value={value?.length ? value : []}
       validateOn={validateOn}
       onChange={onChange}
+      onInput={onInput}
       required={required}
       className={className}
     ></GcdsFileUploader>
