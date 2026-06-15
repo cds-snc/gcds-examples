@@ -24,6 +24,7 @@ export { default as NextHoliday } from "./NextHoliday";
 export { default as Pagination } from "./Pagination";
 export { default as Select } from "./Select";
 export { default as SideNav } from "./SideNav";
+export { default as Table } from "./Table";
 export { default as TanStackTable } from "./TanStackTable";
 export { default as Text } from "./Text";
 export { default as SrOnly } from "./SrOnly";
