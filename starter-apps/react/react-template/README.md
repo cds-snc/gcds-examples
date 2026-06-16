@@ -65,11 +65,11 @@ npm run test:e2e
 npm run test:e2e -- --project=chromium
 ```
 
-## Optional local co-development with gcds-components-main
+## Optional local co-development with gcds-components
 
 By default this starter uses published npm packages. If you want to test local wrapper/component changes from a sibling checkout:
 
-1. Build or link packages from `../gcds-components-main`.
+1. Build or link packages from your local [`gcds-components`](https://github.com/cds-snc/gcds-components/) checkout.
 2. Override dependencies in this starter to local `file:` paths.
 3. Run `npm install` again in this starter.
 

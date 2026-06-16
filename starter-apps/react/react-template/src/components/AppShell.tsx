@@ -46,6 +46,10 @@ export default function AppShell({ locale }: AppShellProps) {
     <>
       {/* TODO: Keep langHref pointing at an equivalent page in the other locale. */}
       <GcdsHeader langHref={otherLangPath} skipToHref="#main-content">
+        {/* TODO: By default GcdsSearch submits to the canada.ca global search and
+            leaves this app. Set `action` to your own search results route (and/or
+            handle `onGcdsSubmit`) before shipping or remove this element if your
+            app has no search. */}
         <GcdsSearch slot="search" />
 
         <GcdsTopNav alignment="end" label={t('topNavLabel')} slot="menu">

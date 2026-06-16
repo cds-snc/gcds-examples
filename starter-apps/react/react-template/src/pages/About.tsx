@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { GcdsDateModified, GcdsHeading, GcdsText } from '@gcds-core/components-react'
 
 import AppLink from '@/components/AppLink'
+import { DATE_MODIFIED } from '@/constants'
 import { defaultLocale } from '@/routing/constants'
 import { getLocalizedPath, isAppLocale } from '@/routing/localizedRoutes'
 
@@ -14,13 +15,13 @@ export default function AboutPage() {
   return (
     <>
       <section>
-          <GcdsHeading tag="h1">{t('aboutPage.heading')}</GcdsHeading>
-      <GcdsText>{t('aboutPage.intro')}</GcdsText>
+        <GcdsHeading tag="h1">{t('aboutPage.heading')}</GcdsHeading>
+        <GcdsText>{t('aboutPage.intro')}</GcdsText>
         <AppLink to={getLocalizedPath('aboutTopic', locale)}>
           {t('aboutPage.aboutTopic.heading')}
         </AppLink>
       </section>
-      <GcdsDateModified>2024-09-10</GcdsDateModified>
+      <GcdsDateModified>{DATE_MODIFIED}</GcdsDateModified>
     </>
   )
 }

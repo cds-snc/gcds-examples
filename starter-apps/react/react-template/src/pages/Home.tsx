@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import { GcdsDateModified, GcdsHeading, GcdsText } from '@gcds-core/components-react'
 
+import { DATE_MODIFIED } from '@/constants'
+
 export default function HomePage() {
   const { t } = useTranslation()
 
@@ -12,7 +14,7 @@ export default function HomePage() {
         <GcdsText>{t('homePage.paragraph2')}</GcdsText>
         <GcdsText>{t('homePage.paragraph3')}</GcdsText>
       </section>
-      <GcdsDateModified>2024-09-10</GcdsDateModified>
+      <GcdsDateModified>{DATE_MODIFIED}</GcdsDateModified>
     </>
   )
 }

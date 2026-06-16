@@ -11,6 +11,7 @@ import {
   GcdsTextarea
 } from '@gcds-core/components-react'
 
+import { DATE_MODIFIED } from '@/constants'
 import type { ReportBugFormData } from '@/types/report'
 import { initialReportBugFormData } from '@/types/report'
 import { buildGithubIssueUrl } from '@/utils/githubIssue'
@@ -59,139 +60,135 @@ export default function ReportABugPage() {
         <GcdsHeading tag="h1">{t('reportABugPage.heading')}</GcdsHeading>
         <GcdsText>{t('reportABugPage.intro')}</GcdsText>
 
-      {!submitted ? (
-        <form name="bugReportForm" noValidate onSubmit={handleSubmit}>
-          <GcdsErrorSummary listen />
+        {!submitted ? (
+          <form name="bugReportForm" noValidate onSubmit={handleSubmit}>
+            <GcdsErrorSummary listen />
 
-          {/* TODO: This form is a starter template.
+            {/* TODO: This form is a starter template.
               Add/remove fields to match your issue workflow and keep name/inputId/textareaId stable for tests. */}
-          <GcdsInput
-            hint={t('reportABugPage.form.versionNumberHint')}
-            inputId="version"
-            label={t('reportABugPage.form.versionNumber')}
-            name="version"
-            onGcdsInput={handleInputChange}
-            required
-            validateOn="submit"
-            value={formData.version}
-          />
-          <GcdsInput
-            hint={t('reportABugPage.form.titleHint')}
-            inputId="title"
-            label={t('reportABugPage.form.title')}
-            name="title"
-            onGcdsInput={handleInputChange}
-            required
-            validateOn="submit"
-            value={formData.title}
-          />
-          <GcdsTextarea
-            hint={t('reportABugPage.form.currentBehaviorHint')}
-            label={t('reportABugPage.form.currentBehavior')}
-            name="currentBehavior"
-            onGcdsInput={handleInputChange}
-            textareaId="currentBehavior"
-            validateOn="submit"
-            value={formData.currentBehavior}
-          />
-          <GcdsTextarea
-            hint={t('reportABugPage.form.expectedBehaviorHint')}
-            label={t('reportABugPage.form.expectedBehavior')}
-            name="expectedBehavior"
-            onGcdsInput={handleInputChange}
-            required
-            textareaId="expectedBehavior"
-            validateOn="submit"
-            value={formData.expectedBehavior}
-          />
-          <GcdsTextarea
-            hint={t('reportABugPage.form.systemInfoHint')}
-            label={t('reportABugPage.form.systemInfo')}
-            name="systemInfo"
-            onGcdsInput={handleInputChange}
-            required
-            textareaId="systemInfo"
-            validateOn="submit"
-            value={formData.systemInfo}
-          />
-          <GcdsTextarea
-            hint={t('reportABugPage.form.stepsToReproduceHint')}
-            label={t('reportABugPage.form.stepsToReproduce')}
-            name="stepsToReproduce"
-            onGcdsInput={handleInputChange}
-            required
-            textareaId="stepsToReproduce"
-            validateOn="submit"
-            value={formData.stepsToReproduce}
-          />
-          <GcdsInput
-            hint={t('reportABugPage.form.codeReproductionURLHint')}
-            inputId="codeReproductionUrl"
-            label={t('reportABugPage.form.codeReproductionURL')}
-            name="codeReproductionUrl"
-            onGcdsInput={handleInputChange}
-            required
-            type="url"
-            validateOn="submit"
-            value={formData.codeReproductionUrl}
-          />
-          <GcdsTextarea
-            hint={t('reportABugPage.form.additionalInformationHint')}
-            label={t('reportABugPage.form.additionalInformation')}
-            name="additionalInfo"
-            onGcdsInput={handleInputChange}
-            textareaId="additionalInfo"
-            validateOn="submit"
-            value={formData.additionalInfo}
-          />
+            <GcdsInput
+              hint={t('reportABugPage.form.versionNumberHint')}
+              inputId="version"
+              label={t('reportABugPage.form.versionNumber')}
+              name="version"
+              onGcdsInput={handleInputChange}
+              required
+              validateOn="submit"
+              value={formData.version}
+            />
+            <GcdsInput
+              hint={t('reportABugPage.form.titleHint')}
+              inputId="title"
+              label={t('reportABugPage.form.title')}
+              name="title"
+              onGcdsInput={handleInputChange}
+              required
+              validateOn="submit"
+              value={formData.title}
+            />
+            <GcdsTextarea
+              hint={t('reportABugPage.form.currentBehaviorHint')}
+              label={t('reportABugPage.form.currentBehavior')}
+              name="currentBehavior"
+              onGcdsInput={handleInputChange}
+              textareaId="currentBehavior"
+              validateOn="submit"
+              value={formData.currentBehavior}
+            />
+            <GcdsTextarea
+              hint={t('reportABugPage.form.expectedBehaviorHint')}
+              label={t('reportABugPage.form.expectedBehavior')}
+              name="expectedBehavior"
+              onGcdsInput={handleInputChange}
+              required
+              textareaId="expectedBehavior"
+              validateOn="submit"
+              value={formData.expectedBehavior}
+            />
+            <GcdsTextarea
+              hint={t('reportABugPage.form.systemInfoHint')}
+              label={t('reportABugPage.form.systemInfo')}
+              name="systemInfo"
+              onGcdsInput={handleInputChange}
+              required
+              textareaId="systemInfo"
+              validateOn="submit"
+              value={formData.systemInfo}
+            />
+            <GcdsTextarea
+              hint={t('reportABugPage.form.stepsToReproduceHint')}
+              label={t('reportABugPage.form.stepsToReproduce')}
+              name="stepsToReproduce"
+              onGcdsInput={handleInputChange}
+              required
+              textareaId="stepsToReproduce"
+              validateOn="submit"
+              value={formData.stepsToReproduce}
+            />
+            <GcdsInput
+              hint={t('reportABugPage.form.codeReproductionURLHint')}
+              inputId="codeReproductionUrl"
+              label={t('reportABugPage.form.codeReproductionURL')}
+              name="codeReproductionUrl"
+              onGcdsInput={handleInputChange}
+              required
+              type="url"
+              validateOn="submit"
+              value={formData.codeReproductionUrl}
+            />
+            <GcdsTextarea
+              hint={t('reportABugPage.form.additionalInformationHint')}
+              label={t('reportABugPage.form.additionalInformation')}
+              name="additionalInfo"
+              onGcdsInput={handleInputChange}
+              textareaId="additionalInfo"
+              validateOn="submit"
+              value={formData.additionalInfo}
+            />
 
-          <GcdsButton type="submit">{t('reportABugPage.form.submit')}</GcdsButton>
-        </form>
-   </section>
-      ) : (
-        <div>
-          <section>
-              <GcdsHeading tag="h2">{t('reportABugPage.form.confirmation')}</GcdsHeading>
-          <GcdsText>
-            <strong>{t('reportABugPage.form.versionNumber')}:</strong> {formData.version}
-          </GcdsText>
-          <GcdsText>
-            <strong>{t('reportABugPage.form.title')}:</strong> {formData.title}
-          </GcdsText>
-          <GcdsText>
-            <strong>{t('reportABugPage.form.currentBehavior')}:</strong> {formData.currentBehavior}
-          </GcdsText>
-          <GcdsText>
-            <strong>{t('reportABugPage.form.expectedBehavior')}:</strong>{' '}
-            {formData.expectedBehavior}
-          </GcdsText>
-          <GcdsText>
-            <strong>{t('reportABugPage.form.systemInfo')}:</strong> {formData.systemInfo}
-          </GcdsText>
-          <GcdsText>
-            <strong>{t('reportABugPage.form.stepsToReproduce')}:</strong>{' '}
-            {formData.stepsToReproduce}
-          </GcdsText>
-          <GcdsText>
-            <strong>{t('reportABugPage.form.codeReproductionURL')}:</strong>{' '}
-            {formData.codeReproductionUrl}
-          </GcdsText>
-          <GcdsText>
-            <strong>{t('reportABugPage.form.additionalInformation')}:</strong>{' '}
-            {formData.additionalInfo}
-          </GcdsText>
-      </section>
+            <GcdsButton type="submit">{t('reportABugPage.form.submit')}</GcdsButton>
+          </form>
+        ) : (
+          <div>
+            <GcdsHeading tag="h2">{t('reportABugPage.form.confirmation')}</GcdsHeading>
+            <GcdsText>
+              <strong>{t('reportABugPage.form.versionNumber')}:</strong> {formData.version}
+            </GcdsText>
+            <GcdsText>
+              <strong>{t('reportABugPage.form.title')}:</strong> {formData.title}
+            </GcdsText>
+            <GcdsText>
+              <strong>{t('reportABugPage.form.currentBehavior')}:</strong>{' '}
+              {formData.currentBehavior}
+            </GcdsText>
+            <GcdsText>
+              <strong>{t('reportABugPage.form.expectedBehavior')}:</strong>{' '}
+              {formData.expectedBehavior}
+            </GcdsText>
+            <GcdsText>
+              <strong>{t('reportABugPage.form.systemInfo')}:</strong> {formData.systemInfo}
+            </GcdsText>
+            <GcdsText>
+              <strong>{t('reportABugPage.form.stepsToReproduce')}:</strong>{' '}
+              {formData.stepsToReproduce}
+            </GcdsText>
+            <GcdsText>
+              <strong>{t('reportABugPage.form.codeReproductionURL')}:</strong>{' '}
+              {formData.codeReproductionUrl}
+            </GcdsText>
+            <GcdsText>
+              <strong>{t('reportABugPage.form.additionalInformation')}:</strong>{' '}
+              {formData.additionalInfo}
+            </GcdsText>
 
-          <section>
             <GcdsHeading tag="h2">{t('reportABugPage.openGithub')}</GcdsHeading>
             <GcdsButton href={buildGithubIssueUrl(formData)} target="_blank" type="link">
               {t('reportABugPage.openGithubButton')}
             </GcdsButton>
-          </section>
-        </div>
-      )}
-
-      <GcdsDateModified>2024-09-10</GcdsDateModified>
+          </div>
+        )}
+      </section>
+      <GcdsDateModified>{DATE_MODIFIED}</GcdsDateModified>
     </>
   )
 }
