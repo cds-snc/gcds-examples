@@ -95,7 +95,7 @@ export const resources = {
       },
       french: 'Français',
       english: 'Anglais',
-      reportABug: 'Signaler un bug',
+      reportABug: 'Signaler un bogue',
       homeNavLink: 'Application React',
       topNavLabel: 'Navigation principale',
       reportABugPage: {
