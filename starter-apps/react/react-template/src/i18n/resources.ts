@@ -90,7 +90,7 @@ export const resources = {
           name: 'Sujet',
           heading: 'Sujet',
           intro:
-            "Ceci est un exemple de page de sujet à l'intérieur d'une page parent À propos. Elle démontre le comportement du fil d’Ariane sur des routes imbriquées."
+            "Voici un exemple de page Sujet à l'intérieur d'une page parent À propos. Cette page montre le comportement du chemin de navigation pour des pages imbriquées."
         }
       },
       french: 'Français',
