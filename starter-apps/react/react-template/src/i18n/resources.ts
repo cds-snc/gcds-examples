@@ -99,7 +99,7 @@ export const resources = {
       homeNavLink: 'Application React',
       topNavLabel: 'Navigation principale',
       reportABugPage: {
-        heading: 'Signaler un bug',
+        heading: 'Signaler un bogue',
         intro: 'Remplissez un rapport de bogue pour nous aider à améliorer Système de design GC.',
         form: {
           versionNumber: 'Paquet et version des composants de Système de design GC',
