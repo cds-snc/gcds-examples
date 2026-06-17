@@ -1,6 +1,3 @@
 <template>
-    <gcds-header
-    lang="en">
-        Hello, there!
-    </gcds-header>
+  <gcds-header lang="en">Hello, there!</gcds-header>
 </template>
