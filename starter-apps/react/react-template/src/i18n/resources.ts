@@ -114,7 +114,7 @@ export const resources = {
           stepsToReproduce: 'Étapes pour reproduire le bogue',
           stepsToReproduceHint: 'Listez les étapes pour reproduire le bogue',
           codeReproductionURL: 'URL de reproduction du code',
-          codeReproductionURLHint: 'Fournir une URL pour la reproduction du code',
+          codeReproductionURLHint: 'Fournissez une URL où trouver la reproduction du code',
           systemInfo: 'Information sur le système',
           systemInfoHint: 'Fournir des informations sur votre système',
           additionalInformation: 'Informations supplémentaires',
