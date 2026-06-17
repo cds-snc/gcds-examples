@@ -118,7 +118,7 @@ export const resources = {
           systemInfo: 'Information sur le système',
           systemInfoHint: 'Fournir des informations sur votre système',
           additionalInformation: 'Informations supplémentaires',
-          additionalInformationHint: 'Fournir des informations supplémentaires',
+          additionalInformationHint: 'Fournissez toute autre information supplémentaire',
           submit: 'Envoyer',
           confirmation: 'Confirmation'
         },
