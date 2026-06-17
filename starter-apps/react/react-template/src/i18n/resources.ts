@@ -74,7 +74,7 @@ export const resources = {
       homePage: {
         heading: 'Accueil',
         paragraph:
-          "Bienvenue dans l'application React Starter qui exploite les composants du système de conception GC !",
+          "Bienvenue dans l'application de démarrage React qui utilise les composants de Système de design GC!",
         paragraph2:
           "Ce modèle d'application de démarrage est conçu pour aider les développeurs à configurer rapidement une application React moderne tout en respectant les normes d'accessibilité et de conception du gouvernement du Canada.",
         paragraph3:
