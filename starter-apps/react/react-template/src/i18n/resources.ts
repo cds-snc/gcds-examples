@@ -116,7 +116,7 @@ export const resources = {
           codeReproductionURL: 'URL de reproduction du code',
           codeReproductionURLHint: 'Fournissez une URL où trouver la reproduction du code',
           systemInfo: 'Information sur le système',
-          systemInfoHint: 'Fournir des informations sur votre système',
+          systemInfoHint: 'Fournissez des informations sur votre système',
           additionalInformation: 'Informations supplémentaires',
           additionalInformationHint: 'Fournissez toute autre information supplémentaire',
           submit: 'Envoyer',
