@@ -78,7 +78,7 @@ export const resources = {
         paragraph2:
           "Ce modèle d'application de démarrage est conçu pour aider les développeurs et développeuses à configurer rapidement une application React moderne tout en respectant les normes d'accessibilité et de conception du gouvernement du Canada.",
         paragraph3:
-          'Vous y trouverez toute la configuration nécessaire, notamment React Router pour le routage localisé, i18next pour la gestion des langues, Vitest pour les tests unitaires, Playwright pour les tests de bout en bout et une sélection de composants GCDS pour démarrer votre projet.'
+          'Vous y trouverez toute la configuration nécessaire, notamment React Router pour le routage localisé, i18next pour la gestion des langues, Vitest pour les tests unitaires, Playwright pour les tests de bout en bout, ainsi qu'une sélection de composants GCDS pour démarrer votre projet.'
       },
       about: 'À propos',
       aboutTopic: 'Sujet',
