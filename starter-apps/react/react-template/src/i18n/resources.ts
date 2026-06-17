@@ -85,7 +85,7 @@ export const resources = {
       aboutPage: {
         heading: 'À propos',
         intro:
-          'Ce modèle de démarrage React intègre les composants du Système de design GC et fournit une base solide pour créer des applications Web modernes et réactives avec une conception cohérente et accessible.',
+          'Ce modèle de démarrage React intègre les composants de Système de design GC et fournit une base solide pour créer des applications Web modernes, réactives et accessibles, avec une conception cohérente.',
         aboutTopic: {
           name: 'Sujet',
           heading: 'Sujet',
