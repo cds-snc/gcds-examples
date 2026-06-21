@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topic page template - CSS shortcuts</title>
+    <meta name="description" content="A simple, clean template demonstrating the topic page structure with common GCDS components and CSS shortcuts." />
+    <!-- GC Design System -->
+    <link rel="stylesheet" href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-utility@1.9.2/dist/gcds-utility.min.css" />
+    <link rel="stylesheet" href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.43.1/dist/gcds/gcds.css" />
+    <script type="module" src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.43.1/dist/gcds/gcds.esm.js"></script>
+    <style>
+      /* vertical bar list style, could be used with Indigenous language toggles too */
+
+      @media (min-width: 1024px) {
+
+        ul.gc-vertical-bar li:not(:only-child)::after {
+          content: "|";
+          padding: var(--gcds-spacing-0) var(--gcds-spacing-100);
+          font-weight: var(--gcds-font-weights-bold);
+        }
+      }
+
+      .gc-feature .gc-feature-hover:hover {
+        background-color: var(--gcds-card-background-color);
+        box-shadow: var(--gcds-card-box-shadow);
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* position the image properly */
+      .gc-contain-fit img {
+        object-fit: contain; /* this preserves aspect ratio, no CSS shortcuts available to fix this JM can find */
+      }
+
+      .gc-stretched-link:after {
+        bottom: 0;
+        content: "";
+        left: 0;
+        pointer-events: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1
+      }
+
+      /* Social media icon styles */
+
+      .gc-social-media-item a::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 34px;
+        height: 34px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        border-radius: var(--gcds-border-radius-xl);
+      }
+
+      /* Social media icons */
+      .gc-social-media-item.facebook a::before {
+        background-image: url("../../assets/icons/facebook.svg");
+      }
+
+      .gc-social-media-item.x-social a::before {
+        background-image: url("../../assets/icons/x.svg");
+      }
+
+      .gc-social-media-item.youtube a::before {
+        background-image: url("../../assets/icons/youtube.svg");
+      }
+
+      .gc-social-media-item.instagram a::before {
+        background-image: url("../../assets/icons/instagram.svg");
+      }
+
+      .gc-social-media-item.linkedin a::before {
+        background-image: url("../../assets/icons/linkedin.svg");
+      }
+    </style>
+  </head>
+  <body>
+    <gcds-header signature-has-link="true" skip-to-href="#main-content" lang-href="../../french/page-sujet/">
+      <!-- Search component in header (optional, can be removed if not needed) -->
+      <gcds-search slot="search"></gcds-search>
+      <!-- Breadcrumbs component in header (optional, can be customized per page) -->
+      <gcds-breadcrumbs slot="breadcrumb">
+        <gcds-breadcrumbs-item href="#">GCDS Examples</gcds-breadcrumbs-item>
+      </gcds-breadcrumbs>
+    </gcds-header>
+    <main id="main-content" role="main">
+      <gcds-container size="xl" tag="section" main-container centered>
+        <gcds-grid columns="1" columns-tablet="1" columns-desktop="1fr 1fr">
+          <div class="lg:mb-300">
+            <gcds-heading tag="h1" character-limit="false">Topic page template - CSS shortcuts</gcds-heading>
+            <p class="mb-0">The introduction block pattern introduces the content of a topic page.</p>
+          </div>
+          <div class="d-flex justify-content-end gc-contain-fit">
+            <img src="https://dummyimage.com/520x200/000000/FFFFFF.png" class="lg:d-block d-none" alt="">
+          </div>
+        </gcds-grid>
+      </gcds-container>
+
+      <!-- Most Requested Section -->
+      <section class="pb-200 pt-300" style="background-color: var(--gcds-color-grayscale-50)">
+        <gcds-container size="xl" main-container centered>
+          <gcds-grid columns="1" columns-tablet="1" columns-desktop="auto 1fr">
+            <!-- Heading column -->
+            <h2 class="limit mt-0 mb-0 font-size-h3">Most requested</h2> 
+            <!-- Links column -->
+            <ul class="line-text-small font-size-text-small font-family-heading font-bold mb-200 list-disc d-grid md:grid-cols-2 gap-x-300 gap-y-200 lg:mt-100">
+              <li>
+                <gcds-link href="#">[Top task hyperlink with a very long task name that spans over two lines 1]</gcds-link>
+              </li>
+              <li>
+                <gcds-link href="#">[Top task hyperlink 2]</gcds-link>
+              </li>
+              <li>
+                <gcds-link href="#">[Top task hyperlink 3]</gcds-link>
+              </li>
+              <li>
+                <gcds-link href="#">[Top task hyperlink 4]</gcds-link>
+              </li>
+              <li>
+                <gcds-link href="#">[Top task hyperlink 5]</gcds-link>
+              </li>
+              <li>
+                <gcds-link href="#">[Top task hyperlink 6]</gcds-link>
+              </li>
+            </ul>
+          </gcds-grid>
+        </gcds-container>
+      </section>
+
+      <!-- Services and Information Section -->
+      <gcds-container size="xl" tag="section" main-container centered >
+        <h2 class="font-size-h3 mt-400 visibility-sr-only">Services and information</h2> <!-- this is usually hidden as standard, but visible to view to work -->
+        <gcds-grid columns="1" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" class="mb-400 mt-400">
+          <!-- Service Item 1 -->
+          <div>
+            <gcds-link class="font-family-heading font-bold mt-0" href="#">[Hyperlink text]</gcds-link>
+            <p class="font-size-text-small lg:mb-200 xs:mb-0">Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+            <!-- <gcds-text size="small" margin-top="100" margin-bottom="200"> filed issue #293 for of responsive typography controls -->
+          </div>
+
+          <!-- Service Item 2 -->
+          <div>
+            <gcds-link class="font-family-heading font-bold mt-0" href="#">[Hyperlink text]</gcds-link>
+            <p class="font-size-text-small lg:mb-200 xs:mb-0">Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+          </div>
+
+          <!-- Service Item 3 -->
+          <div>
+            <gcds-link class="font-family-heading font-bold mt-0" href="#">[Hyperlink text]</gcds-link>
+            <p class="font-size-text-small lg:mb-200 xs:mb-0">Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+          </div>
+
+          <!-- Service Item 4 -->
+          <div>
+            <gcds-link class="font-family-heading font-bold mt-0" href="#">[Hyperlink text]</gcds-link>
+            <p class="font-size-text-small lg:mb-200 xs:mb-0">Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+          </div>
+
+          <!-- Service Item 5 -->
+          <div>
+            <gcds-link class="font-family-heading font-bold mt-0" href="#">[Hyperlink text]</gcds-link>
+            <p class="font-size-text-small lg:mb-200 xs:mb-0">Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+          </div>
+
+          <!-- Service Item 6 -->
+          <div>
+            <gcds-link class="font-family-heading font-bold mt-0" href="#">[Hyperlink text]</gcds-link>
+            <p class="font-size-text-small lg:mb-200 xs:mb-0">Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+          </div>
+
+          <!-- Service Item 7 -->
+          <div>
+            <gcds-link class="font-family-heading font-bold mt-0" href="#">[Hyperlink text]</gcds-link>
+            <p class="font-size-text-small lg:mb-200 xs:mb-0">Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+          </div>
+
+          <!-- Service Item 8 -->
+          <div>
+            <gcds-link class="font-family-heading font-bold mt-0" href="#">[Hyperlink text]</gcds-link>
+            <p class="font-size-text-small lg:mb-200 xs:mb-0">Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+          </div>
+
+          <!-- Service Item 9 -->
+          <div>
+            <gcds-link class="font-family-heading font-bold mt-0" href="#">[Hyperlink text]</gcds-link>
+            <p class="font-size-text-small lg:mb-200 xs:mb-0">Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to</p>
+          </div>
+        </gcds-grid>
+
+        <!-- Featured: single feature -->
+        <gcds-grid columns="3" columns-tablet="1" columns-desktop="2fr 1fr" class="mt-400 mb-400">
+          <div class="gc-feature">
+            <h2 class="font-size-h3 mt-0 mb-300 visibility-sr-only">Featured</h2>
+            <gcds-grid class="lg:pt-100 lg:ps-100 lg:mt-400 lg:mb-400 xs:mb-0 hydrated gap-0 position-relative gc-feature-hover" columns="1fr" columns-desktop="1fr 1fr" align-items="start">
+              <div>
+                <img class="img-responsive pe-100"src="https://dummyimage.com/360x203/000000/FFFFFF.png" alt="">
+              </div>
+              <div class="lg:mt-300 xs:mb-0 xs:mt-0">
+                <a class="mt-0 font-h5 gc-stretched-link hover:link-hover link-default" href="#">[Feature hyperlink text]</a>
+                <p class="mt-100 font-size-text-small">Brief description of the feature being promoted.</p>
+              </div>
+            </gcds-grid>
+          </div>
+        <!-- Social media -->
+          <div>
+            <section class="mb-400">
+              <h2 class="font-size-h3 mt-0 mb-300">On social media</h2>
+              <ul class="font-bold font-size-text-small ms-300 d-grid gap-y-200">
+                <li class="gc-social-media-item facebook">
+                  <a href="#" class="py-100 pe-100 facebook hover:link-underline hover:link-hover focus:link-light link-no-underline link-default position-relative ps-600">
+                    <gcds-sr-only>Facebook: </gcds-sr-only>FacebookPageName&nbsp;<gcds-icon name="external"></gcds-icon>
+                  </a>
+                </li>
+                <li class="gc-social-media-item x-social">
+                  <a href="#" class="py-100 pe-100 x-social hover:link-underline hover:link-hover focus:link-light link-no-underline link-default position-relative ps-600">
+                    <gcds-sr-only>X: </gcds-sr-only>@XAccount&nbsp;<gcds-icon name="external"></gcds-icon>
+                  </a>
+                </li>
+                <li class="gc-social-media-item youtube">
+                  <a href="#" class="py-100 pe-100 youtube hover:link-underline hover:link-hover focus:link-light link-no-underline link-default position-relative ps-600">
+                    <gcds-sr-only>YouTube: </gcds-sr-only>YouTubeName&nbsp;<gcds-icon name="external"></gcds-icon>
+                  </a>
+                </li>
+                <li class="gc-social-media-item instagram">
+                  <a href="#" class="py-100 pe-100 instagram hover:link-underline hover:link-hover focus:link-light link-no-underline link-default position-relative ps-600">
+                    <gcds-sr-only>Instagram: </gcds-sr-only>InstagramName&nbsp; <gcds-icon name="external"></gcds-icon>
+                  </a>
+                </li>
+                <li class="gc-social-media-item linkedin">
+                  <a href="#" class="py-100 pe-100 linkedin hover:link-underline hover:link-hover focus:link-light link-no-underline link-default position-relative ps-600">
+                    <gcds-sr-only>LinkedIn: </gcds-sr-only>LinkedInName&nbsp;<gcds-icon name="external"></gcds-icon>
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </gcds-grid>
+
+        <gcds-grid columns="2" columns-tablet="1" columns-desktop="auto 1fr" class="mt-400 mb-400">
+          <!-- JM: another use case for responsive typography being impacted by prefixes, if I use font-size-text for the h2 it gets too small in mobile, but is perfect for desktop -->
+          <div class="lg:d-flex lg:align-items-start">
+            <h2 class="font-size-text mt-0 xs:mb-100 lg:mb-0 lg:me-100">From:</h2>
+            <ul class="gc-vertical-bar font-size-text-small font-bold line-text-small mt-0 d-grid gap-y-100 xs:list-disc lg:list-none lg:flex-wrap lg:d-flex lg:ms-0">
+              <li class="font-family-heading"><a class="hover:link-hover link-default" href="#">Department or agency 1</a></li>
+              <li class="font-family-heading"><a class="hover:link-hover link-default" href="#">Department or agency 2</a></li>
+              <li class="font-family-heading"><a class="hover:link-hover link-default" href="#">Department or agency 3</a></li>
+              <li class="font-family-heading"><a class="hover:link-hover link-default" href="#">Department or agency 4</a></li>
+              <li class="font-family-heading"><a class="hover:link-hover link-default" href="#">Department or agency 5</a></li>
+              <li class="font-family-heading"><a class="hover:link-hover link-default" href="#">Department or agency 6</a></li>
+            </ul>
+          </div>
+        </gcds-grid>
+      </gcds-container> 
+    </main>
+    <!-- Date modified component -->
+    <gcds-container size="xl" tag="section" main-container centered>
+      <gcds-date-modified>2025-10-22</gcds-date-modified>
+    </gcds-container>
+    <gcds-footer display="full" contextual-heading="GC Design System Examples" contextual-links='{"GitHub":"https://github.com/gc-proto/gcds-examples"}'></gcds-footer>
+  </body>
+</html>
