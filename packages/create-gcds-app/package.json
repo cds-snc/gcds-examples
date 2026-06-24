@@ -21,12 +21,15 @@
   },
   "dependencies": {
     "@clack/prompts": "^0.7.0",
-    "giget": "^1.2.3",
+    "giget": "^3.3.0",
     "picocolors": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^24.6.0",
     "tsup": "^8.0.0",
     "typescript": "~5.9.3"
+  },
+  "overrides": {
+    "esbuild": "^0.28.1"
   }
 }
