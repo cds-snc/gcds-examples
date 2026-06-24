@@ -1,0 +1,32 @@
+{
+  "name": "create-gcds-app",
+  "version": "0.1.0",
+  "description": "Create a new project from official GC Design System starter templates.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "create-gcds-app": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "tsup src/index.ts --format esm --watch",
+    "build": "tsup src/index.ts --format esm --clean",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "giget": "^1.2.3",
+    "picocolors": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.0",
+    "tsup": "^8.0.0",
+    "typescript": "~5.9.3"
+  }
+}
