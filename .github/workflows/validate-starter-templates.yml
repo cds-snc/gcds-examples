@@ -27,8 +27,9 @@ jobs:
       # packages/create-gcds-app/src/templates.ts.
       matrix:
         template:
-          - { name: react, path: starter-apps/react/react-template }
           - { name: vue, path: starter-apps/vue/vue-template }
+          # Add when the React starter lands on main:
+          # - { name: react, path: starter-apps/react/react-template }
     name: build (${{ matrix.template.name }})
     steps:
       - name: Checkout
