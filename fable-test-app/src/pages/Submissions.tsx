@@ -81,7 +81,7 @@ const submissionCell = (value: string) => {
 
 const dateCell = (value: string) => {
   return (
-    <time title={`${value}`}>
+    <time>
       {new Date(value).toLocaleString("en-CA", {
         year: "numeric",
         month: "short",
