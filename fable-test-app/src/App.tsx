@@ -21,6 +21,7 @@ import {
   NotFound,
   OptionalHolidays,
   SubmitHoliday,
+  Submissions,
   Table,
   TableSimple,
   TableTanStackScroll,
@@ -48,6 +49,7 @@ const App: React.FC = () => {
             />
             <Route path="/optional-holidays" element={<OptionalHolidays />} />
             <Route path="/submit-a-holiday" element={<SubmitHoliday />} />
+            <Route path="/submissions" element={<Submissions />} />
             <Route path="/table" element={<Table />} />
             <Route path="/table/simple" element={<TableSimple />} />
             <Route path="/table-gridjs" element={<TableGridJS />} />
