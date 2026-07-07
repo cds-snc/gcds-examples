@@ -1,6 +1,6 @@
 {
   "name": "create-gcds-app",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Create a new project from official GC Design System starter templates.",
   "type": "module",
   "license": "MIT",
