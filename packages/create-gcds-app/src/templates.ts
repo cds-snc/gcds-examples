@@ -28,16 +28,15 @@ export const DEFAULT_REF = "main";
 
 export const TEMPLATES: Template[] = [
   {
+    id: "react",
+    label: "React (TypeScript)",
+    repoPath: "starter-apps/react/react-template",
+  },
+  {
     id: "vue",
     label: "Vue 3",
     repoPath: "starter-apps/vue/vue-template",
   },
-  // Coming soon — React starter app:
-  // {
-  //   id: "react",
-  //   label: "React (TypeScript)",
-  //   repoPath: "starter-apps/react/react-template",
-  // },
   // Coming soon — uncomment once the starter app lands in the repo:
   // { id: "html",    label: "HTML",    repoPath: "starter-apps/html/html-template" },
   // { id: "angular", label: "Angular", repoPath: "starter-apps/angular/angular-template" },
