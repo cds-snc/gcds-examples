@@ -2,8 +2,6 @@
 
 Create a new project from [GC Design System](https://design-system.canada.ca/) starter templates.
 
-> **Note:** This tool is currently in testing and not yet officially supported. It is available in English only. French documentation is coming soon.
-
 ## Usage
 
 ```sh
