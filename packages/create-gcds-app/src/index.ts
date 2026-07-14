@@ -65,6 +65,14 @@ async function main(): Promise<void> {
     return;
   }
 
+  // Fail fast on stray positionals (e.g. an unquoted "My App" the shell split
+  // into two args) rather than silently scaffolding into just the first one.
+  if (positionals.length > 1) {
+    cancel(
+      "Too many arguments — expected at most one directory. Quote names with spaces, or run with --help.",
+    );
+  }
+
   const skipInstall = values["no-install"];
   const skipGit = values["no-git"];
 

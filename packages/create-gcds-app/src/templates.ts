@@ -1,9 +1,9 @@
 /**
  * The single source of truth for which starter apps the CLI can scaffold.
  *
- * Adding a new framework (e.g. HTML or Angular) is a one-line change here:
- * the interactive prompt, the giget fetch spec, and the CI validation matrix
- * all derive from this array. No other code needs to change.
+ * The interactive prompt and the giget fetch spec derive from this array.
+ * When adding a framework, also update the hard-coded CI matrix in
+ * `.github/workflows/validate-starter-templates.yml` to keep it in sync.
  */
 export interface Template {
   /** Stable id, also accepted via `--template <id>`. */

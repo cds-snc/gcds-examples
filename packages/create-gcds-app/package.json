@@ -14,8 +14,8 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "tsup src/index.ts --format esm --watch",
-    "build": "tsup src/index.ts --format esm --clean",
+    "dev": "tsup --watch",
+    "build": "tsup",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build"
   },
