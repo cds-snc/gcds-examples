@@ -14,7 +14,7 @@ node dist/index.js /tmp/test-app --template vue --no-install
 
 ## Adding a framework
 
-Templates are declared in [`src/templates.ts`](src/templates.ts). Adding HTML, Angular, or anything else is a single entry in the `TEMPLATES` array — the prompt, fetch spec, and CI validation matrix all derive from it.
+Templates are declared in [`src/templates.ts`](src/templates.ts). The prompt and giget fetch spec derive from the `TEMPLATES` array, so adding HTML, Angular, or anything else is a single entry there — but also update the hard-coded CI matrix in [`.github/workflows/validate-starter-templates.yml`](../../.github/workflows/validate-starter-templates.yml) to keep it in sync.
 
 ## Publishing
 
