@@ -3,7 +3,6 @@
 
 ## Demo apps
 - [Vue3](/demo-apps/vue3)
-- React (coming soon)
 - [Angular](/demo-apps/angular)
 - [React (Fable test app)](/fable-test-app)
 
@@ -12,3 +11,4 @@
 
 ## Starter apps
 - [Vue3](/starter-apps/vue/vue-template)
+- [React](/starter-apps/react/react-template)

@@ -13,9 +13,3 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-#app {
-  max-width: var(--gcds-container-size-xl);
-  margin: 0 auto;
-  padding: var(--gcds-spacing-450);
-}
