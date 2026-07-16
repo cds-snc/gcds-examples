@@ -90,6 +90,11 @@ async function main(): Promise<void> {
 
   // --- 1. Target directory -------------------------------------------------
   const dirArg = positionals[0];
+  // The prompt's own validate() only runs when no CLI arg is given — apply the
+  // same check here so a positional argument can't skip it.
+  if (dirArg && dirArg.includes("..")) {
+    cancel("Path cannot traverse upward.");
+  }
   const dirInput =
     dirArg ??
     (await p.text({
