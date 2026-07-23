@@ -1,4 +1,4 @@
-[La version française suit.](#create-gcds-app-2)
+[La version française suit.](#create-gcds-app-1)
 
 # create-gcds-app
 
@@ -24,6 +24,8 @@ After download, the CLI patches the new project's `package.json` `name` and the 
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for local development, adding a framework, and publishing.
+
+--------
 
 # create-gcds-app
 
