@@ -10,7 +10,7 @@ npm run dev
 npm run build
 npm run typecheck
 
-# Try it locally against a real fetch:
+# Faites-en l’essai localement avec une extraction réelle:
 node dist/index.js /tmp/test-app --template vue --no-install
 ```
 
@@ -22,7 +22,7 @@ Templates are declared in [`src/templates.ts`](src/templates.ts). The prompt and
 
 ```sh
 npm version <patch|minor|major>
-npm publish        # prepublishOnly runs the build
+npm publish        # prepublishOnly exécute la version
 ```
 
 Because templates are fetched at runtime, you only need to republish when the **CLI's own behaviour** changes, not when a starter app changes.
