@@ -10,6 +10,7 @@ Each folder in this directory is a complete starter app for a specific framework
 
 - `vue/` - Starter app built with Vue 3 + Vite
 - `react/` - Starter app built with React + TypeScript + Vite
+- `html/` - Starter app built with HTML + JavaScript + Vite
 - `angular/` - *(coming soon)*
 
 Each starter includes:

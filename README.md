@@ -12,3 +12,4 @@
 ## Starter apps
 - [Vue3](/starter-apps/vue/vue-template)
 - [React](/starter-apps/react/react-template)
+- [HTML](/starter-apps/html/html-template)

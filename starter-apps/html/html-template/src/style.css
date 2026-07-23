@@ -1,0 +1,17 @@
+@import '@gcds-core/components/dist/gcds/gcds.css';
+@import '@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.css';
+
+/* Keep page rendering invisible until the web components are registered. */
+html:not(.hydrated) body {
+  opacity: 0;
+}
+
+.confirmation-list {
+  display: grid;
+  gap: 1rem;
+  margin-block: 1rem 2rem;
+}
+
+.confirmation-list p {
+  margin: 0;
+}
