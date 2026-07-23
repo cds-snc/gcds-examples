@@ -1,4 +1,4 @@
-[La version française suit.](#contribuer-à-create-gcds-app)
+[La version française suit.](#contribuer-à-create-gcds-app-2)
 
 # create-gcds-app
 
@@ -25,7 +25,7 @@ After download, the CLI patches the new project's `package.json` `name` and the 
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for local development, adding a framework, and publishing.
 
-# Contribuer à create-gcds-app
+# create-gcds-app
 
 Créez un nouveau projet à partir des modèles de démarrage [Système de design GC](https://design-system.canada.ca/).
 
