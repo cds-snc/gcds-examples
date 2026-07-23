@@ -1,0 +1,48 @@
+name: Validate starter templates
+
+# Safety net for create-gcds-app: the CLI always pulls templates from the tip of
+# `main`, so a broken commit in starter-apps/ would break scaffolding for every
+# user instantly. This job builds each starter app from a clean install on every
+# PR that touches them, and on pushes to main, so `main` stays scaffold-ready.
+
+on:
+  pull_request:
+    paths:
+      - "starter-apps/**"
+      - ".github/workflows/validate-starter-templates.yml"
+  push:
+    branches: [main]
+    paths:
+      - "starter-apps/**"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      # Keep this matrix in sync with TEMPLATES in
+      # packages/create-gcds-app/src/templates.ts.
+      matrix:
+        template:
+          - { name: react, path: starter-apps/react/react-template }
+          - { name: vue, path: starter-apps/vue/vue-template }
+    name: build (${{ matrix.template.name }})
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+
+      - name: Install (clean)
+        working-directory: ${{ matrix.template.path }}
+        run: npm ci
+
+      - name: Build
+        working-directory: ${{ matrix.template.path }}
+        run: npm run build
