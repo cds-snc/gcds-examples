@@ -27,6 +27,8 @@ npm publish        # prepublishOnly runs the build
 
 Because templates are fetched at runtime, you only need to republish when the **CLI's own behaviour** changes, not when a starter app changes.
 
+--------
+
 # Contribuer à create-gcds-app
 
 ## Développement
