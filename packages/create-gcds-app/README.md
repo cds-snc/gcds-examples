@@ -1,4 +1,4 @@
-[La version française suit.](#contribuer-à-create-gcds-app-2)
+[La version française suit.](#create-gcds-app-2)
 
 # create-gcds-app
 
