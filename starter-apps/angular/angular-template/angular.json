@@ -76,7 +76,11 @@
             "format": "xlf2",
             "outputPath": "src/locale",
             "sourceFile": "messages.g.xlf",
-            "targetFiles": ["messages.fr.xlf"]
+            "targetFiles": [
+              "messages.fr.xlf"
+            ],
+            "prettyNestedTags": true,
+            "sort": "stableAppendNew"
           }
         },
         "test": {
