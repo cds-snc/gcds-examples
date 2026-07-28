@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "i18n": "ng extract-i18n --format xlf2 --out-file messages.g.xlf --output-path src/locale",
+    "i18n": "ng extract-i18n --format xlf2 --source-file messages.g.xlf --output-path src/locale",
     "i18n:test": "npx http-server -p 8080 -c-1 dist/angular-template/browser",
     "e2e": "ng e2e"
   },

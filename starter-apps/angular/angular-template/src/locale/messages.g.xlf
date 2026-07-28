@@ -278,18 +278,18 @@
     </unit>
     <unit id="3415000254154575887">
       <notes>
-        <note category="description">Report a Bug Form Start Issue Github</note>
+        <note category="description">Report a Bug Form Start Issue GitHub</note>
       </notes>
       <segment>
         <source>Start an issue on GitHub</source>
       </segment>
     </unit>
-    <unit id="5627097823503804914">
+    <unit id="7319230104650866833">
       <notes>
         <note category="description">Report a Bug Form Open Issue Github</note>
       </notes>
       <segment>
-        <source> Open issue on Github </source>
+        <source> Open issue on GitHub </source>
       </segment>
     </unit>
   </file>

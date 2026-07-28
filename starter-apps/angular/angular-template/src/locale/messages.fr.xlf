@@ -43,7 +43,7 @@
       </notes>
       <segment>
         <source> This Angular starter template integrates Design System components, providing a solid foundation for building modern, responsive web applications. It streamlines development by offering pre-built, customizable UI elements that ensure design consistency and flexibility. Perfect for both small-scale projects and large applications, this template helps you focus on delivering a polished user experience with minimal setup. </source>
-        <target>Ce modèle de démarrage Angular intègre composants du Système de design GC, offrant une base solide pour la création d'applications Web modernes et réactives. Il rationalise le développement en proposant des éléments d'interface utilisateur prédéfinis et personnalisables qui garantissent la cohérence et la flexibilité de la conception. Parfait pour les projets à petite échelle comme pour les applications de grande envergure, ce modèle vous aide à vous concentrer sur la fourniture d'une expérience utilisateur soignée avec une configuration minimale. </target>
+        <target>Ce modèle de démarrage Angular intègre composants du Système de design GC, offrant une base solide pour la création d&apos;applications Web modernes et réactives. Il rationalise le développement en proposant des éléments d&apos;interface utilisateur prédéfinis et personnalisables qui garantissent la cohérence et la flexibilité de la conception. Parfait pour les projets à petite échelle comme pour les applications de grande envergure, ce modèle vous aide à vous concentrer sur la fourniture d&apos;une expérience utilisateur soignée avec une configuration minimale. </target>
       </segment>
     </unit>
     <unit id="1007173588668114291">
@@ -52,7 +52,7 @@
       </notes>
       <segment>
         <source> This is a sample topic page within a parent About page. Here, you can see how the breadcrumb navigation behaves within the site structure. The breadcrumbs provide a visual guide for the current location on the site, allowing for seamless navigation between sections. </source>
-        <target>Il s'agit d'un exemple de page de rubrique au sein d'une page À propos parente. Ici, vous pouvez voir comment la navigation par fil d'Ariane se comporte au sein de la structure du site. Le fil d'Ariane fournit un guide visuel pour l'emplacement actuel sur le site, permettant une navigation transparente entre les sections. </target>
+        <target>Il s&apos;agit d&apos;un exemple de page de rubrique au sein d&apos;une page À propos parente. Ici, vous pouvez voir comment la navigation par fil d&apos;Ariane se comporte au sein de la structure du site. Le fil d&apos;Ariane fournit un guide visuel pour l&apos;emplacement actuel sur le site, permettant une navigation transparente entre les sections. </target>
       </segment>
     </unit>
     <unit id="page.home.welcome">
@@ -61,7 +61,7 @@
       </notes>
       <segment>
         <source> Welcome to the Angular Starter App that leverages GC Design System components! </source>
-        <target> Bienvenue dans l'application Angular Starter qui exploite les composants du système de conception GC ! </target>
+        <target> Bienvenue dans l&apos;application Angular Starter qui exploite les composants du système de conception GC ! </target>
       </segment>
     </unit>
     <unit id="7600330836722778442">
@@ -70,7 +70,7 @@
       </notes>
       <segment>
         <source> This starter app template is designed to help developers quickly set up a modern Angular application while adhering to the accessibility and design standards set by the Government of Canada. </source>
-        <target>Ce modèle d'application de démarrage est conçu pour aider les développeurs à configurer rapidement une application Angular moderne tout en adhérant aux normes d'accessibilité et de conception définies par le gouvernement du Canada. </target>
+        <target>Ce modèle d&apos;application de démarrage est conçu pour aider les développeurs à configurer rapidement une application Angular moderne tout en adhérant aux normes d&apos;accessibilité et de conception définies par le gouvernement du Canada. </target>
       </segment>
     </unit>
     <unit id="2533510957832530280">
@@ -78,7 +78,7 @@
         <note category="description">Home Page Content of Template</note>
       </notes>
       <segment>
-        <source> You'll find all the necessary setup, including Angular Routing, ESLint for linting, Jasmine for unit testing, @angular/localize for localization and a selection of GCDS components to get you started on your project. </source>
+        <source> You&apos;ll find all the necessary setup, including Angular Routing, ESLint for linting, Jasmine for unit testing, @angular/localize for localization and a selection of GCDS components to get you started on your project. </source>
         <target>Vous trouverez tous les outils nécessaires, incluant Angular Routing, ESLint pour le linting, Jasmine pour les tests unitaires, @angular/localize pour la localisation et une sélection de composants GCDS pour vous aider à démarrer votre projet. </target>
       </segment>
     </unit>
@@ -309,19 +309,19 @@
     </unit>
     <unit id="3415000254154575887">
       <notes>
-        <note category="description">Report a Bug Form Start Issue Github</note>
+        <note category="description">Report a Bug Form Start Issue GitHub</note>
       </notes>
       <segment>
         <source>Start an issue on GitHub</source>
         <target>Créer un ticket sur GitHub</target>
       </segment>
     </unit>
-    <unit id="5627097823503804914">
+    <unit id="7319230104650866833">
       <notes>
         <note category="description">Report a Bug Form Open Issue Github</note>
       </notes>
-      <segment>
-        <source> Open issue on Github </source>
+      <segment state="initial">
+        <source> Open issue on GitHub </source>
         <target>Ouvrir un ticket sur GitHub</target>
       </segment>
     </unit>
