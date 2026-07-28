@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { GcdsBreadcrumbs, GcdsBreadcrumbsItem } from '@cdssnc/gcds-components-angular';
+import { GcdsBreadcrumbs, GcdsBreadcrumbsItem } from '@gcds-core/components-angular';
 import { Breadcrumb, BreadcrumbService } from '../../breadcrumb.service';
 import { Header } from './header';
 
