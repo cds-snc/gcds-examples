@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topic - GCDS HTML Starter</title>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <gcds-header lang-href="/fr/a-propos/sujet" skip-to-href="#main-content">
+      <gcds-search slot="search"></gcds-search>
+
+      <gcds-top-nav alignment="end" label="Top navigation" slot="menu">
+        <gcds-nav-link href="/en/" slot="home">HTML Starter</gcds-nav-link>
+        <gcds-nav-link href="/en/about" current>About</gcds-nav-link>
+        <gcds-nav-link href="/en/report-a-bug">Report a Bug</gcds-nav-link>
+      </gcds-top-nav>
+
+      <gcds-breadcrumbs slot="breadcrumb">
+        <gcds-breadcrumbs-item href="/en/">Home</gcds-breadcrumbs-item>
+        <gcds-breadcrumbs-item href="/en/about">About</gcds-breadcrumbs-item>
+      </gcds-breadcrumbs>
+    </gcds-header>
+
+    <gcds-container id="main-content" layout="page" tag="main">
+      <section>
+        <gcds-heading tag="h1">Topic</gcds-heading>
+        <gcds-text>
+          This is a sample topic page inside a parent About page. It demonstrates breadcrumb
+          behavior across nested pages.
+        </gcds-text>
+      </section>
+
+      <gcds-date-modified>2024-09-10</gcds-date-modified>
+    </gcds-container>
+
+    <gcds-footer display="full"></gcds-footer>
+  </body>
+</html>

@@ -1,14 +1,15 @@
-# HTML Starter App with GCDS Components
+# HTML Starter with GCDS Components
 
-This starter app helps you bootstrap a framework-free HTML + JavaScript project using GC Design System Web Components from [`@gcds-core/components`](https://www.npmjs.com/package/@gcds-core/components).
+This starter helps you bootstrap a vanilla HTML site using GC Design System Web Components from [`@gcds-core/components`](https://www.npmjs.com/package/@gcds-core/components).
 
 ## What this starter includes
 
-- HTML + JavaScript + Vite
+- Static HTML pages with Vite for local development and builds
 - GC Design System Web Components
-- Localized routing (`en` / `fr`) with small route helpers
-- Shared app shell using GCDS header, top navigation, breadcrumbs, container, and footer
-- Sample pages (Home, About, About Topic, Report a Bug, Not Found)
+- English and French page examples as separate HTML files
+- GCDS header, top navigation, breadcrumbs, container, and footer
+- Sample pages (Home, About, About Topic, Report a Bug)
+- A small optional JavaScript enhancement for the report bug form
 - Unit tests with Vitest
 - End-to-end tests with Playwright
 - Accessibility smoke tests with axe-playwright
@@ -16,10 +17,14 @@ This starter app helps you bootstrap a framework-free HTML + JavaScript project 
 
 ## Route contract
 
-- `/:locale/`
-- `/:locale/about` and `/:locale/a-propos`
-- `/:locale/about/topic` and `/:locale/a-propos/sujet`
-- `/:locale/report-a-bug` and `/:locale/signaler-un-bug`
+- `/` and `/en/`
+- `/en/about`
+- `/en/about/topic`
+- `/en/report-a-bug`
+- `/fr/`
+- `/fr/a-propos`
+- `/fr/a-propos/sujet`
+- `/fr/signaler-un-bug`
 
 ## Project setup
 

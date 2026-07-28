@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sujet - Modèle HTML avec Système de design GC</title>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <gcds-header lang-href="/en/about/topic" skip-to-href="#main-content">
+      <gcds-search slot="search"></gcds-search>
+
+      <gcds-top-nav alignment="end" label="Navigation principale" slot="menu">
+        <gcds-nav-link href="/fr/" slot="home">Modèle HTML</gcds-nav-link>
+        <gcds-nav-link href="/fr/a-propos" current>À propos</gcds-nav-link>
+        <gcds-nav-link href="/fr/signaler-un-bug">Signaler un bogue</gcds-nav-link>
+      </gcds-top-nav>
+
+      <gcds-breadcrumbs slot="breadcrumb">
+        <gcds-breadcrumbs-item href="/fr/">Accueil</gcds-breadcrumbs-item>
+        <gcds-breadcrumbs-item href="/fr/a-propos">À propos</gcds-breadcrumbs-item>
+      </gcds-breadcrumbs>
+    </gcds-header>
+
+    <gcds-container id="main-content" layout="page" tag="main">
+      <section>
+        <gcds-heading tag="h1">Sujet</gcds-heading>
+        <gcds-text>
+          Voici un exemple de page Sujet à l'intérieur d'une page parent À propos. Cette page montre
+          le comportement du chemin de navigation pour des pages imbriquées.
+        </gcds-text>
+      </section>
+
+      <gcds-date-modified>2024-09-10</gcds-date-modified>
+    </gcds-container>
+
+    <gcds-footer display="full"></gcds-footer>
+  </body>
+</html>

@@ -1,7 +1,5 @@
 import { expect, test } from '@playwright/test'
 
-import { resources } from '../src/i18n/resources.js'
-
 async function clickLanguageToggle(page, expectedLangHref) {
   await expect(page.locator('gcds-header')).toHaveAttribute('lang-href', expectedLangHref)
 
@@ -13,11 +11,9 @@ async function clickLanguageToggle(page, expectedLangHref) {
 test('visits the app root url', async ({ page }) => {
   await page.goto('/')
 
-  await expect(page.locator('gcds-heading').first()).toHaveText(
-    resources.en.translation.homePage.heading
-  )
+  await expect(page.locator('gcds-heading').first()).toHaveText('Home')
   await expect(page.locator('gcds-text').first()).toHaveText(
-    resources.en.translation.homePage.paragraph
+    'Welcome to the HTML Starter that leverages GC Design System components!'
   )
 })
 
@@ -25,16 +21,12 @@ test('switches to french', async ({ page }) => {
   await page.goto('/')
   await clickLanguageToggle(page, '/fr/')
 
-  await expect(page.locator('gcds-heading').first()).toHaveText(
-    resources.fr.translation.homePage.heading
-  )
+  await expect(page.locator('gcds-heading').first()).toHaveText('Accueil')
 })
 
 test('switches to english', async ({ page }) => {
   await page.goto('/fr/')
   await clickLanguageToggle(page, '/en/')
 
-  await expect(page.locator('gcds-heading').first()).toHaveText(
-    resources.en.translation.homePage.heading
-  )
+  await expect(page.locator('gcds-heading').first()).toHaveText('Home')
 })

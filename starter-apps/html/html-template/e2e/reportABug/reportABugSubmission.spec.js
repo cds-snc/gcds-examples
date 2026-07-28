@@ -1,7 +1,5 @@
 import { expect, test } from '@playwright/test'
 
-import { resources } from '../../src/i18n/resources.js'
-
 test('submits the report bug form', async ({ page }) => {
   await page.goto('/en/report-a-bug')
 
@@ -15,10 +13,6 @@ test('submits the report bug form', async ({ page }) => {
   await page.getByLabel('Additional Information').fill('additional information')
   await page.getByRole('button', { name: 'Submit' }).click()
 
-  await expect(page.locator('gcds-heading').nth(0)).toHaveText(
-    resources.en.translation.reportABugPage.heading
-  )
-  await expect(page.locator('gcds-heading').nth(1)).toHaveText(
-    resources.en.translation.reportABugPage.form.confirmation
-  )
+  await expect(page.locator('gcds-heading').nth(0)).toHaveText('Report a Bug')
+  await expect(page.locator('gcds-heading').nth(1)).toHaveText('Confirmation')
 })

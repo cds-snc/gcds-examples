@@ -1,15 +1,11 @@
 import { expect, test } from '@playwright/test'
 
-import { resources } from '../../src/i18n/resources.js'
-
 test('visits report bug page', async ({ page }) => {
   await page.goto('/en/report-a-bug')
 
-  await expect(page.locator('gcds-heading').first()).toHaveText(
-    resources.en.translation.reportABugPage.heading
-  )
+  await expect(page.locator('gcds-heading').first()).toHaveText('Report a Bug')
   await expect(page.locator('gcds-text').first()).toHaveText(
-    resources.en.translation.reportABugPage.intro
+    'Create a report to help us improve GC Design System.'
   )
 })
 
@@ -20,7 +16,5 @@ test('switches report bug page to french', async ({ page }) => {
   await page.locator('gcds-header a[href="/fr/signaler-un-bug"]').first().click()
 
   await expect(page).toHaveURL(/\/fr\/signaler-un-bug\/?$/)
-  await expect(page.locator('gcds-heading').first()).toHaveText(
-    resources.fr.translation.reportABugPage.heading
-  )
+  await expect(page.locator('gcds-heading').first()).toHaveText('Signaler un bogue')
 })

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report a Bug - GCDS HTML Starter</title>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/report-bug.js"></script>
+  </head>
+  <body>
+    <gcds-header lang-href="/fr/signaler-un-bug" skip-to-href="#main-content">
+      <gcds-search slot="search"></gcds-search>
+
+      <gcds-top-nav alignment="end" label="Top navigation" slot="menu">
+        <gcds-nav-link href="/en/" slot="home">HTML Starter</gcds-nav-link>
+        <gcds-nav-link href="/en/about">About</gcds-nav-link>
+        <gcds-nav-link href="/en/report-a-bug" current>Report a Bug</gcds-nav-link>
+      </gcds-top-nav>
+
+      <gcds-breadcrumbs slot="breadcrumb">
+        <gcds-breadcrumbs-item href="/en/">Home</gcds-breadcrumbs-item>
+      </gcds-breadcrumbs>
+    </gcds-header>
+
+    <gcds-container id="main-content" layout="page" tag="main">
+      <section>
+        <gcds-heading tag="h1">Report a Bug</gcds-heading>
+        <gcds-text>Create a report to help us improve GC Design System.</gcds-text>
+      </section>
+
+      <form data-report-bug-form name="bugReportForm" novalidate>
+        <gcds-error-summary listen></gcds-error-summary>
+
+        <gcds-input
+          hint="e.g. @gcds-core/components@1.x.x"
+          input-id="version"
+          label="GC Design System Components Package and Version"
+          name="version"
+          required
+          type="text"
+          validate-on="submit"
+        ></gcds-input>
+        <gcds-input
+          hint="Choose a title for your bug report"
+          input-id="title"
+          label="Title"
+          name="title"
+          placeholder="bug: "
+          required
+          type="text"
+          validate-on="submit"
+        ></gcds-input>
+        <gcds-textarea
+          hint="Describe the current behavior"
+          label="Current Behavior"
+          name="currentBehavior"
+          textarea-id="currentBehavior"
+          validate-on="submit"
+        ></gcds-textarea>
+        <gcds-textarea
+          hint="Describe the expected behavior"
+          label="Expected Behavior"
+          name="expectedBehavior"
+          required
+          textarea-id="expectedBehavior"
+          validate-on="submit"
+        ></gcds-textarea>
+        <gcds-textarea
+          hint="Provide information about your system"
+          label="System Info"
+          name="systemInfo"
+          required
+          textarea-id="systemInfo"
+          validate-on="submit"
+        ></gcds-textarea>
+        <gcds-textarea
+          hint="List the steps to reproduce"
+          label="Steps to Reproduce"
+          name="stepsToReproduce"
+          required
+          textarea-id="stepsToReproduce"
+          validate-on="submit"
+        ></gcds-textarea>
+        <gcds-input
+          hint="Provide a URL to the code reproduction"
+          input-id="codeReproductionUrl"
+          label="Code Reproduction URL"
+          name="codeReproductionUrl"
+          required
+          type="url"
+          validate-on="submit"
+        ></gcds-input>
+        <gcds-textarea
+          hint="Provide any additional information"
+          label="Additional Information"
+          name="additionalInfo"
+          textarea-id="additionalInfo"
+          validate-on="submit"
+        ></gcds-textarea>
+
+        <gcds-button type="submit">Submit</gcds-button>
+      </form>
+
+      <section data-report-bug-confirmation hidden>
+        <gcds-heading tag="h2">Confirmation</gcds-heading>
+        <div class="confirmation-list" data-report-bug-summary></div>
+
+        <section>
+          <gcds-heading tag="h2">Start an issue on GitHub</gcds-heading>
+          <gcds-button data-report-bug-issue-link href="#" target="_blank" type="link">
+            Open issue on Github
+          </gcds-button>
+        </section>
+      </section>
+
+      <gcds-date-modified>2024-09-10</gcds-date-modified>
+    </gcds-container>
+
+    <gcds-footer display="full"></gcds-footer>
+  </body>
+</html>

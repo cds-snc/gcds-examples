@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accueil - Modèle HTML avec Système de design GC</title>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <gcds-header lang-href="/en/" skip-to-href="#main-content">
+      <gcds-search slot="search"></gcds-search>
+
+      <gcds-top-nav alignment="end" label="Navigation principale" slot="menu">
+        <gcds-nav-link href="/fr/" slot="home" current>Modèle HTML</gcds-nav-link>
+        <gcds-nav-link href="/fr/a-propos">À propos</gcds-nav-link>
+        <gcds-nav-link href="/fr/signaler-un-bug">Signaler un bogue</gcds-nav-link>
+      </gcds-top-nav>
+
+      <gcds-breadcrumbs slot="breadcrumb"></gcds-breadcrumbs>
+    </gcds-header>
+
+    <gcds-container id="main-content" layout="page" tag="main">
+      <section>
+        <gcds-heading tag="h1">Accueil</gcds-heading>
+        <gcds-text>
+          Bienvenue dans le modèle de démarrage HTML qui utilise les composants de Système de design
+          GC!
+        </gcds-text>
+        <gcds-text>
+          Ce modèle de démarrage est conçu pour aider les développeurs et développeuses à configurer
+          rapidement un site HTML moderne tout en respectant les normes d'accessibilité et de
+          conception du gouvernement du Canada.
+        </gcds-text>
+        <gcds-text>
+          Vous y trouverez des pages HTML simples, Vite pour le développement local et les builds,
+          Playwright pour les tests de bout en bout, ainsi qu'une sélection de composants Web GCDS
+          pour démarrer votre projet.
+        </gcds-text>
+      </section>
+
+      <gcds-date-modified>2024-09-10</gcds-date-modified>
+    </gcds-container>
+
+    <gcds-footer display="full"></gcds-footer>
+  </body>
+</html>

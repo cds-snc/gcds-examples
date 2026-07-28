@@ -1,32 +1,33 @@
-# HTML Starter App with GCDS Components
+# HTML Starter with GCDS Components
 
-This is a starter app that you can use to bootstrap your project using HTML, JavaScript, Vite, and GCDS Components.
+This is a starter you can use to bootstrap a vanilla HTML site with Vite and GCDS Components.
 
 ## Project Structure
 
 A brief overview of the project structure:
 
 ```graphql
-html-template/                   # Project root (JavaScript)
+html-template/                   # Project root (HTML)
 ├── e2e/                         # End-to-end tests
 │   ├── reportABug/              # Report-a-bug e2e scenarios
 │   ├── a11y.spec.js             # Accessibility smoke checks
 │   ├── aboutPageBreadcrumbs.spec.js
 │   └── app.spec.js
+├── en/                          # English static HTML pages
+│   ├── about/
+│   └── report-a-bug/
+├── fr/                          # French static HTML pages
+│   ├── a-propos/
+│   └── signaler-un-bug/
 ├── public/                      # Static assets
-├── src/                         # Source files
-│   ├── i18n/                    # EN/FR translation resources
-│   │   └── resources.js
-│   ├── routing/                 # Localized route constants + helpers
-│   │   ├── constants.js
-│   │   ├── localizedRoutes.js
-│   │   └── localizedRoutes.test.js
+├── src/                         # Shared assets and optional JavaScript enhancements
 │   ├── utils/                   # Utility functions
 │   │   └── githubIssue.js
-│   ├── main.js                  # GCDS web-component app shell and pages
-│   └── style.css                # App-only CSS helpers
+│   ├── main.js                  # GCDS web-component and CSS imports
+│   ├── report-bug.js            # Report bug form enhancement
+│   └── style.css                # Site-only CSS helpers
 ├── .gitignore                   # Git ignore rules
-├── index.html                   # HTML template
+├── index.html                   # Root English HTML page
 ├── package.json                 # Project metadata and dependencies
 ├── eslint.config.js             # ESLint configuration
 ├── playwright.config.js         # Playwright configuration
@@ -36,4 +37,4 @@ html-template/                   # Project root (JavaScript)
 
 ## Future / Planned
 
-The `html-template` project is the first framework-free starter template, built in JavaScript to establish a complete base structure for GCDS Web Components starter apps. Future variants can follow the same localized routing, testing, and GCDS component patterns.
+The `html-template` project is the first framework-free starter template, built with static HTML files to establish a complete base structure for GCDS Web Components starter sites. Future variants can follow the same page, testing, and GCDS component patterns.

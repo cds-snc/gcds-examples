@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signaler un bogue - Modèle HTML avec Système de design GC</title>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/report-bug.js"></script>
+  </head>
+  <body>
+    <gcds-header lang-href="/en/report-a-bug" skip-to-href="#main-content">
+      <gcds-search slot="search"></gcds-search>
+
+      <gcds-top-nav alignment="end" label="Navigation principale" slot="menu">
+        <gcds-nav-link href="/fr/" slot="home">Modèle HTML</gcds-nav-link>
+        <gcds-nav-link href="/fr/a-propos">À propos</gcds-nav-link>
+        <gcds-nav-link href="/fr/signaler-un-bug" current>Signaler un bogue</gcds-nav-link>
+      </gcds-top-nav>
+
+      <gcds-breadcrumbs slot="breadcrumb">
+        <gcds-breadcrumbs-item href="/fr/">Accueil</gcds-breadcrumbs-item>
+      </gcds-breadcrumbs>
+    </gcds-header>
+
+    <gcds-container id="main-content" layout="page" tag="main">
+      <section>
+        <gcds-heading tag="h1">Signaler un bogue</gcds-heading>
+        <gcds-text>
+          Remplissez un rapport de bogue pour nous aider à améliorer Système de design GC.
+        </gcds-text>
+      </section>
+
+      <form data-report-bug-form name="bugReportForm" novalidate>
+        <gcds-error-summary listen></gcds-error-summary>
+
+        <gcds-input
+          hint="ex. @gcds-core/components@1.x.x"
+          input-id="version"
+          label="Paquet et version des composants de Système de design GC"
+          name="version"
+          required
+          type="text"
+          validate-on="submit"
+        ></gcds-input>
+        <gcds-input
+          hint="Choisissez un titre pour votre rapport de bogue"
+          input-id="title"
+          label="Titre"
+          name="title"
+          placeholder="bogue: "
+          required
+          type="text"
+          validate-on="submit"
+        ></gcds-input>
+        <gcds-textarea
+          hint="Décrivez le comportement actuel"
+          label="Comportement observé"
+          name="currentBehavior"
+          textarea-id="currentBehavior"
+          validate-on="submit"
+        ></gcds-textarea>
+        <gcds-textarea
+          hint="Décrivez le comportement attendu"
+          label="Comportement attendu"
+          name="expectedBehavior"
+          required
+          textarea-id="expectedBehavior"
+          validate-on="submit"
+        ></gcds-textarea>
+        <gcds-textarea
+          hint="Fournissez des informations sur votre système"
+          label="Information sur le système"
+          name="systemInfo"
+          required
+          textarea-id="systemInfo"
+          validate-on="submit"
+        ></gcds-textarea>
+        <gcds-textarea
+          hint="Listez les étapes pour reproduire le bogue"
+          label="Étapes pour reproduire le bogue"
+          name="stepsToReproduce"
+          required
+          textarea-id="stepsToReproduce"
+          validate-on="submit"
+        ></gcds-textarea>
+        <gcds-input
+          hint="Fournissez une URL où trouver la reproduction du code"
+          input-id="codeReproductionUrl"
+          label="URL de reproduction du code"
+          name="codeReproductionUrl"
+          required
+          type="url"
+          validate-on="submit"
+        ></gcds-input>
+        <gcds-textarea
+          hint="Fournissez toute autre information supplémentaire"
+          label="Informations supplémentaires"
+          name="additionalInfo"
+          textarea-id="additionalInfo"
+          validate-on="submit"
+        ></gcds-textarea>
+
+        <gcds-button type="submit">Envoyer</gcds-button>
+      </form>
+
+      <section data-report-bug-confirmation hidden>
+        <gcds-heading tag="h2">Confirmation</gcds-heading>
+        <div class="confirmation-list" data-report-bug-summary></div>
+
+        <section>
+          <gcds-heading tag="h2">Créer un ticket sur Github</gcds-heading>
+          <gcds-button data-report-bug-issue-link href="#" target="_blank" type="link">
+            Ouvrir un ticket sur Github
+          </gcds-button>
+        </section>
+      </section>
+
+      <gcds-date-modified>2024-09-10</gcds-date-modified>
+    </gcds-container>
+
+    <gcds-footer display="full"></gcds-footer>
+  </body>
+</html>
