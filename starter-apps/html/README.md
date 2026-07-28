@@ -15,9 +15,11 @@ html-template/                   # Project root (HTML)
 │   └── app.spec.js
 ├── en/                          # English static HTML pages
 │   ├── about/
+│   │   └── topic/
 │   └── report-a-bug/
 ├── fr/                          # French static HTML pages
 │   ├── a-propos/
+│   │   └── sujet/
 │   └── signaler-un-bug/
 ├── public/                      # Static assets
 ├── src/                         # Shared assets and optional JavaScript enhancements
