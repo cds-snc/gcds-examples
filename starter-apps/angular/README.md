@@ -13,17 +13,17 @@ angular-template/                                                     # Project 
 ├── src/                                                              # Source files
 │   ├── app/                                                          # Project assets
 │   │   ├── layout/                                                   # Files and components related to global layout
-│   │   │   ├── header.component.(html,scss,ts.spec.ts)               # Template, Styles, Typescript and unit test for the header component
+│   │   │   ├── header.(html,scss,ts.spec.ts)               # Template, Styles, TypeScript  and unit test for the header component
 │   │   ├── pages/                                                    # Files and components related to pages
 │   │   │   ├── about/                                                # Files and components related to about page
 │   │   │   │   ├── topic/                                            # Files and components related to topic page
-│   │   │   │   │   ├── topic.component.(html,scss,ts.spec.ts)        # Template, Styles, Typescript and unit test for the topic page
-│   │   │   │   ├── about.component.(html,scss,ts.spec.ts)            # Template, Styles, Typescript and unit test for the about page
+│   │   │   │   │   ├── topic.(html,scss,ts.spec.ts)        # Template, Styles, TypeScript  and unit test for the topic page
+│   │   │   │   ├── about.(html,scss,ts.spec.ts)            # Template, Styles, TypeScript  and unit test for the about page
 │   │   │   ├── home/                                                 # Files and components related to home page
-│   │   │   │   ├── home.component.(html,scss,ts.spec.ts)             # Template, Styles, Typescript and unit test for the home page
+│   │   │   │   ├── home.(html,scss,ts.spec.ts)             # Template, Styles, TypeScript  and unit test for the home page
 │   │   │   ├── report-a-bug/                                         # Files and components related to report a bug page
-│   │   │   │   ├── report-a-bug.component.(html,scss,ts.spec.ts)     # Template, Styles, Typescript and unit test for the report a bug page
-│   │   ├── app.component.(html,scss,ts.spec.ts)                      # Template, Styles, Typescript and unit test for app component
+│   │   │   │   ├── report-a-bug.(html,scss,ts.spec.ts)     # Template, Styles, TypeScript  and unit test for the report a bug page
+│   │   ├── app.(html,scss,ts.spec.ts)                      # Template, Styles, TypeScript  and unit test for app component
 │   │   ├── app.config.ts                                             # App initialization config
 │   │   ├── app.routes.ts                                             # App routes config
 │   │   ├── breadcrumb.service.(ts,spec.ts)                           # Exemple breadcrumb service integrated with Angular Router
@@ -37,12 +37,12 @@ angular-template/                                                     # Project 
 ├── .gitignore                                                        # Git ignore rules
 ├── .prettierrc                                                       # Prettier configuration
 ├── angular.json                                                      # Angular configuration
-├── eslint.config.js                                                  # Prettier configuration
+├── eslint.config.js                                                  # ESLint  configuration
 ├── package.json                                                      # Project metadata and dependencies
 ├── package-lock.json                                                 # Project metadata and dependencies
 ├── playwright.config.js                                              # Playwright configuration
 ├── README.md                                                         # Project documentation
-├── tsconfig.json                                                     # Global typescript configuration
-├── tsconfig.app.json                                                 # App only typescript configuration
-├── tsconfig.spec.json                                                # Test only typescript configuration
+├── tsconfig.json                                                     # Global TypeScript  configuration
+├── tsconfig.app.json                                                 # App only TypeScript  configuration
+├── tsconfig.spec.json                                                # Test only TypeScript  configuration
 ```

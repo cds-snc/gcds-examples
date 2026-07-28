@@ -10,7 +10,7 @@
     <unit id="common.pageTitle.about">
       <segment>
         <source>About</source>
-        <target>A Propos</target>
+        <target>À Propos</target>
       </segment>
     </unit>
     <unit id="common.pageTitle.about.topic">
@@ -79,7 +79,7 @@
       </notes>
       <segment>
         <source> You'll find all the necessary setup, including Angular Routing, ESLint for linting, Jasmine for unit testing, @angular/localize for localization and a selection of GCDS components to get you started on your project. </source>
-        <target>Vous trouverez tous les outils nécessaires, incluant Angular Routing, Esling pour le linting, Jasmine pour les tests unitaires, @angular/localize pour la localisation and une selection de composants GCDS pour vous aider a démarrer votre projet. </target>
+        <target>Vous trouverez tous les outils nécessaires, incluant Angular Routing, ESLint pour le linting, Jasmine pour les tests unitaires, @angular/localize pour la localisation et une sélection de composants GCDS pour vous aider à démarrer votre projet. </target>
       </segment>
     </unit>
     <unit id="2181422118474908300">
@@ -268,7 +268,7 @@
       </notes>
       <segment>
         <source>Expected Behavior:</source>
-        <target>Comportement observé:</target>
+        <target>Comportement attendu:</target>
       </segment>
     </unit>
     <unit id="1932450673101499330">
@@ -313,7 +313,7 @@
       </notes>
       <segment>
         <source>Start an issue on GitHub</source>
-        <target>Créer un ticket sur Github</target>
+        <target>Créer un ticket sur GitHub</target>
       </segment>
     </unit>
     <unit id="5627097823503804914">
@@ -322,7 +322,7 @@
       </notes>
       <segment>
         <source> Open issue on Github </source>
-        <target>Ouvrir un ticket sur Github</target>
+        <target>Ouvrir un ticket sur GitHub</target>
       </segment>
     </unit>
     <unit id="page.reportABug.subtitle">
