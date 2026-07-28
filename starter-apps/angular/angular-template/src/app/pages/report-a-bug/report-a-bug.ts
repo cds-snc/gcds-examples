@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
+import { GcdsComponentsModule } from '@gcds-core/components-angular';
 
 @Component({
   selector: 'app-report-a-bug',

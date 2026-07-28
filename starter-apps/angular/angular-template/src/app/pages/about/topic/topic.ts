@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
+import { GcdsComponentsModule } from '@gcds-core/components-angular';
 
 @Component({
   selector: 'app-topic',

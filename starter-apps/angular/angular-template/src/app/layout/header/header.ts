@@ -1,5 +1,5 @@
 import { Component, inject, LOCALE_ID } from '@angular/core';
-import { GcdsComponentsModule } from '@cdssnc/gcds-components-angular';
+import { GcdsComponentsModule } from '@gcds-core/components-angular';
 import { BreadcrumbService } from '../../breadcrumb.service';
 
 @Component({
