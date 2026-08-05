@@ -1,0 +1,71 @@
+<!-- TODO: Remove all comments before deploying your code to production. -->
+<!-- TODO: Most static hosts (GitHub Pages, Netlify, S3, etc.) look for a single 404.html at the root as their default error page. Because there's no server-side locale detection here, this page includes English and French. If your host supports serving a locale-specific 404 (e.g. based on the request path), you can split this into en/404.html and fr/404.html instead. -->
+<!doctype html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Page not found." />
+
+    <title>Page not found - HTML Starter App</title>
+
+    <!---------- GC Design System CSS Shortcuts ---------->
+    <!-- TODO: Replace <version-number> with the latest version number to receive corresponding updates of the GC Design System CSS Shortcuts. All notable changes will be documented in the changelog: https://github.com/cds-snc/gcds-css-shortcuts/blob/main/CHANGELOG.md -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.canada.ca/@gcds-core/css-shortcuts@<version-number>/dist/gcds-css-shortcuts.min.css"
+    />
+
+    <!---------- GC Design System Components ---------->
+    <!-- TODO: Replace <version-number> with the latest version number to receive corresponding updates of GC Design System Components. All notable changes will be documented in the changelog: https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.canada.ca/@gcds-core/components@<version-number>/dist/gcds/gcds.css"
+    />
+    <script
+      type="module"
+      src="https://cdn.design-system.canada.ca/@gcds-core/components@<version-number>/dist/gcds/gcds.esm.js"
+    ></script>
+
+    <!-- Custom styles -->
+    <!-- TODO: If needed, uncomment and link your custom CSS file here. -->
+    <!-- <link rel="stylesheet" href="path/to/custom.css" /> -->
+  </head>
+
+  <body>
+    <!---------- Header ---------->
+    <gcds-header lang-href="fr/" skip-to-href="#main-content">
+      <gcds-search slot="search"></gcds-search>
+
+      <gcds-top-nav slot="menu" alignment="end" label="Top navigation">
+        <!-- TODO: Add/remove nav links to match your site's pages. -->
+        <gcds-nav-link slot="home" href="en/">Home</gcds-nav-link>
+        <gcds-nav-link href="en/about/">About</gcds-nav-link>
+        <gcds-nav-link href="en/report-a-bug/">Report a Bug</gcds-nav-link>
+      </gcds-top-nav>
+
+      <!-- No breadcrumbs on the 404 page. -->
+    </gcds-header>
+
+    <!---------- Main content ---------->
+    <gcds-container id="main-content" layout="page" tag="main">
+      <section>
+        <gcds-heading tag="h1">
+          Page could not be found<br />Page introuvable
+        </gcds-heading>
+        <gcds-text>Check you've entered the correct web address.</gcds-text>
+        <gcds-text>
+          Assurez-vous d'avoir saisi la bonne adresse Web.
+        </gcds-text>
+      </section>
+
+      <!-- TODO: Update the date to reflect the page's most recent change. -->
+      <gcds-date-modified>2026-08-04</gcds-date-modified>
+    </gcds-container>
+
+    <!---------- Footer ---------->
+    <!-- TODO: Add contextual-heading/contextual-links attributes if your site needs a contextual footer. -->
+    <gcds-footer display="full"></gcds-footer>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!--TODO : Enlever les commentaires avant de déployer votre code en production. -->
+<!doctype html>
+<html dir="ltr" lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--TODO: Ajouter une description de la page pour améliorer le référencement naturel/SEO ainsi que les aperçus de partage. -->
+    <meta
+      name="description"
+      content="Page À propos de l'application de démarrage HTML du SDGC."
+    />
+
+    <!--TODO : Insérer un titre concis et descriptif qui résume le contenu de votre page. -->
+    <title>À propos - Application de démarrage HTML</title>
+
+    <!---------- Système de design GC Raccourcis CSS ---------->
+    <!-- TODO : Remplacez <version-number> par le numéro de version le plus récent pour recevoir les mises à jour correspondantes de Raccourcis CSS du Système de design GC. Tout changement important sera consigné dans le journal des modifications: https://github.com/cds-snc/gcds-css-shortcuts/blob/main/CHANGELOG.md -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.canada.ca/@gcds-core/css-shortcuts@<version-number>/dist/gcds-css-shortcuts.min.css"
+    />
+
+    <!---------- Système de design GC ---------->
+    <!-- TODO : Remplacez <version-number> par le numéro de version le plus récent pour recevoir les mises à jour correspondantes des composants de Système de design GC. Tout changement important sera consigné dans le journal des modifications https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.canada.ca/@gcds-core/components@<version-number>/dist/gcds/gcds.css"
+    />
+    <script
+      type="module"
+      src="https://cdn.design-system.canada.ca/@gcds-core/components@<version-number>/dist/gcds/gcds.esm.js"
+    ></script>
+
+    <!-- Styles personnalisés -->
+    <!--TODO : Au besoin, décommenter et lier votre fichier CSS personnalisé ici. -->
+    <!-- <link rel="stylesheet" href="../../assets/styles.css" /> -->
+  </head>
+
+  <body>
+    <!---------- En-tête ---------->
+    <!-- TODO: lang-href pointe vers la version française de cette page. Mettez-le à jour si vous modifiez la structure des routes. -->
+    <gcds-header lang-href="../../en/about/" skip-to-href="#main-content">
+      <gcds-search slot="search"></gcds-search>
+
+      <gcds-top-nav slot="menu" alignment="end" label="Navigation supérieure">
+        <!-- TODO: Ajoutez ou supprimez des liens de navigation pour qu’ils correspondent aux pages de votre site. -->
+        <gcds-nav-link slot="home" href="../">Accueil</gcds-nav-link>
+        <gcds-nav-link href="./" current>À propos</gcds-nav-link>
+        <gcds-nav-link href="../signaler-un-bug/"
+          >Signaler un bug</gcds-nav-link
+        >
+      </gcds-top-nav>
+
+      <gcds-breadcrumbs slot="breadcrumb">
+        <!-- TODO: Mettez à jour les liens du chemin de navigation pour qu’ils correspondent à votre site. -->
+        <gcds-breadcrumbs-item href="../">Accueil</gcds-breadcrumbs-item>
+      </gcds-breadcrumbs>
+    </gcds-header>
+
+    <!---------- Contenu principal ---------->
+    <gcds-container id="main-content" layout="page" tag="main">
+      <section>
+        <gcds-heading tag="h1">À propos</gcds-heading>
+        <gcds-text>
+          Ce modèle de démarrage React intègre les composants de Système de
+          design GC et fournit une base solide pour créer des applications Web
+          modernes, réactives et accessibles, avec une conception cohérente.
+        </gcds-text>
+
+        <gcds-link href="sujet/">Sujet</gcds-link>
+      </section>
+
+      <!-- TODO : Mettre à jour la date pour qu'elle reflète le changement le plus récent de la page. -->
+      <gcds-date-modified>04-08-2026</gcds-date-modified>
+    </gcds-container>
+
+    <!---------- Pied de page ---------->
+    <!-- TODO: Ajoutez les attributs contextual-heading et contextual-links si votre site utilise un pied de page contextuel. -->
+    <gcds-footer display="full"></gcds-footer>
+  </body>
+</html>

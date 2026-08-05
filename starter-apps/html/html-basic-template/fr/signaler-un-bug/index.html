@@ -1,0 +1,208 @@
+<!--TODO : Enlever les commentaires avant de déployer votre code en production. -->
+<!doctype html>
+<html dir="ltr" lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--TODO: Ajouter une description de la page pour améliorer le référencement naturel/SEO ainsi que les aperçus de partage. -->
+    <meta
+      name="description"
+      content="Signalez un bug du Système de design GC depuis l'application de démarrage HTML."
+    />
+
+    <!--TODO : Insérer un titre concis et descriptif qui résume le contenu de votre page. -->
+    <title>Signaler un bug - Application de démarrage HTML</title>
+
+    <!---------- Système de design GC Raccourcis CSS ---------->
+    <!-- TODO : Remplacez <version-number> par le numéro de version le plus récent pour recevoir les mises à jour correspondantes de Raccourcis CSS du Système de design GC. Tout changement important sera consigné dans le journal des modifications: https://github.com/cds-snc/gcds-css-shortcuts/blob/main/CHANGELOG.md -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.canada.ca/@gcds-core/css-shortcuts@<version-number>/dist/gcds-css-shortcuts.min.css"
+    />
+
+    <!---------- Système de design GC ---------->
+    <!-- TODO : Remplacez <version-number> par le numéro de version le plus récent pour recevoir les mises à jour correspondantes des composants de Système de design GC. Tout changement important sera consigné dans le journal des modifications https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.canada.ca/@gcds-core/components@<version-number>/dist/gcds/gcds.css"
+    />
+    <script
+      type="module"
+      src="https://cdn.design-system.canada.ca/@gcds-core/components@<version-number>/dist/gcds/gcds.esm.js"
+    ></script>
+
+    <!-- Styles personnalisés -->
+    <!--TODO : Au besoin, décommenter et lier votre fichier CSS personnalisé ici. -->
+    <!-- <link rel="stylesheet" href="../../assets/styles.css" /> -->
+  </head>
+
+  <body>
+    <!---------- En-tête ---------->
+    <!-- TODO: lang-href pointe vers la version française de cette page. Mettez-le à jour si vous modifiez la structure des routes. -->
+    <gcds-header
+      lang-href="../../en/report-a-bug/"
+      skip-to-href="#main-content"
+    >
+      <gcds-search slot="search"></gcds-search>
+
+      <gcds-top-nav slot="menu" alignment="end" label="Navigation supérieure">
+        <!-- TODO: Ajoutez ou supprimez des liens de navigation pour qu’ils correspondent aux pages de votre site. -->
+        <gcds-nav-link slot="home" href="../">Accueil</gcds-nav-link>
+        <gcds-nav-link href="../a-propos/">À propos</gcds-nav-link>
+        <gcds-nav-link href="./" current>Signaler un bug</gcds-nav-link>
+      </gcds-top-nav>
+
+      <gcds-breadcrumbs slot="breadcrumb">
+        <!-- TODO: Mettez à jour les liens du chemin de navigation pour qu’ils correspondent à votre site. -->
+        <gcds-breadcrumbs-item href="../">Accueil</gcds-breadcrumbs-item>
+      </gcds-breadcrumbs>
+    </gcds-header>
+
+    <!---------- Contenu principal ---------->
+    <gcds-container id="main-content" layout="page" tag="main">
+      <section>
+        <gcds-heading tag="h1">Signaler un bug</gcds-heading>
+        <gcds-text>
+          Remplissez un rapport de bogue pour nous aider à améliorer le Système
+          de design GC.
+        </gcds-text>
+
+        <!-- TODO: Consultez ../../report-a-bug.js pour le traitement de la soumission. -->
+        <form name="bugReportForm" novalidate>
+          <gcds-error-summary listen></gcds-error-summary>
+
+          <gcds-input
+            id="version"
+            name="version"
+            label="Paquet et version des composants de Système de design GC"
+            hint="ex. @cdssnc/gcds-components@0.x.x"
+            required
+            validate-on="submit"
+          ></gcds-input>
+
+          <gcds-input
+            id="title"
+            name="title"
+            label="Titre"
+            hint="Choisissez un titre pour votre rapport de bogue"
+            placeholder="bogue: "
+            required
+            validate-on="submit"
+          ></gcds-input>
+
+          <gcds-textarea
+            id="currentBehavior"
+            name="currentBehavior"
+            label="Comportement observé"
+            hint="Décrivez le comportement actuel"
+            validate-on="submit"
+          ></gcds-textarea>
+
+          <gcds-textarea
+            id="expectedBehavior"
+            name="expectedBehavior"
+            label="Comportement attendu"
+            hint="Décrivez le comportement attendu"
+            required
+            validate-on="submit"
+          ></gcds-textarea>
+
+          <gcds-textarea
+            id="systemInfo"
+            name="systemInfo"
+            label="Information sur le système"
+            hint="Fournir des informations sur votre système"
+            required
+            validate-on="submit"
+          ></gcds-textarea>
+
+          <gcds-textarea
+            id="stepsToReproduce"
+            name="stepsToReproduce"
+            label="Étapes pour reproduire le bogue"
+            hint="Listez les étapes pour reproduire le bogue"
+            required
+            validate-on="submit"
+          ></gcds-textarea>
+
+          <gcds-input
+            id="codeReproductionUrl"
+            name="codeReproductionUrl"
+            type="url"
+            label="URL de reproduction du code"
+            hint="Fournir une URL pour la reproduction du code"
+            required
+            validate-on="submit"
+          ></gcds-input>
+
+          <gcds-textarea
+            id="additionalInfo"
+            name="additionalInfo"
+            label="Informations supplémentaires"
+            hint="Fournir des informations supplémentaires"
+          ></gcds-textarea>
+
+          <gcds-button type="submit">Envoyer</gcds-button>
+        </form>
+      </section>
+
+      <!-- Vue de confirmation affichée par report-a-bug.js après une soumission valide. -->
+      <div id="confirmation" hidden>
+        <gcds-heading tag="h2">Confirmation</gcds-heading>
+        <gcds-text>
+          <strong>
+            Paquet et version des composants de Système de design GC:
+          </strong>
+          <span data-confirm="version"></span>
+        </gcds-text>
+        <gcds-text>
+          <strong>Titre:</strong> <span data-confirm="title"></span>
+        </gcds-text>
+        <gcds-text>
+          <strong>Comportement observé:</strong>
+          <span data-confirm="currentBehavior"></span>
+        </gcds-text>
+        <gcds-text>
+          <strong>Comportement attendu:</strong>
+          <span data-confirm="expectedBehavior"></span>
+        </gcds-text>
+        <gcds-text>
+          <strong>Information sur le système:</strong>
+          <span data-confirm="systemInfo"></span>
+        </gcds-text>
+        <gcds-text>
+          <strong>Étapes pour reproduire le bogue:</strong>
+          <span data-confirm="stepsToReproduce"></span>
+        </gcds-text>
+        <gcds-text>
+          <strong>URL de reproduction du code:</strong>
+          <span data-confirm="codeReproductionUrl"></span>
+        </gcds-text>
+        <gcds-text>
+          <strong>Informations supplémentaires:</strong>
+          <span data-confirm="additionalInfo"></span>
+        </gcds-text>
+
+        <gcds-heading tag="h2">Créer un ticket sur Github</gcds-heading>
+        <gcds-button
+          id="github-issue-link"
+          href="#"
+          type="link"
+          target="_blank"
+        >
+          Ouvrir un ticket sur Github
+        </gcds-button>
+      </div>
+
+      <!-- TODO : Mettre à jour la date pour qu'elle reflète le changement le plus récent de la page. -->
+      <gcds-date-modified>04-08-2026</gcds-date-modified>
+    </gcds-container>
+
+    <!---------- Pied de page ---------->
+    <!-- TODO: Ajoutez les attributs contextual-heading et contextual-links si votre site utilise un pied de page contextuel. -->
+    <gcds-footer display="full"></gcds-footer>
+
+    <script src="../../report-a-bug.js"></script>
+  </body>
+</html>

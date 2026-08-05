@@ -1,0 +1,80 @@
+<!-- TODO: Remove all comments before deploying your code to production. -->
+<!doctype html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- TODO: Add a description of the page for better SEO and sharing previews. -->
+    <meta
+      name="description"
+      content="Topic page of the GCDS HTML starter app, nested under About."
+    />
+
+    <title>Topic - HTML Starter App</title>
+
+    <!---------- GC Design System CSS Shortcuts ---------->
+    <!-- TODO: Replace <version-number> with the latest version number to receive corresponding updates of the GC Design System CSS Shortcuts. All notable changes will be documented in the changelog: https://github.com/cds-snc/gcds-css-shortcuts/blob/main/CHANGELOG.md -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.canada.ca/@gcds-core/css-shortcuts@<version-number>/dist/gcds-css-shortcuts.min.css"
+    />
+
+    <!---------- GC Design System Components ---------->
+    <!-- TODO: Replace <version-number> with the latest version number to receive corresponding updates of GC Design System Components. All notable changes will be documented in the changelog: https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.canada.ca/@gcds-core/components@<version-number>/dist/gcds/gcds.css"
+    />
+    <script
+      type="module"
+      src="https://cdn.design-system.canada.ca/@gcds-core/components@<version-number>/dist/gcds/gcds.esm.js"
+    ></script>
+
+    <!-- Custom styles -->
+    <!-- TODO: If needed, uncomment and link your custom CSS file here. -->
+    <!-- <link rel="stylesheet" href="../../../assets/styles.css" /> -->
+  </head>
+
+  <body>
+    <!---------- Header ---------->
+    <!-- TODO: lang-href points to the French equivalent of this page. Update it if you change the route structure. -->
+    <gcds-header
+      lang-href="../../../fr/a-propos/sujet/"
+      skip-to-href="#main-content"
+    >
+      <gcds-search slot="search"></gcds-search>
+
+      <gcds-top-nav slot="menu" alignment="end" label="Top navigation">
+        <!-- TODO: Add/remove nav links to match your site's pages. -->
+        <gcds-nav-link slot="home" href="../../">Home</gcds-nav-link>
+        <gcds-nav-link href="../">About</gcds-nav-link>
+        <gcds-nav-link href="../../report-a-bug/">Report a Bug</gcds-nav-link>
+      </gcds-top-nav>
+
+      <gcds-breadcrumbs slot="breadcrumb">
+        <!-- TODO: Adjust the breadcrumb links with the correct ones for your site. -->
+        <gcds-breadcrumbs-item href="../../">Home</gcds-breadcrumbs-item>
+        <gcds-breadcrumbs-item href="../">About</gcds-breadcrumbs-item>
+      </gcds-breadcrumbs>
+    </gcds-header>
+
+    <!---------- Main content ---------->
+    <gcds-container id="main-content" layout="page" tag="main">
+      <section>
+        <gcds-heading tag="h1">Topic</gcds-heading>
+        <gcds-text>
+          This is a sample topic page inside a parent About page. It
+          demonstrates breadcrumb behavior across nested routes.
+        </gcds-text>
+      </section>
+
+      <!-- TODO: Update the date to reflect the page's most recent change. -->
+      <gcds-date-modified>2026-08-04</gcds-date-modified>
+    </gcds-container>
+
+    <!---------- Footer ---------->
+    <!-- TODO: Add contextual-heading/contextual-links attributes if your site needs a contextual footer. -->
+    <gcds-footer display="full"></gcds-footer>
+  </body>
+</html>
