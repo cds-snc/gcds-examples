@@ -1,0 +1,203 @@
+<!-- TODO: Remove all comments before deploying your code to production. -->
+<!doctype html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- TODO: Add a description of the page for better SEO and sharing previews. -->
+    <meta
+      name="description"
+      content="Report a bug against GC Design System from the HTML starter app."
+    />
+
+    <title>Report a Bug - HTML Starter App</title>
+
+    <!---------- GC Design System CSS Shortcuts ---------->
+    <!-- TODO: Replace <version-number> with the latest version number to receive corresponding updates of the GC Design System CSS Shortcuts. All notable changes will be documented in the changelog: https://github.com/cds-snc/gcds-css-shortcuts/blob/main/CHANGELOG.md -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.canada.ca/@gcds-core/css-shortcuts@<version-number>/dist/gcds-css-shortcuts.min.css"
+    />
+
+    <!---------- GC Design System Components ---------->
+    <!-- TODO: Replace <version-number> with the latest version number to receive corresponding updates of GC Design System Components. All notable changes will be documented in the changelog: https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.canada.ca/@gcds-core/components@<version-number>/dist/gcds/gcds.css"
+    />
+    <script
+      type="module"
+      src="https://cdn.design-system.canada.ca/@gcds-core/components@<version-number>/dist/gcds/gcds.esm.js"
+    ></script>
+
+    <!-- Custom styles -->
+    <!-- TODO: If needed, uncomment and link your custom CSS file here. -->
+    <!-- <link rel="stylesheet" href="../../assets/styles.css" /> -->
+  </head>
+
+  <body>
+    <!---------- Header ---------->
+    <!-- TODO: lang-href points to the French equivalent of this page. Update it if you change the route structure. -->
+    <gcds-header
+      lang-href="../../fr/signaler-un-bug/"
+      skip-to-href="#main-content"
+    >
+      <gcds-search slot="search"></gcds-search>
+
+      <gcds-top-nav slot="menu" alignment="end" label="Top navigation">
+        <!-- TODO: Add/remove nav links to match your site's pages. -->
+        <gcds-nav-link slot="home" href="../">Home</gcds-nav-link>
+        <gcds-nav-link href="../about/">About</gcds-nav-link>
+        <gcds-nav-link href="./" current>Report a Bug</gcds-nav-link>
+      </gcds-top-nav>
+
+      <gcds-breadcrumbs slot="breadcrumb">
+        <!-- TODO: Adjust the breadcrumb links with the correct ones for your site. -->
+        <gcds-breadcrumbs-item href="../">Home</gcds-breadcrumbs-item>
+      </gcds-breadcrumbs>
+    </gcds-header>
+
+    <!---------- Main content ---------->
+    <gcds-container id="main-content" layout="page" tag="main">
+      <section>
+        <gcds-heading tag="h1">Report a Bug</gcds-heading>
+        <gcds-text>
+          Create a report to help us improve GC Design System.
+        </gcds-text>
+
+        <!-- TODO: Check ../../report-a-bug.js for the submit handling. -->
+        <form name="bugReportForm" novalidate>
+          <gcds-error-summary listen></gcds-error-summary>
+
+          <gcds-input
+            id="version"
+            name="version"
+            label="GC Design System Components Package and Version"
+            hint="e.g. @gcds-core/components@1.x.x"
+            required
+            validate-on="submit"
+          ></gcds-input>
+
+          <gcds-input
+            id="title"
+            name="title"
+            label="Title"
+            hint="Choose a title for your bug report"
+            placeholder="bug: "
+            required
+            validate-on="submit"
+          ></gcds-input>
+
+          <gcds-textarea
+            id="currentBehavior"
+            name="currentBehavior"
+            label="Current Behavior"
+            hint="Describe the current behavior"
+            validate-on="submit"
+          ></gcds-textarea>
+
+          <gcds-textarea
+            id="expectedBehavior"
+            name="expectedBehavior"
+            label="Expected Behavior"
+            hint="Describe the expected behavior"
+            required
+            validate-on="submit"
+          ></gcds-textarea>
+
+          <gcds-textarea
+            id="systemInfo"
+            name="systemInfo"
+            label="System Info"
+            hint="Provide information about your system"
+            required
+            validate-on="submit"
+          ></gcds-textarea>
+
+          <gcds-textarea
+            id="stepsToReproduce"
+            name="stepsToReproduce"
+            label="Steps to Reproduce"
+            hint="List the steps to reproduce"
+            required
+            validate-on="submit"
+          ></gcds-textarea>
+
+          <gcds-input
+            id="codeReproductionUrl"
+            name="codeReproductionUrl"
+            type="url"
+            label="Code Reproduction URL"
+            hint="Provide a URL to the code reproduction"
+            required
+            validate-on="submit"
+          ></gcds-input>
+
+          <gcds-textarea
+            id="additionalInfo"
+            name="additionalInfo"
+            label="Additional Information"
+            hint="Provide any additional information"
+          ></gcds-textarea>
+
+          <gcds-button type="submit">Submit</gcds-button>
+        </form>
+      </section>
+
+      <!-- Confirmation view, shown by report-a-bug.js after a valid submit. -->
+      <section id="confirmation" hidden>
+        <gcds-heading tag="h2">Confirmation</gcds-heading>
+        <gcds-text>
+          <strong>GC Design System Components Package and Version:</strong>
+          <span data-confirm="version"></span>
+        </gcds-text>
+        <gcds-text>
+          <strong>Title:</strong> <span data-confirm="title"></span>
+        </gcds-text>
+        <gcds-text>
+          <strong>Current Behavior:</strong>
+          <span data-confirm="currentBehavior"></span>
+        </gcds-text>
+        <gcds-text>
+          <strong>Expected Behavior:</strong>
+          <span data-confirm="expectedBehavior"></span>
+        </gcds-text>
+        <gcds-text>
+          <strong>System Info:</strong> <span data-confirm="systemInfo"></span>
+        </gcds-text>
+        <gcds-text>
+          <strong>Steps to Reproduce:</strong>
+          <span data-confirm="stepsToReproduce"></span>
+        </gcds-text>
+        <gcds-text>
+          <strong>Code Reproduction URL:</strong>
+          <span data-confirm="codeReproductionUrl"></span>
+        </gcds-text>
+        <gcds-text>
+          <strong>Additional Information:</strong>
+          <span data-confirm="additionalInfo"></span>
+        </gcds-text>
+
+        <gcds-heading tag="h2">Start an issue on GitHub</gcds-heading>
+        <gcds-button
+          id="github-issue-link"
+          href="#"
+          type="link"
+          target="_blank"
+        >
+          Open issue on Github
+        </gcds-button>
+      </section>
+
+      <!-- TODO: Update the date to reflect the page's most recent change. -->
+      <gcds-date-modified>2026-08-04</gcds-date-modified>
+    </gcds-container>
+
+    <!---------- Footer ---------->
+    <!-- TODO: Add contextual-heading/contextual-links attributes if your site needs a contextual footer. -->
+    <gcds-footer display="full"></gcds-footer>
+
+    <script src="../../report-a-bug.js"></script>
+  </body>
+</html>
