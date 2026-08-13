@@ -65,7 +65,7 @@ The `vue-template` project is the default and first starter template, built in J
 
 # Application de démarrage Vue3 avec composants de Système de design GC
 
-This is a starter app that you can use to bootstrap your project using Vue3 and GCDS Components
+Cette application de démarrage HTML peut être utilisé afin d’amorcer un projet en utilisant Vue3 et les composants de Système de design GC.
 
 ## Structure du projet
 
