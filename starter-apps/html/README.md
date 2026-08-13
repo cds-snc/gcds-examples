@@ -38,7 +38,7 @@ The `html-basic-template` project is the first and default HTML starter template
 
 ---
 
-# Application de démarrage HTML avec composants GCDS
+# Application de démarrage HTML avec composants de Système de design GC
 
 Cette application de démarrage HTML peut être utilisé afin d'amorcer un site web HTML de base en utilisant les composants de Système de design GC chargés directement du CDN du système de design. Aucune autre étape à faire ou installation avec npm n'est requise.
 
@@ -72,5 +72,5 @@ html-basic-template/              # Base du projet (HTML de base/CSS/JS)
 
 ## À venir
 
-La première application de démarrage `html-basic-template` est la première application disponible et celle à utiliser par défaut. Elle utilise les languages de programmation HTML, CSS et Javascript sans avoir a utilisé d'autres outils de développement pour obtenir une structure de base avec le GCDS. De futurs variants tel que `html-ssg-template` suivront des modèles similaires utilisant un générateur de site static pour des gabarits plus avancés, tout en produisant du HTML de base.
+L'application de démarrage `html-basic-template` est la première application disponible et celle à utiliser par défaut. Elle utilise les languages de programmation HTML, CSS et Javascript sans avoir a utilisé d'autres outils de développement pour obtenir une structure de base avec le GCDS. De futurs variants tel que `html-ssg-template` suivront des modèles similaires utilisant un générateur de site static pour des gabarits plus avancés, tout en produisant du HTML de base.
 
