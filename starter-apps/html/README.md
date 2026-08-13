@@ -40,14 +40,14 @@ The `html-basic-template` project is the first and default HTML starter template
 
 # Application de démarrage HTML avec composants GCDS
 
-Cette application de démarrage HTML peut être utilisé afin d'amorcer un projet en utilisant du code HTML et les composants GCDS, chargés directement du CDN du systéme de design. Aucune autre étape à faire ou installation avec npm n'est requise.
+Cette application de démarrage HTML peut être utilisé afin d'amorcer un projet en utilisant du code HTML de base et les composants GCDS, chargés directement du CDN du systéme de design. Aucune autre étape à faire ou installation avec npm n'est requise.
 
 ## Structure du projet
 
 Voici un bref aperçu de la structure du projet:
 
 ```graphql
-html-basic-template/              # Base du projet (HTML/CSS/JS)
+html-basic-template/              # Base du projet (HTML de base/CSS/JS)
 ├── en/                           # Pages en anglais
 │   ├── about/
 │   │   ├── topic/
