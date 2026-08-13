@@ -2,7 +2,7 @@
 
 # HTML Starter App (Plain HTML) with GCDS Components
 
-This starter helps you bootstrap a plain HTML website using GC Design System components loaded directly from the [design system CDN](https://cdn.design-system.canada.ca/) — no build step, no bundler, no `npm install` required.
+This starter helps you bootstrap a plain HTML website using GC Design System components loaded directly from the design system CDN — no build step, no bundler, no `npm install` required.
 
 If you want more advanced tooling (templating, partials, a build step) while still writing plain HTML/CSS/JS, see the upcoming static-site-generator variant of this starter (not yet available).
 
@@ -52,7 +52,7 @@ This is plain static HTML. Deploy it to any static host (GitHub Pages, Netlify, 
 
 # Application de démarrage HTML (HTML de base) avec les composants de Système de design GC
 
-Cette application de démarrage HTML peut être utilisé afin d’amorcer un site web HTML de base en utilisant les composants de Système de design GC chargés directement du [CDN du système de design system](https://cdn.design-system.canada.ca/). Aucune autre étape à faire ou installation avec npm n’est requise.
+Cette application de démarrage HTML peut être utilisé afin d’amorcer un site web HTML de base en utilisant les composants de Système de design GC chargés directement du CDN du système de design system. Aucune autre étape à faire ou installation avec npm n’est requise.
 
 Si vous désirez un outil plus avancé pour des gabarits, fragments réutilisables (partials) ou étape de développement tout en utilisant du HTML de base, CSS et Javascript, restez à l’affût du prochain variant de cet application de démarrage, le static-site-generator, qui n’est pas encore disponible.
 
