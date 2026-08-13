@@ -1,3 +1,5 @@
+[La version française suit.](#Application-de-démarrage-HTML-avec-composants-GCDS)
+
 # HTML Starter App with GCDS Components
 
 This is a starter app that you can use to bootstrap your project using plain HTML and GCDS Components, loaded directly from the design system CDN. No build step, no bundler, no npm install required.
