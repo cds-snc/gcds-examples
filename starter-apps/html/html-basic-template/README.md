@@ -1,4 +1,4 @@
-[La version française suit.](#Application-de-démarrage-HTML-(HTML-de-base)-avec-les-composants-de-Système-de-design-GC)
+[La version française suit.](#application-de-démarrage-html-html-de-base-avec-les-composants-de-système-de-design-gc)
 
 # HTML Starter App (Plain HTML) with GCDS Components
 
