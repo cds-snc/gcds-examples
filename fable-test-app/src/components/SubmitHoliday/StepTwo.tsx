@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Text, Button, Input, Stepper } from "../../components";
+import React, { useEffect, useState } from "react";
+import { Text, Button, Input, Stepper, Alert } from "../../components";
 
 import { GcdsErrorSummary } from "@gcds-core/components-react";
 
@@ -14,6 +14,7 @@ interface StepTwoProps {
 
 const StepTwo: React.FC<StepTwoProps> = (props) => {
   const { formdata, handleInputChange, previousStep } = props;
+  const [alertVisible, setAlertVisible] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -70,9 +71,39 @@ const StepTwo: React.FC<StepTwoProps> = (props) => {
         Previous step
       </Button>
 
-      <Button type="submit" buttonRole="primary">
-        Next step
+      <Button
+        type="submit"
+        buttonRole="primary"
+        onGcdsClick={(ev) => {
+          ev.preventDefault();
+          setAlertVisible(alertVisible + 1);
+        }}
+      >
+        Submit
       </Button>
+      {alertVisible === 1 && (
+        <Alert
+          alertRole="danger"
+          heading="We couldn't submit your holiday"
+          hideCloseBtn={true}
+          className="mt-500"
+        >
+          <p>
+            Your internet connection dropped or timed out. Don't worry—your information hasn't been lost. Please wait a moment and try clicking Submit again.
+          </p>
+        </Alert>
+      )}
+      {alertVisible > 1 && (
+        <Alert
+          alertRole="success"
+          heading="Success: Holiday submitted"
+          className="mt-500"
+        >
+          <p>
+            We've received your holiday submission, it will be added to our list of holidays within 24 hours.
+          </p>
+        </Alert>
+      )}
     </>
   );
 };
