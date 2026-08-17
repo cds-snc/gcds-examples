@@ -12,6 +12,7 @@ import {
   Stepper,
   Checkboxes,
   Radios,
+  Alert,
 } from "../../components";
 import { provinces } from "../../utils/constants";
 
@@ -35,6 +36,7 @@ interface StepOneProps {
 const StepOne: React.FC<StepOneProps> = (props) => {
   const { formdata, handleInputChange, focusHeading } = props;
   const [announcement, setAnnouncement] = useState('');
+  const [duplicateAlert, setDuplicateAlert] = useState(false);
   const previousHolidayType = useRef(formdata.holidayType);
 
   const newHolidayOptions = [
@@ -117,8 +119,28 @@ const StepOne: React.FC<StepOneProps> = (props) => {
           className="mb-225"
           required
           value={formdata.holidayDate}
-          onInput={handleInputChange}
+          onInput={(ev) => {
+            handleInputChange(ev);
+            if (ev.target.value.includes('-12-25')) {
+              setDuplicateAlert(true);
+            }
+          }
+          }
         ></DateInput>
+
+        {duplicateAlert && (
+          <Alert
+            alertRole="warning"
+            heading="Existing holiday"
+            hideCloseBtn={false}
+            onGcdsDismiss={() => setDuplicateAlert(false)}
+            className="mb-500"
+          >
+            <p>
+              December 25 is already registered as a holiday. Submitting this will create a duplicate entry.
+            </p>
+          </Alert>
+        )}
 
         <Textarea
           label="How did you learn of this holiday?"
