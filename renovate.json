@@ -11,10 +11,17 @@
       "enabled": true
     },
     {
-      "matchPackagePatterns": ["^@cdssnc/gcds-.*", "^@gcds-core/.*"],
-      "enabled": true,
-      "updateTypes": ["major", "minor", "patch"]
-    },
+      "matchPackageNames": [
+        "@gcds-core/*"
+      ],
+      "rangeStrategy": "bump",
+      "groupName": "GCDS packages",
+      "prPriority": 1,
+      "automerge": false,
+      "prCreation": "immediate",
+      "minimumReleaseAge": "0 days",
+      "schedule": ["at any time"]
+    }
     {
       "matchUpdateTypes": ["major", "minor", "patch"],
       "enabled": false
