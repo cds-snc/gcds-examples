@@ -20,7 +20,7 @@ export class BreadcrumbService {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() =>
-        this.breadcrumbs.set(this.buildBreadcrumb(this.activatedRoute.root, []))
+        this.breadcrumbs.set(this.buildBreadcrumb(this.activatedRoute.root, []).slice(0, -1))
       );
   }
 

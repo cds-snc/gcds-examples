@@ -8,26 +8,33 @@ export const routes: Routes = [
   {
     path: '',
     title: $localize`:@@common.pageTitle.home:Home`,
-    component: Home,
-  },
-  {
-    path: 'about',
-    title: $localize`:@@common.pageTitle.about:About`,
     children: [
       {
         path: '',
-        component: About,
+        component: Home,
       },
       {
-        path: 'topic',
-        title: $localize`:@@common.pageTitle.about.topic:Topic`,
-        component: Topic,
+        path: 'about',
+        title: $localize`:@@common.pageTitle.about:About`,
+        children: [
+          {
+            path: '',
+            component: About,
+          },
+          {
+            path: 'topic',
+            title: $localize`:@@common.pageTitle.about.topic:Topic`,
+            component: Topic,
+          },
+        ],
       },
-    ],
+      {
+        path: 'report-a-bug',
+        title: $localize`:@@common.pageTitle.reportABug:Report a Bug`,
+        component: ReportABug,
+      },
+    ]
   },
-  {
-    path: 'report-a-bug',
-    title: $localize`:@@common.pageTitle.reportABug:Report a Bug`,
-    component: ReportABug,
-  },
+
+
 ];
