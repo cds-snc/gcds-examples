@@ -21,7 +21,7 @@
       "prCreation": "immediate",
       "minimumReleaseAge": "0 days",
       "schedule": ["at any time"]
-    }
+    },
     {
       "matchUpdateTypes": ["major", "minor", "patch"],
       "enabled": false
