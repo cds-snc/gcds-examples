@@ -12,6 +12,12 @@ export interface Template {
   label: string;
   /** Path to the template inside the gcds-examples repo. */
   repoPath: string;
+  /**
+   * Whether this template has its own package.json / npm tooling. Templates
+   * without one (e.g. HTML starter) skip the install prompt/step and get
+   * different "next steps" guidance.
+   */
+  hasPackageJson: boolean;
 }
 
 /** GitHub repo that holds the starter apps (owner/name). */
@@ -31,15 +37,22 @@ export const TEMPLATES: Template[] = [
     id: "react",
     label: "React (TypeScript)",
     repoPath: "starter-apps/react/react-template",
+    hasPackageJson: true,
   },
   {
     id: "vue",
     label: "Vue 3",
     repoPath: "starter-apps/vue/vue-template",
+    hasPackageJson: true,
+  },
+  {
+    id: "html",
+    label: "HTML",
+    repoPath: "starter-apps/html/html-basic-template",
+    hasPackageJson: false,
   },
   // Coming soon — uncomment once the starter app lands in the repo:
-  // { id: "html",    label: "HTML",    repoPath: "starter-apps/html/html-template" },
-  // { id: "angular", label: "Angular", repoPath: "starter-apps/angular/angular-template" },
+  // { id: "angular", label: "Angular", repoPath: "starter-apps/angular/angular-template", hasPackageJson: true },
 ];
 
 export function findTemplate(id: string): Template | undefined {

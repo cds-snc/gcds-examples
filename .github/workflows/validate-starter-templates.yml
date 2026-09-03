@@ -27,8 +27,13 @@ jobs:
       # packages/create-gcds-app/src/templates.ts.
       matrix:
         template:
-          - { name: react, path: starter-apps/react/react-template }
-          - { name: vue, path: starter-apps/vue/vue-template }
+          - { name: react, path: starter-apps/react/react-template, type: npm }
+          - { name: vue, path: starter-apps/vue/vue-template, type: npm }
+          - {
+              name: html,
+              path: starter-apps/html/html-basic-template,
+              type: static,
+            }
     name: build (${{ matrix.template.name }})
     steps:
       - name: Checkout
@@ -40,9 +45,15 @@ jobs:
           node-version: 22
 
       - name: Install (clean)
+        if: matrix.template.type == 'npm'
         working-directory: ${{ matrix.template.path }}
         run: npm ci
 
       - name: Build
+        if: matrix.template.type == 'npm'
         working-directory: ${{ matrix.template.path }}
         run: npm run build
+
+      - name: Check for broken internal links
+        if: matrix.template.type == 'static'
+        run: node .github/workflows/scripts/check-html-links.js ${{ matrix.template.path }}
