@@ -73,4 +73,3 @@ html-basic-template/              # Base du projet (HTML de base/CSS/JS)
 ## À venir
 
 L'application de démarrage `html-basic-template` est la première application disponible et celle à utiliser par défaut. Elle utilise les languages de programmation HTML, CSS et Javascript sans avoir a utilisé d'autres outils de développement pour obtenir une structure de base avec le GCDS. De futurs variants tel que `html-ssg-template` suivront des modèles similaires utilisant un générateur de site static pour des gabarits plus avancés, tout en produisant du HTML de base.
-
