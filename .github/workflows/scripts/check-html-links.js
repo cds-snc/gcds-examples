@@ -26,13 +26,25 @@ function walk(dir) {
   return results;
 }
 
+// Loops to a fixed point rather than a single pass, so a crafted/overlapping
+// comment sequence can't leave a residual `<!--` behind.
+function stripHtmlComments(input) {
+  let previous;
+  let output = input;
+  do {
+    previous = output;
+    output = output.replace(/<!--[\s\S]*?-->/g, "");
+  } while (output !== previous);
+  return output;
+}
+
 const files = walk(path.resolve(root));
 let errors = 0;
 
 for (const file of files) {
   // Strip HTML comments before scanning, so intentionally-commented-out
   // example links (e.g. an optional custom stylesheet) aren't flagged.
-  const content = fs.readFileSync(file, "utf8").replace(/<!--[\s\S]*?-->/g, "");
+  const content = stripHtmlComments(fs.readFileSync(file, "utf8"));
   const dir = path.dirname(file);
   const attrRegex = /(?:href|src)="([^"]+)"/g;
   let match;
