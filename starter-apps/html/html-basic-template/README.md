@@ -56,7 +56,6 @@ Cette application de démarrage HTML peut être utilisé afin d’amorcer un sit
 
 Si vous désirez un outil plus avancé pour des gabarits, fragments réutilisables (partials) ou étape de développement tout en utilisant du HTML de base, CSS et Javascript, restez à l’affût du prochain variant de cet application de démarrage, le static-site-generator, qui n’est pas encore disponible.
 
-
 ## Ce que cet application de démarrage inclut
 
 - Pages HTML de base qui utilisent les composants web `<gcds-*>` du CDN
