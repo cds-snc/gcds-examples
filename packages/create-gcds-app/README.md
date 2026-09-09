@@ -7,7 +7,13 @@ Create a new project from [GC Design System](https://design-system.canada.ca/) s
 ## Usage
 
 ```sh
-npx create-gcds-app@latest
+npm create @gcds-core/app@latest
+```
+
+or
+
+```sh
+npx @gcds-core/create-app@latest
 ```
 
 You'll be prompted for a directory, a framework, and whether to install dependencies and initialize git.
@@ -34,7 +40,13 @@ Créez un nouveau projet à partir des modèles de démarrage [Système de desig
 ## Usage
 
 ```sh
-npx create-gcds-app@latest
+npm create @gcds-core/app@latest
+```
+
+ou
+
+```sh
+npx @gcds-core/create-app@latest
 ```
 
 Vous serez invité à entrer un répertoire, un cadre de travail et à confirmer si vous souhaitez installer des dépendances et initialiser git.
