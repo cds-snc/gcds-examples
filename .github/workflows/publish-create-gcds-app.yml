@@ -28,5 +28,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Show npm config
+        run: npm config list
+
+      - name: Show relevant environment
+        run: env | sort | grep -E 'NPM|NODE|ACTIONS|GITHUB'
+
       - name: Publish to npm
         run: npm publish --provenance --access public
