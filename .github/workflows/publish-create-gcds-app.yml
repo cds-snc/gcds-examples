@@ -30,5 +30,23 @@ jobs:
       - name: Show npm config
         run: npm config list
 
+      # Chooses the npm dist-tag from the version in package.json.
+      #
+      #   0.1.0-alpha.0  -> alpha    (installed only via @alpha)
+      #   0.2.0-beta.1   -> beta
+      #   1.0.0          -> latest   (what bare `npx @gcds-core/create-app` gets)
+      - name: Determine dist-tag
+        id: tag
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if [[ "$VERSION" == *-* ]]; then
+            TAG="${VERSION#*-}"; TAG="${TAG%%.*}"
+          else
+            TAG="latest"
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "Publishing $VERSION to dist-tag $TAG"
+      
       - name: Publish to npm
-        run: npm publish --access public
+        run: npm publish --access public --tag "${{ steps.tag.outputs.tag }}"
