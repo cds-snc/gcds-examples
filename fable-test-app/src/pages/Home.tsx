@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 // Components (internal)
-import { DateModified, Heading, NextHoliday, Text, Button } from '../components';
+import { DateModified, Heading, NextHoliday, Text, Button, Alert } from '../components';
 import { holidayObject } from '../utils/constants';
 
 const Home: React.FC = () => {
   const currentDate = new Date().getTime();
   const [nextFederal, setNextFederal] = useState<holidayObject>();
   const [nextNationwide, setNextNationwide] = useState<holidayObject>();
+  const [loggedInAlert, setLoggedInAlert] = useState(false);
 
   useEffect(() => {
     axios.get('https://canada-holidays.ca/api/v1/holidays')
@@ -56,9 +57,27 @@ const Home: React.FC = () => {
         type="link"
         href="/submit-a-holiday"
         className="mb-500"
+        onGcdsClick={ev => {
+          ev.preventDefault();
+          if (!loggedInAlert) {
+            setLoggedInAlert(true);
+          }
+        }}
       >
         Submit your holiday
       </Button>
+
+      {loggedInAlert && (
+        <Alert
+          alertRole="info"
+          heading="Sign in to submit a holiday"
+          hideCloseBtn={false}
+          className="mb-500"
+          onGcdsDismiss={() => setLoggedInAlert(false)}
+        >
+          <p>You must be logged into your account to submit a holiday. Please sign in or create an account to continue.</p>
+        </Alert>
+      )}
 
       <NextHoliday
         display='homepage'
