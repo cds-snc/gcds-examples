@@ -1,0 +1,9 @@
+---
+import { FRAMEWORKS } from "../lib/site";
+---
+
+<div class="fw-picker mb-400">
+  <gcds-select select-id="framework-picker" name="framework" label="Select your framework" hint="We’ll remember your choice." data-framework-picker>
+    {FRAMEWORKS.map(f => <option value={f.id}>{f.label}</option>)}
+  </gcds-select>
+</div>

@@ -1,0 +1,234 @@
+---
+import Base from '../layouts/Base.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+import Demo from '../components/Demo.astro';
+import FrameworkPicker from '../components/FrameworkPicker.astro';
+import Fw from '../components/Fw.astro';
+import { DOCS, url } from '../lib/site';
+import { GCDS_VERSION } from '../lib/versions';
+
+const cdn = `https://cdn.design-system.canada.ca/@gcds-core`;
+---
+
+<Base title="Set up your project" current="setup">
+  <gcds-text>
+    These steps are the same as the
+    <gcds-link href={`${DOCS}/start-to-use/develop/`}>install instructions in the GCDS documentation</gcds-link>.
+    Once you’re done, check that it worked.
+  </gcds-text>
+
+  <FrameworkPicker />
+
+  <!-- Step wording below matches design-system.canada.ca/en/start-to-use/develop/<framework>/ -->
+
+  <!-- ---------------- HTML ---------------- -->
+  <Fw for="html">
+    <gcds-heading tag="h2">1. Install the package</gcds-heading>
+    <gcds-text>Navigate to your project’s root folder and run the following command:</gcds-text>
+    <CodeBlock lang="bash" code={`npm install @gcds-core/components`} />
+
+    <gcds-heading tag="h2">2. Include GC Design System in your project</gcds-heading>
+    <gcds-text>
+      Add the following <code>link</code> tags inside the <code>head</code> tag of your <code>HTML</code> files to load
+      GC Design System:
+    </gcds-text>
+    <CodeBlock
+      code={`<!-- GC Design System -->
+<link
+  rel="stylesheet"
+  href="/node_modules/@gcds-core/components/dist/gcds/gcds.css"
+/>
+<script
+  type="module"
+  src="/node_modules/@gcds-core/components/dist/gcds/gcds.esm.js"
+></script>`}
+    />
+
+    <gcds-details details-title="Can’t use npm? Use the CDN">
+      <gcds-text>
+        Add the following code to the <code>head</code> tag of your <code>HTML</code> files to load GC Design System.
+        Make sure the current version is listed.
+      </gcds-text>
+      <gcds-text>Current version: Version {GCDS_VERSION}.</gcds-text>
+      <CodeBlock
+        code={`<!-- GC Design System -->
+<link
+  rel="stylesheet"
+  href="${cdn}/components@${GCDS_VERSION}/dist/gcds/gcds.css"
+/>
+<script
+  type="module"
+  src="${cdn}/components@${GCDS_VERSION}/dist/gcds/gcds.esm.js"
+></script>`}
+      />
+      <gcds-text>
+        The code will remain unchanged until you manually update the version in the CDN URLs. This is ideal for
+        production environments.
+      </gcds-text>
+      <gcds-text margin-bottom="0">
+        Check for new GC Design System versions regularly to update the latest pinned version.
+      </gcds-text>
+    </gcds-details>
+
+    <gcds-notice class="mt-500" notice-role="info" notice-title="Viewing your page locally" notice-title-tag="h3">
+      <gcds-text margin-bottom="0">
+        <code>&lt;script type="module"&gt;</code> requires a server to load properly. Run a local server from your
+        project’s root folder, for example <code>npx serve .</code>, instead of opening the file directly.
+      </gcds-text>
+    </gcds-notice>
+  </Fw>
+
+  <!-- ---------------- React ---------------- -->
+  <Fw for="react">
+    <gcds-heading tag="h2">1. Install the package</gcds-heading>
+    <gcds-text>Navigate to your project’s root folder and run the following command:</gcds-text>
+    <CodeBlock lang="bash" code={`npm install @gcds-core/components @gcds-core/components-react`} />
+
+    <gcds-heading tag="h2">2. Import GC Design System</gcds-heading>
+    <gcds-text>
+      Place the following code in the <code>index.js</code> file of your app to import GC Design System styles:
+    </gcds-text>
+    <CodeBlock lang="js" code={`import '@gcds-core/components-react/gcds.css';`} />
+  </Fw>
+
+  <!-- ---------------- Vue ---------------- -->
+  <Fw for="vue">
+    <gcds-heading tag="h2">1. Install the package</gcds-heading>
+    <gcds-text>Navigate to your project’s root folder and run the following command:</gcds-text>
+    <CodeBlock lang="bash" code={`npm install @gcds-core/components-vue`} />
+
+    <gcds-heading tag="h2">2. Import GC Design System</gcds-heading>
+    <gcds-text>In your <code>main.js</code> file, import the GC Design System components plugin and use it:</gcds-text>
+    <CodeBlock
+      lang="js"
+      code={`import { GcdsComponents } from '@gcds-core/components-vue';
+
+createApp(App).use(GcdsComponents).mount('#app');`}
+    />
+
+    <gcds-heading tag="h2">3. Import GC Design System styles</gcds-heading>
+    <gcds-text>There are 2 ways to do this:</gcds-text>
+    <ul class="list-disc mb-300">
+      <li><gcds-text margin-bottom="100">Import styles to <code>main.js</code>.</gcds-text></li>
+      <li><gcds-text margin-bottom="100">Import styles to <code>App.vue</code>.</gcds-text></li>
+    </ul>
+    <gcds-text>a. Import the styles to your <code>main.js</code> file, alongside your <code>style.css</code>:</gcds-text>
+    <CodeBlock
+      lang="js"
+      code={`import '@gcds-core/components-vue/gcds.css';
+import './style.css';`}
+    />
+    <gcds-text>b. Import the styles to your <code>App.vue</code> using the HTML <code>style</code> tag:</gcds-text>
+    <CodeBlock
+      lang="vue"
+      code={`<style src="@gcds-core/components-vue/gcds.css">
+  /* global styles */
+</style>`}
+    />
+  </Fw>
+
+  <!-- ---------------- Angular ---------------- -->
+  <Fw for="angular">
+    <gcds-heading tag="h2">1. Install the package</gcds-heading>
+    <gcds-text>Navigate to your project’s root folder and run the following command:</gcds-text>
+    <CodeBlock lang="bash" code={`npm install @gcds-core/components @gcds-core/components-angular`} />
+
+    <gcds-heading tag="h2">2. Import GC Design System</gcds-heading>
+    <gcds-text>Place the following code in the <code>app.module.ts</code> file of your app:</gcds-text>
+    <CodeBlock
+      lang="ts"
+      code={`import { GcdsComponentsModule } from '@gcds-core/components-angular';
+
+@NgModule({
+  declarations: [
+    ...
+  ],
+  imports: [
+    ...,
+    GcdsComponentsModule
+  ],
+  providers: [],
+  bootstrap: [...]
+})
+export class AppModule { }`}
+    />
+    <gcds-details details-title="Using standalone components?">
+      <gcds-text>
+        New Angular projects (version 19 and later) use standalone components by default and don’t have an
+        <code>app.module.ts</code>. Add <code>GcdsComponentsModule</code> to the <code>imports</code> of each
+        component that uses GC Design System instead:
+      </gcds-text>
+      <CodeBlock
+        lang="ts"
+        code={`import { Component } from '@angular/core';
+import { GcdsComponentsModule } from '@gcds-core/components-angular';
+
+@Component({
+  selector: 'app-root',
+  imports: [GcdsComponentsModule],
+  templateUrl: './app.component.html',
+})
+export class AppComponent {}`}
+      />
+    </gcds-details>
+    <gcds-text>
+      Place the following code in the <code>styles.scss</code> file of your app to import GC Design System styles:
+    </gcds-text>
+    <CodeBlock lang="scss" code={`@import '../node_modules/@gcds-core/components/dist/gcds/gcds.css';`} />
+  </Fw>
+
+  <!-- ---------------- All ---------------- -->
+  <gcds-heading tag="h2">Check that it worked</gcds-heading>
+  <gcds-text>
+    Add the following code to your page and load it in the browser. You should see the same button:
+  </gcds-text>
+  <Demo html={`<gcds-button type="button">It works</gcds-button>`} />
+
+  <gcds-checkboxes
+    name="setup-checklist"
+    legend="Setup checklist"
+    hint="For your own tracking. Tick each one off as you go."
+    options={JSON.stringify([
+      { id: 'chk-install', label: 'Installed the package (or added the CDN links)', value: 'install' },
+      { id: 'chk-import', label: 'Imported GC Design System and its styles', value: 'import' },
+      { id: 'chk-button', label: 'Saw a styled GCDS button in my browser', value: 'button' },
+    ])}
+  ></gcds-checkboxes>
+
+  <gcds-heading tag="h3">If something looks wrong</gcds-heading>
+  <gcds-details details-title="I see plain text instead of a button">
+    <gcds-text>
+      The components aren’t registered. In HTML, check the <code>&lt;script type="module"&gt;</code> tag loaded
+      (look for a 404 in the browser’s Network tab) and that you’re using a local server, not <code>file://</code>.
+      In a framework, check the import from step 2.
+    </gcds-text>
+  </gcds-details>
+  <gcds-details details-title="The button is there but the fonts or spacing look off">
+    <gcds-text margin-bottom="0">
+      <code>gcds.css</code> isn’t loaded. It contains the fonts, design tokens and base styles that the components rely
+      on. Load it once, globally, before your own styles.
+    </gcds-text>
+  </gcds-details>
+  <gcds-details details-title="My framework says it doesn’t know the element">
+    <ul class="list-disc">
+      <li><gcds-text margin-bottom="100"><strong>Angular:</strong> the component using the tag needs <code>GcdsComponentsModule</code> in its <code>imports</code>.</gcds-text></li>
+      <li><gcds-text margin-bottom="100"><strong>Vue:</strong> check that <code>.use(GcdsComponents)</code> runs before <code>.mount()</code>.</gcds-text></li>
+      <li><gcds-text margin-bottom="0"><strong>React:</strong> import the PascalCase component (<code>GcdsButton</code>) instead of writing <code>&lt;gcds-button&gt;</code>.</gcds-text></li>
+    </ul>
+  </gcds-details>
+
+  <gcds-heading tag="h2">Want a head start?</gcds-heading>
+  <gcds-notice notice-role="info" notice-title="New: GCDS starter apps" notice-title-tag="h3">
+    <gcds-text margin-bottom="0">
+      The starter app tool creates a new project with GCDS already set up. You choose a folder and a framework,
+      and it does the rest. We still recommend doing the setup by hand once so you know what’s going on. Then use
+      the starter app for real projects. See <gcds-link href={url('next-steps')}>next steps</gcds-link>.
+    </gcds-text>
+  </gcds-notice>
+  <CodeBlock lang="bash" code={`npm create @gcds-core/app@latest`} />
+
+  <gcds-text margin-top="400">
+    Full instructions for each framework are on the
+    <gcds-link href={`${DOCS}/start-to-use/develop/`}>GCDS developer documentation</gcds-link>.
+  </gcds-text>
+</Base>

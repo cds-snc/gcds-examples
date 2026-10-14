@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import { STEPS, FRAMEWORKS, DOCS, url } from '../lib/site';
+---
+
+<Base title="Start here">
+  <gcds-heading tag="h1">Start building with the GC Design System</gcds-heading>
+  <gcds-text>
+    This guided path is for developers who are new to the GC Design System (GCDS), or new to design systems in
+    general. By the end, you’ll have a working Government of Canada page in the framework you already use.
+  </gcds-text>
+
+  <gcds-notice notice-role="info" notice-title="Already know your way around?" notice-title-tag="h2">
+    <gcds-text margin-bottom="0">
+      Skip ahead to <gcds-link href={url('setup')}>project setup</gcds-link>, or go straight to the
+      <gcds-link href={`${DOCS}/components/`}>component documentation</gcds-link>.
+    </gcds-text>
+  </gcds-notice>
+
+  <gcds-heading tag="h2">What is a design system?</gcds-heading>
+  <gcds-text>
+    A design system is a shared set of building blocks (like buttons, form fields, headers, colours, spacing) that
+    are designed, built, and tested once, then reused everywhere. Instead of each team rebuilding a button (and
+    each team getting accessibility, branding, and bilingual text slightly wrong), you use one that already works.
+  </gcds-text>
+  <gcds-text>GCDS gives you three things:</gcds-text>
+  <ul class="list-disc mb-400">
+    <li><gcds-text margin-bottom="100"><strong>Components</strong>: HTML tags like <code>&lt;gcds-button&gt;</code> that work in any framework.</gcds-text></li>
+    <li><gcds-text margin-bottom="100"><strong>Design tokens</strong>: named values for colour, spacing and type, so everything stays on brand.</gcds-text></li>
+    <li><gcds-text margin-bottom="100"><strong>CSS Shortcuts</strong>: utility classes built on those tokens, for your own layouts.</gcds-text></li>
+  </ul>
+
+  <gcds-heading tag="h2">Choose your framework</gcds-heading>
+  <gcds-text>Code samples throughout this guide will match your choice. You can change it at any time.</gcds-text>
+  <gcds-radios
+    name="framework-home"
+    legend="Which will you build with?"
+    hint="Not sure? Choose HTML. Everything you learn applies to the frameworks too."
+    options={JSON.stringify(FRAMEWORKS.map(f => ({ id: `fw-${f.id}`, label: f.label, value: f.id })))}
+    data-framework-picker
+  ></gcds-radios>
+
+  <gcds-heading tag="h2">Your path</gcds-heading>
+  <gcds-text>
+    The whole path takes about an hour and a half. Your progress is saved in this browser:
+    <strong><span data-progress-count>0</span> of {STEPS.length - 1}</strong> sections done.
+  </gcds-text>
+
+  <gcds-grid columns="1fr" columns-tablet="1fr 1fr" gap="300" equal-row-height>
+    {
+      STEPS.map((s, i) => (
+        <gcds-card
+          card-title={`${i + 1}. ${s.title}`}
+          card-title-tag="h3"
+          href={url(s.slug)}
+          description={`${s.summary} (${s.time})`}
+          data-step-card={s.slug}
+        />
+      ))
+    }
+  </gcds-grid>
+
+  <div class="mt-500">
+    <gcds-button type="link" href={url(STEPS[0].slug)} button-role="start">Start with step 1</gcds-button>
+  </div>
+</Base>

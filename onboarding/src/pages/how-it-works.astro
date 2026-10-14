@@ -1,0 +1,202 @@
+---
+import Base from '../layouts/Base.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+import Demo from '../components/Demo.astro';
+import { DOCS } from '../lib/site';
+---
+
+<Base title="How GCDS works" current="how-it-works">
+  <gcds-text>
+    Before you install anything, it helps to know what you’re installing. This section covers the questions
+    developers ask most: what web components are, what shadow DOM does, how much you can customize, and
+    whether it’s really accessible. It also covers the parts that aren’t perfect yet.
+  </gcds-text>
+
+  <gcds-heading tag="h2">GCDS components are just HTML tags</gcds-heading>
+  <gcds-text>
+    GCDS is built with <strong>web components</strong>, a browser standard, not a framework. A web component is
+    a custom HTML tag that the browser knows how to draw. Once the GCDS script is on the page, you write one tag and get a working, accessible, on-brand button:
+  </gcds-text>
+  <Demo html={`<gcds-button type="button">Continue</gcds-button>`} />
+  <gcds-text>
+    The code under the example changes to match the framework you chose. Use the menu above the example to
+    compare frameworks.
+  </gcds-text>
+  <gcds-text>
+    Because the browser itself understands these tags, the same component works in plain HTML, React, Vue,
+    Angular, a CMS template or a server-rendered Java or .NET app. The framework packages
+    (<code>@gcds-core/components-react</code> and so on) are thin wrappers that make the tags feel native in each
+    framework: typed props, <code>v-model</code>, <code>ngModel</code>, and so on.
+  </gcds-text>
+
+  <gcds-heading tag="h2">What shadow DOM is, and why GCDS uses it</gcds-heading>
+  <gcds-text>
+    Inside each GCDS component is its own small piece of HTML and CSS, called a <strong>shadow root</strong>.
+    Styles inside it don’t leak out, and, more importantly, styles from your page don’t leak in.
+  </gcds-text>
+
+  <gcds-details details-title="Try it: look inside a component">
+    <ol class="list-decimal">
+      <li><gcds-text margin-bottom="100">Right-click the “Continue” button above and choose <strong>Inspect</strong>.</gcds-text></li>
+      <li><gcds-text margin-bottom="100">In the Elements panel, expand <code>&lt;gcds-button&gt;</code>. You’ll see <code>#shadow-root (open)</code>.</gcds-text></li>
+      <li><gcds-text margin-bottom="100">Expand it. Inside is an ordinary <code>&lt;button&gt;</code> with ordinary CSS. Nothing is hidden from you; the shadow root is open and fully inspectable.</gcds-text></li>
+    </ol>
+  </gcds-details>
+
+  <gcds-heading tag="h3">Why that protection matters</gcds-heading>
+  <gcds-text>
+    Government sites are rarely built by one team. A button may end up on a page with a decade-old theme, a CMS
+    stylesheet, and a third-party widget, all with their own CSS. Press the button below to apply some
+    aggressive page CSS to this example and see what happens to each button.
+  </gcds-text>
+
+  <Demo
+    id="leak-demo"
+    html={`<gcds-grid columns="max-content max-content" gap="500" align-items="start">
+  <div>
+    <gcds-text size="small" margin-bottom="100">Plain HTML button</gcds-text>
+    <button type="button">Continue</button>
+  </div>
+  <div>
+    <gcds-text size="small" margin-bottom="100">GCDS button</gcds-text>
+    <gcds-button type="button">Continue</gcds-button>
+  </div>
+</gcds-grid>`}
+  />
+  <gcds-button type="button" button-role="secondary" id="leak-toggle">Apply aggressive page CSS</gcds-button>
+  <gcds-text role="status" id="leak-status" margin-top="200"></gcds-text>
+  <gcds-text>This is the CSS the button applies to the example:</gcds-text>
+  <CodeBlock
+    lang="css"
+    code={`#leak-demo.hostile button {
+  background: yellow;
+  color: yellow;          /* yellow on yellow: unreadable */
+  font-size: 0.6rem;
+  outline: none;          /* removes the keyboard focus ring */
+}`}
+  />
+  <gcds-text>
+    The plain button breaks: unreadable text, tiny type, and no focus ring for keyboard users. The GCDS button
+    keeps its colours, size and focus style, because the page CSS can’t reach inside its shadow root. That’s the
+    trade: you give up the ability to restyle a component’s internals, and in return every GCDS component stays
+    readable, accessible and on brand on <em>any</em> page.
+  </gcds-text>
+
+  <gcds-heading tag="h2">“It’s not flexible enough”</gcds-heading>
+  <gcds-text>
+    This is the most common concern, so here’s a direct answer. GCDS is deliberately flexible about
+    <strong>content and layout</strong> and deliberately strict about <strong>brand and accessibility</strong>.
+    When a request to “just change the button” comes up, it’s usually asking for one of the strict things:
+    a non-GC colour, a smaller tap target, a different font.
+  </gcds-text>
+
+  <gcds-heading tag="h3">What you can change</gcds-heading>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th scope="col">You want to…</th><th scope="col">Use</th><th scope="col">Example</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Change a component’s variant, size or behaviour</td><td>Attributes (props)</td><td><code>button-role="secondary"</code>, <code>size="small"</code></td></tr>
+        <tr><td>Put your own content inside a component</td><td>Slots</td><td>Text, links and other components inside <code>&lt;gcds-notice&gt;</code> or <code>&lt;gcds-details&gt;</code></td></tr>
+        <tr><td>Lay out components on the page</td><td>Grid, container, CSS Shortcuts</td><td><code>&lt;gcds-grid columns-desktop="1fr 1fr"&gt;</code>, <code>class="mb-400"</code></td></tr>
+        <tr><td>Style your own markup to match</td><td>Design tokens</td><td><code>color: var(--gcds-text-primary)</code></td></tr>
+        <tr><td>Respond to interactions</td><td>Events</td><td><code>gcdsClick</code>, <code>gcdsChange</code>, <code>gcdsValid</code></td></tr>
+        <tr><td>Use components in forms</td><td>Native form participation</td><td>Inputs submit with a regular <code>&lt;form&gt;</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <gcds-heading tag="h3">What you shouldn’t change, and what to do instead</gcds-heading>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th scope="col">Common request</th><th scope="col">Why it’s restricted</th><th scope="col">Do this instead</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>“Make the button our program colour”</td><td>GC brand colours are tested for contrast and recognized as official government</td><td>Use <code>button-role</code> (primary, secondary, danger, start). Bring program identity into content and imagery, not controls.</td></tr>
+        <tr><td>“Make it smaller to fit”</td><td>Target sizes meet accessibility requirements</td><td>Use <code>size="small"</code> where it exists, or rethink the layout with grid and container.</td></tr>
+        <tr><td>“Use our own font”</td><td>Lato and Noto Sans are the GC typefaces</td><td>Keep the GC fonts; use heading levels and text roles for hierarchy.</td></tr>
+        <tr><td>“Remove the focus outline, it looks odd”</td><td>Keyboard users need to see where they are</td><td>Leave it. It’s required for WCAG 2.1 AA.</td></tr>
+        <tr><td>“I need a component GCDS doesn’t have”</td><td>—</td><td>Build it from tokens and CSS Shortcuts, then <gcds-link href={`${DOCS}/contact/`}>tell the GCDS team</gcds-link>. Requests shape the roadmap.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <gcds-heading tag="h2">“Is it really accessible?”</gcds-heading>
+  <gcds-text>
+    Shadow DOM doesn’t hide anything from assistive technology. Screen readers read the rendered page, shadow
+    content included. What matters is whether the component inside is built correctly, and that’s where GCDS
+    does the work for you:
+  </gcds-text>
+  <ul class="list-disc mb-400">
+    <li><gcds-text margin-bottom="100">Components meet or exceed <strong>WCAG 2.1 AA</strong>, and are tested with automated tools and by people with disabilities. See <gcds-link href={`${DOCS}/accessibility/`}>accessibility in GCDS</gcds-link>.</gcds-text></li>
+    <li><gcds-text margin-bottom="100">Components are covered by automated <strong>axe</strong> accessibility tests that run on every change to the code.</gcds-text></li>
+    <li><gcds-text margin-bottom="100">Form components pass keyboard focus straight to the real input inside, and take part in native <code>&lt;form&gt;</code> submission and validation.</gcds-text></li>
+    <li><gcds-text margin-bottom="100">Labels, hints, error messages and their ARIA connections are built in, in English and French.</gcds-text></li>
+  </ul>
+  <gcds-text>
+    You’re still responsible for the page around the components: heading order, meaningful link text, plain
+    language. GCDS gets the hard, repetitive parts right so you can focus on those.
+  </gcds-text>
+
+  <gcds-details details-title="Try it with your keyboard">
+    <gcds-text>Press "<kbd>Tab</kbd>" to move into this field, type something, then press "<kbd>Tab</kbd>" again to leave it empty and trigger validation.</gcds-text>
+    <gcds-input input-id="a11y-demo" name="a11y-demo" label="Your department" hint="For example: Employment and Social Development Canada" required></gcds-input>
+    <gcds-text>
+      Leave it empty and the error message appears and is announced by screen readers. You didn’t have to write
+      any ARIA to get that.
+    </gcds-text>
+  </gcds-details>
+
+  <gcds-heading tag="h2" id="javascript">“Doesn’t it need JavaScript?”</gcds-heading>
+  <gcds-text>
+    Yes, and so does almost everything else on the web. JavaScript runs on
+    <gcds-link href="https://w3techs.com/technologies/details/cp-javascript" external>98.9% of websites</gcds-link>.
+    Menus, search, form validation, analytics and most third-party tools already depend on it. For most sites, adding GCDS doesn’t change what you require of your visitors.
+  </gcds-text>
+  <gcds-text>
+    Very few people switch JavaScript off. When GOV.UK
+    <gcds-link href="https://gds.blog.gov.uk/2013/10/21/how-many-people-are-missing-out-on-javascript-enhancement/" external>measured it</gcds-link>,
+    1.1% of visits didn’t get JavaScript, but only 0.2% had it disabled or unsupported. For most of the rest,
+    JavaScript was turned on but didn’t run, for example because of a dropped connection, a blocked script or an
+    error.
+  </gcds-text>
+  <gcds-text>
+    So the useful question isn’t “what if users turn it off?” but “what if it fails?” For critical services, test
+    it: block the GCDS script in your browser’s developer tools and check what people can still do.
+  </gcds-text>
+
+  <gcds-heading tag="h2">The honest part: current limitations</gcds-heading>
+  <gcds-notice notice-role="warning" notice-title="Know these before you start" notice-title-tag="h3">
+    <ul class="list-disc">
+      <li><gcds-text margin-bottom="100"><strong>Components need JavaScript.</strong> If it doesn’t load, people see the plain text you put inside the tags, but not the styling or anything set by attributes, like a card’s title. See <gcds-link href="#javascript">“Doesn’t it need JavaScript?”</gcds-link> above.</gcds-text></li>
+      <li><gcds-text margin-bottom="100"><strong>Server-side rendering isn’t supported yet.</strong> Components render in the browser. SSR support is on the <gcds-link href={`${DOCS}/roadmap/`}>GCDS roadmap</gcds-link>.</gcds-text></li>
+      <li><gcds-text margin-bottom="100"><strong>Styling hooks are intentionally few.</strong> See the flexibility section above. This is a choice, not an oversight.</gcds-text></li>
+      <li><gcds-text margin-bottom="0"><strong>The component set is still growing.</strong> If you need something that isn’t there, build it from tokens and let the team know.</gcds-text></li>
+    </ul>
+  </gcds-notice>
+</Base>
+
+<style>
+  /* Reaches the plain button in the example's light DOM, but not inside gcds-button's shadow root. */
+  :global(#leak-demo.hostile button) {
+    background: yellow;
+    color: yellow;
+    font-size: 0.6rem;
+    outline: none;
+  }
+</style>
+
+<script>
+  const demo = document.getElementById('leak-demo')!;
+  const toggle = document.getElementById('leak-toggle')!;
+  const status = document.getElementById('leak-status')!;
+  toggle.addEventListener('gcdsClick', () => {
+    const on = demo.classList.toggle('hostile');
+    toggle.textContent = on ? 'Remove aggressive page CSS' : 'Apply aggressive page CSS';
+    status.textContent = on
+      ? 'Aggressive CSS applied. The plain button is now unreadable; the GCDS button is unchanged.'
+      : 'Aggressive CSS removed.';
+  });
+</script>

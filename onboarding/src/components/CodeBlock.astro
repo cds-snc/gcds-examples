@@ -1,0 +1,21 @@
+---
+/**
+ * Static code example, styled like the code area of <gcds-ext-code-display>.
+ * Like the GCDS docs, it has no title: say what the code is and where it goes
+ * in the text before it.
+ */
+import { Code } from 'astro:components';
+import { a11yDark } from '../lib/code-theme';
+
+interface Props {
+  code: string;
+  lang?: string;
+}
+
+const { code, lang = 'html' } = Astro.props;
+---
+
+<div class="code-block">
+  <Code code={code.trim()} lang={lang as any} theme={a11yDark} wrap={false} />
+  <gcds-button type="button" size="small" button-role="secondary" data-copy>Copy code</gcds-button>
+</div>

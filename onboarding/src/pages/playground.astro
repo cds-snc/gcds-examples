@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import FrameworkPicker from '../components/FrameworkPicker.astro';
+import { PLAYGROUND } from '../lib/playground';
+import { GCDS_VERSION } from '../lib/versions';
+---
+
+<Base title="Component playground" current="playground">
+  <gcds-text>
+    Pick a component, then use the tabs under the example to change its attributes and content, see the
+    events it sends, and run an accessibility check. The code updates as you go and is ready to paste into
+    your project.
+  </gcds-text>
+
+  <FrameworkPicker />
+
+  <div class="fw-picker mb-400">
+    <gcds-select select-id="pg-component" name="pg-component" label="Component" id="pg-component">
+      {PLAYGROUND.map(c => <option value={c.tag}>{c.tag}</option>)}
+    </gcds-select>
+  </div>
+
+  <div id="pg-display" data-gcds-path={`https://cdn.design-system.canada.ca/@gcds-core/components@${GCDS_VERSION}/dist/gcds/`}></div>
+
+  <gcds-text margin-top="400">
+    <gcds-link id="pg-docs" href="#">Read the full documentation for this component</gcds-link>
+  </gcds-text>
+
+  <script type="application/json" id="pg-data" set:html={JSON.stringify(PLAYGROUND)} />
+</Base>
+
+<script>
+  import { DOCS } from '../lib/site';
+  import type { PlaygroundComponent } from '../lib/playground';
+
+  const data: PlaygroundComponent[] = JSON.parse(document.getElementById('pg-data')!.textContent!);
+  const picker = document.getElementById('pg-component') as HTMLElement & { value: string };
+  const host = document.getElementById('pg-display')!;
+  const docs = document.getElementById('pg-docs')!;
+
+  // The code display reads its child once, so build a fresh one for each component.
+  function choose(tag: string) {
+    const c = data.find(d => d.tag === tag) ?? data[0];
+    const display = document.createElement('gcds-ext-code-display') as HTMLElement & Record<string, unknown>;
+    display.setAttribute('gcds-path', host.dataset.gcdsPath!);
+    display.setAttribute('framework', document.documentElement.dataset.framework ?? 'html');
+    display.setAttribute('accessibility', '');
+    // Pass these as properties: v1.0.1 ignores `attrs` when given as a JSON attribute.
+    display.attrs = c.attrs;
+    display.slots = c.slots;
+    display.events = c.events;
+    display.innerHTML = c.markup;
+    host.replaceChildren(display);
+    docs.setAttribute('href', `${DOCS}/components/${c.docsSlug}/`);
+  }
+
+  picker.addEventListener('gcdsChange', () => choose(picker.value));
+  choose(data[0].tag);
+</script>

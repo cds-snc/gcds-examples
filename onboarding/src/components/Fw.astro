@@ -1,0 +1,9 @@
+---
+/** Content shown only when the reader has chosen one of `for` (space-separated). */
+interface Props {
+  for: string;
+}
+const { for: fw } = Astro.props;
+---
+
+<div data-fw={fw}><slot /></div>

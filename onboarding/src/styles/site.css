@@ -1,0 +1,147 @@
+/*
+ * Site-level layout only. Everything visual comes from GCDS components,
+ * CSS Shortcuts and --gcds-* tokens — no hard-coded colours or spacing.
+ */
+
+body {
+  background: var(--gcds-bg-white);
+  color: var(--gcds-text-primary);
+}
+
+.layout {
+  display: grid;
+  gap: var(--gcds-spacing-500);
+  padding-block: var(--gcds-spacing-500);
+}
+
+@media (min-width: 64em) {
+  .layout {
+    grid-template-columns: minmax(14rem, 1fr) 3fr;
+  }
+}
+
+.layout__main {
+  min-width: 0;
+}
+
+.pager {
+  display: block;
+}
+
+/* No global "success" colour token exists, so use the base green that GCDS success alerts use. */
+.nav-done {
+  color: var(--gcds-color-green-700);
+}
+
+/* Keep the checkmark with the last word so it never wraps onto its own line. */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Sit the checkmark on the middle of the last line of text. */
+.nav-done gcds-icon {
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* ---------- Framework-specific content ---------- */
+
+html[data-framework='html'] [data-fw]:not([data-fw~='html']),
+html[data-framework='react'] [data-fw]:not([data-fw~='react']),
+html[data-framework='vue'] [data-fw]:not([data-fw~='vue']),
+html[data-framework='angular'] [data-fw]:not([data-fw~='angular']) {
+  display: none;
+}
+
+.fw-picker {
+  max-width: 24rem;
+}
+
+/* ---------- Code samples ---------- */
+
+/* Matches the code area of <gcds-ext-code-display> (Prism a11y-dark). */
+.code-block {
+  margin-block: var(--gcds-spacing-300) var(--gcds-spacing-400);
+  padding: var(--gcds-spacing-250);
+  background: #2b2b2b;
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  line-height: 1.5;
+  max-width: none;
+}
+
+.code-block pre code {
+  font-family: inherit;
+}
+
+.code-block gcds-button {
+  margin-block-start: var(--gcds-spacing-300);
+}
+
+.code-block gcds-button:not(:hover) {
+  --gcds-button-secondary-default-text: var(--gcds-text-light);
+}
+
+.code-block pre:focus-visible {
+  outline: var(--gcds-border-width-md) solid var(--gcds-focus-border);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+:not(pre) > code {
+  background: var(--gcds-bg-light);
+  padding: 0 var(--gcds-spacing-50);
+  border-radius: var(--gcds-border-radius-sm);
+  font-size: 0.95em;
+}
+
+/* ---------- Comparison tables ---------- */
+
+.table-wrap {
+  overflow-x: auto;
+  margin-block: var(--gcds-spacing-300);
+}
+
+.table-wrap table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-wrap th,
+.table-wrap td {
+  text-align: start;
+  vertical-align: top;
+  padding: var(--gcds-spacing-200);
+  border-block-end: var(--gcds-border-width-sm) solid var(--gcds-border-default);
+}
+
+.table-wrap th {
+  background: var(--gcds-bg-light);
+}
+
+/* ---------- Token swatches ---------- */
+
+.swatch {
+  inline-size: 100%;
+  block-size: 6rem;
+  border: var(--gcds-border-width-sm) solid var(--gcds-border-default);
+  border-radius: var(--gcds-border-radius-md);
+}
+
+.spacing-bar {
+  block-size: var(--gcds-spacing-300);
+  background: var(--gcds-bg-primary);
+}
+
+/* Let grid children shrink instead of overflowing the main column. */
+.layout__main gcds-grid > * {
+  min-width: 0;
+}
