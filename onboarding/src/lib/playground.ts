@@ -56,7 +56,7 @@ function toAttr(p: any): PlaygroundAttr | null {
   };
 
   if (type === 'boolean') return { ...base, control: 'select', options: ['true', 'false'] };
-  if (literals.length && /^("[^"]+"\s*\|?\s*)+$/.test(type)) return { ...base, control: 'select', options: literals };
+  if (literals.length && /^"[^"]+"(?:\s*\|\s*"[^"]+")*\s*$/.test(type)) return { ...base, control: 'select', options: literals };
   if (type === 'string' || type === 'number') return { ...base, control: 'text' };
   // Objects, arrays and functions can't be edited as a plain attribute.
   return { ...base, control: 'none' };
