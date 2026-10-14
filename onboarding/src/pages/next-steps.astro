@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+import { DOCS, REPO } from '../lib/site';
+
+const links = [
+  { title: 'Component documentation', href: `${DOCS}/components/`, description: 'Every component, with design guidance, code and accessibility notes.' },
+  { title: 'Page templates', href: `${DOCS}/page-templates/`, description: 'Start real pages from the official GC templates.' },
+  { title: 'CSS Shortcuts', href: `${DOCS}/css-shortcuts/`, description: 'All utility classes for your own layouts.' },
+  { title: 'Roadmap', href: `${DOCS}/roadmap/`, description: 'What’s coming next, including server-side rendering.' },
+  { title: 'Report a bug or request a feature', href: `${REPO}/issues/new/choose`, description: 'Open an issue on GitHub. Requests shape what we build.' },
+  { title: 'Contact the GCDS team', href: `${DOCS}/contact/`, description: 'Questions, feedback, or help with a tricky case.' },
+];
+---
+
+<Base title="Next steps" current="next-steps">
+  <gcds-notice notice-role="success" notice-title="You’re ready to build with GCDS" notice-title-tag="h2">
+    <gcds-text margin-bottom="0">
+      You know how the components work, you’ve set up a project, and you’ve built a page. Here’s where to go next.
+    </gcds-text>
+  </gcds-notice>
+
+  <gcds-heading tag="h2">Start a real project from a starter app</gcds-heading>
+  <gcds-text>
+    The GCDS starter apps give you a new project with everything from this guide already set up. Run this
+    command, then choose a folder and a framework:
+  </gcds-text>
+  <CodeBlock lang="bash" code={`npm create @gcds-core/app@latest`} />
+  <gcds-text>
+    The templates are fetched from
+    <gcds-link href="https://github.com/cds-snc/gcds-examples" external>the gcds-examples repository</gcds-link>,
+    so you always get the latest version.
+  </gcds-text>
+
+  <gcds-heading tag="h2">Keep going</gcds-heading>
+  <gcds-grid columns="1fr" columns-tablet="1fr 1fr" gap="300" equal-row-height>
+    {links.map(l => <gcds-card card-title={l.title} card-title-tag="h3" href={l.href} description={l.description} />)}
+  </gcds-grid>
+
+  <gcds-heading tag="h2">Keeping up to date</gcds-heading>
+  <gcds-text>
+    GCDS releases components and tokens together under one version number, and updates are usually
+    non-breaking. Updating regularly is how your site gets accessibility, brand and bug fixes without changes to
+    your own code, so make it part of your routine:
+  </gcds-text>
+  <ul class="list-disc mb-400">
+    <li><gcds-text margin-bottom="100"><strong>npm projects:</strong> run <code>npm outdated</code>, or let Renovate or Dependabot open update pull requests for you.</gcds-text></li>
+    <li><gcds-text margin-bottom="100"><strong>CDN links:</strong> the version is part of the URL and never changes on its own. Update it when a new release comes out.</gcds-text></li>
+    <li><gcds-text margin-bottom="100"><strong>Before each update,</strong> skim the <gcds-link href={`${REPO}/blob/main/CHANGELOG.md`} external>changelog</gcds-link> to see what changed.</gcds-text></li>
+  </ul>
+</Base>

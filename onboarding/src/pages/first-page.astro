@@ -1,0 +1,307 @@
+---
+import Base from '../layouts/Base.astro';
+import FwCode from '../components/FwCode.astro';
+import Demo from '../components/Demo.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+import FrameworkPicker from '../components/FrameworkPicker.astro';
+import Fw from '../components/Fw.astro';
+import { DOCS } from '../lib/site';
+import { GCDS_VERSION } from '../lib/versions';
+import { toReact } from '../lib/convert';
+
+// Each step's snippet. The final page at the bottom is built from the same strings.
+const header = `<gcds-header lang-href="/fr/" skip-to-href="#main-content">
+  <gcds-breadcrumbs slot="breadcrumb">
+    <gcds-breadcrumbs-item href="/">My department</gcds-breadcrumbs-item>
+  </gcds-breadcrumbs>
+</gcds-header>`;
+
+const footer = `<gcds-footer display="full"></gcds-footer>`;
+
+const intro = `<gcds-heading tag="h1">Apply for a parks pass</gcds-heading>
+<gcds-text>
+  A parks pass gives you entry to all national parks for one year.
+</gcds-text>`;
+
+// Code display examples need a single root element, so step 3 shows these separately.
+const link = `<gcds-text>
+  Before you apply, <gcds-link href="/eligibility">check if you're eligible</gcds-link>.
+</gcds-text>`;
+const startButton = `<gcds-button type="link" href="#apply" button-role="start">Start your application</gcds-button>`;
+const actions = `${link}\n${startButton}`;
+
+const notice = `<gcds-notice notice-role="warning" notice-title="Processing times are longer in summer" notice-title-tag="h2">
+  <gcds-text>Apply at least 4 weeks before your visit.</gcds-text>
+</gcds-notice>`;
+
+const form = `<form id="apply" novalidate>
+  <gcds-heading tag="h2">Your details</gcds-heading>
+  <gcds-input
+    input-id="email"
+    name="email"
+    type="email"
+    label="Email address"
+    hint="We'll send your pass here."
+    required
+  ></gcds-input>
+  <gcds-radios
+    name="pass-type"
+    legend="Pass type"
+    options='[{"id":"pass-adult","label":"Adult","value":"adult"},{"id":"pass-family","label":"Family","value":"family"}]'
+    required
+  ></gcds-radios>
+  <gcds-button type="submit">Submit</gcds-button>
+</form>`;
+
+const formReact = `import { GcdsButton, GcdsHeading, GcdsInput, GcdsRadios } from '@gcds-core/components-react';
+import { useState } from 'react';
+
+function ApplyForm() {
+  const [email, setEmail] = useState('');
+
+  return (
+    <form id="apply" noValidate onSubmit={e => { e.preventDefault(); console.log(email); }}>
+      <GcdsHeading tag="h2">Your details</GcdsHeading>
+      <GcdsInput
+        inputId="email"
+        name="email"
+        type="email"
+        label="Email address"
+        hint="We'll send your pass here."
+        required
+        value={email}
+        onGcdsChange={e => setEmail(e.target.value)}
+      />
+      <GcdsRadios
+        name="pass-type"
+        legend="Pass type"
+        options={[
+          { id: 'pass-adult', label: 'Adult', value: 'adult' },
+          { id: 'pass-family', label: 'Family', value: 'family' },
+        ]}
+        required
+      />
+      <GcdsButton type="submit">Submit</GcdsButton>
+    </form>
+  );
+}`;
+
+const formVue = `<script setup>
+import { ref } from 'vue';
+const email = ref('');
+const passType = ref('');
+const passOptions = [
+  { id: 'pass-adult', label: 'Adult', value: 'adult' },
+  { id: 'pass-family', label: 'Family', value: 'family' },
+];
+</script>
+
+<template>
+  <form id="apply" novalidate @submit.prevent="console.log(email, passType)">
+    <gcds-heading tag="h2">Your details</gcds-heading>
+    <gcds-input
+      input-id="email"
+      name="email"
+      type="email"
+      label="Email address"
+      hint="We'll send your pass here."
+      required
+      v-model="email"
+    ></gcds-input>
+    <gcds-radios name="pass-type" legend="Pass type" :options="passOptions" required v-model="passType"></gcds-radios>
+    <gcds-button type="submit">Submit</gcds-button>
+  </form>
+</template>`;
+
+const formAngular = `<!-- apply-form.component.html
+     Add FormsModule and GcdsComponentsModule to the component's imports. -->
+<form id="apply" novalidate (ngSubmit)="submit()">
+  <gcds-heading tag="h2">Your details</gcds-heading>
+  <gcds-input
+    inputId="email"
+    name="email"
+    type="email"
+    label="Email address"
+    hint="We'll send your pass here."
+    required
+    [(ngModel)]="email"
+  ></gcds-input>
+  <gcds-radios name="pass-type" legend="Pass type" [options]="passOptions" required></gcds-radios>
+  <gcds-button type="submit">Submit</gcds-button>
+</form>`;
+
+const dateModified = `<gcds-date-modified>2026-10-07</gcds-date-modified>`;
+
+const indent = (s: string) => s.split('\n').map(l => (l ? '  ' + l : l)).join('\n');
+const main = `<gcds-container id="main-content" layout="page" tag="main">
+${indent([intro, actions, notice, form, dateModified].join('\n\n'))}
+</gcds-container>`;
+const fullHtml = `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apply for a parks pass</title>
+  <link rel="stylesheet" href="https://cdn.design-system.canada.ca/@gcds-core/components@${GCDS_VERSION}/dist/gcds/gcds.css" />
+  <script type="module" src="https://cdn.design-system.canada.ca/@gcds-core/components@${GCDS_VERSION}/dist/gcds/gcds.esm.js"></script>
+</head>
+<body>
+${indent(header)}
+
+${indent(main)}
+
+${indent(footer)}
+</body>
+</html>`;
+
+---
+
+<Base title="Build your first page" current="first-page">
+  <gcds-text>
+    You’ll build a simple Government of Canada service page: “Apply for a parks pass”. Each step adds a few
+    components and explains what they do for you. Copy each snippet into your project as you go; the complete
+    page is at the end.
+  </gcds-text>
+
+  <FrameworkPicker />
+
+  <Fw for="react vue angular">
+    <gcds-notice notice-role="info" notice-title="Where does this code go?" notice-title-tag="h2">
+      <Fw for="react">
+        <gcds-text>
+          Put the header and footer in your root component, like <code>App.jsx</code> (or <code>layout.jsx</code> in
+          Next.js), so every page gets them. Put everything else in the component for that page.
+        </gcds-text>
+      </Fw>
+      <Fw for="vue">
+        <gcds-text>
+          Put the header and footer in <code>App.vue</code>, so every page gets them. Put everything else in the view
+          for that page, the component your router shows for it.
+        </gcds-text>
+      </Fw>
+      <Fw for="angular">
+        <gcds-text>
+          Put the header and footer in <code>app.component.html</code>, so every page gets them. Put everything else in
+          the component for that page’s route.
+        </gcds-text>
+      </Fw>
+      <gcds-text margin-bottom="0">The examples show the template or JSX only, unless a step needs more.</gcds-text>
+    </gcds-notice>
+  </Fw>
+
+  <gcds-heading tag="h2">Step 1: The page shell</gcds-heading>
+  <gcds-text>
+    Every GC page starts with the same header and footer. They give you the Government of Canada signature,
+    the official footer links, a language toggle, breadcrumbs, and a skip link for keyboard users. Get them
+    from two tags. Put the header first in your <code>&lt;body&gt;</code>:
+  </gcds-text>
+  <Demo html={header} landmark />
+  <gcds-text>and the footer last, after your main content:</gcds-text>
+  <Demo html={footer} landmark />
+  <gcds-details class="mb-300" details-title="What just happened?">
+    <ul class="list-disc">
+      <li><gcds-text margin-bottom="100"><code>skip-to-href</code> points the hidden “Skip to main content” link at your <code>&lt;main&gt;</code>. Press "<kbd>Tab</kbd>" on any GC page to see it.</gcds-text></li>
+      <li><gcds-text margin-bottom="100"><code>lang-href</code> is the URL of the French version of this page. The toggle label is translated for you.</gcds-text></li>
+      <li><gcds-text margin-bottom="0">The breadcrumbs start with “Canada.ca” automatically; you add the rest.</gcds-text></li>
+    </ul>
+  </gcds-details>
+  <gcds-text>
+    Read the docs for each component for more information and examples:
+    <gcds-link href={`${DOCS}/components/header/`}>Header</gcds-link>,
+    <gcds-link href={`${DOCS}/components/footer/`}>Footer</gcds-link>,
+    <gcds-link href={`${DOCS}/components/breadcrumbs/`}>Breadcrumbs</gcds-link>
+  </gcds-text>
+
+  <gcds-heading tag="h2">Step 2: Main content, headings and text</gcds-heading>
+  <gcds-text>
+    Between the header and footer, a <code>gcds-container</code> with <code>tag="main"</code> gives you the
+    <code>&lt;main&gt;</code> landmark at GC page width. Its <code>id</code> is where the header’s skip link lands.
+  </gcds-text>
+  <gcds-text>
+    Inside it, use <code>gcds-heading</code> and <code>gcds-text</code> instead of bare <code>&lt;h1&gt;</code> and
+    <code>&lt;p&gt;</code>. You get GC typography, spacing, and a comfortable line length for reading.
+  </gcds-text>
+  <Demo html={`<gcds-container id="main-content" layout="page" tag="main">\n${indent(intro)}\n</gcds-container>`} landmark />
+  <gcds-text>
+    The <code>tag</code> attribute sets the real heading level, so your page outline stays correct for screen
+    readers. Choose it by structure, not by how big you want the text.
+  </gcds-text>
+
+  <gcds-heading tag="h2">Step 3: Links and buttons</gcds-heading>
+  <gcds-text>
+    Use links to go somewhere, and buttons to do something. A <code>start</code> button is the one clear
+    call to action on a service page.
+  </gcds-text>
+  <Demo html={link} />
+  <Demo html={startButton} />
+  <gcds-text>
+    <code>type="link"</code> with an <code>href</code> renders a real link styled as a button, so it behaves correctly
+    for screen readers and right-click “open in new tab”.
+  </gcds-text>
+
+  <gcds-heading tag="h2">Step 4: A notice</gcds-heading>
+  <Demo html={notice} />
+  <gcds-text>
+    The <code>notice-role</code> sets the colour and icon, and screen reader users hear the type of notice. Use them
+    sparingly: if everything is a warning, nothing is.
+  </gcds-text>
+
+  <gcds-heading tag="h2">Step 5: A form with validation</gcds-heading>
+  <gcds-text>
+    GCDS form components handle labels, hints, required markers, error messages and their accessibility for
+    you. They also work with a regular <code>&lt;form&gt;</code>.
+  </gcds-text>
+  <Demo html={form} accessibility />
+  <gcds-text role="status" id="apply-preview-status"></gcds-text>
+  <gcds-text>
+    Notice <code>novalidate</code> on the form. It switches off the browser’s built-in error bubbles so GCDS can
+    show its own accessible, bilingual error messages instead.
+  </gcds-text>
+  <gcds-text>
+    Try the preview: tab past the email field without typing, or press Submit. Errors appear in plain
+    language, in the right language, and are linked to the field for screen readers.
+  </gcds-text>
+  <Fw for="react vue angular">
+    <gcds-heading tag="h3">Connect the form to your app</gcds-heading>
+    <gcds-text>The example shows the markup. To read the values in your framework, bind them like this:</gcds-text>
+  </Fw>
+  <Fw for="react"><CodeBlock lang="jsx" code={formReact} /></Fw>
+  <Fw for="vue"><CodeBlock lang="vue" code={formVue} /></Fw>
+  <Fw for="angular"><CodeBlock lang="angular-html" code={formAngular} /></Fw>
+  <gcds-text>
+    Read the docs for more information and examples:
+    <gcds-link href={`${DOCS}/components/input/`}>Input</gcds-link>,
+    <gcds-link href={`${DOCS}/components/radios/`}>Radios</gcds-link>,
+    <gcds-link href={`${DOCS}/components/validate-form-components/`}>Validating form components</gcds-link>
+  </gcds-text>
+
+  <gcds-heading tag="h2">Step 6: Date modified</gcds-heading>
+  <gcds-text>GC pages show when they were last updated, at the bottom of the main content.</gcds-text>
+  <Demo html={dateModified} />
+
+  <gcds-heading tag="h2">The complete page</gcds-heading>
+  <Fw for="html">
+    <gcds-text>Save this as <code>index.html</code>, serve it, and you have a working GC page.</gcds-text>
+  </Fw>
+  <Fw for="react vue angular">
+    <gcds-text>
+      Here’s the full markup in one place. In your app, split it into a layout (header and footer) and a page
+      (everything inside <code>main</code>), and use the step 5 code for the form.
+    </gcds-text>
+  </Fw>
+  <FwCode html={fullHtml} react={toReact(`<>\n${indent(`${header}\n\n${main}\n\n${footer}`)}\n</>`)} vue={`${header}\n\n${main}\n\n${footer}`} angular={`${header}\n\n${main}\n\n${footer}`} />
+  <gcds-text>
+    This page follows the official <gcds-link href={`${DOCS}/page-templates/basic/`}>basic page template</gcds-link>.
+    Start from the template for real pages.
+  </gcds-text>
+</Base>
+
+<script>
+  // Keep the preview form on this page; GCDS shows any errors itself.
+  const previewForm = document.getElementById('apply') as HTMLFormElement | null;
+  previewForm?.addEventListener('submit', e => {
+    e.preventDefault();
+    const status = document.getElementById('apply-preview-status');
+    if (status) status.textContent = previewForm.checkValidity() ? 'No errors. In a real app, the form would be sent now.' : '';
+  });
+</script>

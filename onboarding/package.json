@@ -1,0 +1,20 @@
+{
+  "name": "@gcds-core/onboarding",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Developer onboarding experience for the GC Design System",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@gcds-core/components": "1.6.0",
+    "@gcds-core/css-shortcuts": "1.2.0",
+    "@gcds-core/tokens": "1.6.0",
+    "@gcds-extensions/code-display": "1.0.1",
+    "astro": "7.3.7"
+  }
+}
