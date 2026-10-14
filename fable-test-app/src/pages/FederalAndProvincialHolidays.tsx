@@ -14,13 +14,13 @@ const FederalAndProvincialHolidays: React.FC = () => {
       <Text>Approximately 6 % of Canadians work in federally-regulated industries. Some examples are:</Text>
       <ul className='list-disc'>
         <li>
-          <Text marginBottom='150'>banks</Text>
+          <Text marginBottom='100'>banks</Text>
         </li>
         <li>
-          <Text marginBottom='150'>airlines</Text>
+          <Text marginBottom='100'>airlines</Text>
         </li>
         <li>
-          <Text marginBottom='150'>post offices</Text>
+          <Text marginBottom='100'>post offices</Text>
         </li>
         <li>
           <Text>the federal civil service</Text>
@@ -33,7 +33,7 @@ const FederalAndProvincialHolidays: React.FC = () => {
       <Text>For example, the province of Ontario does not observe Remembrance Day, which means on November 11, post offices are closed but schools are open.</Text>
       <Text>Ontario observes Family Day but the federal government does not. So that means on the third Monday in February, schools are closed but post offices will be open.</Text>
 
-      <DateModified>2024-08-28</DateModified>
+      <DateModified>2025-07-16</DateModified>
     </section>
   )
 };

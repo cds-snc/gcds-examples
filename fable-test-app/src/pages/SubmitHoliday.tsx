@@ -17,11 +17,7 @@ const SubmitHoliday: React.FC = () => {
     newHoliday: '',
     holidayDate: '',
     learnOfHoliday: '',
-    holidayType: {
-      federal: false,
-      national: false,
-      other: false
-    },
+    holidayType: [],
     otherHoliday: '',
     province: '',
     image: null,
@@ -33,14 +29,8 @@ const SubmitHoliday: React.FC = () => {
   // Handle form inputs to set into state
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
-    if (name === "newHoliday") {
-      setFormData({...formData, [name]: e.detail});
-    } else if (name === "holidayType") {
-      let type = formData.holidayType;
-      setFormData({...formData, [name]: { ...type, [value]: !type[value as keyof typeof type] }});
-    } else {
-      setFormData({...formData, [name]: value});
-    }
+
+    setFormData({ ...formData, [name]: value });
   };
 
   const previousStep = () => {
@@ -70,11 +60,12 @@ const SubmitHoliday: React.FC = () => {
   return (
     <section>
       <Heading tag="h1">Submit a holiday</Heading>
-      <Text marginBottom="500">
+      <Text marginBottom="600">
         This is a form you can use to submit a holiday that we're missing. There's a few steps involved to showcase our form components.
       </Text>
 
       <form
+        noValidate
         onSubmit={(e) => {
           e.preventDefault();
           setTimeout(() => {
@@ -90,15 +81,15 @@ const SubmitHoliday: React.FC = () => {
             focusHeading={focusHeading}
             handleInputChange={handleInputChange}
           />
-        : 
-        step === 2 ?
-          <StepTwo
-            formdata={formData}
-            handleInputChange={handleInputChange}
-            previousStep={previousStep}
-          />
-         :
-          <Success />
+          :
+          step === 2 ?
+            <StepTwo
+              formdata={formData}
+              handleInputChange={handleInputChange}
+              previousStep={previousStep}
+            />
+            :
+            <Success />
         }
       </form>
 

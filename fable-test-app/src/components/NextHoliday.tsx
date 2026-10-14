@@ -1,11 +1,11 @@
 import React from 'react';
-import { Text, Heading } from '../components';
+import { Text, Heading, SrOnly } from '../components';
 
 import { Provinces } from '../utils/constants';
 
 interface NextHolidayProps {
   display?: 'banner' | 'table' | 'homepage';
-  isCurrentHoliday? : boolean;
+  isCurrentHoliday?: boolean;
   nextHoliday: {
     date: string;
     nameEn: string;
@@ -33,24 +33,31 @@ const NextHoliday: React.FC<NextHolidayProps> = ({
   const formatDate = (dateString: string) => {
     const holidayDate = new Date(dateString);
 
-    return `${holidayDate.toLocaleString('default', { month: 'long' })} ${holidayDate.getDate()}`;
+    return `${holidayDate.toLocaleString('default', { month: 'long' })} ${holidayDate.getUTCDate()}`;
   };
 
   // Create formatted list of <abbr> elements for provinces
   const getObservedInProvinces = () => {
     if (provincesObservedIn) {
       if (provincesObservedIn.length === 1) {
-        return <abbr title={provincesObservedIn[0].nameEn}>{provincesObservedIn[0].id}</abbr>;
+        return <abbr tabIndex={0} title={provincesObservedIn[0].nameEn}>
+          {provincesObservedIn[0].id}
+          <SrOnly>({provincesObservedIn[0].nameEn})</SrOnly>
+        </abbr>;
       } else {
         return provincesObservedIn.map((value, i: number) => <span key={i}>
           {i === provincesObservedIn.length - 1 && " and "}
-          <abbr title={value.nameEn}>{value.id}</abbr>{i != provincesObservedIn.length - 1 ? ", " : "."}
+          <abbr tabIndex={0} title={value.nameEn}>
+            {value.id}
+            <SrOnly>({value.nameEn})</SrOnly>
+          </abbr>{i != provincesObservedIn.length - 1 ? ", " : "."}
         </span>);
       }
     }
   };
 
   const daysToNextHoliday = nextHoliday ? calcNextHoliday(nextHoliday.date) : null;
+  const dayOrDays = daysToNextHoliday === 1 ? 'day' : 'days';
 
   if (!nextHoliday) {
     return null;
@@ -64,22 +71,22 @@ const NextHoliday: React.FC<NextHolidayProps> = ({
         alt="Calendar icon with a clock in the bottom right corner."
       />
       <Text textRole="light" marginBottom="0">
-        <strong>Next holiday is {nextHoliday.nameEn} — that's {daysToNextHoliday} days away</strong>
+        <strong>Next holiday is {nextHoliday.nameEn} — that's {daysToNextHoliday} {dayOrDays} away</strong>
       </Text>
     </div>
   ) : isCurrentHoliday ? (
-      <img
-        className="d-inline-block me-150"
-        src="/icons/icon-calendar.svg"
-        alt="Calendar icon with a clock in the bottom right corner."
-      />
-  ) : display ==='homepage' ? (
+    <img
+      className="d-inline-block me-150"
+      src="/icons/icon-calendar.svg"
+      alt="Calendar icon with a clock in the bottom right corner."
+    />
+  ) : display === 'homepage' ? (
     <section className={`pt-700 pb-700 mb-300 next-holiday-homepage ${federal ? `img-federal` : 'img-nonfederal'}`}>
       <div className="bg-light md:px-450 px-250 d-block pt-100 pb-500">
         <Heading tag="h2">
           {federal ?
             <span className="font-secondary">Next federal statutory holiday</span>
-          :
+            :
             <span className="font-secondary">Next non-federal statutory holiday</span>
           }
         </Heading>
@@ -90,18 +97,18 @@ const NextHoliday: React.FC<NextHolidayProps> = ({
           <time>
             {formatDate(nextHoliday.date)}
           </time>
-          {!federal ? 
+          {!federal ?
             <p className="d-inline font-h5 font-medium">
               &nbsp;- Observed in {getObservedInProvinces()}
             </p>
-          :
+            :
             null
           }
         </div>
       </div>
       <div className="d-flex bg-primary md:align-items-center align-items-center text-light md:px-450 px-250 py-200">
         <Text textRole="light" marginBottom="0">
-          <strong>That's in {daysToNextHoliday} days!</strong>
+          <strong>That's in {daysToNextHoliday} {dayOrDays}!</strong>
         </Text>
         <img
           className="d-inline-block ms-400"

@@ -7,13 +7,7 @@ import DateModified from '@/components/DateModified.vue'
 const { t } = useI18n()
 </script>
 <template>
-  <div class="about">
-    <Heading tag="h1">{{ t('aboutPage.aboutTopic.heading') }}</Heading>
-    <Text>
-      {{ t('aboutPage.aboutTopic.intro') }}
-    </Text>
-    <DateModified date="2024-09-10"></DateModified>
-  </div>
+  <Heading tag="h1">{{ t('aboutPage.aboutTopic.heading') }}</Heading>
+  <Text>{{ t('aboutPage.aboutTopic.intro') }}</Text>
+  <DateModified date="2024-09-10"></DateModified>
 </template>
-
-<style scoped></style>

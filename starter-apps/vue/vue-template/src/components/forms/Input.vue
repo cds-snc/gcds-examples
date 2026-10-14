@@ -20,5 +20,5 @@ const model = defineModel()
     :name="name"
     :placeholder="placeholder"
     :required="required"
-  ></gcds-input>
+  />
 </template>

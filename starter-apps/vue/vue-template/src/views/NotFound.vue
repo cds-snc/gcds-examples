@@ -20,11 +20,7 @@ watch(
 )
 </script>
 <template>
-  <div class="not-found">
-    <Heading tag="h1">{{ t('notFoundPage.heading') }}</Heading>
-    <Text>
-      {{ t('notFoundPage.intro') }}
-    </Text>
-    <DateModified date="2024-09-10"></DateModified>
-  </div>
+  <Heading tag="h1">{{ t('notFoundPage.heading') }}</Heading>
+  <Text>{{ t('notFoundPage.intro') }}</Text>
+  <DateModified date="2024-09-10"></DateModified>
 </template>

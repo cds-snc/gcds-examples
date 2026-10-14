@@ -1,27 +1,36 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React from "react";
+import { useLocation } from "react-router-dom";
 import {
   GcdsNavGroup,
   GcdsNavLink,
-  GcdsSideNav
-} from "@cdssnc/gcds-components-react";
+  GcdsSideNav,
+} from "@gcds-core/components-react";
 
 const navLinks = [
   {
-    groupLabel: "View holidays",
+    groupLabel: "Holidays",
     links: [
-      { href: "/view-holidays/nationwide", label: "Nationwide" },
+      { href: "/view-holidays/nationwide", label: "All" },
       { href: "/view-holidays/federal", label: "Federal" },
       { href: "/view-holidays/alberta", label: "Alberta" },
       { href: "/view-holidays/british-columbia", label: "British Columbia" },
       { href: "/view-holidays/manitoba", label: "Manitoba" },
       { href: "/view-holidays/new-brunswick", label: "New Brunswick" },
-      { href: "/view-holidays/newfoundland-and-labrador", label: "Newfoundland and Labrador" },
+      {
+        href: "/view-holidays/newfoundland-and-labrador",
+        label: "Newfoundland and Labrador",
+      },
       { href: "/view-holidays/nova-scotia", label: "Nova Scotia" },
-      { href: "/view-holidays/northwest-territories", label: "Northwest Territories" },
+      {
+        href: "/view-holidays/northwest-territories",
+        label: "Northwest Territories",
+      },
       { href: "/view-holidays/nunavut", label: "Nunavut" },
       { href: "/view-holidays/ontario", label: "Ontario" },
-      { href: "/view-holidays/prince-edward-island", label: "Prince Edward Island" },
+      {
+        href: "/view-holidays/prince-edward-island",
+        label: "Prince Edward Island",
+      },
       { href: "/view-holidays/quebec", label: "Quebec" },
       { href: "/view-holidays/saskatchewan", label: "Saskatchewan" },
       { href: "/view-holidays/yukon", label: "Yukon" },
@@ -30,10 +39,13 @@ const navLinks = [
   {
     groupLabel: "Holiday information",
     links: [
-      { href: "/federal-and-provincial-holidays", label: "Federal and provincial holidays" },
+      {
+        href: "/federal-and-provincial-holidays",
+        label: "Federal and provincial holidays",
+      },
       { href: "/optional-holidays", label: "Optional holidays" },
     ],
-  }
+  },
 ];
 
 const SideNav: React.FC = () => {
@@ -42,8 +54,16 @@ const SideNav: React.FC = () => {
 
   return (
     <GcdsSideNav label="Canada holidays" className="lg:bg-light">
+      <GcdsNavLink href="/" slot="home">
+        Canada holidays
+      </GcdsNavLink>
       {navLinks.map((group, index) => (
-        <GcdsNavGroup key={index} openTrigger={group.groupLabel} menuLabel={group.groupLabel} open>
+        <GcdsNavGroup
+          key={index}
+          openTrigger={group.groupLabel}
+          menuLabel={group.groupLabel}
+          open
+        >
           {group.links.map((item) => (
             <GcdsNavLink
               href={item.href}
@@ -59,7 +79,10 @@ const SideNav: React.FC = () => {
       <GcdsNavLink href="/about" current={isCurrentPath("/about")}>
         About this app
       </GcdsNavLink>
-      <GcdsNavLink href="/submit-a-holiday" current={isCurrentPath("/submit-a-holiday")}>
+      <GcdsNavLink
+        href="/submit-a-holiday"
+        current={isCurrentPath("/submit-a-holiday")}
+      >
         Submit a holiday
       </GcdsNavLink>
     </GcdsSideNav>

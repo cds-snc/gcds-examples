@@ -19,5 +19,5 @@ const model = defineModel()
     :name="name"
     :required="required"
     :textarea-id="id"
-  ></gcds-textarea>
+  />
 </template>

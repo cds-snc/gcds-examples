@@ -11,7 +11,11 @@ table img {
 
 @media only screen and (width < 40em) {
   table thead {
-    display: none;
+    display: block;
+    width: 0;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
   }
 
   table td {
@@ -47,4 +51,16 @@ gcds-fieldset:has( > gcds-checkbox) {
 }
 .next-holiday-homepage div {
   max-width: 62ch;
+}
+
+
+/* Abbreviation list */
+abbr:focus {
+  border-radius: var(--gcds-border-radius-sm);
+  background-color: var(--gcds-focus-background);
+  color: var(--gcds-focus-text);
+  text-decoration: none;
+  box-shadow: 0 0 0 var(--gcds-border-width-md) var(--gcds-color-white);
+  outline-offset: var(--gcds-border-width-md);
+  outline: var(--gcds-border-width-lg) solid var(--gcds-focus-background);
 }

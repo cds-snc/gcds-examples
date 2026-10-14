@@ -1,0 +1,52 @@
+name: Publish @gcds-core/create-app
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/create-gcds-app
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Show npm config
+        run: npm config list
+
+      # Chooses the npm dist-tag from the version in package.json.
+      #
+      #   0.1.0-alpha.0  -> alpha    (installed only via @alpha)
+      #   0.2.0-beta.1   -> beta
+      #   1.0.0          -> latest   (what bare `npx @gcds-core/create-app` gets)
+      - name: Determine dist-tag
+        id: tag
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if [[ "$VERSION" == *-* ]]; then
+            TAG="${VERSION#*-}"; TAG="${TAG%%.*}"
+          else
+            TAG="latest"
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "Publishing $VERSION to dist-tag $TAG"
+      
+      - name: Publish to npm
+        run: npm publish --access public --tag "${{ steps.tag.outputs.tag }}"

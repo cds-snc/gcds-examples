@@ -47,10 +47,10 @@ const navElements = [
 
 <template>
   <gcds-header :lang-href="getOtherLangPath" skip-to-href="#main-content">
-    <gcds-search slot="search"></gcds-search>
+    <gcds-search slot="search" />
     <AppLink :to="getLocalizedPath(HOME)" component="lang-toggle" />
 
-    <gcds-top-nav slot="menu" alignment="right" label="Top navigation">
+    <gcds-top-nav slot="menu" alignment="end" label="Top navigation">
       <!--
         Using <AppLink component="nav"> here will utilize RouterLink, but at the moment it does not get styled
         correctly due to <gcds-nav-link> looking for a direct parent <gcds-top-nav> component.

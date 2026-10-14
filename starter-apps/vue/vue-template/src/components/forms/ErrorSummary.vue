@@ -6,5 +6,5 @@ const { errorLinks, heading, listen } = defineProps(['errorLinks', 'heading', 'l
     :error-links="errorLinks"
     :heading="heading"
     :listen="listen"
-  ></gcds-error-summary>
+  />
 </template>

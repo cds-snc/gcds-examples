@@ -1,35 +1,25 @@
-import React from 'react';
-import { GcdsFieldset } from "@cdssnc/gcds-components-react";
+import React from "react";
+import { GcdsFieldset } from "@gcds-core/components-react";
 
 interface InputProps {
   hint?: string;
   legend: string;
-  fieldsetId: string;
-  validateOn?: "blur" | "submit" | "other";
-  required?: boolean;
+  legendSize: "h2" | "h3" | "h4" | "h5" | "h6";
   className?: string;
   children: React.ReactNode;
 }
 
-const Fieldset: React.FC<InputProps> = React.memo(({
-  hint,
-  legend,
-  fieldsetId,
-  validateOn,
-  required,
-  className,
-  children
-}) => (
-  <GcdsFieldset
-    fieldsetId={fieldsetId}
-    legend={legend}
-    hint={hint}
-    validateOn={validateOn}
-    required={required}
-    className={className}
-  >
-    {children}
-  </GcdsFieldset>
-));
+const Fieldset: React.FC<InputProps> = React.memo(
+  ({ hint, legend, legendSize, className, children }) => (
+    <GcdsFieldset
+      legend={legend}
+      legendSize={legendSize}
+      hint={hint}
+      className={className}
+    >
+      {children}
+    </GcdsFieldset>
+  ),
+);
 
 export default Fieldset;

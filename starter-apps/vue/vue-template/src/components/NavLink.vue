@@ -21,16 +21,15 @@ const {
 </script>
 
 <template>
-
   <router-link custom>
     <gcds-nav-link
-        :href="href"
-        :class="{ [props.inactiveClass]: props.inactiveClass && $route.path !== props.to }"
-        :external="props.isExternal"
-        @click="navigate"
-        :slot="props.slot"
+      :href="href"
+      :class="{ [props.inactiveClass]: props.inactiveClass && $route.path !== props.to }"
+      :external="props.isExternal"
+      @click="navigate"
+      :slot="props.slot"
     >
-      <slot/>
+      <slot />
     </gcds-nav-link>
   </router-link>
 </template>

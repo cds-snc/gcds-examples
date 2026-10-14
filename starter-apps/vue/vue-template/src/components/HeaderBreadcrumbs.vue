@@ -35,14 +35,16 @@ const breadcrumbs = computed(() => {
       v-if="props.currentRoute != 'home'"
       :to="getLocalizedPath(HOME)"
       component="breadcrumb"
-      >{{ t(HOME) }}</AppLink
     >
+      {{ t(HOME) }}
+    </AppLink>
     <AppLink
       v-for="(crumb, index) in breadcrumbs"
       :key="index"
       :to="crumb.to"
       component="breadcrumb"
-      >{{ crumb.label }}
+    >
+      {{ crumb.label }}
     </AppLink>
   </gcds-breadcrumbs>
 </template>

@@ -1,41 +1,43 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 // Components (internal)
-import { DateModified, Heading, NextHoliday, Text, Button } from '../components';
+import { DateModified, Heading, NextHoliday, Text, Button, Alert } from '../components';
 import { holidayObject } from '../utils/constants';
 
 const Home: React.FC = () => {
   const currentDate = new Date().getTime();
   const [nextFederal, setNextFederal] = useState<holidayObject>();
   const [nextNationwide, setNextNationwide] = useState<holidayObject>();
+  const [loggedInAlert, setLoggedInAlert] = useState(false);
 
   useEffect(() => {
     axios.get('https://canada-holidays.ca/api/v1/holidays')
-    .then(({ data }) => {
+      .then(({ data }) => {
 
-      // Assign next federal holiday
-      let fedAssigned = false;
-      let nationwideAssigned = false;
-      data.holidays.map((holiday: holidayObject) => {
-        const holidayDate = new Date (holiday.date).getTime();
+        // Assign next federal holiday
+        let fedAssigned = false;
+        let nationwideAssigned = false;
+        data.holidays.map((holiday: holidayObject) => {
+          const holidayDate = new Date(holiday.date).getTime();
 
-        if (holiday.federal === 1) {
-          if (!fedAssigned && holidayDate > currentDate) {
-            fedAssigned = true;
-            setNextFederal(holiday);
+          if (holiday.federal === 1) {
+            if (!fedAssigned && holidayDate > currentDate) {
+              fedAssigned = true;
+              setNextFederal(holiday);
+            }
           }
-        }
-        
-        if (!nationwideAssigned && holidayDate > currentDate) {
-          nationwideAssigned = true;
-          setNextNationwide(holiday);
-        }
+
+          if (!nationwideAssigned && holidayDate > currentDate) {
+            nationwideAssigned = true;
+            setNextNationwide(holiday);
+          }
+        });
+      })
+      .catch(error => {
+        console.error("There was an error fetching the holidays!", error);
       });
-    })
-    .catch(error => {
-      console.error("There was an error fetching the holidays!", error);
-    });
   }, []);
 
   return (
@@ -45,14 +47,37 @@ const Home: React.FC = () => {
         This app shows all Canadian holidays and uses GC Design System.
       </Text>
 
+      <Heading tag="h2">Notice a holiday missing?</Heading>
+      <Text>
+        You can submit a holiday for review. Before submitting an entry, please take a moment to view <Link to="/view-holidays/nationwide">all of the holidays</Link> in our data set. If the holiday in question is still missing after review, you can fill out a quick 2 page form and submit.
+      </Text>
+
       <Button
-        buttonRole="primary"
+        buttonRole="start"
         type="link"
-        href="/view-holidays/nationwide"
+        href="/submit-a-holiday"
         className="mb-500"
+        onGcdsClick={ev => {
+          ev.preventDefault();
+          if (!loggedInAlert) {
+            setLoggedInAlert(true);
+          }
+        }}
       >
-        View all holidays
+        Submit your holiday
       </Button>
+
+      {loggedInAlert && (
+        <Alert
+          alertRole="info"
+          heading="Sign in to submit a holiday"
+          hideCloseBtn={false}
+          className="mb-500"
+          onGcdsDismiss={() => setLoggedInAlert(false)}
+        >
+          <p>You must be logged into your account to submit a holiday. Please sign in or create an account to continue.</p>
+        </Alert>
+      )}
 
       <NextHoliday
         display='homepage'
@@ -66,7 +91,7 @@ const Home: React.FC = () => {
         provincesObservedIn={nextNationwide?.provinces}
       />
 
-      <DateModified>2024-08-28</DateModified>
+      <DateModified>2025-07-16</DateModified>
     </section>
   )
 };

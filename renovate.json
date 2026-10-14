@@ -1,0 +1,30 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "local>cds-snc/renovate-config"
+  ],
+  "schedule": ["every weekend"],
+  "dependencyDashboard": true,
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["security"],
+      "enabled": true
+    },
+    {
+      "matchPackageNames": [
+        "@gcds-core/*"
+      ],
+      "rangeStrategy": "bump",
+      "groupName": "GCDS packages",
+      "prPriority": 1,
+      "automerge": false,
+      "prCreation": "immediate",
+      "minimumReleaseAge": "0 days",
+      "schedule": ["at any time"]
+    },
+    {
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "enabled": false
+    }
+  ]
+}

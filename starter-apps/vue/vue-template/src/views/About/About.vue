@@ -9,18 +9,12 @@ import DateModified from '@/components/DateModified.vue'
 const { t } = useI18n()
 </script>
 <template>
-  <div class="about">
-    <Heading tag="h1">{{ t('aboutPage.heading') }}</Heading>
-    <Text>
-      {{ t('aboutPage.intro') }}
-    </Text>
-    <section>
-      <AppLink :to="getLocalizedPath('about/topic')">{{
-        t('aboutPage.aboutTopic.heading')
-      }}</AppLink>
-    </section>
-    <DateModified date="2024-09-10"></DateModified>
-  </div>
+  <Heading tag="h1">{{ t('aboutPage.heading') }}</Heading>
+  <Text>{{ t('aboutPage.intro') }}</Text>
+  <section>
+    <AppLink :to="getLocalizedPath('about/topic')">
+      {{ t('aboutPage.aboutTopic.heading') }}
+    </AppLink>
+  </section>
+  <DateModified date="2024-09-10"></DateModified>
 </template>
-
-<style scoped></style>
