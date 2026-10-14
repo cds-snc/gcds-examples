@@ -18,22 +18,22 @@
     <!-- TODO: Replace <version-number> with the latest version number to receive corresponding updates of the GC Design System utility framework. All notable changes will be documented in the changelog: https://github.com/cds-snc/gcds-utility/blob/main/CHANGELOG.md -->
     <link
       rel="stylesheet"
-      href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-utility@1.4.0/dist/gcds-utility.min.css"
+      href="https://cdn.design-system.alpha.canada.ca/@gcds-core/css-shortcuts@1.2.0/dist/gcds-css-shortcuts.min.css"
     />
 
     <!---------- GC Design System Components ---------->
     <!-- TODO: Replace <version-number> with the latest version number to receive corresponding updates of GC Design System Components. All notable changes will be documented in the changelog: https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md -->
     <link
       rel="stylesheet"
-      href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.26.3/dist/gcds/gcds.css"
+      href="https://cdn.design-system.alpha.canada.ca/@gcds-core/components@1.6.0/dist/gcds/gcds.css"
     />
     <script
       type="module"
-      src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.26.3/dist/gcds/gcds.esm.js"
+      src="https://cdn.design-system.alpha.canada.ca/@gcds-core/components@1.6.0/dist/gcds/gcds.esm.js"
     ></script>
     <script
       nomodule
-      src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.26.3/dist/gcds/gcds.js"
+      src="https://cdn.design-system.alpha.canada.ca/@gcds-core/components@1.6.0/dist/gcds/gcds.js"
     ></script>
 
     <!-- Custom styles -->
@@ -61,13 +61,12 @@
     <!-- TODO: Confirm the id matches the "skip-to-href" id in the header. -->
     <gcds-container
       id="main-content"
-      size="full"
+      layout="full"
       tag="main"
     >
       <gcds-container
         size="xl"
-        main-container
-        centered
+        layout="page"
         tag="div"
       >
         <!-- TODO: Update the heading, image and text content. -->
@@ -82,7 +81,7 @@
               1-2 sentences that describe the topics and top tasks that can be accessed on this page.
             </gcds-text>
           </div>
-          <div class="d-none lg:d-block">
+          <div class="d-none lg:d-block lg:ms-auto">
             <!-- TODO: Update the main image. -->
             <!-- TODO: Provide descriptive alt-text for the accompanying image. -->
             <img src="https://dummyimage.com/520x200/000000/FFFFFF.png" alt="" />
@@ -94,22 +93,20 @@
       <!-- TODO: Update the links href and text content. -->
       <section class="bg-light pt-400 pb-400 mb-400">
         <gcds-container
-          id="main-content"
           size="xl"
-          centered
-          main-container
+          layout="page"
           tag="div"
         >
           <gcds-grid
             tag="div"
             columns-desktop="1fr 2fr"
           >
-            <gcds-heading margin-top="0" tag="h2">Most requested</gcds-heading>
+            <gcds-heading margin-top="0" tag="h2" margin-bottom="0">Most requested</gcds-heading>
             <gcds-grid
               tag="ul"
               columns-desktop="1fr 1fr"
-              equal-row-height
               class="ps-450 lg:ps-0"
+              gap="150"
             >
               <li>
                 <gcds-link href="#">
@@ -148,8 +145,7 @@
 
       <gcds-container
         size="xl"
-        main-container
-        centered
+        layout="page"
         tag="div"
         class="pb-300"
       >
@@ -174,7 +170,6 @@
               >
                 <gcds-link
                   href="#"
-                  class="font-text"
                 >
                   Heading link
                 </gcds-link>
@@ -191,7 +186,6 @@
               >
                 <gcds-link
                   href="#"
-                  class="font-text"
                 >
                   Heading link
                 </gcds-link>
@@ -208,7 +202,6 @@
               >
                 <gcds-link
                   href="#"
-                  class="font-text"
                 >
                   Heading link
                 </gcds-link>
@@ -225,7 +218,6 @@
               >
                 <gcds-link
                   href="#"
-                  class="font-text"
                 >
                   Heading link
                 </gcds-link>
@@ -242,7 +234,6 @@
               >
                 <gcds-link
                   href="#"
-                  class="font-text"
                 >
                   Heading link
                 </gcds-link>
@@ -259,7 +250,6 @@
               >
                 <gcds-link
                   href="#"
-                  class="font-text"
                 >
                   Heading link
                 </gcds-link>
@@ -276,7 +266,6 @@
               >
                 <gcds-link
                   href="#"
-                  class="font-text"
                 >
                   Heading link
                 </gcds-link>
@@ -293,7 +282,6 @@
               >
                 <gcds-link
                   href="#"
-                  class="font-text"
                 >
                   Heading link
                 </gcds-link>
@@ -310,7 +298,6 @@
               >
                 <gcds-link
                   href="#"
-                  class="font-text"
                 >
                   Heading link
                 </gcds-link>
@@ -351,7 +338,6 @@
                   >
                     <gcds-link
                       href="#"
-                      class="font-text"
                     >
                       Heading link
                     </gcds-link>
@@ -374,7 +360,7 @@
               </gcds-heading>
               <ul class="ms-400 d-block social-media">
                 <li class="mb-200 d-flex">
-                  <img src="../assets/facebook.svg" alt="" />
+                  <img src="../../assets/facebook.svg" alt="" />
                   <gcds-link href="#" class="ms-200 align-content-center">
                     <strong>
                       <gcds-sr-only tag="span">
@@ -385,7 +371,7 @@
                   </gcds-link>
                 </li>
                 <li class="mb-100 d-flex">
-                  <img src="../assets/x.svg" alt="" />
+                  <img src="../../assets/x.svg" alt="" />
                   <gcds-link href="#" class="ms-200 align-content-center">
                     <strong>
                       <gcds-sr-only tag="span">
@@ -396,7 +382,7 @@
                   </gcds-link>
                 </li>
                 <li class="mb-100 d-flex">
-                  <img src="../assets/youtube.svg" alt="" />
+                  <img src="../../assets/youtube.svg" alt="" />
                   <gcds-link href="#" class="ms-200 align-content-center">
                     <strong>
                       <gcds-sr-only tag="span">
@@ -406,7 +392,7 @@
                     </strong>
                   </gcds-link>
                 <li class="mb-100 d-flex">
-                  <img src="../assets/instagram.svg" alt="" />
+                  <img src="../../assets/instagram.svg" alt="" />
                   <gcds-link href="#" class="ms-200 align-content-center">
                     <strong>
                       <gcds-sr-only tag="span">
@@ -417,7 +403,7 @@
                   </gcds-link>
                 </li>
                 <li class="d-flex">
-                  <img src="../assets/linkedin.svg" alt="" />
+                  <img src="../../assets/linkedin.svg" alt="" />
                   <gcds-link href="#" class="ms-200 align-content-center">
                     <strong>
                       <gcds-sr-only tag="span">
@@ -440,11 +426,11 @@
             margin-bottom="0"
             class="d-block md:d-inline-block"
           >
-            <span class="font-caption font-bold">
+            <span class="font-text-small font-bold">
               From:
             </span>
           </gcds-heading>
-          <ul class="d-block md:d-inline-block list-disc md:list-none md:m-0">
+          <ul class="d-block md:d-inline-block list-disc md:list-none md:m-0 ms-250 md:ms-0">
             <li class="md:d-inline">
               <gcds-link href="#">Department or agency 1</gcds-link>
             </li>
@@ -458,12 +444,12 @@
         </section>
 
         <!-- TODO: Update the date to reflect the page's most recent change. -->
-         <section>
+        <section>
           <gcds-sr-only tag="h2">
             Page details
           </gcds-sr-only>
           <gcds-date-modified>2024-08-22</gcds-date-modified>
-         </section>
+        </section>
       </gcds-container>
     </gcds-container>
 
