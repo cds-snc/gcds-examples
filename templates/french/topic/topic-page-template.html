@@ -1,0 +1,457 @@
+<!--TODO : Enlever les commentaires avant de déployer votre code en production. -->
+<!DOCTYPE html>
+<html dir="ltr" lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--TODO: Ajouter une description de la page pour améliorer le référencement naturel/SEO ainsi que les aperçus de partage. -->
+    <meta
+      name="description"
+      content="Ajouter une description qui résume brièvement le contenu."
+    />
+
+    <!--TODO : Insérer un titre concis et descriptif qui résume le contenu de votre page. -->
+    <title>[Titre du sujet] - Canada.ca</title>
+
+    <!---------- Système de design GC Raccourcis CSS ---------->
+    <!-- TODO : Remplacez <version-number> par le numéro de version le plus récent pour recevoir les mises à jour correspondantes de Raccourcis CSS du Système de design GC. Tout changement important sera consigné dans le journal des modifications: https://github.com/cds-snc/gcds-css-shortcuts/blob/main/CHANGELOG.md -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.alpha.canada.ca/@gcds-core/css-shortcuts@<version-number>/dist/gcds-css-shortcuts.min.css"
+    />
+
+    <!---------- GC Design System Components ---------->
+    <!-- TODO : Remplacez <version-number> par le numéro de version le plus récent pour recevoir les mises à jour correspondantes des composants de Système de design GC. Tout changement important sera consigné dans le journal des modifications https://github.com/cds-snc/gcds-components/blob/main/CHANGELOG.md -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.alpha.canada.ca/@gcds-core/components@<version-number>/dist/gcds/gcds.css"
+    />
+    <script
+      type="module"
+      src="https://cdn.design-system.alpha.canada.ca/@gcds-core/components@<version-number>/dist/gcds/gcds.esm.js"
+    ></script>
+
+    <!-- Styles personnalisés -->
+    <!--TODO : Au besoin, décommenter et lier votre fichier CSS personnalisé ici. -->
+    <!-- <link rel="stylesheet" href="path/to/custom.css" /> -->
+  </head>
+
+  <body>
+    <!---------- Header ---------->
+    <!--TODO : Modifier le lang-href pour définir l'URL de la bascule de langue. -->
+    <!--TODO : Mettre à jour le skip-to-href avec l'attribut <id> du conteneur du contenu principal. -->
+    <gcds-header lang-href="#" skip-to-href="#main-content">
+      <!-- L'attribut slot="search" ajoute le composant recherche à l'en-tête. -->
+      <gcds-search slot="search"></gcds-search>
+      <gcds-topic-menu slot="menu"></gcds-topic-menu>
+
+      <!-- L'attribut slot="breadcrumb" ajoute le composant chemin de navigation à l'en-tête. -->
+      <gcds-breadcrumbs slot="breadcrumb">
+        <!--À faire : Remplacer les liens du chemin de navigation avec les liens valides pour votre site. -->
+        <gcds-breadcrumbs-item href="#">Lien</gcds-breadcrumbs-item>
+      </gcds-breadcrumbs>
+    </gcds-header>
+
+    <!---------- Main content ---------->
+    <!--TODO : Confirmez que l'attribut id correspond à l'attribut id de skip-to-href dans l'en-tête. -->
+    <gcds-container
+      id="main-content"
+      layout="full"
+      tag="main"
+    >
+      <gcds-container
+        size="xl"
+        layout="page"
+        tag="div"
+      >
+        <!-- TODO: Mettez à jour le titre, l’image et le contenu textuel. -->
+        <gcds-grid
+          tag="div"
+          columns-desktop="1fr 1fr"
+          columns-tablet="1fr"
+        >
+          <div>
+            <gcds-heading tag="h1">[Titre du sujet]</gcds-heading>
+            <gcds-text>
+              1 à 2 phrases décrivant les sujets et les principales tâches accessibles sur cette page.
+            </gcds-text>
+          </div>
+          <div class="d-none lg:d-block lg:ms-auto">
+            <!-- TODO: Mettez à jour l’image principale. -->
+            <!-- TODO: Fournissez un texte alternatif descriptif pour l’image associée. -->
+            <img src="https://dummyimage.com/520x200/000000/FFFFFF.png" alt="" />
+          </div>
+        </gcds-grid>
+      </gcds-container>
+
+      <!---------- En demande ---------->
+      <!-- TODO: Mettez à jour les attributs href et le contenu textuel des liens. -->
+      <section class="bg-light pt-400 pb-400 mb-400">
+        <gcds-container
+          size="xl"
+          layout="page"
+          tag="div"
+        >
+          <gcds-grid
+            tag="div"
+            columns-desktop="1fr 2fr"
+          >
+            <gcds-heading margin-top="0" tag="h2" margin-bottom="0">En demande</gcds-heading>
+            <gcds-grid
+              tag="ul"
+              columns-desktop="1fr 1fr"
+              class="ps-450 lg:ps-0"
+              gap="150"
+            >
+              <li>
+                <gcds-link href="#">
+                  [Lien vers une tâche principale avec un nom de tâche très long qui s'étend sur deux lignes 1]
+                </gcds-link>
+              </li>
+              <li>
+                <gcds-link href="#">
+                  [Lien vers une tâche principale 2]
+                </gcds-link>
+              </li>
+              <li>
+                <gcds-link href="#">
+                  [Lien vers une tâche principale 3]
+                </gcds-link>
+              </li>
+              <li>
+                <gcds-link href="#">
+                  [Lien vers une tâche principale 4]
+                </gcds-link>
+              </li>
+              <li>
+                <gcds-link href="#">
+                  [Lien vers une tâche principale 5]
+                </gcds-link>
+              </li>
+              <li>
+                <gcds-link href="#">
+                  [Lien vers une tâche principale avec un nom de tâche très long qui s'étend sur deux lignes 6]
+                </gcds-link>
+              </li>
+            </gcds-grid>
+          </gcds-grid>
+        </gcds-container>
+      </section>
+
+      <gcds-container
+        size="xl"
+        layout="page"
+        tag="div"
+      >
+
+        <!---------- Services et informations ---------->
+        <!-- TODO: Mettez à jour le titre et le contenu textuel. -->
+        <section>
+          <gcds-sr-only tag="h2">
+            Services et informations
+          </gcds-sr-only>
+          <gcds-grid
+            tag="div"
+            columns-desktop="1fr 1fr 1fr"
+            columns-tablet="1fr"
+            equal-row-height
+          >
+            <div>
+              <gcds-heading
+                margin-bottom="100"
+                margin-top="0"
+                tag="h3"
+              >
+                <gcds-link
+                  href="#"
+                >
+                  [Texte de l'hyperlien]
+                </gcds-link>
+              </gcds-heading>
+              <gcds-text>
+                Utilisez des verbes d'action, ou inscrivez simplement des mots clés pour résumer les renseignements ou les tâches qui peuvent être accomplies sur la page liée.
+              </gcds-text>
+            </div>
+            <div>
+              <gcds-heading
+                margin-bottom="100"
+                margin-top="0"
+                tag="h3"
+              >
+                <gcds-link
+                  href="#"
+                >
+                  [Texte de l'hyperlien]
+                </gcds-link>
+              </gcds-heading>
+              <gcds-text>
+                Utilisez des verbes d'action, ou inscrivez simplement des mots clés pour résumer les renseignements ou les tâches qui peuvent être accomplies sur la page liée.
+              </gcds-text>
+            </div>
+            <div>
+              <gcds-heading
+                margin-bottom="100"
+                margin-top="0"
+                tag="h3"
+              >
+                <gcds-link
+                  href="#"
+                >
+                  [Texte de l'hyperlien]
+                </gcds-link>
+              </gcds-heading>
+              <gcds-text>
+                Utilisez des verbes d'action, ou inscrivez simplement des mots clés pour résumer les renseignements ou les tâches qui peuvent être accomplies sur la page liée.
+              </gcds-text>
+            </div>
+            <div>
+              <gcds-heading
+                margin-bottom="100"
+                margin-top="0"
+                tag="h3"
+              >
+                <gcds-link
+                  href="#"
+                >
+                  [Texte de l'hyperlien]
+                </gcds-link>
+              </gcds-heading>
+              <gcds-text>
+                Utilisez des verbes d'action, ou inscrivez simplement des mots clés pour résumer les renseignements ou les tâches qui peuvent être accomplies sur la page liée.
+              </gcds-text>
+            </div>
+            <div>
+              <gcds-heading
+                margin-bottom="100"
+                margin-top="0"
+                tag="h3"
+              >
+                <gcds-link
+                  href="#"
+                >
+                  [Texte de l'hyperlien]
+                </gcds-link>
+              </gcds-heading>
+              <gcds-text>
+                Utilisez des verbes d'action, ou inscrivez simplement des mots clés pour résumer les renseignements ou les tâches qui peuvent être accomplies sur la page liée.
+              </gcds-text>
+            </div>
+            <div>
+              <gcds-heading
+                margin-bottom="100"
+                margin-top="0"
+                tag="h3"
+              >
+                <gcds-link
+                  href="#"
+                >
+                  [Texte de l'hyperlien]
+                </gcds-link>
+              </gcds-heading>
+              <gcds-text>
+                Utilisez des verbes d'action, ou inscrivez simplement des mots clés pour résumer les renseignements ou les tâches qui peuvent être accomplies sur la page liée.
+              </gcds-text>
+            </div>
+            <div>
+              <gcds-heading
+                margin-bottom="100"
+                margin-top="0"
+                tag="h3"
+              >
+                <gcds-link
+                  href="#"
+                >
+                  [Texte de l'hyperlien]
+                </gcds-link>
+              </gcds-heading>
+              <gcds-text>
+                Utilisez des verbes d'action, ou inscrivez simplement des mots clés pour résumer les renseignements ou les tâches qui peuvent être accomplies sur la page liée.
+              </gcds-text>
+            </div>
+            <div>
+              <gcds-heading
+                margin-bottom="100"
+                margin-top="0"
+                tag="h3"
+              >
+                <gcds-link
+                  href="#"
+                >
+                  [Texte de l'hyperlien]
+                </gcds-link>
+              </gcds-heading>
+              <gcds-text>
+                Utilisez des verbes d'action, ou inscrivez simplement des mots clés pour résumer les renseignements ou les tâches qui peuvent être accomplies sur la page liée.
+              </gcds-text>
+            </div>
+            <div>
+              <gcds-heading
+                margin-bottom="100"
+                margin-top="0"
+                tag="h3"
+              >
+                <gcds-link
+                  href="#"
+                >
+                  [Texte de l'hyperlien]
+                </gcds-link>
+              </gcds-heading>
+              <gcds-text>
+                Utilisez des verbes d'action, ou inscrivez simplement des mots clés pour résumer les renseignements ou les tâches qui peuvent être accomplies sur la page liée.
+              </gcds-text>
+            </div>
+          </gcds-grid>
+        </section>
+
+        <div>
+          <gcds-grid
+            tag="div"
+            columns-desktop="2fr 1fr"
+            columns-tablet="1fr"
+            class="mt-400"
+          >
+            <!---------- En vedette ---------->
+            <!-- TODO: Mettez à jour le titre, l’image et le contenu textuel. -->
+            <section>
+              <gcds-sr-only tag="h2">
+                En vedette
+              </gcds-sr-only>
+              <gcds-grid
+                tag="div"
+                columns-desktop="1fr 1fr"
+                columns-tablet="1fr 1fr"
+              >
+                <!-- TODO: Mettre à jour l’image mise en avant -->
+                <!-- TODO: Fournissez un texte alternatif descriptif pour l’image associée. -->
+                <img src="https://dummyimage.com/360x203/000000/FFFFFF.png" alt="" class="img-full">
+                <div>
+                  <gcds-heading
+                    margin-bottom="200"
+                    margin-top="0"
+                    tag="h3"
+                  >
+                    <gcds-link
+                      href="#"
+                    >
+                      [Lien vers l’élément en vedette]
+                    </gcds-link>
+                  </gcds-heading>
+                  <gcds-text>
+                    Brève description de l’élément en vedette.
+                  </gcds-text>
+                </div>
+              </gcds-grid>
+            </section>
+
+            <!---------- Médias sociaux ---------->
+            <!-- TODO: Mettez à jour ou supprimez les liens vers les pages de médias sociaux -->
+            <section>
+              <gcds-heading
+                margin-top="0"
+                tag="h2"
+              >
+                Dans les médias sociaux
+              </gcds-heading>
+              <ul class="ms-400 d-block social-media">
+                <li class="mb-200 d-flex">
+                  <img src="../../assets/facebook.svg" alt="" />
+                  <gcds-link href="#" class="ms-200 align-content-center">
+                    <strong>
+                      <gcds-sr-only tag="span">
+                        Facebook :
+                      </gcds-sr-only>
+                      NomPageFacebook
+                    </strong>
+                  </gcds-link>
+                </li>
+                <li class="mb-100 d-flex">
+                  <img src="../../assets/x.svg" alt="" />
+                  <gcds-link href="#" class="ms-200 align-content-center">
+                    <strong>
+                      <gcds-sr-only tag="span">
+                        X :
+                      </gcds-sr-only>
+                      :@CompteX
+                    </strong>
+                  </gcds-link>
+                </li>
+                <li class="mb-100 d-flex">
+                  <img src="../../assets/youtube.svg" alt="" />
+                  <gcds-link href="#" class="ms-200 align-content-center">
+                    <strong>
+                      <gcds-sr-only tag="span">
+                        Youtube :
+                      </gcds-sr-only>
+                      NomYouTube
+                    </strong>
+                  </gcds-link>
+                <li class="mb-100 d-flex">
+                  <img src="../../assets/instagram.svg" alt="" />
+                  <gcds-link href="#" class="ms-200 align-content-center">
+                    <strong>
+                      <gcds-sr-only tag="span">
+                        Instagram :
+                      </gcds-sr-only>
+                      NomInstagram
+                    </strong>
+                  </gcds-link>
+                </li>
+                <li class="d-flex">
+                  <img src="../../assets/linkedin.svg" alt="" />
+                  <gcds-link href="#" class="ms-200 align-content-center">
+                    <strong>
+                      <gcds-sr-only tag="span">
+                        LinkedIn :
+                      </gcds-sr-only>
+                      NomLinkedIn
+                    </strong>
+                  </gcds-link>
+                </li>
+              </ul>
+            </section>
+          </gcds-grid>
+        </div>
+
+        <!---------- Contributeurs ---------->
+        <!-- TODO: Mettez à jour le contenu du lien. -->
+        <section>
+          <gcds-heading
+            tag="h2"
+            margin-bottom="0"
+            class="d-block md:d-inline-block"
+          >
+            <span class="font-text-small font-bold">
+              De:
+            </span>
+          </gcds-heading>
+          <ul class="d-block md:d-inline-block list-disc md:list-none md:m-0 ms-250 md:ms-0">
+            <li class="md:d-inline">
+              <gcds-link href="#">[Ministère ou agence 1]</gcds-link>
+            </li>
+            <li aria-hidden="true" class="d-none md:d-inline">
+              &#8226;
+            </li>
+            <li class="md:d-inline">
+              <gcds-link href="#">[Ministère ou agence 2]</gcds-link>
+            </li>
+          </ul>
+        </section>
+
+        <!--TODO : Mettre à jour la date pour qu'elle reflète le changement le plus récent de la page. -->
+        <section>
+          <gcds-sr-only tag="h2">
+            Détails de la page
+          </gcds-sr-only>
+          <gcds-date-modified>2024-08-22</gcds-date-modified>
+        </section>
+      </gcds-container>
+    </gcds-container>
+
+    <!---------- Pied de page ---------->
+    <gcds-footer
+      display="full"
+    >
+    </gcds-footer>
+  </body>
+</html>
