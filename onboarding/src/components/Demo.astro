@@ -1,0 +1,31 @@
+---
+/**
+ * Live GCDS example with generated HTML, React, Vue and Angular code, using
+ * <gcds-ext-code-display> from @gcds-extensions/code-display. The framework
+ * follows the reader's choice (see scripts/app.ts).
+ */
+import { GCDS_VERSION } from '../lib/versions';
+
+interface Props {
+  /** GCDS markup to render and show as code. */
+  html: string;
+  id?: string;
+  /** Render in an iframe. Use for page-level landmarks like header and footer. */
+  landmark?: boolean;
+  /** Add the accessibility tab (axe-core audit). */
+  accessibility?: boolean;
+}
+
+const { html, id, landmark = false, accessibility = false } = Astro.props;
+// The iframe used for landmarks and accessibility checks loads GCDS from here.
+const gcdsPath = `https://cdn.design-system.canada.ca/@gcds-core/components@${GCDS_VERSION}/dist/gcds/`;
+---
+
+<gcds-ext-code-display
+  id={id}
+  class="demo"
+  gcds-path={gcdsPath}
+  landmark-display={landmark || undefined}
+  accessibility={accessibility || undefined}
+  set:html={html.trim()}
+/>

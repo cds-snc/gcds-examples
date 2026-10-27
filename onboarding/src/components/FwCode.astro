@@ -1,0 +1,32 @@
+---
+/**
+ * One code sample shown in the reader’s chosen framework.
+ * Pass `html`; React is generated from it, Vue and Angular templates reuse
+ * the same tags. Pass `react`, `vue` or `angular` to override.
+ */
+import CodeBlock from "./CodeBlock.astro";
+import { toReact } from "../lib/convert";
+
+interface Props {
+  html: string;
+  react?: string;
+  vue?: string;
+  angular?: string;
+}
+
+const { html, react, vue, angular } = Astro.props;
+const samples = [
+  { fw: "html", lang: "html", code: html },
+  { fw: "react", lang: "jsx", code: react ?? toReact(html.trim()) },
+  { fw: "vue", lang: "vue-html", code: vue ?? html },
+  { fw: "angular", lang: "angular-html", code: angular ?? html },
+];
+---
+
+{
+  samples.map(s => (
+    <div data-fw={s.fw}>
+      <CodeBlock code={s.code} lang={s.lang} />
+    </div>
+  ))
+}

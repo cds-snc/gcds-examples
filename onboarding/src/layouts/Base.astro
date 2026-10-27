@@ -1,0 +1,121 @@
+---
+import '@gcds-core/components/dist/gcds/gcds.css';
+import '@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';
+import '../styles/site.css';
+import { STEPS, DOCS, url } from '../lib/site';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Slug of the current step; omit on the home page. */
+  current?: string;
+  modified?: string;
+}
+
+const { title, description = 'Get started with the GC Design System as a developer.', current, modified = '2026-10-07' } = Astro.props;
+const step = STEPS.findIndex(s => s.slug === current);
+const prev = step > 0 ? STEPS[step - 1] : step === 0 ? { slug: '', title: 'Start here' } : undefined;
+const next = step >= 0 && step < STEPS.length - 1 ? STEPS[step + 1] : undefined;
+const label = (s: { slug: string; title: string }) => {
+  const i = STEPS.findIndex(x => x.slug === s.slug);
+  return i >= 0 ? `Step ${i + 1}: ${s.title}` : s.title;
+};
+---
+
+<!doctype html>
+<html lang="en" data-framework="html">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title} – GCDS developer onboarding</title>
+    <link rel="icon" href="https://design-system.canada.ca/favicon.ico" />
+    <script is:inline>
+      // Apply the saved framework before paint so code samples don't flash.
+      try {
+        const fw = localStorage.getItem('gcds-onboarding:framework');
+        if (fw) document.documentElement.dataset.framework = fw;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <gcds-header skip-to-href="#main-content">
+      <gcds-breadcrumbs slot="breadcrumb">
+        <gcds-breadcrumbs-item href={DOCS + '/'}>GC Design System</gcds-breadcrumbs-item>
+        {current && <gcds-breadcrumbs-item href={url()}>Developer onboarding</gcds-breadcrumbs-item>}
+      </gcds-breadcrumbs>
+    </gcds-header>
+
+    <gcds-container layout="page" tag="div">
+      <div class="layout">
+        <aside class="layout__nav">
+          <gcds-side-nav label="Developer onboarding">
+            <gcds-nav-link href={url()} current={!current ? true : undefined}>Start here</gcds-nav-link>
+            {
+              STEPS.map((s, i) => (
+                <gcds-nav-link href={url(s.slug)} current={current === s.slug ? true : undefined} data-nav-step={s.slug}>
+                  <span>
+                    {i + 1}. {s.title.split(' ').slice(0, -1).join(' ')}{' '}
+                    <span class="nowrap">{s.title.split(' ').at(-1)}<span class="nav-done" /></span>
+                  </span>
+                </gcds-nav-link>
+              ))
+            }
+          </gcds-side-nav>
+        </aside>
+
+        <main id="main-content" class="layout__main">
+          {
+            step >= 0 && (
+              <gcds-stepper current-step={step + 1} total-steps={STEPS.length} tag="h1">
+                {STEPS[step].title}
+              </gcds-stepper>
+            )
+          }
+          <slot />
+
+          {
+            current && current !== 'next-steps' && (
+              <section class="complete mt-600" aria-label="Section progress">
+                <gcds-button data-complete-toggle={current} type="button">
+                  Mark this section as done
+                </gcds-button>
+                <gcds-text id={`status-${current}`} role="status" margin-top="200" />
+              </section>
+            )
+          }
+
+          {
+            (prev || next) && (
+              <gcds-pagination
+                class="pager mt-500"
+                display="simple"
+                label="Onboarding steps"
+                previous-href={prev && url(prev.slug)}
+                previous-label={prev && label(prev)}
+                next-href={next && url(next.slug)}
+                next-label={next && label(next)}
+              />
+            )
+          }
+
+          <gcds-date-modified>{modified}</gcds-date-modified>
+        </main>
+      </div>
+    </gcds-container>
+
+    <gcds-footer
+      display="full"
+      contextual-heading="GC Design System"
+      contextual-links={JSON.stringify({
+        'Component documentation': `${DOCS}/components/`,
+        'Report a bug or request a feature': 'https://github.com/cds-snc/gcds-components/issues/new/choose',
+        'Contact the GCDS team': `${DOCS}/contact/`,
+      })}
+    ></gcds-footer>
+
+    <script>
+      import '../scripts/app';
+    </script>
+  </body>
+</html>

@@ -1,0 +1,240 @@
+---
+import Base from '../layouts/Base.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+import Demo from '../components/Demo.astro';
+import FrameworkPicker from '../components/FrameworkPicker.astro';
+import Fw from '../components/Fw.astro';
+import ShortcutsIntro from '../components/ShortcutsIntro.astro';
+import { DOCS } from '../lib/site';
+import { TOKENS_VERSION, SHORTCUTS_VERSION } from '../lib/versions';
+import { colourGroups, defaultColour, spacingTokens } from '../lib/tokens';
+
+---
+
+<Base title="Design tokens and CSS Shortcuts" current="tokens">
+  <gcds-text>
+    Components cover the common parts of a page. For everything else, like your own layout, a custom
+    panel or a chart, you need your markup to look like it belongs. That’s what design tokens are for.
+  </gcds-text>
+
+  <gcds-heading tag="h2">What a design token is</gcds-heading>
+  <gcds-text>
+    A design token is a named value: a colour, a space, a font size. In code, GCDS tokens are CSS custom
+    properties that start with <code>--gcds-</code>.
+  </gcds-text>
+  <gcds-text>Here’s the same style written with hard-coded values and with tokens:</gcds-text>
+  <CodeBlock
+    lang="css"
+    code={`/* Hard-coded: works today, drifts tomorrow */
+.panel { color: #333333; padding: 24px; border-color: #7d828b; }
+
+/* Tokens: always matches GCDS, and updates when GCDS does */
+.panel {
+  color: var(--gcds-text-primary);
+  padding: var(--gcds-spacing-300);
+  border-color: var(--gcds-border-default);
+}`}
+  />
+  <gcds-text>
+    When the GC brand or an accessibility requirement changes a colour, every component and every bit of your
+    CSS that uses the token updates with the next GCDS version. Hard-coded values stay out of date until someone
+    notices.
+  </gcds-text>
+
+  <gcds-heading tag="h3">Which tokens to use</gcds-heading>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Type</th><th scope="col">Example</th><th scope="col">Should you use it?</th></tr></thead>
+      <tbody>
+        <tr><td>Global</td><td><code>--gcds-text-primary</code></td><td><strong>Yes.</strong> Named by purpose, so you pick by meaning, not by colour.</td></tr>
+        <tr><td>Base</td><td><code>--gcds-color-blue-500</code></td><td>Only as a fallback when no global token fits.</td></tr>
+        <tr><td>Component</td><td><code>--gcds-button-…</code></td><td><strong>No.</strong> These are internal to components and can change without notice.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <gcds-heading tag="h2">Explore the global tokens</gcds-heading>
+  <gcds-grid columns="1fr" columns-desktop="1fr 1fr" gap="400">
+    <div>
+      <gcds-select select-id="colour-token" name="colour-token" label="Colour token" id="colour-token" value={defaultColour} data-default={defaultColour}>
+        {
+          colourGroups.map(([group, tokens]) => (
+            <optgroup label={group}>
+              {tokens.map(t => <option value={t.name} selected={t.name === defaultColour}>{t.name}: {t.description}</option>)}
+            </optgroup>
+          ))
+        }
+      </gcds-select>
+      <div class="swatch" id="colour-swatch" style={`background: var(${defaultColour})`}></div>
+      <gcds-text size="small" margin-top="200" id="colour-value" role="status"></gcds-text>
+    </div>
+    <div>
+      <gcds-select select-id="spacing-token" name="spacing-token" label="Spacing token" id="spacing-token" value="--gcds-spacing-300">
+        {spacingTokens.map(t => <option value={t.name} selected={t.name === '--gcds-spacing-300'}>{t.name}</option>)}
+      </gcds-select>
+      <div class="spacing-bar" id="spacing-bar" style="inline-size: var(--gcds-spacing-300)"></div>
+      <gcds-text size="small" margin-top="200" id="spacing-value" role="status"></gcds-text>
+    </div>
+  </gcds-grid>
+  <gcds-text>
+    See every token on the <gcds-link href={`${DOCS}/styles/design-tokens/`}>design tokens page</gcds-link>,
+    with guidance on <gcds-link href={`${DOCS}/styles/colour/`}>colour</gcds-link>,
+    <gcds-link href={`${DOCS}/styles/spacing/`}>spacing</gcds-link> and
+    <gcds-link href={`${DOCS}/styles/typography/`}>typography</gcds-link>.
+  </gcds-text>
+
+  <gcds-heading tag="h2">Loading tokens</gcds-heading>
+  <gcds-text>
+    <strong>If you’ve set up the components, you already have the tokens.</strong> They’re included in
+    <code>gcds.css</code>, so <code>var(--gcds-…)</code> works anywhere on your page.
+  </gcds-text>
+
+  <gcds-heading tag="h3">Using tokens without the components</gcds-heading>
+  <gcds-text>
+    If you can’t use the components, for example in a platform that won’t run them, you can load the tokens on
+    their own.
+  </gcds-text>
+
+  <gcds-heading tag="h4">1. Install the package</gcds-heading>
+  <gcds-text>Navigate to your project’s root folder and run the following command:</gcds-text>
+  <CodeBlock lang="bash" code={`npm install @gcds-core/tokens`} />
+
+  <gcds-heading tag="h4">2. Import the tokens</gcds-heading>
+  <gcds-text>Add the following code to your project’s main stylesheet:</gcds-text>
+  <CodeBlock lang="css" code={`@import '@gcds-core/tokens/build/web/css/tokens.css';`} />
+  <gcds-text>
+    The package also includes SCSS and JavaScript formats in <code>build/web/scss</code> and
+    <code>build/web/js</code>.
+  </gcds-text>
+
+  <gcds-details details-title="Can’t use npm? Use the CDN">
+    <gcds-text>
+      Add the following <code>link</code> tag inside the <code>head</code> tag of your HTML files. Make sure the
+      current version is listed.
+    </gcds-text>
+    <CodeBlock
+      code={`<link
+  rel="stylesheet"
+  href="https://cdn.design-system.canada.ca/@gcds-core/tokens@${TOKENS_VERSION}/build/web/css/tokens.css"
+/>`}
+    />
+    <gcds-text margin-bottom="0">
+      The code will remain unchanged until you manually update the version in the CDN URL. Check for new GC
+      Design System versions regularly to update the latest pinned version.
+    </gcds-text>
+  </gcds-details>
+
+  <gcds-heading tag="h2">CSS Shortcuts: tokens as classes</gcds-heading>
+  <gcds-text>
+    CSS Shortcuts are utility classes built on the tokens, like Bootstrap or Tailwind but only with GC values and
+    no third-party dependency. They’re the quickest way to lay out and style your own markup.
+  </gcds-text>
+
+  <gcds-heading tag="h3">Add CSS Shortcuts stylesheet</gcds-heading>
+  <ShortcutsIntro />
+  <FrameworkPicker />
+
+  <gcds-heading tag="h4">1. Install the package</gcds-heading>
+  <gcds-text>Navigate to your project’s root folder and run the following command:</gcds-text>
+  <CodeBlock lang="bash" code={`npm install @gcds-core/css-shortcuts`} />
+
+  <gcds-heading tag="h4">2. Import CSS Shortcuts</gcds-heading>
+  <Fw for="html">
+    <gcds-text>Add the following <code>link</code> tag inside the <code>head</code> tag of your HTML files:</gcds-text>
+    <CodeBlock
+      code={`<!-- GC Design System CSS Shortcuts -->
+<link
+  rel="stylesheet"
+  href="/node_modules/@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css"
+/>`}
+    />
+    <gcds-details details-title="Can’t use npm? Use the CDN">
+      <gcds-text>
+        Add the following <code>link</code> tag inside the <code>head</code> tag of your HTML files. Make sure the
+        current version is listed.
+      </gcds-text>
+      <CodeBlock
+        code={`<!-- GC Design System CSS Shortcuts -->
+<link
+  rel="stylesheet"
+  href="https://cdn.design-system.canada.ca/@gcds-core/css-shortcuts@${SHORTCUTS_VERSION}/dist/gcds-css-shortcuts.min.css"
+/>`}
+      />
+    </gcds-details>
+  </Fw>
+  <Fw for="react">
+    <gcds-text>
+      Add the following code in the <code>index.js</code> file of your app to import GC Design System CSS Shortcuts:
+    </gcds-text>
+    <CodeBlock lang="js" code={`import '@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';`} />
+  </Fw>
+  <Fw for="vue">
+    <gcds-text>
+      a. Import the CSS Shortcuts styles to your <code>main.js</code> file, alongside your <code>style.css</code>:
+    </gcds-text>
+    <CodeBlock
+      lang="js"
+      code={`import '@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';
+import './style.css';`}
+    />
+    <gcds-text>b. Import the CSS Shortcuts styles to your <code>App.vue</code> using the HTML <code>style</code> tag:</gcds-text>
+    <CodeBlock
+      lang="vue"
+      code={`<style src="@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css">
+  /* global styles */
+</style>`}
+    />
+  </Fw>
+  <Fw for="angular">
+    <gcds-text>Add the following code in the <code>styles.scss</code> file of your app to import CSS Shortcuts:</gcds-text>
+    <CodeBlock
+      lang="scss"
+      code={`@import '../node_modules/@gcds-core/css-shortcuts/dist/gcds-css-shortcuts.min.css';`}
+    />
+  </Fw>
+
+  <gcds-heading tag="h3">Try it</gcds-heading>
+  <Demo
+    html={`<div class="d-flex gap-300 p-300 bg-light b-sm b-default b-radius-md">
+  <gcds-text margin-bottom="0">Built with shortcuts only. No custom CSS.</gcds-text>
+</div>`}
+  />
+  <gcds-text>
+    Browse all classes in the <gcds-link href={`${DOCS}/css-shortcuts/`}>CSS Shortcuts documentation</gcds-link>.
+  </gcds-text>
+</Base>
+
+<script>
+  const read = (token: string) => getComputedStyle(document.documentElement).getPropertyValue(token).trim();
+
+  const code = (text: string) => Object.assign(document.createElement('code'), { textContent: text });
+
+  /** "--token is currently value. Use it as: var(--token)", with the code parts in <code>. */
+  const describe = (el: HTMLElement, token: string) =>
+    el.replaceChildren(code(token), ' is currently ', code(read(token)), '. Use it as: ', code(`var(${token})`));
+
+  const colour = document.getElementById('colour-token') as HTMLElement & { value: string };
+  const swatch = document.getElementById('colour-swatch')!;
+  const colourValue = document.getElementById('colour-value')!;
+  const showColour = () => {
+    const t = colour.value || colour.dataset.default!;
+    swatch.style.background = `var(${t})`;
+    describe(colourValue, t);
+  };
+  colour.addEventListener('gcdsChange', showColour);
+
+  const spacing = document.getElementById('spacing-token') as HTMLElement & { value: string };
+  const bar = document.getElementById('spacing-bar')!;
+  const spacingValue = document.getElementById('spacing-value')!;
+  const showSpacing = () => {
+    const t = spacing.value || '--gcds-spacing-300';
+    bar.style.inlineSize = `var(${t})`;
+    describe(spacingValue, t);
+  };
+  spacing.addEventListener('gcdsChange', showSpacing);
+
+  customElements.whenDefined('gcds-select').then(() => {
+    showColour();
+    showSpacing();
+  });
+</script>
